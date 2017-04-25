@@ -12,7 +12,7 @@ export class MyHeader extends Component {
                     </Button>
                 </Left>
                 <Body>
-                    <Title>Piece Meal</Title>
+                    <Title>{this.props.headerText}</Title>
                 </Body>
                 <Right>
                   <Button transparent>
