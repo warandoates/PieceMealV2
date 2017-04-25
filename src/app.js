@@ -3,8 +3,10 @@ import { View } from 'react-native';
 import { Container } from 'native-base';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { MyHeader, Button, Card, SearchBar } from './components/common';
+// import { StackNavigator } from 'react-navigation';
+import { SearchBar } from './components/common';
 import reducers from './reducers';
+import { Tabs } from './config/router';
 
 
 class App extends Component {
@@ -13,11 +15,7 @@ class App extends Component {
     return (
 
       <Provider store={createStore(reducers)}>
-        <View>
-        <Container>
-          <SearchBar />
-        </Container>
-      </View>
+        <Tabs />
       </Provider>
     );
   }
