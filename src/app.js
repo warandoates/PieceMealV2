@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { Header } from './components/common';
+import { Container } from 'native-base';
+import { MyHeader, Button, Card, SearchBar } from './components/common';
+
 
 class App extends Component {
 
   render() {
     return (
       <View>
-        <Header headerText="General Header" />
+        <Container>
+        <MyHeader headerText="General Header" />
+      </Container>
       </View>
     );
   }
