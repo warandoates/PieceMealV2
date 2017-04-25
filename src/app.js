@@ -11,12 +11,13 @@ class App extends Component {
 
   render() {
     return (
+
       <Provider store={createStore(reducers)}>
         <View>
-          <Container>
-          <MyHeader headerText="Piece Meal" />
+        <Container>
+          <SearchBar />
         </Container>
-        </View>
+      </View>
       </Provider>
     );
   }
