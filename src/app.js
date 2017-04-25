@@ -10,8 +10,8 @@ class App extends Component {
     return (
       <View>
         <Container>
-        <MyHeader headerText="General Header" />
-      </Container>
+          <SearchBar />
+        </Container>
       </View>
     );
   }
