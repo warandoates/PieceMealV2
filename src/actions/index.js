@@ -28,3 +28,10 @@ function fetchRecipe(recipe) {
     // console.log("got result 2:", bothResults[1]);
   })
 }
+
+export const selectIngredient = (ingredientId) => {
+  return {
+    type: 'SELECT_INGREDIENT',
+    payload: ingredientId
+  };
+};
