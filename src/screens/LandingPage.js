@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Text } from 'react-native';
 import { Container, Icon, Input, InputGroup, Button } from 'native-base';
 import { MyHeader } from '../components/common';
 import RecipeCardList from '../components/RecipeCardList';
-
 import { createSearchAction } from '../actions/index';
-// import { RecipeCardList } from '../components/RecipeCardList'
 
 class LandingPage extends Component {
   constructor(props) {
