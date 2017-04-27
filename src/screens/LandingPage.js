@@ -16,10 +16,12 @@ class LandingPage extends Component {
     };
   }
 
+  // headerText="Piece Meal"
+
   render() {
     return (
       <Container>
-        <MyHeader headerText="Piece Meal" />
+        <MyHeader />
         <InputGroup borderType="regular">
           <Icon name="md-search" />
           <Input
