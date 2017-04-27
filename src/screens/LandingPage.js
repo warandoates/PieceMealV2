@@ -47,4 +47,5 @@ const mapDispatchtoPropsLandingPage = (dispatch) => {
 
 const ConnectedLandingPage = connect(
   mapStateToPropsLandingPage, mapDispatchtoPropsLandingPage)(LandingPage);
+
 export default ConnectedLandingPage;
