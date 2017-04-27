@@ -24,7 +24,14 @@ function fetchRecipe(recipe) {
                   .then(res => res.json());
   let both = Promise.all([promise1, promise2]);
   both.then((bothResults) => {
-    console.log("got result 1:", bothResults[0]);
-    console.log("got result 2:", bothResults[1]);
+    // console.log("got result 1:", bothResults[0]);
+    // console.log("got result 2:", bothResults[1]);
   })
 }
+
+export const selectIngredient = (ingredientId) => {
+  return {
+    type: 'SELECT_INGREDIENT',
+    payload: ingredientId
+  };
+};
