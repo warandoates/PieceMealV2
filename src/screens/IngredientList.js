@@ -3,6 +3,7 @@ import { ListView, View } from 'react-native';
 import { Text, Header, Body, Title } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
+import GetIngredientsButton from '../components/GetIngredientButton';
 
 
 class IngredientResultsList extends Component {
@@ -26,6 +27,7 @@ class IngredientResultsList extends Component {
                     <Title>Ingredients</Title>
                 </Body>
             </Header>
+            <GetIngredientsButton />
           <ListView
             dataSource={this.dataSource}
             renderRow={this.renderRow}
