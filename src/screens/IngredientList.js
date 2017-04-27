@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { ListView, TouchableWithoutFeedback, View } from 'react-native';
-import { Card, CardItem, Text, ListItem, Header, Body, Title } from 'native-base';
+import { ListView, View } from 'react-native';
+import { Text, Header, Body, Title } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
-import { selectIngredient } from '../actions/index';
-// import { Header } from '../components/common';
+
 
 class IngredientResultsList extends Component {
     componentWillMount() {
@@ -39,40 +38,7 @@ class IngredientResultsList extends Component {
 const mapStateToProps = (state, ownProps) => {
     return {
       list: state.ingredientResults.ingredients,
-      // ingredientId: state.selectedIngredientId
     };
 };
 
 export default connect(mapStateToProps)(IngredientResultsList);
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     selectIngredientItem: (ingredient) => {
-//       dispatch(selectIngredient(ingredient));
-//     }
-//   };
-// };
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(IngredientResultsList);
-
-// render() {
-//     return (
-//       <ListView
-//         dataSource={this.dataSource}
-//         renderRow={(rowData) =>
-//         <Card>
-//           <TouchableWithoutFeedback
-//             onPress={() => this.props.selectIngredientItem(rowData.id)}
-//           >
-//             <View>
-//               <CardItem>
-//                   <Text>{rowData.name}</Text>
-//               </CardItem>
-//               {this.renderDescription(rowData)}
-//             </View>
-//           </TouchableWithoutFeedback>
-//       </Card>}
-//       />
-//     );
-// }
-// }
