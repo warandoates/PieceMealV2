@@ -23,8 +23,10 @@ function fetchRecipe(recipe) {
                 })
                   .then(res => res.json());
   let both = Promise.all([promise1, promise2]);
-  both.then((bothResults) => {
-    console.log("got result 1:", bothResults[0]);
-    console.log("got result 2:", bothResults[1]);
+  return both.then(([recipesResults, ingredientsResults]) => {
+    return {
+      recipes: recipesResults.recipes,
+      ingredients: ingredientsResults.ingredients
+    };
   })
 }

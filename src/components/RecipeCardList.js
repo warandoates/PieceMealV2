@@ -1,27 +1,27 @@
-import React, {Component} from 'react';
+//Search Bar
+import React from 'react';
 import {
-    Body,
-    Container,
     Content,
     Card,
     CardItem,
     Text,
     Icon,
-    Left,
-    Right
+    Right,
+    Button
 } from 'native-base';
 
-const RecipeCardList = ({recipes}) => (
-    <Content padder>
-       <Card>
-            <CardItem>
-                <Icon active name="logo-googleplus"/>
-                  <Text>Hi</Text>
-                <Right>
-                  <Icon name="ios-arrow-forward"/>
-                </Right>
-            </CardItem>
-        </Card>
+const RecipeCardList = ({ ingredients }) => (
+    <Content>
+      {ingredients.map((ingredient) => (
+        <Card>
+             <CardItem>
+                   <Text>{ingredient.name}</Text>
+                 <Right>
+                   <Button><Icon name="ios-arrow-forward" /></Button>
+                 </Right>
+             </CardItem>
+         </Card>
+      ))}
     </Content>
 );
 
