@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Icon, Input, InputGroup, Button } from 'native-base';
 import { MyHeader } from '../components/common';
-import RecipeCardList from '../components/RecipeCardList';
+import SearchBar from '../components/searchBar';
 import { createSearchAction } from '../actions/index';
 
 class LandingPage extends Component {
@@ -29,7 +29,7 @@ class LandingPage extends Component {
               <Icon name='ios-options' />
           </Button>
         </InputGroup>
-        <RecipeCardList recipes={this.props.recipes} ingredients={this.props.ingredients} />
+        <SearchBar recipes={this.props.recipes} ingredients={this.props.ingredients} />
       </Container>
     );
   }
@@ -37,7 +37,7 @@ class LandingPage extends Component {
 
 const mapStateToPropsLandingPage = (state) => {
   //map state to props to the Landing Page component above
-  console.log("STATE=>", state);
+  console.log("STATE=>", state.searchRecipe.ingredients);
   return {
     recipes: state.searchRecipe.recipes,
     ingredients: state.searchRecipe.ingredients

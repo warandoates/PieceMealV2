@@ -10,7 +10,7 @@ import {
     Button
 } from 'native-base';
 
-const searchBar = ({ ingredients }) => (
+const SearchBar = ({ ingredients, recipes }) => (
     <Content>
       {ingredients.map((ingredient) => (
         <Card>
@@ -25,4 +25,4 @@ const searchBar = ({ ingredients }) => (
     </Content>
 );
 
-export default searchBar;
+export default SearchBar;
