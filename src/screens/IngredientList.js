@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { ListView, TouchableWithoutFeedback, View } from 'react-native';
-import { Card, CardItem, Text } from 'native-base';
+import { ListView, View } from 'react-native';
+import { Text, Header, Body, Title } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
-import { selectIngredient } from '../actions/index';
+
 
 class IngredientResultsList extends Component {
     componentWillMount() {
@@ -14,29 +14,23 @@ class IngredientResultsList extends Component {
         this.dataSource = ds.cloneWithRows(this.props.list);
     }
 
-    renderDescription(rowData) {
-      if (rowData.id === this.props.ingredientId) {
-
-      }
+    renderRow(rowData) {
+      return <IngredientItem rowData={rowData} />;
     }
 
     render() {
         return (
+          <View style={{ flex: 1 }}>
+            <Header>
+                <Body>
+                    <Title>Ingredients</Title>
+                </Body>
+            </Header>
           <ListView
             dataSource={this.dataSource}
-            renderRow={(rowData) =>
-            <Card>
-              <TouchableWithoutFeedback
-                onPress={() => this.props.selectIngredientItem(rowData.id)}
-              >
-                <View>
-                  <CardItem>
-                      <Text>{rowData.name}</Text>
-                  </CardItem>
-                </View>
-              </TouchableWithoutFeedback>
-          </Card>}
+            renderRow={this.renderRow}
           />
+          </View>
         );
     }
 }
@@ -44,16 +38,7 @@ class IngredientResultsList extends Component {
 const mapStateToProps = (state, ownProps) => {
     return {
       list: state.ingredientResults.ingredients,
-      ingredientId: state.selectedIngredientId
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    selectIngredientItem: (ingredient) => {
-      dispatch(selectIngredient(ingredient));
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(IngredientResultsList);
+export default connect(mapStateToProps)(IngredientResultsList);
