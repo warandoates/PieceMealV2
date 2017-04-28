@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 
 const CardSection = (props) => {
+  console.log('this is props', props.row);
   return (
     <View style={styles.containerStyle}>
       {props.children}
