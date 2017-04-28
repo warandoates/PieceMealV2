@@ -20,7 +20,6 @@ class IngredientResultsList extends Component {
     }
 
     render() {
-      console.log(this.props, `i'm the props in IngredientList`)
         return (
           <View style={{ flex: 1 }}>
             <Header>
@@ -39,7 +38,6 @@ class IngredientResultsList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state, `i'm the state in the IngredientList`)
     return {
       list: state.ingredientResults.ingredients,
     };
