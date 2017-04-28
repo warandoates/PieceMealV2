@@ -3,6 +3,7 @@ import { ListView, View } from 'react-native';
 import { Text, Header, Body, Title } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
+import GetIngredientsButton from '../components/GetIngredientButton';
 
 
 class IngredientResultsList extends Component {
@@ -19,6 +20,7 @@ class IngredientResultsList extends Component {
     }
 
     render() {
+      console.log(this.props, `i'm the props in IngredientList`)
         return (
           <View style={{ flex: 1 }}>
             <Header>
@@ -26,6 +28,7 @@ class IngredientResultsList extends Component {
                     <Title>Ingredients</Title>
                 </Body>
             </Header>
+            <GetIngredientsButton />
           <ListView
             dataSource={this.dataSource}
             renderRow={this.renderRow}
@@ -36,6 +39,7 @@ class IngredientResultsList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(state, `i'm the state in the IngredientList`)
     return {
       list: state.ingredientResults.ingredients,
     };

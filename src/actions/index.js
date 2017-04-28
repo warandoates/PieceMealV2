@@ -35,3 +35,15 @@ export const selectIngredient = (ingredientId) => {
     payload: ingredientId
   };
 };
+
+export const getIngredients = () => {
+  return {
+    type: 'GET_INGREDIENT_RESULTS',
+    payload: fetchIngredients()
+  };
+};
+
+function fetchIngredients() {
+  return fetch(`https://piecemeal-api.herokuapp.com/api/v1/ingredients`)
+    .then(res => res.json());
+}
