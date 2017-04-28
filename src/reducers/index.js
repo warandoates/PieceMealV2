@@ -5,6 +5,6 @@ import SelectionReducer from './ingredientSelectionReducer';
 
 export default combineReducers({
   ingredientResults: ingredientsReducer,
-  selectedIngredientId: SelectionReducer,
-  searchRecipe: searchRecipeReducer
+  searchRecipe: searchRecipeReducer, //console.log(store.getState()) ->
+  selectedIngredientId: SelectionReducer
 });

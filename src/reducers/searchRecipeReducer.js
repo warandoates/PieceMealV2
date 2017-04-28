@@ -1,7 +1,10 @@
-const searchRecipe = (state = [], action) => {
+const INITIAL = {
+  recipes: [],
+  ingredients: []
+};
+const searchRecipe = (state = INITIAL, action) => {
   switch (action.type) {
     case 'SEARCH_RECIPE_FULFILLED':
-    // console.log(action.payload);
       return action.payload; //result of your promise == become new state
     default:
       return state;

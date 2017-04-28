@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import { View } from 'react-native';
+import { View, Image } from 'react-native';
 import { Header, Left, Button, Icon, Body, Title, Right, Container, Content, ListItem, Text, CheckBox } from 'native-base';
 
 export class MyHeader extends Component {
@@ -13,12 +12,13 @@ export class MyHeader extends Component {
                     </Button>
                 </Left>
                 <Body>
-                    <Title>{this.props.headerText}</Title>
+                <Image source={require("../../assets/logo.png")}/>
+                    {/* <Title>{this.props.headerText}</Title> */}
                 </Body>
                 <Right>
-                  <Button transparent>
+                  {/* <Button transparent>
                       <Icon name='search' />
-                  </Button>
+                  </Button> */}
                 </Right>
             </Header>
         );

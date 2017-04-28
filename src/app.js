@@ -4,7 +4,7 @@ import promiseMiddleware from 'redux-promise-middleware';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'remote-redux-devtools';
 // import { StackNavigator } from 'react-navigation';
-import reducers from './reducers';
+import reducers from './reducers';//index reducer
 import { Tabs } from './config/router';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
