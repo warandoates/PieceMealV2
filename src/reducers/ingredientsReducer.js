@@ -1,6 +1,6 @@
 
-const data = [{ test: 'Success!' }];
-export default () => data;
+// const data = [{ test: 'Success!' }];
+// export default () => data;
 
 const INITIAL_STATE = {
   ingredients: [{
