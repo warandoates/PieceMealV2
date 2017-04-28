@@ -43,7 +43,6 @@ class IngredientItem extends Component {
   }
 
   render() {
-    console.log('yooo', this.tagSplitter());
     const { nameStyle, containerStyle } = styles;
     const { id, name } = this.props.rowData;
 

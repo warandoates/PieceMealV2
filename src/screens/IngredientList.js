@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { ListView, View } from 'react-native';
-import { Text, Header, Body, Title, Spinner } from 'native-base';
+import { Header, Body, Title, Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
 import GetIngredientsButton from '../components/GetIngredientButton';
-
+import IngredientsHeader from '../components/IngredientsHeader';
 
 
 class IngredientResultsList extends Component {
@@ -23,14 +23,9 @@ class IngredientResultsList extends Component {
 
     render() {
       this.loadDataSource();
-      console.log(this.props.list);
         return (
           <View style={{ flex: 1 }}>
-            <Header>
-                <Body>
-                    <Title>Ingredients</Title>
-                </Body>
-            </Header>
+            <IngredientsHeader />
             <GetIngredientsButton />
           {this.props.isFetching && <Spinner color="green" /> }
           {this.props.list.length > 1 && <ListView
