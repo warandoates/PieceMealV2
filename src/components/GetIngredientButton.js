@@ -7,7 +7,7 @@ import { getIngredients } from '../actions/index';
 class GetIngredientsButton extends Component {
   render() {
     return (
-          <Button onPress={this.props.getAllIngredients()} style={styles.buttonStyle} iconLeft>
+          <Button onPress={this.props.getAllIngredients} style={styles.buttonStyle} iconLeft>
             <Icon name='food-variant' size={35} />
             <Text>See All Ingredients</Text>
           </Button>

@@ -38,7 +38,7 @@ export const selectIngredient = (ingredientId) => {
 
 export const getIngredients = () => {
   return {
-    type: 'GET_INGREDIENTS',
+    type: 'GET_INGREDIENT_RESULTS',
     payload: fetchIngredients()
   };
 };
