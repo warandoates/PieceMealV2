@@ -2,22 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Icon, Input, InputGroup, Button } from 'native-base';
 import { MyHeader } from '../components/common';
+import SearchBar from '../components/searchBar';
 import { createSearchAction } from '../actions/index';
 
 class LandingPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchText: ''
-    };
-  }
-
+  // headerText="Piece Meal"
   render() {
     return (
       <Container>
-        <MyHeader headerText="Piece Meal" />
+        <MyHeader />
         <InputGroup borderType="regular">
-         <Icon name="md-search" />
+          <Icon name="md-search" />
           <Input
             placeholder="Search"
             onChangeText={(newText) => this.props.searchRecipe(newText)}
@@ -26,14 +21,18 @@ class LandingPage extends Component {
               <Icon name='ios-options' />
           </Button>
         </InputGroup>
+        <SearchBar recipes={this.props.recipes} ingredients={this.props.ingredients} />
       </Container>
     );
   }
 }
 
 const mapStateToPropsLandingPage = (state) => {
+  //map state to props to the Landing Page component above
   return {
-    recipes: state.recipes
+    recipes: state.searchRecipe.recipes,
+    ingredients: state.searchRecipe.ingredients
+
   };
 };
 

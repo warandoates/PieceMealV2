@@ -1,3 +1,7 @@
+
+// const data = [{ test: 'Success!' }];
+// export default () => data;
+
 const INITIAL_STATE = {
   ingredients: [{
       id: 1,
@@ -17,7 +21,6 @@ const INITIAL_STATE = {
 const ingredientsResults = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'GET_INGREDIENT_RESULTS_FULFILLED':
-    // console.log(action.payload);
       return action.payload; //result of your promise == become new state
     default:
       return state;
