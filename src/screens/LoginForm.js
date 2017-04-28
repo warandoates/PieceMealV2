@@ -15,7 +15,7 @@ import {
     Text,
     Title
 } from 'native-base';
-import { emailChanged, passwordChanged } from '../actions/index';
+import { emailChanged, passwordChanged, loginUser } from '../actions/index';
 
 class LogInForm extends Component {
     onEmailChange(text) {
@@ -24,6 +24,12 @@ class LogInForm extends Component {
 
     onPasswordChange(text) {
         this.props.passwordChanged(text);
+    }
+
+    onButtonPress() {
+      const { email, password } = this.props;
+
+      this.props.loginUser({ email, password });
     }
 
     render() {
@@ -51,7 +57,7 @@ class LogInForm extends Component {
                               label='Email'
                               placeholder="Email"
                               value={this.props.email}
-                              onChangeText={() => this.onEmailChange()}
+                              onChangeText={this.onEmailChange.bind(this)}
                             />
                         </Item>
                         <Item rounded last>
@@ -60,10 +66,10 @@ class LogInForm extends Component {
                               label='Password'
                               placeholder="Password"
                               value={this.props.password}
-                              onChangeText={() => this.onPasswordChange()}
+                              onChangeText={this.onPasswordChange.bind(this)}
                             />
                         </Item>
-                        <Button rounded block padder>
+                        <Button rounded block padder onPress={() => this.onButtonPress()}>
                             <Text>Login</Text>
                         </Button>
                     </Form>
@@ -80,13 +86,13 @@ const mapStateToProps = (state) => {
     };
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         loginToApp: (email, password) => {
-//             dispatch(loginAction(email, password));
-//         }
-//     };
-// };
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loginToApp: (email, password) => {
+            dispatch(loginAction(email, password));
+        }
+    };
+};
 
 // export default connect(null, { emailChanged })(LogInForm);
-export default connect(mapStateToProps, { emailChanged, passwordChanged })(LogInForm);
+export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(LogInForm);

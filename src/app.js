@@ -1,7 +1,7 @@
 import promiseMiddleware from 'redux-promise-middleware';
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 // import { StackNavigator } from 'react-navigation';
 import reducers from './reducers';
 import { Tabs } from './config/router';
