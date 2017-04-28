@@ -15,7 +15,7 @@ import {
     Text,
     Title
 } from 'native-base';
-import { emailChanged, passwordChanged, loginUser } from '../actions/index';
+import { emailChanged, passwordChanged, loginUser } from '../actions/login';
 
 class LogInForm extends Component {
     onEmailChange(text) {
@@ -82,7 +82,8 @@ class LogInForm extends Component {
 const mapStateToProps = (state) => {
     return {
       email: state.loginReducer.email,
-      password: state.loginReducer.password
+      password: state.loginReducer.password,
+      loading: state.loginReducer.loading
     };
 };
 
