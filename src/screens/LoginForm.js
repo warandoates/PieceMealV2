@@ -12,6 +12,7 @@ import {
     Input,
     Left,
     Right,
+    Spinner,
     Text,
     Title
 } from 'native-base';
@@ -69,6 +70,7 @@ class LogInForm extends Component {
                               onChangeText={this.onPasswordChange.bind(this)}
                             />
                         </Item>
+                          {this.props.loading && <Spinner />}
                         <Button rounded block padder onPress={() => this.onButtonPress()}>
                             <Text>Login</Text>
                         </Button>
