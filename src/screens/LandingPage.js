@@ -6,15 +6,7 @@ import SearchBar from '../components/searchBar';
 import { createSearchAction } from '../actions/index';
 
 class LandingPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchText: ''
-    };
-  }
-
   // headerText="Piece Meal"
-
   render() {
     return (
       <Container>
@@ -37,7 +29,6 @@ class LandingPage extends Component {
 
 const mapStateToPropsLandingPage = (state) => {
   //map state to props to the Landing Page component above
-  console.log("STATE=>", state.searchRecipe.ingredients);
   return {
     recipes: state.searchRecipe.recipes,
     ingredients: state.searchRecipe.ingredients

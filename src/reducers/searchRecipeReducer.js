@@ -1,7 +1,7 @@
 const INITIAL = {
   recipes: [],
   ingredients: []
-}
+};
 const searchRecipe = (state = INITIAL, action) => {
   switch (action.type) {
     case 'SEARCH_RECIPE_FULFILLED':

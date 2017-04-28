@@ -10,12 +10,24 @@ import {
     Button
 } from 'native-base';
 
-const SearchBar = ({ ingredients, recipes }) => (
+const SearchBar = ({ ingredients, recipes }) => {
+  return (
     <Content>
       {ingredients.map((ingredient) => (
         <Card>
              <CardItem>
-                   <Text>{ingredient.name}</Text>
+                   <Text>{ ingredient.name }</Text>
+                 <Right>
+                   <Button><Icon name="ios-arrow-forward" /></Button>
+                 </Right>
+             </CardItem>
+         </Card>
+      ))}
+
+      {recipes.map((recipe) => (
+        <Card>
+             <CardItem>
+                   <Text>{ recipe.name }</Text>
                  <Right>
                    <Button><Icon name="ios-arrow-forward" /></Button>
                  </Right>
@@ -23,6 +35,6 @@ const SearchBar = ({ ingredients, recipes }) => (
          </Card>
       ))}
     </Content>
-);
+)};
 
 export default SearchBar;
