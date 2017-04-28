@@ -4,6 +4,7 @@ import { TabNavigator } from 'react-navigation';
 import ingredientListView from '../screens/IngredientList';
 import LandingPage from '../screens/LandingPage';
 import LoginForm from '../screens/LoginForm';
+import SignupForm from '../screens/SignupForm';
 
 export const Tabs = TabNavigator({
   home: {
@@ -14,5 +15,8 @@ export const Tabs = TabNavigator({
   },
   logIn: {
     screen: LoginForm,
+  },
+  signup: {
+    screen: SignupForm,
   }
 });
