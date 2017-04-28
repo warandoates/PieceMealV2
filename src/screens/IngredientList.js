@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { ListView, View } from 'react-native';
-import { Text, Header, Body, Title } from 'native-base';
+import { Text, Header, Body, Title, Spinner } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
 import GetIngredientsButton from '../components/GetIngredientButton';
 
 
+
 class IngredientResultsList extends Component {
-    componentWillMount() {
+    loadDataSource() {
         const ds = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
         });
@@ -15,12 +16,14 @@ class IngredientResultsList extends Component {
         this.dataSource = ds.cloneWithRows(this.props.list);
     }
 
+
     renderRow(rowData) {
       return <IngredientItem rowData={rowData} />;
     }
 
     render() {
-      console.log(this.props, `i'm the props in IngredientList`)
+      this.loadDataSource();
+      console.log(this.props.list);
         return (
           <View style={{ flex: 1 }}>
             <Header>
@@ -29,19 +32,20 @@ class IngredientResultsList extends Component {
                 </Body>
             </Header>
             <GetIngredientsButton />
-          <ListView
+          {this.props.isFetching && <Spinner color="green" /> }
+          {this.props.list.length > 1 && <ListView
             dataSource={this.dataSource}
             renderRow={this.renderRow}
-          />
+          />}
           </View>
         );
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state, `i'm the state in the IngredientList`)
     return {
       list: state.ingredientResults.ingredients,
+      isFetching: state.ingredientResults.isFetching
     };
 };
 

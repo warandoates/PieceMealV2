@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableWithoutFeedback, View, LayoutAnimation } from 'react-native';
-import { CardItem, Text } from 'native-base';
+import { CardItem, Text, Badge } from 'native-base';
 import { connect } from 'react-redux';
 import { selectIngredient } from '../actions/index';
 
@@ -9,18 +9,41 @@ class IngredientItem extends Component {
     LayoutAnimation.spring();
   }
 
+  tagSplitter() {
+    return this.props.rowData.tags.map((tag) => (
+      <Badge>
+        <Text>
+          {tag}
+        </Text>
+      </Badge>
+    ));
+  }
+
   renderDescription() {
     const { rowData, expanded } = this.props;
     if (expanded) {
       return (
-        <CardItem style={styles.containerStyle}>
-          <Text style={{ flex: 1 }}>{rowData.tags}</Text>
-        </CardItem>
+        <View>
+          {!!rowData.description &&
+          <CardItem style={styles.expandedContainerStyle}>
+            <Text style={{ flex: 1 }}>
+              {rowData.description}
+            </Text>
+          </CardItem>}
+          {!!rowData.image_url &&
+          <CardItem style={styles.expandedContainerStyle}>
+            <img alt='nope'src={rowData.image_url} style={{ flex: 1 }} />
+          </CardItem>}
+          <CardItem style={styles.expandedContainerStyle}>
+            {rowData.tags.length > 0 && this.tagSplitter()}
+          </CardItem>
+        </View>
       );
     }
   }
 
   render() {
+    console.log('yooo', this.tagSplitter());
     const { nameStyle, containerStyle } = styles;
     const { id, name } = this.props.rowData;
 
@@ -58,6 +81,11 @@ const styles = {
   containerStyle: {
     borderBottomWidth: 1,
     borderColor: '#ddd'
+  },
+  expandedContainerStyle: {
+    backgroundColor: '#e5e5e5',
+    borderBottomWidth: 1,
+    borderColor: '#ccc'
   },
   nameStyle: {
     fontSize: 18,
