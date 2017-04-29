@@ -4,7 +4,7 @@ import { Header, Body, Title, Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
 import GetIngredientsButton from '../components/GetIngredientButton';
-import IngredientsHeader from '../components/IngredientsHeader';
+
 
 
 class IngredientResultsList extends Component {
@@ -36,7 +36,6 @@ class IngredientResultsList extends Component {
       this.loadDataSource();
         return (
           <View style={{ flex: 1 }}>
-            {/* <IngredientsHeader navigationHero={this.props} /> */}
             <GetIngredientsButton />
           {this.props.isFetching && <Spinner color="green" /> }
           {this.props.list.length > 1 && <ListView
@@ -49,11 +48,9 @@ class IngredientResultsList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log('i am the real props', ownProps);
     return {
       list: state.ingredientResults.ingredients,
       isFetching: state.ingredientResults.isFetching,
-      // navigate: ownProps.navigation.navigate
     };
 };
 
