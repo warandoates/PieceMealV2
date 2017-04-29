@@ -4,17 +4,11 @@ import promiseMiddleware from 'redux-promise-middleware';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'remote-redux-devtools';
 // import { StackNavigator } from 'react-navigation';
-import reducers from './reducers';//index reducer
-import { Tabs } from './config/router';
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+import reducers from './reducers';
+import { MainRouter } from './config/router';
 
-// const store = createStore(reducers, composeEnhancers(
-//     applyMiddleware(promiseMiddleware())
-//   ));
-
-const store = createStore(reducers, /* preloadedState, */ composeWithDevTools(
+const store = createStore(reducers, composeWithDevTools(
   applyMiddleware(promiseMiddleware()),
-  // other store enhancers if any
 ));
 
 class App extends Component {
@@ -22,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Tabs />
+        <MainRouter />
       </Provider>
     );
   }

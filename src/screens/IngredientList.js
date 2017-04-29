@@ -8,6 +8,18 @@ import IngredientsHeader from '../components/IngredientsHeader';
 
 
 class IngredientResultsList extends Component {
+  static navigationOptions = ({ navigation, header }) => ({
+      title: 'Ingredients',
+      headerRight:
+      <Button
+        onPress={() => navigation.navigate('AddIngredient')}
+        transparent
+      >
+        <Icon name="add" size={35} />
+      </Button>,
+      mode: 'modal'
+    });
+
     loadDataSource() {
         const ds = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
@@ -15,7 +27,6 @@ class IngredientResultsList extends Component {
 
         this.dataSource = ds.cloneWithRows(this.props.list);
     }
-
 
     renderRow(rowData) {
       return <IngredientItem rowData={rowData} />;
@@ -25,7 +36,7 @@ class IngredientResultsList extends Component {
       this.loadDataSource();
         return (
           <View style={{ flex: 1 }}>
-            <IngredientsHeader />
+            {/* <IngredientsHeader navigationHero={this.props} /> */}
             <GetIngredientsButton />
           {this.props.isFetching && <Spinner color="green" /> }
           {this.props.list.length > 1 && <ListView
@@ -38,9 +49,11 @@ class IngredientResultsList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+    console.log('i am the real props', ownProps);
     return {
       list: state.ingredientResults.ingredients,
-      isFetching: state.ingredientResults.isFetching
+      isFetching: state.ingredientResults.isFetching,
+      // navigate: ownProps.navigation.navigate
     };
 };
 
