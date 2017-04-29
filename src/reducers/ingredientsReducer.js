@@ -1,7 +1,3 @@
-
-// const data = [{ test: 'Success!' }];
-// export default () => data;
-
 const INITIAL_STATE = { ingredients: [{}] };
 
 const ingredientsResults = (state = INITIAL_STATE, action) => {
@@ -12,7 +8,7 @@ const ingredientsResults = (state = INITIAL_STATE, action) => {
       didInvalidate: false
     });
     case 'GET_INGREDIENT_RESULTS_FULFILLED':
-      return action.payload; //result of your promise == become new state
+      return { ...state, ingredients: action.payload };
     default:
       return state;
   }
