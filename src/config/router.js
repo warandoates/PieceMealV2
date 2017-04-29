@@ -3,8 +3,13 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
 
 import ingredientListView from '../screens/IngredientList';
 import LandingPage from '../screens/LandingPage';
+
 import LogInView from '../screens/logInView';
 import AddIngredientForm from '../screens/IngredientsAddForm';
+
+import LoginForm from '../screens/LoginForm';
+import SignupForm from '../screens/SignupForm';
+
 
 const MainScreenNavigator = TabNavigator({
   home: {
@@ -14,7 +19,10 @@ const MainScreenNavigator = TabNavigator({
     screen: ingredientListView,
   },
   logIn: {
-    screen: LogInView,
+    screen: LoginForm,
+  },
+  signup: {
+    screen: SignupForm,
   }
 });
 

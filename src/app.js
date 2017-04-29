@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import promiseMiddleware from 'redux-promise-middleware';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'remote-redux-devtools';
+
 // import { StackNavigator } from 'react-navigation';
 import reducers from './reducers';
 import { MainRouter } from './config/router';
