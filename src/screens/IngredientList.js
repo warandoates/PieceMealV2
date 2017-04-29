@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
 import { ListView, View } from 'react-native';
-import { Text, Header, Body, Title } from 'native-base';
+import { Header, Body, Title, Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
 import GetIngredientsButton from '../components/GetIngredientButton';
 
 
+
 class IngredientResultsList extends Component {
-    componentWillMount() {
+  static navigationOptions = ({ navigation, header }) => ({
+      title: 'Ingredients',
+      headerRight:
+      <Button
+        onPress={() => navigation.navigate('AddIngredient')}
+        transparent
+      >
+        <Icon name="add" size={35} />
+      </Button>,
+      mode: 'modal'
+    });
+
+    loadDataSource() {
         const ds = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
         });
@@ -20,18 +33,15 @@ class IngredientResultsList extends Component {
     }
 
     render() {
+      this.loadDataSource();
         return (
           <View style={{ flex: 1 }}>
-            <Header>
-                <Body>
-                    <Title>Ingredients</Title>
-                </Body>
-            </Header>
             <GetIngredientsButton />
-          <ListView
+          {this.props.isFetching && <Spinner color="green" /> }
+          {this.props.list.length > 1 && <ListView
             dataSource={this.dataSource}
             renderRow={this.renderRow}
-          />
+          />}
           </View>
         );
     }
@@ -40,6 +50,7 @@ class IngredientResultsList extends Component {
 const mapStateToProps = (state, ownProps) => {
     return {
       list: state.ingredientResults.ingredients,
+      isFetching: state.ingredientResults.isFetching,
     };
 };
 
