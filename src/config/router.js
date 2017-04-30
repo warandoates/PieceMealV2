@@ -1,10 +1,9 @@
-import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
-
 import ingredientListView from '../screens/IngredientList';
+import recipeListView from '../screens/RecipeList';
 import LandingPage from '../screens/LandingPage';
 
-import LogInView from '../screens/logInView';
+// import LogInView from '../screens/logInView';
 import AddIngredientForm from '../screens/IngredientsAddForm';
 
 import LoginForm from '../screens/LoginForm';
@@ -17,6 +16,9 @@ const MainScreenNavigator = TabNavigator({
   },
   ingredients: {
     screen: ingredientListView,
+  },
+  recipes: {
+    screen: recipeListView,
   },
   logIn: {
     screen: LoginForm,
