@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Content, Button, Text } from 'native-base';
+import { Button, Text } from 'native-base';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { getIngredients } from '../actions/index';
 
@@ -25,10 +25,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const styles = {
   buttonStyle: {
-    // flex: 1,
     marginLeft: 5,
     marginRight: 5,
-
   }
 };
 

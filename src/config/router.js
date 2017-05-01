@@ -1,18 +1,25 @@
-import React from 'react';
-import { TabNavigator } from 'react-navigation';
-
+import { TabNavigator, StackNavigator } from 'react-navigation';
 import ingredientListView from '../screens/IngredientList';
+import recipeListView from '../screens/RecipeList';
 import LandingPage from '../screens/LandingPage';
+
+// import LogInView from '../screens/logInView';
+import AddIngredientForm from '../screens/IngredientsAddForm';
+
 import LoginForm from '../screens/LoginForm';
 import SignupForm from '../screens/SignupForm';
 import DashboardForm from '../screens/DashboardForm';
 
-export const Tabs = TabNavigator({
+
+const MainScreenNavigator = TabNavigator({
   home: {
     screen: LandingPage,
   },
   ingredients: {
     screen: ingredientListView,
+  },
+  recipes: {
+    screen: recipeListView,
   },
   logIn: {
     screen: LoginForm,
@@ -24,3 +31,8 @@ export const Tabs = TabNavigator({
     screen: DashboardForm,
   }
 });
+
+export const MainRouter = StackNavigator({
+  Home: { screen: MainScreenNavigator },
+  AddIngredient: { screen: AddIngredientForm }
+}, { mode: 'modal' });

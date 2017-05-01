@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { TouchableWithoutFeedback, View, LayoutAnimation } from 'react-native';
-import { CardItem, Text, Badge } from 'native-base';
 import { connect } from 'react-redux';
-import { selectIngredient } from '../actions/index';
+import { CardItem, Text, Badge } from 'native-base';
+import { selectRecipe } from '../actions/index';
 
-class IngredientItem extends Component {
+class RecipeItem extends Component {
   componentWillUpdate() {
     LayoutAnimation.spring();
   }
@@ -12,11 +12,9 @@ class IngredientItem extends Component {
   tagSplitter() {
     return this.props.rowData.tags.map((tag) => (
       <Badge>
-        <Text>
-          {tag}
-        </Text>
+        <Text>{tag}</Text>
       </Badge>
-    ));
+  ));
   }
 
   renderDescription() {
@@ -48,7 +46,7 @@ class IngredientItem extends Component {
 
     return (
       <TouchableWithoutFeedback
-        onPress={() => this.props.selectIngredientItem(id)}
+        onPress={() => this.props.selectRecipeItem(id)}
       >
         <View>
           <CardItem style={containerStyle}>
@@ -56,7 +54,6 @@ class IngredientItem extends Component {
           </CardItem>
           {this.renderDescription()}
         </View>
-
       </TouchableWithoutFeedback>
     );
   }
@@ -64,15 +61,14 @@ class IngredientItem extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    selectIngredientItem: (ingredient) => {
-      dispatch(selectIngredient(ingredient));
+    selectRecipeItem: (recipe) => {
+      dispatch(selectRecipe(recipe));
     }
   };
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const expanded = state.selectedIngredientId === ownProps.rowData.id;
-
+  const expanded = state.selectedRecipeId === ownProps.rowData.id;
   return { expanded };
 };
 
@@ -92,4 +88,4 @@ const styles = {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(IngredientItem);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeItem);
