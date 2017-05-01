@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
 import GetIngredientsButton from '../components/GetIngredientButton';
 
-
-
 class IngredientResultsList extends Component {
   static navigationOptions = ({ navigation, header }) => ({
       title: 'Ingredients',
