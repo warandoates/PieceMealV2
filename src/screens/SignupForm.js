@@ -109,6 +109,7 @@ class SignupForm extends Component {
                         </Item>
                         <Item rounded>
                             <Input
+                              error={!this.props.passwordMatch}
                               secureTextEntry
                               label='Password'
                               placeholder="Password"
@@ -118,6 +119,7 @@ class SignupForm extends Component {
                         </Item>
                         <Item rounded last>
                             <Input
+                              error={!this.props.passwordMatch}
                               secureTextEntry
                               label='Confirm'
                               placeholder="Enter Password Again"
@@ -162,7 +164,8 @@ const mapStateToProps = (state) => {
       email: state.signupReducer.email,
       password: state.signupReducer.password,
       confirm: state.signupReducer.confirm,
-      loading: state.signupReducer.loading
+      loading: state.signupReducer.loading,
+      passwordMatch: state.signupReducer.passwordMatch
     };
 };
 

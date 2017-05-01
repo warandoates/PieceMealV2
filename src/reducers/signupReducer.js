@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   email: '',
   password: '',
   confirm: '',
-  passwordMatch: '',
+  passwordMatch: true,
   loading: false,
   error: '',
   user: null
