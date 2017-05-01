@@ -8,6 +8,7 @@ import AddIngredientForm from '../screens/IngredientsAddForm';
 
 import LoginForm from '../screens/LoginForm';
 import SignupForm from '../screens/SignupForm';
+import DashboardForm from '../screens/DashboardForm';
 
 
 const MainScreenNavigator = TabNavigator({
@@ -25,6 +26,9 @@ const MainScreenNavigator = TabNavigator({
   },
   signup: {
     screen: SignupForm,
+  },
+  dashboard: {
+    screen: DashboardForm,
   }
 });
 

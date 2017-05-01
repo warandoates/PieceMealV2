@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Icon, Input, InputGroup, Button } from 'native-base';
 import { MyHeader } from '../components/common';
-import SearchBar from '../components/SearchBar';
+import SearchBar from '../components/searchBar';
 import { createSearchAction } from '../actions/index';
 
 class LandingPage extends Component {
