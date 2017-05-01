@@ -3,15 +3,15 @@ export const createSearchAction = (recipe) => {
     return { type: 'SEARCH_RECIPE', payload: fetchRecipe(recipe) };
 };
 
-function fetchRecipe(recipe) {
-    const promise1 = fetch(`https://piecemeal-api.herokuapp.com/api/v1/search/recipes?text=${recipe}`, {
+function fetchRecipe(query) {
+    const promise1 = fetch(`https://piecemeal-api.herokuapp.com/api/v1/search/recipes?text=${query}`, {
         method: 'get',
         headers: {
             'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTQ5MzEwNDQ5NSwiZXhwIjoxNDkzNzA5Mjk1fQ.HjinCTP_82dwGOkYxJvOnWZG9DbgdepG1OzD9UYajEU',
             'Content-Type': 'application/json'
         }
     }).then(res => res.json());
-    const promise2 = fetch(`https://piecemeal-api.herokuapp.com/api/v1/search/ingredients?text=${recipe}`, {
+    const promise2 = fetch(`https://piecemeal-api.herokuapp.com/api/v1/search/ingredients?text=${query}`, {
         method: 'get',
         headers: {
             'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTQ5MzEwNDQ5NSwiZXhwIjoxNDkzNzA5Mjk1fQ.HjinCTP_82dwGOkYxJvOnWZG9DbgdepG1OzD9UYajEU',
