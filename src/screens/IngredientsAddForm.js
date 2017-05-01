@@ -13,12 +13,10 @@ import { postIngredient } from '../actions/addIngredient';
 
 class AddIngredientForm extends Component {
   onSubmit(ingredient ) {
-    // console.log('this is another prop', this.props);
     return this.props.postIngredient(ingredient, this.props.token)
   }
 
   render() {
-    console.log('this is props fff', this.props);
     const { handleSubmit, submitting } = this.props;
     return (
       <Form>

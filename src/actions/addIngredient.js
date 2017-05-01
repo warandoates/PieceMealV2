@@ -22,6 +22,5 @@ function postFetchIngredient(ingredient, token) {
     })
     .then((res) => {
       return res.json();
-    })
-    .then(res => console.log('this is res', res))
+    });
 }
