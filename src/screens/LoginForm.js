@@ -35,7 +35,6 @@ class LogInForm extends Component {
     }
 
     render() {
-      console.log('deez be da props:', this.props);
         return (
             <Container>
                 <Content>
