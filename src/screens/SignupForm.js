@@ -14,8 +14,10 @@ import {
     Right,
     Spinner,
     Text,
-    Title
+    Title,
+    Toast
 } from 'native-base';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import {
   firstNameChange,
   lastNameChange,
@@ -48,9 +50,17 @@ class SignupForm extends Component {
     }
 
     onButtonPress() {
-      const { firstName, lastName, email, password, confirm } = this.props;
+      const { passwordMatch, firstName, lastName, email, password, confirm } = this.props;
 
-      this.props.signupUser({ firstName, lastName, email, password, confirm });
+        if (!passwordMatch) {
+          Toast.show({
+                  text: "Passwords Don't Match!",
+                  position: 'bottom',
+                  buttonText: 'Okay'
+                });
+          } else {
+            this.props.signupUser({ firstName, lastName, email, password, confirm });
+          }
     }
 
     render() {
@@ -120,6 +130,25 @@ class SignupForm extends Component {
                             <Text>Sign Up</Text>
                         </Button>
                     </Form>
+                    <Button name="facebook" style={{ backgroundColor: "#3b5998" }} onPress={this.loginWithFacebook}>
+                      <Icon name='logo-facebook' />
+                      <Text>Login with Facebook</Text>
+                    </Button>
+
+                    <Button name="twitter" style={{ backgroundColor: "#00aced" }} onPress={this.loginWithTwitter}>
+                      <Icon name='logo-twitter' />
+                      <Text>Login with Twitter</Text>
+                    </Button>
+
+                    <Button name="github" style={{ backgroundColor: "#f5f5f5" }} onPress={this.loginWithGitHub}>
+                      <Icon name='logo-github' style={{ color: "#000000" }} />
+                      <Text style={{ fontFamily: 'Arial', fontSize: 15, color: "#000000" }}>Login with GitHub</Text>
+                    </Button>
+
+                    <Button name="google" style={{ backgroundColor: "#dd4b39" }} onPress={this.loginWithGoogle}>
+                      <Icon name='logo-google' />
+                      <Text>Login with Google</Text>
+                    </Button>
                 </Content>
             </Container>
         );
