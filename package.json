@@ -12,6 +12,7 @@
     "native-base": "^2.1.2",
     "react": "16.0.0-alpha.6",
     "react-native": "0.43.4",
+    "react-native-clean-form": "^0.4.1",
     "react-native-pathjs-charts": "0.0.27",
     "react-native-search-bar": "^3.0.0",
     "react-native-vector-icons": "^4.0.1",
