@@ -27,10 +27,6 @@ class Profile extends Component {
 
     componentWillUpdate(nextProps, nextState) {
       // perform any preparations for an upcoming update
-      // console.log('props:', this.props);
-      // console.log('nextProps:', nextProps);
-      // console.log('state:', this.state);
-      // console.log('nextState:', nextState);
       if (JSON.stringify(this.props.user) !== JSON.stringify(nextProps.user)) {
         this.onUserChange(nextProps.user);
       }
@@ -49,7 +45,6 @@ class Profile extends Component {
     }
 
     render() {
-      // console.log(`i'm the props in Profile`, this.props);
         return (
             <Container>
                 <Content>
