@@ -15,11 +15,13 @@ import {
     Body
 } from 'native-base';
 import TagInput from 'react-native-tag-input';
+import Tags from 'react-native-tags';
 // import daniel_profile from '../assets/daniel_profile.jpg';
 import pam_profile from '../assets/pam_profile.png';
 // import comet_in_space from '../assets/comet_in_space.jpg';
 import comet_in_space from '../assets/comet_in_space_3.jpg';
 import { restrictionsChange, changeRestrictions, userChange } from '../actions/client';
+import CheckBoxExample from './RestrictedIngredients'
 
 class Profile extends Component {
 
@@ -40,6 +42,10 @@ class Profile extends Component {
 
     onUserChange(user) {
         this.props.userChange(user);
+    }
+
+    testd() {
+
     }
 
     render() {
@@ -107,16 +113,25 @@ class Profile extends Component {
                         </CardItem>
                         <CardItem>
                             <Body>
-                                <TagInput
+                                {/* <TagInput
                                   tagColor={'red'}
                                   tagTextColor={'black'}
                                   value={ this.props.restrictions.map((r) => { return r.description}) }
                                   onChange={ (restrictions) => this.onRestictionsChange(restrictions) }
-                                />
-                                {/* <TagInput value={[]} /> */}
+                                /> */}
+                                {/* <UselessComponent /> */}
+                                {/* <Tags
+                                  initialText=""
+                                  initialTags={['dog', 'cat', 'chicken']}
+                                  onChangeTags={() => testd}
+                                  onTagPress={(index, tagLabel, event) => console.log(index, tagLabel, event)}
+                                  inputStyle={{ backgroundColor: 'white' }}
+                                  enqueueCallback={this.testd()}
+                                /> */}
                             </Body>
                         </CardItem>
                     </Card>
+                    <CheckBoxExample list={this.props.restrictions}/>
                 </Content>
             </Container>
         );
@@ -124,7 +139,6 @@ class Profile extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state, `i'm the Profile state(mapStateToProps)`);
     return {
         client: state.clientReducer,
         restrictions: state.clientReducer.restrictions,
