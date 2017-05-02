@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Content, Header, Icon, ScrollableTab, Tab, Tabs } from 'native-base';
-import Tab1 from '../components/Profile';
-import Tab2 from '../components/Charts';
+import Profile from '../components/Profile';
+import Charts from '../components/Charts';
 import FavoriteRecipes from '../components/FavoriteRecipes';
 
 export default class TableExample extends Component {
@@ -11,10 +11,10 @@ export default class TableExample extends Component {
        <Header hasTabs />
        <Tabs renderTabBar={() => <ScrollableTab />}>
          <Tab heading="Profile">
-             <Tab1 />
+             <Profile />
          </Tab>
          <Tab heading="Statistics">
-             <Tab2 />
+             <Charts />
          </Tab>
          <Tab heading="Ingredients">
              <FavoriteRecipes />

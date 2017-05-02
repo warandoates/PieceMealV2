@@ -13,6 +13,7 @@ export const passwordChanged = (text) => {
 };
 
 export const loginUser = ({ email, password }) => {
+  console.log('LOGIN USER:', email, password);
   return {
     type: 'LOGIN_USER',
     payload: login(email, password)
