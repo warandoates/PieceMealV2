@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { TouchableWithoutFeedback, View, LayoutAnimation } from 'react-native';
-import { CardItem, Text, Badge } from 'native-base';
+import { TouchableWithoutFeedback, View, Image, LayoutAnimation } from 'react-native';
+import { CardItem, Text, Badge, Body, Container } from 'native-base';
 import { connect } from 'react-redux';
 import { selectIngredient } from '../actions/index';
 
@@ -11,7 +11,7 @@ class IngredientItem extends Component {
 
   tagSplitter() {
     return this.props.rowData.tags.map((tag) => (
-      <Badge>
+      <Badge success style={styles.tagStyle}>
         <Text>
           {tag}
         </Text>
@@ -24,18 +24,21 @@ class IngredientItem extends Component {
     if (expanded) {
       return (
         <View>
-          {!!rowData.description &&
-          <CardItem style={styles.expandedContainerStyle}>
+          <CardItem content style={styles.expandedContainerStyle}>
+            {/* <Body> */}
             <Text style={{ flex: 1 }}>
-              {rowData.description}
+              Description: {rowData.description}
             </Text>
-          </CardItem>}
-          {!!rowData.image_url &&
+            {/* </Body> */}
+          </CardItem>
+
+          <CardItem cardBody style={styles.expandedContainerStyle}>
+            <Text style={styles.altNameStyle}>Image:</Text>
+            <Image />
+          </CardItem>
           <CardItem style={styles.expandedContainerStyle}>
-            <img alt='nope'src={rowData.image_url} style={{ flex: 1 }} />
-          </CardItem>}
-          <CardItem style={styles.expandedContainerStyle}>
-            {rowData.tags.length > 0 && this.tagSplitter()}
+            <Text>Tags:  </Text>
+            {this.tagSplitter()}
           </CardItem>
         </View>
       );
@@ -89,6 +92,12 @@ const styles = {
   nameStyle: {
     fontSize: 18,
     paddingLeft: 15
+  },
+  altNameStyle: {
+    paddingLeft: 15
+  },
+  tagStyle: {
+    marginRight: 5
   }
 };
 
