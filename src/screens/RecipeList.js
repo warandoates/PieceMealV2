@@ -44,7 +44,6 @@ class RecipeResultsList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state);
   return {
     list: state.recipeResults.recipes,
     isFetching: state.recipeResults.isFetching
