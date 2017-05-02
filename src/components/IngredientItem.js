@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { TouchableWithoutFeedback, View, Image, LayoutAnimation } from 'react-native';
-import { CardItem, Text, Badge, Body, Container } from 'native-base';
+import { bindActionCreators } from 'redux';
+import { CardItem, Button, Text, Badge } from 'native-base';
 import { connect } from 'react-redux';
-import { selectIngredient } from '../actions/index';
+import { selectIngredient } from '../actions';
+import { deleteIngredient } from '../actions/addIngredient';
 
 class IngredientItem extends Component {
   componentWillUpdate() {
@@ -31,27 +33,43 @@ class IngredientItem extends Component {
             </Text>
             {/* </Body> */}
           </CardItem>
+          <CardItem content style={styles.expandedContainerStyle}>
+            <Text style={{ flex: 1 }}>
+              Alternatives: {rowData.alternatives}
+            </Text>
+          </CardItem>
 
           <CardItem cardBody style={styles.expandedContainerStyle}>
             <Text style={styles.altNameStyle}>Image:</Text>
             <Image />
           </CardItem>
+
           <CardItem style={styles.expandedContainerStyle}>
-            <Text>Tags:  </Text>
+            <Text>Tags: </Text>
             {this.tagSplitter()}
           </CardItem>
+
+          { this.props.user && <CardItem style={styles.expandedContainerStyle}>
+            <Button small style={styles.tagStyle} rounded warning>
+              <Text>Edit</Text>
+            </Button>
+            <Button onPress={() => this.props.deleteIngredient(rowData.id, this.props.user.token)} small style={styles.tagStyle} rounded danger>
+              <Text>Delete</Text>
+            </Button>
+          </CardItem>}
         </View>
       );
     }
   }
 
   render() {
+    console.log('i am the PROPS', this.props);
     const { nameStyle, containerStyle } = styles;
     const { id, name } = this.props.rowData;
 
     return (
       <TouchableWithoutFeedback
-        onPress={() => this.props.selectIngredientItem(id)}
+        onPress={() => this.props.selectIngredient(id)}
       >
         <View>
           <CardItem style={containerStyle}>
@@ -66,17 +84,13 @@ class IngredientItem extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    selectIngredientItem: (ingredient) => {
-      dispatch(selectIngredient(ingredient));
-    }
-  };
+  return bindActionCreators({ selectIngredient, deleteIngredient }, dispatch);
 };
 
 const mapStateToProps = (state, ownProps) => {
   const expanded = state.selectedIngredientId === ownProps.rowData.id;
-
-  return { expanded };
+  const user = state.loginReducer.user;
+  return { expanded, user };
 };
 
 const styles = {

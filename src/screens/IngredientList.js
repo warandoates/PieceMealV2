@@ -31,6 +31,7 @@ class IngredientResultsList extends Component {
     }
 
     render() {
+      console.log('the true ones', this.props);
       this.loadDataSource();
         return (
           <View style={{ flex: 1 }}>
@@ -46,10 +47,10 @@ class IngredientResultsList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps);
     return {
       list: state.ingredientResults.ingredients,
       isFetching: state.ingredientResults.isFetching,
-
     };
 };
 
