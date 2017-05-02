@@ -20,7 +20,5 @@ function postFetchIngredient(ingredient, token) {
           description: ingredient.description
         })
     })
-    .then((res) => {
-      return res.json();
-    });
+    .then(res => res.json());
 }

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { ListView, View } from 'react-native';
-import { Header, Body, Title, Spinner, Button, Icon } from 'native-base';
+import { Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
 import GetIngredientsButton from '../components/GetIngredientButton';
 
 class IngredientResultsList extends Component {
-  static navigationOptions = ({ navigation, header }) => ({
+  static navigationOptions = ({ navigation }) => ({
       title: 'Ingredients',
       headerRight:
       <Button
@@ -49,6 +49,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
       list: state.ingredientResults.ingredients,
       isFetching: state.ingredientResults.isFetching,
+
     };
 };
 

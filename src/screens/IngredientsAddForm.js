@@ -12,12 +12,13 @@ import { Input } from 'react-native-clean-form/redux-form';
 import { postIngredient } from '../actions/addIngredient';
 
 class AddIngredientForm extends Component {
-  onSubmit(ingredient ) {
-    return this.props.postIngredient(ingredient, this.props.token)
+  onSubmit(ingredient) {
+    return this.props.postIngredient(ingredient, this.props.token);
   }
 
   render() {
     const { handleSubmit, submitting } = this.props;
+    console.log('here I AM IF SUCCESS', this.props);
     return (
       <Form>
         <FieldsContainer>
@@ -43,10 +44,10 @@ class AddIngredientForm extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    token: state.loginReducer.user.token
+    token: state.loginReducer.user.token,
+    success: state.ingredientResults.success
   };
 };
-
 
 export default connect(mapStateToProps, { postIngredient })(reduxForm({
   form: 'ingredients'

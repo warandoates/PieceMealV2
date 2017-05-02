@@ -39,11 +39,11 @@ function fetchRecipes() {
 
 // Ingredients  ============================================================= //
 export const selectIngredient = (ingredientId) => {
-    return {type: 'SELECT_INGREDIENT', payload: ingredientId};
+    return { type: 'SELECT_INGREDIENT', payload: ingredientId };
 };
 
 export const getIngredients = () => {
-    return {type: 'GET_INGREDIENT_RESULTS', payload: fetchIngredients()};
+    return { type: 'GET_INGREDIENT_RESULTS', payload: fetchIngredients() };
 };
 
 function fetchIngredients() {
