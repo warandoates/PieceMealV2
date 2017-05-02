@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   email: '',
   password: '',
   confirm: '',
-  passwordMatch: '',
+  passwordMatch: true,
   loading: false,
   error: '',
   user: null
@@ -13,13 +13,10 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'FIRST_NAME_CHANGE':
-      console.log('firstName');
       return { ...state, firstName: action.payload };
     case 'LAST_NAME_CHANGE':
-      console.log('lastName');
       return { ...state, lastName: action.payload };
     case 'EMAIL_CHANGE':
-      console.log('email');
       return { ...state, email: action.payload };
     case 'PASSWORD_CHANGE':
       return { ...state,
@@ -32,13 +29,10 @@ export default (state = INITIAL_STATE, action) => {
         passwordMatch: state.password === action.payload
       };
     case 'SIGNUP_USER_PENDING':
-      console.log('pending');
       return { ...state, loading: true, error: '', user: null };
     case 'SIGNUP_USER_FULFILLED':
-      console.log('fulfilled');
       return { ...state, loading: false, error: '', user: action.payload };
     case 'SIGNUP_USER_REJECTED':
-      console.log('rejected');
       return { ...state, loading: false, error: 'Unable To Login', user: null };
     default:
      return state;

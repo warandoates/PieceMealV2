@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
     Body,
@@ -90,12 +91,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        loginToApp: (email, password) => {
-            dispatch(loginAction(email, password));
-        }
-    };
+  return bindActionCreators({ emailChanged, passwordChanged, loginUser }, dispatch);
 };
 
 // export default connect(null, { emailChanged })(LogInForm);
-export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(LogInForm);
+export default connect(mapStateToProps, mapDispatchToProps)(LogInForm);
