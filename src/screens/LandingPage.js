@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Icon, Input, InputGroup, Button } from 'native-base';
-import { MyHeader } from '../components/common';
 import SearchBar from '../components/SearchBar';
 import { createSearchAction } from '../actions/index';
 
 class LandingPage extends Component {
  // headerText="Piece Meal"
+ static navigationOptions = ({ navigation }) => ({
+     title: 'Piece Meal',
+     mode: 'modal'
+   });
  render() {
    return (
-     <Container>
-       <MyHeader />
+    <Container>
        <InputGroup borderType="regular">
          <Icon name="md-search" />
          <Input

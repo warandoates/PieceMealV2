@@ -6,45 +6,37 @@ import IngredientItem from '../components/IngredientItem';
 import GetIngredientsButton from '../components/GetIngredientButton';
 import IngredientButton from '../components/IngredientNavButton';
 
+const MyButton = (props) => {
+  return (
+    <Button
+      onPress={() => {
+        console.log("props on click", props);
+        if (props.loggedIn) {
+          props.navigation.navigate('AddIngredient');
+        } else {
+          props.navigation.navigate('logIn');
+        }
+      }}
+      transparent
+    >
+      <Icon name="add" size={35} />
+    </Button>
+  );
+};
+const ConnectedMyButton = connect((state) => {
+  return {
+    loggedIn: state.loginReducer.user != null
+  };
+})(MyButton);
+
 class IngredientResultsList extends Component {
-  static navigationOptions = (props) => {
-      // console.log('this is props', props);
-    //   static navigationProps = {
-    //  header: ({ state }) => {
-    //    console.log('statessss', state);
-    //  return {
-    //   title: 'Ingredients'
-    //      }
-    //   }
-    // }
+  static navigationOptions = ({ navigation }) => {
     return {
       title: 'Ingredients',
-      headerRight:
-      <Button
-        onPress={() => (
-            props.navigation.navigate('AddIngredient')
-      )}
-        transparent
-      >
-        <Icon name="add" size={35} />
-      </Button>,
+      headerRight: <ConnectedMyButton navigation={navigation} />,
       mode: 'modal'
     };
   };
-//   static navigationProps = {
-//  header: ({ state }) => {
-//    console.log('statessss', state);
-//  return {
-//   title: 'Ingredients'
-//      }
-//   }
-// }
-    componentDidUpdate() {
-      this.props.navigation.setParams({
-       userObject: this.props.user
-     });
-    }
-
 
     loadDataSource() {
         const ds = new ListView.DataSource({
