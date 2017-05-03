@@ -5,6 +5,7 @@ import LandingPage from '../screens/LandingPage';
 
 // import LogInView from '../screens/logInView';
 import AddIngredientForm from '../screens/IngredientsAddForm';
+import AddRecipeForm from '../screens/RecipesAddForm';
 
 import LoginForm from '../screens/LoginForm';
 import SignupForm from '../screens/SignupForm';
@@ -34,5 +35,6 @@ const MainScreenNavigator = TabNavigator({
 
 export const MainRouter = StackNavigator({
   Home: { screen: MainScreenNavigator },
-  AddIngredient: { screen: AddIngredientForm }
+  AddIngredient: { screen: AddIngredientForm },
+  AddRecipe: { screen: AddRecipeForm }
 }, { mode: 'modal' });

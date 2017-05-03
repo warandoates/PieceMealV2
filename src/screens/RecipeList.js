@@ -36,7 +36,9 @@ class RecipeResultsList extends Component {
           <GetRecipeButton />
           {this.props.isFetching && <Spinner color="green" /> }
           {this.props.list.length > 1 && <ListView dataSource={this.dataSource}
-          renderRow={this.renderRow}/>
+                                                   renderRow={this.renderRow}
+                                                   enableEmptySections={true} />
+
           }
         </View>
       );

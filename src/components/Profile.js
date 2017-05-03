@@ -27,7 +27,8 @@ class Profile extends Component {
 
     componentWillUpdate(nextProps, nextState) {
       // perform any preparations for an upcoming update
-      if (JSON.stringify(this.props.user) !== JSON.stringify(nextProps.user)) {
+      if (nextProps.user !== null &&
+          JSON.stringify(this.props.user) !== JSON.stringify(nextProps.user)) {
         this.onUserChange(nextProps.user);
       }
     }

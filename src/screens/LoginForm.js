@@ -45,7 +45,7 @@ class LogInForm extends Component {
                             </Button>
                         </Left>
                         <Body>
-                            <Title>Header</Title>
+                            <Title>Login</Title>
                         </Body>
                         <Right>
                             <Button transparent>
@@ -54,15 +54,18 @@ class LogInForm extends Component {
                         </Right>
                     </Header>
                     <Form>
-                        <Item rounded>
+                        <Item>
                             <Input
                               label='Email'
                               placeholder="Email"
                               value={this.props.email}
                               onChangeText={this.onEmailChange.bind(this)}
+                              keyboardType='email-address'
+                              autoCapitalize='none'
+                              autoCorrect={false}
                             />
                         </Item>
-                        <Item rounded last>
+                        <Item last>
                             <Input
                               secureTextEntry
                               label='Password'
