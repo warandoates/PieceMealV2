@@ -4,13 +4,12 @@ import { Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
 import GetIngredientsButton from '../components/GetIngredientButton';
-import IngredientButton from '../components/IngredientNavButton';
+
 
 const MyButton = (props) => {
   return (
     <Button
       onPress={() => {
-        console.log("props on click", props);
         if (props.loggedIn) {
           props.navigation.navigate('AddIngredient');
         } else {
@@ -46,12 +45,12 @@ class IngredientResultsList extends Component {
         this.dataSource = ds.cloneWithRows(this.props.list);
     }
 
-    renderRow(rowData) {
-      return <IngredientItem rowData={rowData} />;
+    renderRow(rowData, one, two) {
+      return <IngredientItem nav={this.props} rowData={rowData} />;
     }
 
     render() {
-      // console.log('the true ones', this.props);
+      console.log('the true ones', this.props);
       this.loadDataSource();
         return (
           <View style={{ flex: 1 }}>
@@ -59,8 +58,8 @@ class IngredientResultsList extends Component {
           {this.props.isFetching && <Spinner color="green" /> }
           {this.props.list.length > 1 && <ListView
             dataSource={this.dataSource}
-            renderRow={this.renderRow}
-            enableEmptySections={true}
+            renderRow={this.renderRow.bind(this)}
+            // enableEmptySections={true}
           />}
           </View>
         );
