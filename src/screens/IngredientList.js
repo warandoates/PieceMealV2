@@ -31,22 +31,13 @@ const ConnectedMyButton = connect((state) => {
 
 class IngredientResultsList extends Component {
   static navigationOptions = ({ navigation }) => {
-      // console.log('this is props', props);
-    //   static navigationProps = {
-    //  header: ({ state }) => {
-    //    console.log('statessss', state);
-    //  return {
-    //   title: 'Ingredients'
-    //      }
-    //   }
-    // }
     return {
       title: 'Ingredients',
       headerRight: <ConnectedMyButton navigation={navigation} />,
       mode: 'modal'
     };
   };
-  
+
     loadDataSource() {
         const ds = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
