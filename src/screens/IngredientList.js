@@ -45,7 +45,7 @@ class IngredientResultsList extends Component {
         this.dataSource = ds.cloneWithRows(this.props.list);
     }
 
-    renderRow(rowData, one, two) {
+    renderRow(rowData) {
       return <IngredientItem nav={this.props} rowData={rowData} />;
     }
 

@@ -1,14 +1,5 @@
 import React, { Component } from 'react';
-import {
-    Content,
-    Card,
-    CardItem,
-    Text,
-    Icon,
-    Right,
-
-} from 'native-base';
-import { reduxForm, FieldArray } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import {
   ActionsContainer,
@@ -18,11 +9,11 @@ import {
   Form,
 } from 'react-native-clean-form';
 import { Input } from 'react-native-clean-form/redux-form';
-import { postIngredient } from '../actions/addIngredient';
+import { updateIngredient } from '../actions/addIngredient';
 
 class IngredientEditForm extends Component {
   onSubmit(ingredient) {
-    return this.props.postIngredient(ingredient, this.props.token);
+    return this.props.updateIngredient(ingredient, this.props);
   }
 
   render() {
@@ -65,6 +56,6 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, { postIngredient })(reduxForm({
+export default connect(mapStateToProps, { updateIngredient })(reduxForm({
   form: 'editIngredient',
 })(IngredientEditForm));
