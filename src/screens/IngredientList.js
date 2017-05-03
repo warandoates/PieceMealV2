@@ -5,16 +5,33 @@ import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
 import GetIngredientsButton from '../components/GetIngredientButton';
 
+const MyButton = (props) => {
+  return (
+    <Button
+      onPress={() => {
+        console.log("props on click", props);
+        if (props.loggedIn) {
+          props.navigation.navigate('AddIngredient');
+        } else {
+          props.navigation.navigate('logIn');
+        }
+      }}
+      transparent
+    >
+      <Icon name="add" size={35} />
+    </Button>
+  );
+};
+const ConnectedMyButton = connect((state) => {
+  return {
+    loggedIn: state.loginReducer.user != null
+  };
+})(MyButton);
+
 class IngredientResultsList extends Component {
   static navigationOptions = ({ navigation }) => ({
       title: 'Ingredients',
-      headerRight:
-      <Button
-        onPress={() => navigation.navigate('AddIngredient')}
-        transparent
-      >
-        <Icon name="add" size={35} />
-      </Button>,
+      headerRight: <ConnectedMyButton navigation={navigation} />,
       mode: 'modal'
     });
 
