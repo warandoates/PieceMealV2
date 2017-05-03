@@ -8,7 +8,7 @@ import IngredientButton from '../components/IngredientNavButton';
 
 class IngredientResultsList extends Component {
   static navigationOptions = (props) => {
-      console.log('this is props', props);
+      // console.log('this is props', props);
     //   static navigationProps = {
     //  header: ({ state }) => {
     //    console.log('statessss', state);
@@ -59,7 +59,7 @@ class IngredientResultsList extends Component {
     }
 
     render() {
-      console.log('the true ones', this.props);
+      // console.log('the true ones', this.props);
       this.loadDataSource();
         return (
           <View style={{ flex: 1 }}>

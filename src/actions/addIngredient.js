@@ -43,6 +43,5 @@ function deleteThisIngredient(ingredientId, token) {
       token
     }
   })
-  .then(res => res.json())
-  .then(res => console.log('this is the res', res));
+  .then(res => res.json());
 }
