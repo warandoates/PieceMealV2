@@ -4,6 +4,7 @@ import { Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
 import GetIngredientsButton from '../components/GetIngredientButton';
+import IngredientButton from '../components/IngredientNavButton';
 
 const MyButton = (props) => {
   return (
@@ -29,12 +30,23 @@ const ConnectedMyButton = connect((state) => {
 })(MyButton);
 
 class IngredientResultsList extends Component {
-  static navigationOptions = ({ navigation }) => ({
+  static navigationOptions = ({ navigation }) => {
+      // console.log('this is props', props);
+    //   static navigationProps = {
+    //  header: ({ state }) => {
+    //    console.log('statessss', state);
+    //  return {
+    //   title: 'Ingredients'
+    //      }
+    //   }
+    // }
+    return {
       title: 'Ingredients',
       headerRight: <ConnectedMyButton navigation={navigation} />,
       mode: 'modal'
-    });
-
+    };
+  };
+  
     loadDataSource() {
         const ds = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
@@ -48,6 +60,7 @@ class IngredientResultsList extends Component {
     }
 
     render() {
+      // console.log('the true ones', this.props);
       this.loadDataSource();
         return (
           <View style={{ flex: 1 }}>
@@ -64,10 +77,11 @@ class IngredientResultsList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+
     return {
       list: state.ingredientResults.ingredients,
       isFetching: state.ingredientResults.isFetching,
-
+      user: state.loginReducer.user
     };
 };
 
