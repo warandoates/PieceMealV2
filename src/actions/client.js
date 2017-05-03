@@ -22,7 +22,6 @@ export const userChange = (client) => {
 }
 
 function getClient(client) {
-  console.log('I AM CLIENT:', client);
   return fetch(`https://piecemeal-api.herokuapp.com/api/v1/clients/${client.id}`, {
         mode: 'no-cors',
         method: 'GET',

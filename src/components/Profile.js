@@ -115,18 +115,18 @@ class Profile extends Component {
                                   onChange={ (restrictions) => this.onRestictionsChange(restrictions) }
                                 /> */}
                                 {/* <UselessComponent /> */}
-                                {/* <Tags
+                                <Tags
                                   initialText=""
                                   initialTags={['dog', 'cat', 'chicken']}
                                   onChangeTags={() => testd}
                                   onTagPress={(index, tagLabel, event) => console.log(index, tagLabel, event)}
                                   inputStyle={{ backgroundColor: 'white' }}
                                   enqueueCallback={this.testd()}
-                                /> */}
+                                />
                             </Body>
                         </CardItem>
                     </Card>
-                    <CheckBoxExample list={this.props.restrictions}/>
+                    <CheckBoxExample list={this.props.restrictions} />
                 </Content>
             </Container>
         );
