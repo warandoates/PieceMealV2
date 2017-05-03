@@ -4,19 +4,47 @@ import { Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
 import GetIngredientsButton from '../components/GetIngredientButton';
+import IngredientButton from '../components/IngredientNavButton';
 
 class IngredientResultsList extends Component {
-  static navigationOptions = ({ navigation }) => ({
+  static navigationOptions = (props) => {
+      console.log('this is props', props);
+    //   static navigationProps = {
+    //  header: ({ state }) => {
+    //    console.log('statessss', state);
+    //  return {
+    //   title: 'Ingredients'
+    //      }
+    //   }
+    // }
+    return {
       title: 'Ingredients',
       headerRight:
       <Button
-        onPress={() => navigation.navigate('AddIngredient')}
+        onPress={() => (
+            props.navigation.navigate('AddIngredient')
+      )}
         transparent
       >
         <Icon name="add" size={35} />
       </Button>,
       mode: 'modal'
-    });
+    };
+  };
+//   static navigationProps = {
+//  header: ({ state }) => {
+//    console.log('statessss', state);
+//  return {
+//   title: 'Ingredients'
+//      }
+//   }
+// }
+    componentDidUpdate() {
+      this.props.navigation.setParams({
+       userObject: this.props.user
+     });
+    }
+
 
     loadDataSource() {
         const ds = new ListView.DataSource({
@@ -47,10 +75,11 @@ class IngredientResultsList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps);
+
     return {
       list: state.ingredientResults.ingredients,
       isFetching: state.ingredientResults.isFetching,
+      user: state.loginReducer.user
     };
 };
 
