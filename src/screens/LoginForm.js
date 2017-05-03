@@ -50,7 +50,7 @@ class LogInForm extends Component {
                             </Button>
                         </Left>
                         <Body>
-                            <Title>Header</Title>
+                            <Title>Login</Title>
                         </Body>
                         <Right>
                             <Button transparent>
@@ -59,16 +59,18 @@ class LogInForm extends Component {
                         </Right>
                     </Header>
                     <Form>
-                        <Item regular style={{marginLeft: 25, marginRight: 25, marginBottom: 25, marginTop: 125}}>
+                        <Item regular style={{ marginLeft: 25, marginRight: 25, marginBottom: 25, marginTop: 125 }}>
                             <Input
                               label='Email'
                               placeholder="Email"
                               value={this.props.email}
-                              // onChangeText={this.onEmailChange.bind(this)}
                               onChangeText={(...args) => this.onEmailChange(...args)}
+                              keyboardType='email-address'
+                              autoCapitalize='none'
+                              autoCorrect={false}
                             />
                         </Item>
-                        <Item regular style={{ marginLeft: 25, marginRight: 25, marginBottom: 25 }}>
+                        <Item last>
                             <Input
                               secureTextEntry
                               label='Password'
@@ -78,7 +80,7 @@ class LogInForm extends Component {
                             />
                         </Item>
                           {this.props.loading && <Spinner />}
-                        <Button style={{marginLeft: 150, marginRight: 150}} block padder onPress={() => this.onButtonPress()}>
+                        <Button style={{ marginLeft: 150, marginRight: 150 }} block padder onPress={() => this.onButtonPress()}>
                             <Text>Login</Text>
                         </Button>
                     </Form>

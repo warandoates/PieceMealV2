@@ -39,6 +39,7 @@ export default class CheckBoxExample extends Component {
       <View>
       <ListView
         dataSource={this.dataSource}
+        enableEmptySections={true}
         renderRow={(rowData) => <ListItem style={styles.containerStyle}><Button primary small><Icon name='beer' /></Button><Text>{rowData.name}</Text></ListItem>}
       />
       </View>
