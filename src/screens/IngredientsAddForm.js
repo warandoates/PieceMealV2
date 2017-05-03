@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
+import {
+    Content,
+    Card,
+    CardItem,
+    Text,
+    Icon,
+    Right,
+
+} from 'native-base';
+import { reduxForm, FieldArray } from 'redux-form';
 import { connect } from 'react-redux';
 import {
   ActionsContainer,
@@ -18,7 +27,6 @@ class AddIngredientForm extends Component {
 
   render() {
     const { handleSubmit, submitting } = this.props;
-    console.log('here I AM IF SUCCESS', this.props);
     return (
       <Form>
         <FieldsContainer>
@@ -31,6 +39,7 @@ class AddIngredientForm extends Component {
             <Input name="tags" label="Tags" placeholder="crisp" />
             <Input name="photos" label="photos" placeholder="Photo?" />
           </Fieldset>
+          {/* <FieldArray name="hi" component={renderHobbies}/> */}
         </FieldsContainer>
         <ActionsContainer>
           <Button onPress={handleSubmit(this.onSubmit.bind(this))} icon="md-checkmark" iconPlacement="right" submitting={submitting} >
@@ -41,6 +50,28 @@ class AddIngredientForm extends Component {
     );
   }
 }
+
+const renderHobbies = ({ fields, meta: { error } }) => (
+  <Card>
+    <CardItem>
+      <Button type="button" onClick={() => fields.push()}>Add Hobby</Button>
+    </CardItem>
+    {fields.map((hobby, index) =>
+      <CardItem key={index}>
+        <Button
+          type="button"
+          title="Remove Hobby"
+          onClick={() => fields.remove(index)}/>
+        <Field
+          name={hobby}
+          type="text"
+          component={renderField}
+          label={`Hobby #${index + 1}`}/>
+      </CardItem>
+    )}
+    {error && <CardItem className="error">{error}</CardItem>}
+  </Card>
+)
 
 const mapStateToProps = (state, ownProps) => {
   return {

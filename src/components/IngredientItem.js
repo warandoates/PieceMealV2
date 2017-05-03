@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { TouchableWithoutFeedback, View, LayoutAnimation } from 'react-native';
-import { CardItem, Text, Badge } from 'native-base';
+import { TouchableWithoutFeedback, View, Image, LayoutAnimation } from 'react-native';
+import { bindActionCreators } from 'redux';
+import { CardItem, Button, Text, Badge } from 'native-base';
 import { connect } from 'react-redux';
-import { selectIngredient } from '../actions/index';
+import { selectIngredient } from '../actions';
+import { deleteIngredient } from '../actions/addIngredient';
 
 class IngredientItem extends Component {
   componentWillUpdate() {
@@ -11,7 +13,7 @@ class IngredientItem extends Component {
 
   tagSplitter() {
     return this.props.rowData.tags.map((tag) => (
-      <Badge>
+      <Badge success style={styles.tagStyle}>
         <Text>
           {tag}
         </Text>
@@ -24,31 +26,50 @@ class IngredientItem extends Component {
     if (expanded) {
       return (
         <View>
-          {!!rowData.description &&
-          <CardItem style={styles.expandedContainerStyle}>
+          <CardItem content style={styles.expandedContainerStyle}>
+            {/* <Body> */}
             <Text style={{ flex: 1 }}>
-              {rowData.description}
+              Description: {rowData.description}
             </Text>
-          </CardItem>}
-          {!!rowData.image_url &&
-          <CardItem style={styles.expandedContainerStyle}>
-            <img alt='nope'src={rowData.image_url} style={{ flex: 1 }} />
-          </CardItem>}
-          <CardItem style={styles.expandedContainerStyle}>
-            {rowData.tags.length > 0 && this.tagSplitter()}
+            {/* </Body> */}
           </CardItem>
+          <CardItem content style={styles.expandedContainerStyle}>
+            <Text style={{ flex: 1 }}>
+              Alternatives: {rowData.alternatives}
+            </Text>
+          </CardItem>
+
+          <CardItem cardBody style={styles.expandedContainerStyle}>
+            <Text style={styles.altNameStyle}>Image:</Text>
+            <Image />
+          </CardItem>
+
+          <CardItem style={styles.expandedContainerStyle}>
+            <Text>Tags: </Text>
+            {this.tagSplitter()}
+          </CardItem>
+
+          { this.props.user && <CardItem style={styles.expandedContainerStyle}>
+            <Button small style={styles.tagStyle} rounded warning>
+              <Text>Edit</Text>
+            </Button>
+            <Button onPress={() => this.props.deleteIngredient(rowData.id, this.props.user.token)} small style={styles.tagStyle} rounded danger>
+              <Text>Delete</Text>
+            </Button>
+          </CardItem>}
         </View>
       );
     }
   }
 
   render() {
+    console.log('i am the PROPS', this.props);
     const { nameStyle, containerStyle } = styles;
     const { id, name } = this.props.rowData;
 
     return (
       <TouchableWithoutFeedback
-        onPress={() => this.props.selectIngredientItem(id)}
+        onPress={() => this.props.selectIngredient(id)}
       >
         <View>
           <CardItem style={containerStyle}>
@@ -63,17 +84,13 @@ class IngredientItem extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    selectIngredientItem: (ingredient) => {
-      dispatch(selectIngredient(ingredient));
-    }
-  };
+  return bindActionCreators({ selectIngredient, deleteIngredient }, dispatch);
 };
 
 const mapStateToProps = (state, ownProps) => {
   const expanded = state.selectedIngredientId === ownProps.rowData.id;
-
-  return { expanded };
+  const user = state.loginReducer.user;
+  return { expanded, user };
 };
 
 const styles = {
@@ -89,6 +106,12 @@ const styles = {
   nameStyle: {
     fontSize: 18,
     paddingLeft: 15
+  },
+  altNameStyle: {
+    paddingLeft: 15
+  },
+  tagStyle: {
+    marginRight: 5
   }
 };
 
