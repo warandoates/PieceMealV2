@@ -5,16 +5,33 @@ import { connect } from 'react-redux';
 import RecipeItem from '../components/RecipeItem'
 import GetRecipeButton from '../components/GetRecipeButton'
 
-class RecipeResultsList extends Component {
-  static navigationOptions = ({ navigation, header }) => ({
-    title: 'Recipes',
-    headerRight:
+const MyButton = (props) => {
+  return (
     <Button
-      onPress={() => navigation.navigate('AddRecipe')}
+      onPress={() => {
+        if (props.loggedIn) {
+          props.navigation.navigate('AddRecipe');
+        } else {
+          props.navigation.navigate('logIn');
+        }
+      }}
       transparent
     >
       <Icon name="add" size={35} />
-    </Button>,
+    </Button>
+  );
+};
+
+const ConnectedMyButton = connect((state) => {
+  return {
+    loggedIn: state.loginReducer.user != null
+  };
+})(MyButton);
+
+class RecipeResultsList extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Recipes',
+    headerRight: <ConnectedMyButton navigation={navigation} />,
     tabBarIcon: ({ tintColor }) => (
      <Icon name='restaurant' />
     ),
@@ -51,7 +68,8 @@ class RecipeResultsList extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     list: state.recipeResults.recipes,
-    isFetching: state.recipeResults.isFetching
+    isFetching: state.recipeResults.isFetching,
+    user: state.loginReducer.user
   };
 };
 
