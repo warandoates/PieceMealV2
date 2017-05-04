@@ -14,7 +14,7 @@ const SearchBar = ({ ingredients, recipes }) => {
   return (
     <Content>
       {ingredients.map((ingredient) => (
-        <Card>
+        <Card key={ingredient.id}>
              <CardItem>
                    <Text>{ ingredient.name }</Text>
                  <Right>
@@ -25,7 +25,7 @@ const SearchBar = ({ ingredients, recipes }) => {
       ))}
 
       {recipes.map((recipe) => (
-        <Card>
+        <Card key={recipe.id}>
              <CardItem>
                    <Text>{ recipe.name }</Text>
                  <Right>
