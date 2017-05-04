@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import Auth0Lock from 'react-native-lock';
 import { connect } from 'react-redux';
 import {
     Body,
@@ -34,9 +35,21 @@ class LogInForm extends Component {
       this.props.loginUser({ email, password });
     }
 
+
+    auth() {
+      lock.show({closable: true,}, (err, profile, token) => {
+        if (err) {
+          console.log(err);
+          return;
+      }
+      console.log('logged in!!!!', token);
+    });
+  }
+
     onLogout() {
       this.props.logoutUser();
     }
+
 
     render() {
       if (!this.props.user) {
@@ -83,6 +96,9 @@ class LogInForm extends Component {
                         <Button style={{ marginLeft: 150, marginRight: 150 }} block padder onPress={() => this.onButtonPress()}>
                             <Text>Login</Text>
                         </Button>
+                        <Button onPress={this.auth}>
+                          <Text>Use OAtuh</Text>
+                        </Button>
                     </Form>
                 </Content>
             </Container>
@@ -103,6 +119,10 @@ class LogInForm extends Component {
       }
     }
 }
+
+
+
+const lock = new Auth0Lock({clientId:'VwJAcIK8g5LS27Vjx8BAqtEcd0QmvFdM', domain: 'piecemeal.auth0.com' });
 
 const mapStateToProps = (state) => {
     return {

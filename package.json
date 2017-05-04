@@ -14,6 +14,7 @@
     "react-native": "0.43.4",
     "react-native-autocomplete-input": "^3.1.2",
     "react-native-clean-form": "^0.4.1",
+    "react-native-lock": "^0.6.0",
     "react-native-pathjs-charts": "0.0.27",
     "react-native-search-bar": "^3.0.0",
     "react-native-tag-input": "0.0.14",

@@ -13,6 +13,8 @@ const ingredientsResults = (state = INITIAL_STATE, action) => {
       return { ...state, success: true, isFetching: false };
     case 'DELETE_INGREDIENT':
       return { ...state, response: action.payload};
+    case 'PUT_INGREDIENT_FULFILLED':
+      return { ...state, response: action.payload};
     default:
       return state;
   }

@@ -45,3 +45,31 @@ function deleteThisIngredient(ingredientId, token) {
   })
   .then(res => res.json());
 }
+
+export const updateIngredient = (ingredient, props) => {
+  return {
+    type: 'PUT_INGREDIENT',
+    payload: putIngredient(ingredient, props)
+  };
+};
+
+function putIngredient(ingredient, props) {
+  console.log('do i get hereee?');
+  return fetch(`https://piecemeal-api.herokuapp.com/api/v1/ingredients/${props.navigation.state.params.id}`, {
+    mode: 'no-cors',
+    method: 'PUT',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      token: props.token
+    },
+    body: JSON.stringify({
+      name: ingredient.name,
+      description: ingredient.description,
+      tags: ingredient.tags.split(' '),
+      alternatives: ingredient.alternatives,
+      image_url: ingredient.photos
+    })
+  })
+  .then(res => res.json())
+}
