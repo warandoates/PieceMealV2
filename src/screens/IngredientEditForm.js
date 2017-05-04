@@ -50,7 +50,7 @@ const mapStateToProps = (state, ownProps) => {
       name: ownProps.navigation.state.params.name,
       description: ownProps.navigation.state.params.description,
       alternatives: ownProps.navigation.state.params.alternatives,
-      tags: ownProps.navigation.state.params.tags,
+      tags: ownProps.navigation.state.params.tags.toString(),
       photos: ownProps.navigation.state.params.photos,
     }
   };
