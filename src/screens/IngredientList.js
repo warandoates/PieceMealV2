@@ -34,7 +34,7 @@ class IngredientResultsList extends Component {
       title: 'Ingredients',
       headerRight: <ConnectedMyButton navigation={navigation} />,
       tabBarIcon: ({ tintColor }) => (
-       <Icon name='egg' />
+       <Icon name='nutrition' />
       ),
       mode: 'modal'
     };
