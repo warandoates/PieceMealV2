@@ -13,12 +13,18 @@ export const passwordChanged = (text) => {
 };
 
 export const loginUser = ({ email, password }) => {
-  console.log('LOGIN USER:', email, password);
   return {
     type: 'LOGIN_USER',
     payload: login(email, password)
   };
 };
+
+export const logoutUser = () => {
+  return {
+    type: 'LOGOUT_USER',
+    payload: null
+  };
+}
 
 function login(email, password) {
   return fetch(`https://piecemeal-api.herokuapp.com/api/v1/token`, {

@@ -128,26 +128,27 @@ class SignupForm extends Component {
                             />
                         </Item>
                           {this.props.loading && <Spinner />}
-                        <Button rounded block padder onPress={() => this.onButtonPress()}>
-                            <Text>Sign Up</Text>
+                        <Button style={buttonStyle} name="email" block padder onPress={() => this.onButtonPress()}>
+                          <Icon name='send' />
+                            <Text>Sign Up With Email</Text>
                         </Button>
                     </Form>
-                    <Button name="facebook" style={{ backgroundColor: "#3b5998" }} onPress={this.loginWithFacebook}>
+                    <Button name="facebook" style={{ ...buttonStyle, backgroundColor: "#3b5998" }} onPress={this.loginWithFacebook}>
                       <Icon name='logo-facebook' />
                       <Text>Login with Facebook</Text>
                     </Button>
 
-                    <Button name="twitter" style={{ backgroundColor: "#00aced" }} onPress={this.loginWithTwitter}>
+                    <Button style={buttonStyle} name="twitter" style={{ ...buttonStyle, backgroundColor: "#00aced" }} onPress={this.loginWithTwitter}>
                       <Icon name='logo-twitter' />
                       <Text>Login with Twitter</Text>
                     </Button>
 
-                    <Button name="github" style={{ backgroundColor: "#f5f5f5" }} onPress={this.loginWithGitHub}>
+                    <Button style={buttonStyle} name="github" style={{ ...buttonStyle, backgroundColor: "#f5f5f5" }} onPress={this.loginWithGitHub}>
                       <Icon name='logo-github' style={{ color: "#000000" }} />
                       <Text style={{ fontFamily: 'Arial', fontSize: 15, color: "#000000" }}>Login with GitHub</Text>
                     </Button>
 
-                    <Button name="google" style={{ backgroundColor: "#dd4b39" }} onPress={this.loginWithGoogle}>
+                    <Button style={buttonStyle} name="google" style={{ ...buttonStyle, backgroundColor: "#dd4b39" }} onPress={this.loginWithGoogle}>
                       <Icon name='logo-google' />
                       <Text>Login with Google</Text>
                     </Button>
@@ -156,6 +157,8 @@ class SignupForm extends Component {
         );
     }
 }
+
+const buttonStyle = { marginLeft: 100, marginRight: 100, marginBottom: 0, marginTop: 20, width:'50%' };
 
 const mapStateToProps = (state) => {
     return {

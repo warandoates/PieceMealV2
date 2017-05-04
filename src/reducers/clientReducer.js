@@ -6,7 +6,6 @@ const INITIAL_STATE = {
   'email': '',
   'recipes': [],
   'restrictions': [],
-
 }
 
 };
@@ -16,6 +15,9 @@ export default (state = INITIAL_STATE.client, action) => {
     case 'GET_CLIENT_PENDING':
       return INITIAL_STATE.client;
     case 'GET_CLIENT_FULFILLED':
+      if (action.payload === 'Not Logged In') {
+          return INITIAL_STATE.client;
+      }
       return action.payload;
     case 'GET_CLIENT_REJECTED':
       return {
