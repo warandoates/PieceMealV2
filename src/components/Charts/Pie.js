@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 import { Pie } from 'react-native-pathjs-charts';
 import { fetchIngredientData } from '../../actions/charts';
 
@@ -51,17 +51,18 @@ class PieChart extends Component {
         fontFamily: 'Arial',
         fontSize: 14,
         fontWeight: 'bold',
-        color: '#CCCCCC'
+        color: '#FFFFFF'
       }
     }
 
     return (
-      <View>
+      <View style={{flex: 1, flexDirection: 'column'}}>
         <Pie
           data={data}
           options={options}
           // accessorKey="population" />
           accessorKey="count" />
+          <Text style={{ fontWeight: 'bold', fontSize: 16 , textAlign: 'center'}}>Category Breakdown</Text>
       </View>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { View } from 'react-native';
 import {
     Body,
     Button,
@@ -28,6 +29,10 @@ import {
 } from '../actions/signup';
 
 class SignupForm extends Component {
+  static navigationOptions = ({ navigation, header }) => ({
+    title: 'Sign Up',
+    mode: 'modal'
+  });
 
     static navigationOptions = ({ navigation }) => {
       return {
@@ -75,23 +80,8 @@ class SignupForm extends Component {
         return (
             <Container>
                 <Content>
-                    <Header>
-                        <Left>
-                            <Button transparent>
-                                <Icon name='arrow-back' />
-                            </Button>
-                        </Left>
-                        <Body>
-                            <Title>Header</Title>
-                        </Body>
-                        <Right>
-                            <Button transparent>
-                                <Icon name='menu' />
-                            </Button>
-                        </Right>
-                    </Header>
                     <Form>
-                        <Item rounded>
+                        <Item regular style={{ marginLeft: 25, marginRight: 25, marginBottom: 10, marginTop: 50 }}>
                             <Input
                               label='First Name'
                               placeholder="First Name"
@@ -99,7 +89,7 @@ class SignupForm extends Component {
                               onChangeText={this.onFirstNameChange.bind(this)}
                             />
                         </Item>
-                            <Item rounded>
+                            <Item regular style={{ marginLeft: 25, marginRight: 25, marginBottom: 10, marginTop: 0 }}>
                                 <Input
                                   label='Last Name'
                                   placeholder="Last Name"
@@ -107,15 +97,18 @@ class SignupForm extends Component {
                                   onChangeText={this.onLastNameChange.bind(this)}
                                 />
                             </Item>
-                        <Item rounded>
+                        <Item regular style={{ marginLeft: 25, marginRight: 25, marginBottom: 10, marginTop: 0 }}>
                             <Input
                               label='Email'
                               placeholder="Email"
                               value={this.props.email}
                               onChangeText={this.onEmailChange.bind(this)}
+                              keyboardType='email-address'
+                              autoCapitalize='none'
+                              autoCorrect={false}
                             />
                         </Item>
-                        <Item rounded>
+                        <Item regular style={{ marginLeft: 25, marginRight: 25, marginBottom: 10, marginTop: 0 }}>
                             <Input
                               error={!this.props.passwordMatch}
                               secureTextEntry
@@ -125,7 +118,7 @@ class SignupForm extends Component {
                               onChangeText={this.onPasswordChange.bind(this)}
                             />
                         </Item>
-                        <Item rounded last>
+                        <Item regular style={{ marginLeft: 25, marginRight: 25, marginBottom: 10, marginTop: 0 }}>
                             <Input
                               error={!this.props.passwordMatch}
                               secureTextEntry
@@ -136,37 +129,48 @@ class SignupForm extends Component {
                             />
                         </Item>
                           {this.props.loading && <Spinner />}
-                        <Button style={buttonStyle} name="email" block padder onPress={() => this.onButtonPress()}>
+                        <Button
+                          style={{ marginLeft: 100, marginRight: 100, marginBottom: 25, marginTop: 20, width: '50%' }}
+                          name="email" block padder
+                          onPress={() => this.onButtonPress()}>
                           <Icon name='send' />
                             <Text>Sign Up With Email</Text>
                         </Button>
                     </Form>
-                    <Button name="facebook" style={{ ...buttonStyle, backgroundColor: "#3b5998" }} onPress={this.loginWithFacebook}>
-                      <Icon name='logo-facebook' />
-                      <Text>Login with Facebook</Text>
-                    </Button>
-
-                    <Button style={buttonStyle} name="twitter" style={{ ...buttonStyle, backgroundColor: "#00aced" }} onPress={this.loginWithTwitter}>
-                      <Icon name='logo-twitter' />
-                      <Text>Login with Twitter</Text>
-                    </Button>
-
-                    <Button style={buttonStyle} name="github" style={{ ...buttonStyle, backgroundColor: "#f5f5f5" }} onPress={this.loginWithGitHub}>
-                      <Icon name='logo-github' style={{ color: "#000000" }} />
-                      <Text style={{ fontFamily: 'Arial', fontSize: 15, color: "#000000" }}>Login with GitHub</Text>
-                    </Button>
-
-                    <Button style={buttonStyle} name="google" style={{ ...buttonStyle, backgroundColor: "#dd4b39" }} onPress={this.loginWithGoogle}>
-                      <Icon name='logo-google' />
-                      <Text>Login with Google</Text>
-                    </Button>
+                    <View style={{flex: 1, flexDirection: 'row'}}>
+                      <View>
+                        <Button name="facebook" style={{ ...buttonStyle, backgroundColor: "#3b5998" }} onPress={this.loginWithFacebook}>
+                          <Icon name='logo-facebook' />
+                          {/* <Text>Login with Facebook</Text> */}
+                        </Button>
+                      </View>
+                      <View>
+                        <Button name="twitter" style={{ ...buttonStyle, backgroundColor: "#00aced" }} onPress={this.loginWithTwitter}>
+                          <Icon name='logo-twitter' />
+                          {/* <Text>Login with Twitter</Text> */}
+                        </Button>
+                      </View>
+                      <View>
+                        <Button name="github" style={{ ...buttonStyle, backgroundColor: "#f5f5f5" }} onPress={this.loginWithGitHub}>
+                          <Icon name='logo-github' style={{ color: "#000000" }} />
+                          {/* <Text style={{ fontFamily: 'Arial', fontSize: 15, color: "#000000" }}>Login with GitHub</Text> */}
+                        </Button>
+                      </View>
+                      <View>
+                        <Button name="google" style={{ ...buttonStyle, backgroundColor: "#dd4b39" }} onPress={this.loginWithGoogle}>
+                          <Icon name='logo-google' />
+                          {/* <Text>Login with Google</Text> */}
+                        </Button>
+                      </View>
+                    </View>
                 </Content>
             </Container>
         );
     }
 }
 
-const buttonStyle = { marginLeft: 100, marginRight: 100, marginBottom: 0, marginTop: 20, width:'50%' };
+const buttonStyle = { marginLeft: 20, marginRight: 20, marginBottom: 0, marginTop: 20 };
+// const buttonStyle = { marginLeft: 75, marginRight: 75, marginBottom: 0, marginTop: 20, width:'20%' };
 
 const mapStateToProps = (state) => {
     return {
