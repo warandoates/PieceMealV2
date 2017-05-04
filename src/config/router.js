@@ -6,6 +6,7 @@ import LandingPage from '../screens/LandingPage';
 // import LogInView from '../screens/logInView';
 import AddIngredientForm from '../screens/IngredientsAddForm';
 import AddRecipeForm from '../screens/RecipesAddForm';
+import EditIngredientForm from '../screens/IngredientEditForm';
 
 import LoginForm from '../screens/LoginForm';
 import SignupForm from '../screens/SignupForm';
@@ -30,7 +31,7 @@ const MainScreenNavigator = TabNavigator({
   },
   Dashboard: {
     screen: DashboardForm,
-  }
+  },
 });
 
 export const MainRouter = StackNavigator({
@@ -38,5 +39,6 @@ export const MainRouter = StackNavigator({
   AddIngredient: { screen: AddIngredientForm },
   AddRecipe: { screen: AddRecipeForm },
   SignupForm: { screen: SignupForm },
-  LoginForm: { screen: LoginForm }
+  LoginForm: { screen: LoginForm },
+  EditIngredient: { screen: EditIngredientForm }
 }, { mode: 'modal' });
