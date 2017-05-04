@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { ListView, View } from 'react-native';
 import { Header, Body, Title, Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
-import RecipeItem from '../components/RecipeItem'
-import GetRecipeButton from '../components/GetRecipeButton'
+import RecipeItem from '../components/RecipeItem';
+import { getRecipes } from '../actions/index';
 
 const MyButton = (props) => {
   return (
@@ -38,6 +38,10 @@ class RecipeResultsList extends Component {
     mode: 'modal'
   });
 
+  componentWillMount() {
+    return this.props.getAllRecipes();
+  }
+
   loadDataSource() {
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
@@ -53,7 +57,6 @@ class RecipeResultsList extends Component {
     this.loadDataSource();
       return (
         <View style={{ flex: 1 }}>
-          <GetRecipeButton />
           {this.props.isFetching && <Spinner color="green" /> }
           {this.props.list.length > 1 && <ListView dataSource={this.dataSource}
                                                    renderRow={this.renderRow}
@@ -65,6 +68,14 @@ class RecipeResultsList extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAllRecipes: () => {
+      dispatch(getRecipes());
+    }
+  }
+}
+
 const mapStateToProps = (state, ownProps) => {
   return {
     list: state.recipeResults.recipes,
@@ -73,4 +84,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(RecipeResultsList);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeResultsList);

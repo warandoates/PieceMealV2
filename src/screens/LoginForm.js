@@ -57,7 +57,7 @@ class LogInForm extends Component {
           console.log(err);
           return;
       }
-      console.log('logged in!!!!', token);
+      console.log('logged in!!!!', profile, token, options);
     });
   }
 
