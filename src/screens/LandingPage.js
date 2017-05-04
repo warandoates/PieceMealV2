@@ -9,8 +9,16 @@ class LandingPage extends Component {
  // headerText="Piece Meal"
  static navigationOptions = ({ navigation }) => ({
      title: 'Piece Meal',
-     mode: 'modal'
-   });
+     mode: 'modal',
+     tabBarIcon: ({ tintColor }) => (
+      <Icon name='home' />
+     )
+ });
+
+ componentWillMount() {
+   this.props.searchRecipe('')
+ }
+
  render() {
    return (
     <Container>

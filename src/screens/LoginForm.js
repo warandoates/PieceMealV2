@@ -21,6 +21,14 @@ import {
 import { emailChanged, passwordChanged, loginUser, logoutUser } from '../actions/login';
 
 class LogInForm extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      tabBarIcon: ({ tintColor }) => (
+       <Icon name='log-in' />
+      )
+    };
+  };
+
     onEmailChange(text) {
         this.props.emailChanged(text);
     }

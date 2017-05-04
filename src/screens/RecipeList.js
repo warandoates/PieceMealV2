@@ -15,6 +15,9 @@ class RecipeResultsList extends Component {
     >
       <Icon name="add" size={35} />
     </Button>,
+    tabBarIcon: ({ tintColor }) => (
+     <Icon name='restaurant' />
+    ),
     mode: 'modal'
   });
 

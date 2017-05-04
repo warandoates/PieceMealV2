@@ -5,6 +5,14 @@ import Charts from '../components/Charts';
 import FavoriteRecipes from '../components/FavoriteRecipes';
 
 export default class TableExample extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      tabBarIcon: ({ tintColor }) => (
+       <Icon name='paper' />
+      )
+    };
+  };
+
   render() {
     return (
       <Container>
