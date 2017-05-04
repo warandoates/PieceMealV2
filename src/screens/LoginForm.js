@@ -45,7 +45,14 @@ class LogInForm extends Component {
 
 
     auth() {
-      lock.show({closable: true,}, (err, profile, token) => {
+      const options = {
+        closable: true,
+        authParams: {
+          responseType: 'id_token',
+          scope: 'openid email'
+        }
+      };
+      lock.show(options, (err, profile, token) => {
         if (err) {
           console.log(err);
           return;
@@ -128,9 +135,8 @@ class LogInForm extends Component {
     }
 }
 
-
-
-const lock = new Auth0Lock({clientId:'VwJAcIK8g5LS27Vjx8BAqtEcd0QmvFdM', domain: 'piecemeal.auth0.com' });
+const lock = new Auth0Lock({ clientId: 'VwJAcIK8g5LS27Vjx8BAqtEcd0QmvFdM',
+                            domain: 'piecemeal.auth0.com' });
 
 const mapStateToProps = (state) => {
     return {
