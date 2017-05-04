@@ -34,6 +34,14 @@ class SignupForm extends Component {
     mode: 'modal'
   });
 
+    static navigationOptions = ({ navigation }) => {
+      return {
+        tabBarIcon: ({ tintColor }) => (
+         <Icon name='person-add' />
+        )
+      };
+    };
+
     onFirstNameChange(text) {
         this.props.firstNameChange(text);
     }
