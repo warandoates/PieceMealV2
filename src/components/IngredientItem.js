@@ -14,7 +14,7 @@ class IngredientItem extends Component {
 
   tagSplitter() {
     return this.props.rowData.tags.map((tag) => (
-      <Badge key={this.props.rowData.id} success style={styles.tagStyle}>
+      <Badge key={this.props.rowData.name} success style={styles.tagStyle}>
         <Text>
           {tag}
         </Text>
