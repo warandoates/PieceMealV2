@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
+import { View, Image } from 'react-native';
 import {
     Body,
     Button,
@@ -79,6 +79,7 @@ class SignupForm extends Component {
     render() {
         return (
             <Container>
+              <Image style={styles.containerStyle} source={require('../assets/appBackgound.png')}>
                 <Content>
                     <Form>
                         <Item regular style={{ marginLeft: 25, marginRight: 25, marginBottom: 10, marginTop: 50 }}>
@@ -139,38 +140,54 @@ class SignupForm extends Component {
                     </Form>
                     <View style={{flex: 1, flexDirection: 'row'}}>
                       <View>
-                        <Button name="facebook" style={{ ...buttonStyle, backgroundColor: "#3b5998" }} onPress={this.loginWithFacebook}>
+                        <Button name="facebook" style={{ ...styles.buttonStyle, backgroundColor: "#3b5998" }} onPress={this.loginWithFacebook}>
                           <Icon name='logo-facebook' />
                           {/* <Text>Login with Facebook</Text> */}
                         </Button>
                       </View>
                       <View>
-                        <Button name="twitter" style={{ ...buttonStyle, backgroundColor: "#00aced" }} onPress={this.loginWithTwitter}>
+                        <Button name="twitter" style={{ ...styles.buttonStyle, backgroundColor: "#00aced" }} onPress={this.loginWithTwitter}>
                           <Icon name='logo-twitter' />
                           {/* <Text>Login with Twitter</Text> */}
                         </Button>
                       </View>
                       <View>
-                        <Button name="github" style={{ ...buttonStyle, backgroundColor: "#f5f5f5" }} onPress={this.loginWithGitHub}>
+                        <Button name="github" style={{ ...styles.buttonStyle, backgroundColor: "#f5f5f5" }} onPress={this.loginWithGitHub}>
                           <Icon name='logo-github' style={{ color: "#000000" }} />
                           {/* <Text style={{ fontFamily: 'Arial', fontSize: 15, color: "#000000" }}>Login with GitHub</Text> */}
                         </Button>
                       </View>
                       <View>
-                        <Button name="google" style={{ ...buttonStyle, backgroundColor: "#dd4b39" }} onPress={this.loginWithGoogle}>
+                        <Button name="google" style={{ ...styles.buttonStyle, backgroundColor: "#dd4b39" }} onPress={this.loginWithGoogle}>
                           <Icon name='logo-google' />
                           {/* <Text>Login with Google</Text> */}
                         </Button>
                       </View>
                     </View>
                 </Content>
+              </Image>
             </Container>
         );
     }
 }
 
-const buttonStyle = { marginLeft: 20, marginRight: 20, marginBottom: 0, marginTop: 20 };
-// const buttonStyle = { marginLeft: 75, marginRight: 75, marginBottom: 0, marginTop: 20, width:'20%' };
+const styles = {
+  containerStyle: {
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonStyle: {
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 0,
+    marginTop: 20
+  }
+};
+
 
 const mapStateToProps = (state) => {
     return {
