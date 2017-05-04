@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 import { Tree } from 'react-native-pathjs-charts';
 
 class TreeChart extends Component {
@@ -57,6 +57,7 @@ class TreeChart extends Component {
     return (
       <View>
         <Tree data={data} options={options}  />
+        <Text style={{ fontWeight: 'bold', fontSize: 16 , textAlign: 'center'}}>Recipe Ancestry</Text>
       </View>
     )
   }

@@ -93,11 +93,12 @@ class Profile extends Component {
                         </CardItem>
                         <CardItem>
                             <Body>
-                                <Image style={{
-                                    resizeMode: 'contain'
-                                }} source={comet_in_space}/>
-                                <Text>
-                                    Provide campaign strategy for leading non profit crowdfunding campaigns. Some recent organizations I have worked with include: American Heart Association, Code.org, UN Foundation, Tish MS Center, Parkinsons Foundation, and the Harry Potter Alliance.
+                                <Image
+                                  style={{ resizeMode: 'contain' }} source={comet_in_space}/>
+                                <Text style={{ marginTop: 20}}>
+                                    Provide campaign strategy for leading non profit crowdfunding campaigns.
+                                    Some recent organizations I have worked with include:
+                                    American Heart Association, Code.org, UN Foundation, Tish MS Center, Parkinsons Foundation, and the Harry Potter Alliance.
                                 </Text>
                                 <Button transparent textStyle={{
                                     color: '#87838B'
@@ -107,15 +108,8 @@ class Profile extends Component {
                                 </Button>
                             </Body>
                         </CardItem>
-                        <CardItem>
+                        {/* <CardItem>
                             <Body>
-                                {/* <TagInput
-                                  tagColor={'red'}
-                                  tagTextColor={'black'}
-                                  value={ this.props.restrictions.map((r) => { return r.description}) }
-                                  onChange={ (restrictions) => this.onRestictionsChange(restrictions) }
-                                /> */}
-                                {/* <UselessComponent /> */}
                                 <Tags
                                   initialText=""
                                   initialTags={['dog', 'cat', 'chicken']}
@@ -125,7 +119,7 @@ class Profile extends Component {
                                   enqueueCallback={this.testd()}
                                 />
                             </Body>
-                        </CardItem>
+                        </CardItem> */}
                     </Card>
                     <CheckBoxExample list={this.props.restrictions} />
                 </Content>
