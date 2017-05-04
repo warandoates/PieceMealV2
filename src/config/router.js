@@ -28,7 +28,7 @@ const MainScreenNavigator = TabNavigator({
   signup: {
     screen: SignupForm,
   },
-  dashboard: {
+  Dashboard: {
     screen: DashboardForm,
   }
 });
@@ -36,5 +36,7 @@ const MainScreenNavigator = TabNavigator({
 export const MainRouter = StackNavigator({
   Home: { screen: MainScreenNavigator },
   AddIngredient: { screen: AddIngredientForm },
-  AddRecipe: { screen: AddRecipeForm }
+  AddRecipe: { screen: AddRecipeForm },
+  SignupForm: { screen: SignupForm },
+  LoginForm: { screen: LoginForm }
 }, { mode: 'modal' });
