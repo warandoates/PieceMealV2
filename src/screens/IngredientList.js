@@ -33,6 +33,9 @@ class IngredientResultsList extends Component {
     return {
       title: 'Ingredients',
       headerRight: <ConnectedMyButton navigation={navigation} />,
+      tabBarIcon: ({ tintColor }) => (
+       <Icon name='egg' />
+      ),
       mode: 'modal'
     };
   };
