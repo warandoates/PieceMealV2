@@ -3,14 +3,13 @@ import { ListView, View } from 'react-native';
 import { Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
-import GetIngredientsButton from '../components/GetIngredientButton';
-import IngredientButton from '../components/IngredientNavButton';
+import { getIngredients } from '../actions/index';
+
 
 const MyButton = (props) => {
   return (
     <Button
       onPress={() => {
-        console.log("props on click", props);
         if (props.loggedIn) {
           props.navigation.navigate('AddIngredient');
         } else {
@@ -34,9 +33,16 @@ class IngredientResultsList extends Component {
     return {
       title: 'Ingredients',
       headerRight: <ConnectedMyButton navigation={navigation} />,
+      tabBarIcon: ({ tintColor }) => (
+       <Icon name='nutrition' />
+      ),
       mode: 'modal'
     };
   };
+
+  componentWillMount() {
+    return this.props.getAllIngredients();
+  }
 
     loadDataSource() {
         const ds = new ListView.DataSource({
@@ -47,28 +53,34 @@ class IngredientResultsList extends Component {
     }
 
     renderRow(rowData) {
-      return <IngredientItem rowData={rowData} />;
+      return <IngredientItem nav={this.props} rowData={rowData} />;
     }
 
+
     render() {
-      // console.log('the true ones', this.props);
       this.loadDataSource();
         return (
           <View style={{ flex: 1 }}>
-            <GetIngredientsButton />
           {this.props.isFetching && <Spinner color="green" /> }
           {this.props.list.length > 1 && <ListView
             dataSource={this.dataSource}
-            renderRow={this.renderRow}
-            enableEmptySections={true}
+            renderRow={this.renderRow.bind(this)}
+            // enableEmptySections={true}
           />}
           </View>
         );
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getAllIngredients: () => {
+      dispatch(getIngredients());
+    }
+  };
+};
 
+const mapStateToProps = (state) => {
     return {
       list: state.ingredientResults.ingredients,
       isFetching: state.ingredientResults.isFetching,
@@ -76,4 +88,4 @@ const mapStateToProps = (state, ownProps) => {
     };
 };
 
-export default connect(mapStateToProps)(IngredientResultsList);
+export default connect(mapStateToProps, mapDispatchToProps)(IngredientResultsList);

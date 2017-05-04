@@ -7,13 +7,14 @@ import { selectIngredient } from '../actions';
 import { deleteIngredient } from '../actions/addIngredient';
 
 class IngredientItem extends Component {
+
   componentWillUpdate() {
     LayoutAnimation.spring();
   }
 
   tagSplitter() {
     return this.props.rowData.tags.map((tag) => (
-      <Badge success style={styles.tagStyle}>
+      <Badge key={this.props.rowData.name} success style={styles.tagStyle}>
         <Text>
           {tag}
         </Text>
@@ -39,7 +40,9 @@ class IngredientItem extends Component {
             </Text>
           </CardItem>
 
-          <CardItem cardBody style={styles.expandedContainerStyle}>
+          <CardItem
+            cardBody style={styles.expandedContainerStyle}
+          >
             <Text style={styles.altNameStyle}>Image:</Text>
             <Image />
           </CardItem>
@@ -50,7 +53,13 @@ class IngredientItem extends Component {
           </CardItem>
 
           { this.props.user && <CardItem style={styles.expandedContainerStyle}>
-            <Button small style={styles.tagStyle} rounded warning>
+            <Button
+              onPress={() => this.props.nav.navigation.navigate('EditIngredient', this.props.rowData)}
+              small
+              style={styles.tagStyle}
+              rounded
+              warning
+            >
               <Text>Edit</Text>
             </Button>
             <Button onPress={() => this.props.deleteIngredient(rowData.id, this.props.user.token)} small style={styles.tagStyle} rounded danger>
@@ -63,7 +72,7 @@ class IngredientItem extends Component {
   }
 
   render() {
-    console.log('i am the PROPS', this.props);
+    // console.log('real props stand up', this.props);
     const { nameStyle, containerStyle } = styles;
     const { id, name } = this.props.rowData;
 
@@ -71,7 +80,7 @@ class IngredientItem extends Component {
       <TouchableWithoutFeedback
         onPress={() => this.props.selectIngredient(id)}
       >
-        <View>
+        <View key={id}>
           <CardItem style={containerStyle}>
             <Text style={nameStyle}>{name}</Text>
           </CardItem>
@@ -90,6 +99,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state, ownProps) => {
   const expanded = state.selectedIngredientId === ownProps.rowData.id;
   const user = state.loginReducer.user;
+
   return { expanded, user };
 };
 

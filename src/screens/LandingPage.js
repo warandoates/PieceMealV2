@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, Icon, Input, InputGroup, Button } from 'native-base';
 import SearchBar from '../components/SearchBar';
@@ -9,8 +8,15 @@ class LandingPage extends Component {
  // headerText="Piece Meal"
  static navigationOptions = ({ navigation }) => ({
      title: 'Piece Meal',
-     mode: 'modal'
-   });
+     tabBarIcon: ({ tintColor }) => (
+      <Icon name='home' />
+     )
+ });
+
+ componentWillMount() {
+   this.props.searchRecipe('');
+ }
+
  render() {
    return (
     <Container>
@@ -29,6 +35,7 @@ class LandingPage extends Component {
    );
  }
 }
+
 
 const mapStateToPropsLandingPage = (state) => {
  //map state to props to the Landing Page component above
