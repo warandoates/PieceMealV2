@@ -58,11 +58,13 @@ class RecipeResultsList extends Component {
       return (
         <View style={{ flex: 1 }}>
           {this.props.isFetching && <Spinner color="green" /> }
-          {this.props.list.length > 1 && <ListView dataSource={this.dataSource}
-                                                   renderRow={this.renderRow}
-                                                   enableEmptySections={true} />
-
-          }
+          {this.props.list.length > 1 &&
+          <ListView
+            dataSource={this.dataSource}
+           renderRow={this.renderRow}
+           enableEmptySections={true}
+          />
+         }
         </View>
       );
   }

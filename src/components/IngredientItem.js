@@ -14,7 +14,7 @@ class IngredientItem extends Component {
 
   tagSplitter() {
     return this.props.rowData.tags.map((tag) => (
-      <Badge  key={this.props.rowData.id} success style={styles.tagStyle}>
+      <Badge key={this.props.rowData.name} success style={styles.tagStyle}>
         <Text>
           {tag}
         </Text>
@@ -41,8 +41,8 @@ class IngredientItem extends Component {
           </CardItem>
 
           <CardItem
-            cardBody
-            style={styles.expandedContainerStyle}>
+            cardBody style={styles.expandedContainerStyle}
+          >
             <Text style={styles.altNameStyle}>Image:</Text>
             <Image />
           </CardItem>
@@ -54,11 +54,12 @@ class IngredientItem extends Component {
 
           { this.props.user && <CardItem style={styles.expandedContainerStyle}>
             <Button
-              onPress={() => this.props.nav.navigation.navigate('EditIngredient',this.props.rowData)}
+              onPress={() => this.props.nav.navigation.navigate('EditIngredient', this.props.rowData)}
               small
               style={styles.tagStyle}
               rounded
-              warning>
+              warning
+            >
               <Text>Edit</Text>
             </Button>
             <Button onPress={() => this.props.deleteIngredient(rowData.id, this.props.user.token)} small style={styles.tagStyle} rounded danger>

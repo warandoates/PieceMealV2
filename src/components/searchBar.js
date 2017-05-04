@@ -1,5 +1,6 @@
 //Search Bar
 import React from 'react';
+import { Image } from 'react-native';
 import {
     Content,
     Card,
@@ -12,9 +13,11 @@ import {
 
 const SearchBar = ({ ingredients, recipes }) => {
   return (
-    <Content>
+
+    <Image style={styles.containerStyle} source={require('../assets/appBackgound.png')}>
+    <Content style={{ alignSelf: 'stretch' }}>
       {ingredients.map((ingredient) => (
-        <Card>
+        <Card key={ingredient.id}>
              <CardItem>
                    <Text>{ ingredient.name }</Text>
                  <Right>
@@ -25,7 +28,8 @@ const SearchBar = ({ ingredients, recipes }) => {
       ))}
 
       {recipes.map((recipe) => (
-        <Card>
+
+        <Card key={recipe.id}>
              <CardItem>
                    <Text>{ recipe.name }</Text>
                  <Right>
@@ -35,6 +39,19 @@ const SearchBar = ({ ingredients, recipes }) => {
          </Card>
       ))}
     </Content>
-)};
+  </Image>
+  );
+};
+
+const styles = {
+  containerStyle: {
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+};
 
 export default SearchBar;

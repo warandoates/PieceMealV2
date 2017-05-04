@@ -4,7 +4,6 @@ import promiseMiddleware from 'redux-promise-middleware';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'remote-redux-devtools';
 
-// import { StackNavigator } from 'react-navigation';
 import reducers from './reducers';
 import { MainRouter } from './config/router';
 

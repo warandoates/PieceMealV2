@@ -17,7 +17,6 @@ class IngredientEditForm extends Component {
   }
 
   render() {
-    console.log('where are we?', this.props);
     const { handleSubmit, submitting } = this.props;
     return (
       <Form>

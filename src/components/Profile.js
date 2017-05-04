@@ -48,7 +48,8 @@ class Profile extends Component {
     render() {
         return (
             <Container>
-                <Content>
+              <Image style={styles.containerStyle} source={require('../assets/appBackgound.png')}>
+                <Content style={{ alignSelf: 'stretch' }}>
                     {/* <Card >
                         <CardItem>
                             <Left>
@@ -123,10 +124,23 @@ class Profile extends Component {
                     </Card>
                     <CheckBoxExample list={this.props.restrictions} />
                 </Content>
+              </Image>
             </Container>
         );
     }
 }
+
+
+const styles = {
+  containerStyle: {
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+};
 
 const mapStateToProps = (state) => {
     return {
