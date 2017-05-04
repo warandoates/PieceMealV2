@@ -3,9 +3,7 @@ import { ListView, View } from 'react-native';
 import { Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/IngredientItem';
-import GetIngredientsButton from '../components/GetIngredientButton';
 import { getIngredients } from '../actions/index';
-
 
 
 const MyButton = (props) => {
@@ -39,6 +37,10 @@ class IngredientResultsList extends Component {
     };
   };
 
+  componentWillMount() {
+    return this.props.getAllIngredients();
+  }
+
     loadDataSource() {
         const ds = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
@@ -51,9 +53,6 @@ class IngredientResultsList extends Component {
       return <IngredientItem nav={this.props} rowData={rowData} />;
     }
 
-    componentWillMount() {
-      return this.props.getAllIngredients()
-    }
 
     render() {
       this.loadDataSource();
@@ -79,7 +78,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-
     return {
       list: state.ingredientResults.ingredients,
       isFetching: state.ingredientResults.isFetching,
