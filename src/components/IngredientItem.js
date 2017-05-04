@@ -14,7 +14,7 @@ class IngredientItem extends Component {
 
   tagSplitter() {
     return this.props.rowData.tags.map((tag) => (
-      <Badge success style={styles.tagStyle}>
+      <Badge  key={this.props.rowData.id} success style={styles.tagStyle}>
         <Text>
           {tag}
         </Text>
@@ -79,7 +79,7 @@ class IngredientItem extends Component {
       <TouchableWithoutFeedback
         onPress={() => this.props.selectIngredient(id)}
       >
-        <View>
+        <View key={id}>
           <CardItem style={containerStyle}>
             <Text style={nameStyle}>{name}</Text>
           </CardItem>
