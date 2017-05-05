@@ -1,4 +1,4 @@
-
+import { API_URL } from '../config/api';
 
 export const restictionsChange = (restrictions) => {
   return {
@@ -22,7 +22,7 @@ export const userChange = (client) => {
 }
 
 function getClient(client) {
-  return fetch(`https://piecemeal-api.herokuapp.com/api/v1/clients/${client.id}`, {
+  return fetch(`${API_URL}/api/v1/clients/${client.id}`, {
         mode: 'no-cors',
         method: 'GET',
         headers: {
@@ -38,7 +38,7 @@ function getClient(client) {
 }
 
 function updateRestrictions(clientId, restrictions) {
-  return fetch(`https://piecemeal-api.herokuapp.com/api/v1/clients/${clientId}/restrictions`, {
+  return fetch(`${API_URL}/api/v1/clients/${clientId}/restrictions`, {
         mode: 'no-cors',
         method: 'POST',
         headers: {

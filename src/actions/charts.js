@@ -1,3 +1,4 @@
+import { API_URL } from '../config/api';
 
 export const fetchIngredientData = () => {
   return {
@@ -7,7 +8,7 @@ export const fetchIngredientData = () => {
 };
 
 function getIngredientData() {
-  return fetch(`https://piecemeal-api.herokuapp.com/api/v1/pie_chart/ingredients`, {
+  return fetch(`${API_URL}/api/v1/pie_chart/ingredients`, {
         mode: 'no-cors',
         method: 'GET',
         headers: {

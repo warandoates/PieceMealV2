@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Icon, Input, InputGroup, Button } from 'native-base';
-import SearchBar from '../components/SearchBar';
+import SearchResults from '../components/SearchResults';
 import { createSearchAction } from '../actions/index';
 
 class LandingPage extends Component {
@@ -30,7 +30,7 @@ class LandingPage extends Component {
              <Icon name='ios-options' />
          </Button>
        </InputGroup>
-       <SearchBar recipes={this.props.recipes} ingredients={this.props.ingredients} />
+       <SearchResults recipes={this.props.recipes} ingredients={this.props.ingredients} />
      </Container>
    );
  }

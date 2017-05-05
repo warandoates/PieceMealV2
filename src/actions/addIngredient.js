@@ -1,3 +1,4 @@
+import { API_URL } from '../config/api';
 
 export const postIngredient = (ingredient, token) => {
   return {
@@ -11,7 +12,7 @@ function postFetchIngredient(ingredient, token) {
   if (ingredient.tags) {
     arrTags = ingredient.tags.split(' ');
   }
-  return fetch('https://piecemeal-api.herokuapp.com/api/v1/ingredients', {
+  return fetch(`${API_URL}/api/v1/ingredients`, {
         mode: 'no-cors',
         method: 'POST',
         headers: {
@@ -38,7 +39,8 @@ export const deleteIngredient = (ingredientId, token) => {
 };
 
 function deleteThisIngredient(ingredientId, token) {
-  return fetch(`https://piecemeal-api.herokuapp.com/api/v1/ingredients/${ingredientId}`, {
+
+  return fetch(`${API_URL}/api/v1/ingredients/${ingredientId}`, {
     mode: 'no-cors',
     method: 'DELETE',
     headers: {
@@ -63,7 +65,7 @@ function putIngredient(ingredient, props) {
   if (ingredient.tags) {
     ingredient.tags.split(' ');
   }
-  return fetch(`https://piecemeal-api.herokuapp.com/api/v1/ingredients/${props.navigation.state.params.id}`, {
+  return fetch(`${API_URL}/api/v1/ingredients/${props.navigation.state.params.id}`, {
     mode: 'no-cors',
     method: 'PUT',
     headers: {

@@ -1,3 +1,5 @@
+import { API_URL } from '../config/api';
+
 export const postRecipe = (recipe, token) => {
   return {
     type: 'POST_RECIPE',
@@ -6,7 +8,7 @@ export const postRecipe = (recipe, token) => {
 };
 
 function postFetchRecipe(recipe, token) {
-  fetch(`https://piecemeal-api.herokuapp.com/api/v1/recipes`, {
+  fetch(`${API_URL}/api/v1/recipes`, {
     mode: 'no-cors',
     method: 'POST',
     headers: {

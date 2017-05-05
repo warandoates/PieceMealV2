@@ -40,24 +40,25 @@ class IngredientResultsList extends Component {
     };
   };
 
-  componentWillMount() {
+  componentDidMount() {
     return this.props.getAllIngredients();
   }
 
-    loadDataSource() {
-        const ds = new ListView.DataSource({
-            rowHasChanged: (r1, r2) => r1 !== r2
-        });
+  loadDataSource() {
+      const ds = new ListView.DataSource({
+          rowHasChanged: (r1, r2) => r1 !== r2
+      });
 
-        this.dataSource = ds.cloneWithRows(this.props.list);
-    }
+      this.dataSource = ds.cloneWithRows(this.props.list);
+  }
 
-    renderRow(rowData) {
-      return <IngredientItem nav={this.props} rowData={rowData} />;
-    }
+  renderRow(rowData) {
+    return <IngredientItem nav={this.props} rowData={rowData} />;
+  }
 
 
     render() {
+      // this.props.getAllIngredients()
       this.loadDataSource();
         return (
           <View style={{ flex: 1 }}>

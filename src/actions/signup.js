@@ -1,3 +1,5 @@
+import { API_URL } from '../config/api';
+
 export const firstNameChange = (text) => {
   return {
     type: 'FIRST_NAME_CHANGE',
@@ -41,7 +43,7 @@ export const signupUser = ({ firstName, lastName, email, password, confirm }) =>
 };
 
 function signup(firstName, lastName, email, password) {
-  return fetch(`https://piecemeal-api.herokuapp.com/api/v1/clients`, {
+  return fetch(`${API_URL}/api/v1/clients`, {
         mode: 'no-cors',
         method: 'POST',
         headers: {
