@@ -3,7 +3,7 @@ import { Image, View } from 'react-native';
 import  Toast  from 'react-native-simple-toast'
 import { bindActionCreators } from 'redux';
 import Auth0Lock from 'react-native-lock';
-import { ActionsContainer, Button } from 'react-native-clean-form';
+// import { ActionsContainer, Button } from 'react-native-clean-form';
 import { connect } from 'react-redux';
 import {
     Button,
@@ -26,10 +26,10 @@ class LogInForm extends Component {
        <Icon name='log-in' />
      ),
      title: 'Login',
-       activeTintColor: 'green';
-     }
+      //  activeTintColor: 'green';
+    };
    };
-  };
+
 
     onEmailChange(text) {
         this.props.emailChanged(text);
@@ -106,7 +106,7 @@ class LogInForm extends Component {
                             />
                         </Item>
                           {loading && <Spinner color='#6a5acd' />}
-                        <Button block style={style.buttonContainerLeft} onPress={() => this.onButtonPress()}>
+                        <Button block style={styles.buttonContainerLeft} onPress={() => this.onButtonPress()}>
                             <Text>Login</Text>
                         </Button>
                         <Button block style={styles.buttongContainerRight} onPress={() => this.auth()}>
@@ -147,7 +147,7 @@ const styles = {
   container: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center', 
+    alignItems: 'center',
     justifyContent: 'center',
   },
   buttonContainerLeft: {
