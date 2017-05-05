@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import Toast from 'react-native-simple-toast';
 import { bindActionCreators } from 'redux';
 import Auth0Lock from 'react-native-lock';
@@ -25,8 +25,13 @@ class LogInForm extends Component {
       tabBarIcon: ({ tintColor }) => (
        <Icon name='log-in' />
      ),
-     title: 'Login'
-    };
+     title: 'Login',
+    //  header: {
+        // style: { backgroundColor: 'red' },
+        activeTintColor: 'green',
+    }
+
+    // };
   };
 
     onEmailChange(text) {
@@ -79,6 +84,7 @@ class LogInForm extends Component {
   }
 
     render() {
+      console.log('this is props', this.props);
       const { user, email, password, loading } = this.props;
       if (!user || user === 400) {
         return (
