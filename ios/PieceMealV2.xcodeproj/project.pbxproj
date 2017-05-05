@@ -20,14 +20,12 @@
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
-		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		148F366B129D4039A0E40D76 /* SanFranciscoThin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A248F14FCA254639A6D53F47 /* SanFranciscoThin.ttf */; };
 		1CD13EA0D0CB4D6AB07462CC /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4770CFB832FC4794B75FC4E8 /* Rubik-Light.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2D02E4C21E0B4AEC006451C7 /* libRCTAnimation-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157351DD0AC6500FF2AA8 /* libRCTAnimation-tvOS.a */; };
 		2D02E4C31E0B4AEC006451C7 /* libRCTImage-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */; };
@@ -44,6 +42,8 @@
 		4CEEAEE18DA344F7A48AB140 /* Comic Sans MS.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3450E8868754A37808A6E78 /* Comic Sans MS.ttf */; };
 		4D2EDE65D4B3452C9BCD3ED6 /* Microsoft Sans Serif.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0C3BDFE8B894DEB942B9C3B /* Microsoft Sans Serif.ttf */; };
 		599A3501CF964FEAA446768B /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 253AAFC38024485DB3C5E9FE /* Octicons.ttf */; };
+		5E0C87FF1EBD2EBC00A9F99A /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 5E0C87FE1EBD2EBC00A9F99A /* AppIcon.appiconset */; };
+		5E0C88011EBD2F6F00A9F99A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E0C88001EBD2F6F00A9F99A /* Images.xcassets */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		5E95C3091EBCF99C0003E9CA /* piecemeal-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E95C3081EBCF99C0003E9CA /* piecemeal-logo.png */; };
 		62D7BFFC29394FAD90E8C96B /* libLRDRCTSimpleToast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5E5F4000D56461FA069FFBF /* libLRDRCTSimpleToast.a */; };
@@ -336,7 +336,6 @@
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = PieceMealV2/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = PieceMealV2/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PieceMealV2/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = PieceMealV2/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = PieceMealV2/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
@@ -358,6 +357,8 @@
 		48B7B01C906A4FB0B15722F4 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		52C2AB93E979421E934BC930 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		55BA57C70AB34512857B25A3 /* Skia.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Skia.ttf; path = "../node_modules/native-base/Fonts/Skia.ttf"; sourceTree = "<group>"; };
+		5E0C87FE1EBD2EBC00A9F99A /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = "../../../../../../Downloads/piecemeal-Icon (1)/ios/AppIcon.appiconset"; sourceTree = "<group>"; };
+		5E0C88001EBD2F6F00A9F99A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PieceMealV2/Images.xcassets; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		5E95C3081EBCF99C0003E9CA /* piecemeal-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "piecemeal-logo.png"; path = "../../../../../piecemeal-logo.png"; sourceTree = "<group>"; };
 		61AF0630CC374EAFBD62256E /* SanFranciscoBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SanFranciscoBold.ttf; path = "../node_modules/native-base/Fonts/SanFranciscoBold.ttf"; sourceTree = "<group>"; };
@@ -544,10 +545,11 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
-				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				5E95C3081EBCF99C0003E9CA /* piecemeal-logo.png */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				5E0C88001EBD2F6F00A9F99A /* Images.xcassets */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
+				5E0C87FE1EBD2EBC00A9F99A /* AppIcon.appiconset */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = PieceMealV2;
@@ -1167,9 +1169,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				B8BF32B4F20F4B3E94E690CC /* Andale Mono.ttf in Resources */,
+				5E0C88011EBD2F6F00A9F99A /* Images.xcassets in Resources */,
 				F1CE8D22C0504795BE78CFEB /* Arial Black.ttf in Resources */,
 				BEEFD3AA9BC74CE6AACF5269 /* Arial.ttf in Resources */,
 				4CEEAEE18DA344F7A48AB140 /* Comic Sans MS.ttf in Resources */,
@@ -1184,6 +1186,7 @@
 				4D2EDE65D4B3452C9BCD3ED6 /* Microsoft Sans Serif.ttf in Resources */,
 				599A3501CF964FEAA446768B /* Octicons.ttf in Resources */,
 				CA83B8408AF24F5EBED47DE7 /* Roboto_medium.ttf in Resources */,
+				5E0C87FF1EBD2EBC00A9F99A /* AppIcon.appiconset in Resources */,
 				089DE57B50B14082A7198E21 /* Roboto.ttf in Resources */,
 				E697074C3FEF4352896A5794 /* rubicon-icon-font.ttf in Resources */,
 				D78707586B7B44BABF8CC19D /* Rubik-Black.ttf in Resources */,
@@ -1222,7 +1225,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

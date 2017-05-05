@@ -26,12 +26,7 @@ class LogInForm extends Component {
        <Icon name='log-in' />
      ),
      title: 'Login',
-    //  header: {
-        // style: { backgroundColor: 'red' },
-        activeTintColor: 'green',
-    }
-
-    // };
+   };
   };
 
     onEmailChange(text) {
@@ -57,8 +52,8 @@ class LogInForm extends Component {
           if (this.props.user === 400) {
             return Toast.show('Invalid email or password', Toast.SHORT);
           }
-        })
-        .then(() => this.props.navigation.navigate('Dashboard'));
+          return this.props.navigation.navigate('Dashboard');
+        });
     }
 
 
@@ -162,7 +157,7 @@ const styles = {
     flexDirection: 'row',
     marginBottom: 25,
     marginTop: 50,
-    backgroundColor: 'olivedrab',
+    backgroundColor: '#73ab00',
     width: '100%'
   },
   buttonContainerRight: {
