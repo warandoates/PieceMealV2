@@ -57,7 +57,8 @@ class LogInForm extends Component {
           if (this.props.user === 400) {
             return Toast.show('Invalid email or password', Toast.SHORT);
           }
-        });
+        })
+        .then(() => this.props.navigation.navigate('Dashboard'));
     }
 
 
@@ -84,7 +85,6 @@ class LogInForm extends Component {
   }
 
     render() {
-      console.log('this is props', this.props);
       const { user, email, password, loading } = this.props;
       if (!user || user === 400) {
         return (
