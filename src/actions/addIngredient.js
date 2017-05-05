@@ -39,6 +39,7 @@ export const deleteIngredient = (ingredientId, token) => {
 };
 
 function deleteThisIngredient(ingredientId, token) {
+
   return fetch(`${API_URL}/api/v1/ingredients/${ingredientId}`, {
     mode: 'no-cors',
     method: 'DELETE',

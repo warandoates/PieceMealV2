@@ -28,6 +28,7 @@ class LogInForm extends Component {
      title: 'Login',
        activeTintColor: 'green';
      }
+   };
   };
 
     onEmailChange(text) {
@@ -51,6 +52,7 @@ class LogInForm extends Component {
           if (this.props.user === 400) {
             return Toast.show('Invalid email or password', Toast.SHORT);
           }
+          return this.props.navigation.navigate('Dashboard');
         });
     }
 
@@ -143,24 +145,24 @@ const styles = {
     alignItems: 'center',
   },
   container: {
-     flex: 1,
-     flexDirection: 'row',
-     alignItems: 'center',
-     justifyContent: 'center',
-   },
-     buttonContainerLeft: {
-     flex: 1,
-     flexDirection: 'row',
-     marginBottom: 25,
-     marginTop: 50,
-     backgroundColor: 'olivedrab',
-     width: '100%'
-   },
-     buttonContainerRight: {
-     flex: 1,
-     flexDirection: 'row',
-     backgroundColor: 'steelblue'
-    }
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center', 
+    justifyContent: 'center',
+  },
+  buttonContainerLeft: {
+    flex: 1,
+    flexDirection: 'row',
+    marginBottom: 25,
+    marginTop: 50,
+    backgroundColor: '#73ab00',
+    width: '100%'
+  },
+  buttonContainerRight: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: 'steelblue'
+  }
 };
 
 const lock = new Auth0Lock({ clientId: 'VwJAcIK8g5LS27Vjx8BAqtEcd0QmvFdM',
