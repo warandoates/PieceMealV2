@@ -30,7 +30,7 @@ export default class ModalExample extends Component {
             <Card style={{ flex: 0 }}>
               <CardItem>
                   <Left>
-                      <Thumbnail source={sliders} />
+                      <Thumbnail source={this.props.image} />
                       <Body>
                           <Text>{this.props.name}</Text>
                           <Text note>April 15, 2016</Text>

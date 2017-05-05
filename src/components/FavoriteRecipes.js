@@ -5,6 +5,8 @@ import { Container, Icon, View, Card, CardItem, Thumbnail, Text, Right } from 'n
 import { getFavoriteRecipes } from '../actions/recipes';
 import RecipeModal from '../components/RecipeModal';
 import iceCream from '../assets/food/ice-cream.jpg';
+import bruscetta from '../assets/food/Bruscetta.jpg';
+import pepperBeef from '../assets/food/Pepper Beef.jpg';
 
 // const cards = [
 //     {
@@ -13,6 +15,8 @@ import iceCream from '../assets/food/ice-cream.jpg';
 //         image: require('../assets/space_rockets.jpg'),
 //     }
 // ];
+
+const images = [iceCream, bruscetta, pepperBeef]
 
 class FavoriteRecipes extends Component {
   loadDataSource() {
@@ -26,7 +30,8 @@ class FavoriteRecipes extends Component {
   state = {
     modalVisible: false,
     name: '',
-    description: ''
+    description: '',
+    notes: ''
   }
 
   setModalVisible(visible) {
@@ -34,16 +39,19 @@ class FavoriteRecipes extends Component {
   }
 
   renderRow(rowData) {
+    console.log(rowData);
     return (
         <Card>
           <TouchableOpacity onPress={() => {
             this.state.name = rowData.name;
             this.state.description = rowData.description;
+            this.state.notes = rowData.notes;
+            this.state.image = images[rowData.id - 1];
             this.setModalVisible(true);
           }}>
             <CardItem>
               {/* <Icon active name="logo-googleplus" /> */}
-              <Thumbnail source={iceCream} />
+              <Thumbnail source={images[rowData.id - 1]} />
               <Text style={{ alignSelf: 'center', marginLeft: 25 }}>{ rowData.name }</Text>
               <Right>
               <Icon name="arrow-forward" />
@@ -64,6 +72,7 @@ class FavoriteRecipes extends Component {
                 setModalVisible={this.setModalVisible.bind(this)}
                 name={this.state.name}
                 description={this.state.description}
+                image={this.state.image}
               />
                 <View>
                   <ListView
