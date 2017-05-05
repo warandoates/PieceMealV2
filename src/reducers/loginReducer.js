@@ -15,6 +15,7 @@ export default (state = INITIAL_STATE, action) => {
     case 'LOGIN_USER_PENDING':
       return { ...state, loading: true, error: '', user: null };
     case 'LOGIN_USER_FULFILLED':
+      console.log('this is the action', action);
       return { ...state, loading: false, error: '', user: action.payload };
     case 'LOGIN_USER_REJECTED':
       return { ...state, loading: false, error: 'Unable To Login', user: null };

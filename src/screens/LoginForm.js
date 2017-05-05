@@ -6,68 +6,17 @@ import Auth0Lock from 'react-native-lock';
 import { ActionsContainer, Button } from 'react-native-clean-form';
 import { connect } from 'react-redux';
 import {
-    // Body,
     Button,
     Container,
     Content,
     Form,
-    // Header,
     Icon,
     Item,
     Input,
-    // Left,
-    // Right,
     Spinner,
     Text,
-    // Title
 } from 'native-base';
 import { emailChanged, passwordChanged, loginUser, loginUserOAuth, logoutUser } from '../actions/login';
-
-function login(email, password, callback) {
-  //this example uses the "pg" library
-  //more info here: https://github.com/brianc/node-postgres
-
-  var conString = "postgres://vnfsppiaaevlpi:cfece86ac6e00504e6643a2a5165617c2dd44c99050e7d78930a8490e15f554e@ec2-54-235-153-124.compute-1.amazonaws.com:5432/d4qm35mjvrv6t";
-  postgres(conString, function (err, client, done) {
-    if (err) {
-      console.log('could not connect to postgres db', err);
-      return callback(err);
-    }
-
-    var query = 'SELECT id, email, password ' +
-      'FROM users WHERE email = $1';
-
-    client.query(query, [email], function (err, result) {
-      // NOTE: always call `done()` here to close
-      // the connection to the database
-      done();
-
-      if (err) {
-        console.log('error executing query', err);
-        return callback(err);
-      }
-
-      if (result.rows.length === 0) {
-        return callback(new WrongUsernameOrPasswordError(email));
-      }
-
-      var user = result.rows[0];
-
-      bcrypt.compare(password, user.password, function (err, isValid) {
-        if (err) {
-          callback(err);
-        } else if (!isValid) {
-          callback(new WrongUsernameOrPasswordError(email));
-        } else {
-          callback(null, {
-            id: user.id,
-            email: user.email
-          });
-        }
-      });
-    });
-  });
-}
 
 
 class LogInForm extends Component {
@@ -97,7 +46,6 @@ class LogInForm extends Component {
       if (!password) {
         return Toast.show('Password is required', Toast.SHORT);
       }
-
       this.props.loginUser({ email, password })
         .then(() => {
           if (this.props.user === 400) {
@@ -105,7 +53,6 @@ class LogInForm extends Component {
           }
         });
     }
-
 
     onLogout() {
       this.props.logoutUser();
@@ -128,9 +75,8 @@ class LogInForm extends Component {
       });
     }
 
-
     render() {
-      const { user, email, paddword, loading } = this.props;
+      const { user, email, password, loading } = this.props;
       if (!user || user === 400) {
         return (
             <Container>
@@ -166,8 +112,8 @@ class LogInForm extends Component {
                         </Button>
                     </Form>
                 </Content>
-                </Image>
-            </Container>
+              </Image>
+          </Container>
         );
       }
         return (
@@ -181,6 +127,7 @@ class LogInForm extends Component {
                   </Form>
               </Content>
           </Container>
+
         );
     }
 }
@@ -217,7 +164,7 @@ const styles = {
 };
 
 const lock = new Auth0Lock({ clientId: 'VwJAcIK8g5LS27Vjx8BAqtEcd0QmvFdM',
-                            domain: 'piecemeal.auth0.com' });
+domain: 'piecemeal.auth0.com' });
 
 const mapStateToProps = (state) => {
     return {
