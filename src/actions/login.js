@@ -24,14 +24,14 @@ export const logoutUser = () => {
     type: 'LOGOUT_USER',
     payload: null
   };
-}
+};
 
 function login(email, password) {
   return fetch(`https://piecemeal-api.herokuapp.com/api/v1/token`, {
         mode: 'no-cors',
         method: 'POST',
         headers: {
-          'Accept': 'application/json',
+          Accept: 'application/json',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -40,6 +40,10 @@ function login(email, password) {
         })
     })
     .then((res) => {
+      // console.log('this is login res', res);
+      if (res.status === 400) {
+        return res.status;
+      }
       return res.json();
     });
   }
