@@ -25,8 +25,9 @@ class LogInForm extends Component {
        <Icon name='log-in' />
      ),
      title: 'Login'
+    };
    };
-  };
+
 
     onEmailChange(text) {
         this.props.emailChanged(text);
