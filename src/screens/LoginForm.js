@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
+import  Toast  from 'react-native-simple-toast'
 import { bindActionCreators } from 'redux';
 import Auth0Lock from 'react-native-lock';
+import { ActionsContainer, Button } from 'react-native-clean-form';
 import { connect } from 'react-redux';
 import {
     // Body,
@@ -19,7 +21,7 @@ import {
     Text,
     // Title
 } from 'native-base';
-import { emailChanged, passwordChanged, loginUser, logoutUser } from '../actions/login';
+import { emailChanged, passwordChanged, loginUser, loginUserOAuth, logoutUser } from '../actions/login';
 
 function login(email, password, callback) {
   //this example uses the "pg" library
@@ -74,8 +76,9 @@ class LogInForm extends Component {
       tabBarIcon: ({ tintColor }) => (
        <Icon name='log-in' />
      ),
-     title: 'Login'
-    };
+     title: 'Login',
+       activeTintColor: 'green';
+     }
   };
 
     onEmailChange(text) {
@@ -88,8 +91,19 @@ class LogInForm extends Component {
 
     onButtonPress() {
       const { email, password } = this.props;
+      if (!email) {
+        return Toast.show('Email is required', Toast.SHORT);
+      }
+      if (!password) {
+        return Toast.show('Password is required', Toast.SHORT);
+      }
 
-      this.props.loginUser({ email, password });
+      this.props.loginUser({ email, password })
+        .then(() => {
+          if (this.props.user === 400) {
+            return Toast.show('Invalid email or password', Toast.SHORT);
+          }
+        });
     }
 
 
@@ -109,39 +123,24 @@ class LogInForm extends Component {
         if (err) {
           console.log(err);
           return;
-      }
-
-      console.log('logged in!!!!', profile, token, options);
-    });
-  }
+        }
+        this.props.loginUserOAuth(token);
+      });
+    }
 
 
     render() {
-      if (!this.props.user) {
+      const { user, email, paddword, loading } = this.props;
+      if (!user || user === 400) {
         return (
             <Container>
               <Image style={styles.containerStyle} source={require('../assets/appBackgound.png')}>
                 <Content>
-                    {/* <Header>
-                        <Left>
-                            <Button transparent>
-                                <Icon name='arrow-back' />
-                            </Button>
-                        </Left>
-                        <Body>
-                            <Title>Login</Title>
-                        </Body>
-                        <Right>
-                            <Button transparent>
-                                <Icon name='menu' />
-                            </Button>
-                        </Right>
-                    </Header> */}
                     <Form>
-                        <Item regular style={{ marginLeft: 25, marginRight: 25, marginBottom: 25, marginTop: 125 }}>
+                        <Item underline style={{ marginLeft: 15, marginRight: 25, marginBottom: 25, marginTop: 125 }}>
                             <Input
                               label='Email'
-                              placeholder="Email"
+                              placeholder="Enter Email"
                               value={this.props.email}
                               onChangeText={(...args) => this.onEmailChange(...args)}
                               keyboardType='email-address'
@@ -149,21 +148,21 @@ class LogInForm extends Component {
                               autoCorrect={false}
                             />
                         </Item>
-                        <Item last>
+                        <Item underline last>
                             <Input
                               secureTextEntry
                               label='Password'
-                              placeholder="Password"
+                              placeholder="Enter Password"
                               value={this.props.password}
                               onChangeText={this.onPasswordChange.bind(this)}
                             />
                         </Item>
-                          {this.props.loading && <Spinner />}
-                        <Button style={{ marginLeft: 150, marginRight: 150 }} block padder onPress={() => this.onButtonPress()}>
+                          {loading && <Spinner color='#6a5acd' />}
+                        <Button block style={style.buttonContainerLeft} onPress={() => this.onButtonPress()}>
                             <Text>Login</Text>
                         </Button>
-                        <Button onPress={this.auth}>
-                          <Text>Use OAtuh</Text>
+                        <Button block style={styles.buttongContainerRight} onPress={() => this.auth()}>
+                          <Text>Sign In with Facebook</Text>
                         </Button>
                     </Form>
                 </Content>
@@ -175,7 +174,7 @@ class LogInForm extends Component {
           <Container style={styles.containerStyle}>
               <Content>
                   <Form>
-                      {this.props.loading && <Spinner />}
+                      {loading && <Spinner />}
                       <Button style={{ marginLeft: 25, marginRight: 25, marginBottom: 25, marginTop: 225 }} block padder onPress={() => this.onLogout()}>
                           <Text>Sign Out</Text>
                       </Button>
@@ -195,7 +194,26 @@ const styles = {
     backgroundColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
+  container: {
+     flex: 1,
+     flexDirection: 'row',
+     alignItems: 'center',
+     justifyContent: 'center',
+   },
+     buttonContainerLeft: {
+     flex: 1,
+     flexDirection: 'row',
+     marginBottom: 25,
+     marginTop: 50,
+     backgroundColor: 'olivedrab',
+     width: '100%'
+   },
+     buttonContainerRight: {
+     flex: 1,
+     flexDirection: 'row',
+     backgroundColor: 'steelblue'
+    }
 };
 
 const lock = new Auth0Lock({ clientId: 'VwJAcIK8g5LS27Vjx8BAqtEcd0QmvFdM',
@@ -211,7 +229,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ emailChanged, passwordChanged, loginUser, logoutUser }, dispatch);
+  return bindActionCreators(
+    { emailChanged, passwordChanged, loginUser, loginUserOAuth, logoutUser },
+    dispatch);
 };
 
 // export default connect(null, { emailChanged })(LogInForm);
