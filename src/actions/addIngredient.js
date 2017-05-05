@@ -38,6 +38,7 @@ export const deleteIngredient = (ingredientId, token) => {
 };
 
 function deleteThisIngredient(ingredientId, token) {
+  console.log('i do get in this function');
   return fetch(`https://piecemeal-api.herokuapp.com/api/v1/ingredients/${ingredientId}`, {
     mode: 'no-cors',
     method: 'DELETE',
