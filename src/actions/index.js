@@ -1,4 +1,4 @@
-// SearchBar  ============================================================= //
+// SearchResults  ============================================================= //
 export const createSearchAction = (recipe) => {
     return { type: 'SEARCH_RECIPE', payload: fetchRecipe(recipe) };
 };
