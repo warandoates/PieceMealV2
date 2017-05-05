@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Container, Header, Item, Input, Icon, Button, Text, InputGroup} from 'native-base';
 
-export class SearchBar extends Component {
+export class SearchResults extends Component {
     render() {
         return (
-                    <Header searchBar rounded>
+                    <Header SearchResults rounded>
                       <Button transparent>
                           <Icon name='menu' />
                       </Button>
