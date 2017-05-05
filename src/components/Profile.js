@@ -144,8 +144,8 @@ const styles = {
 
 const mapStateToProps = (state) => {
     return {
-        client: state.clientReducer,
-        restrictions: state.clientReducer.restrictions,
+        client: state.clientReducer.client,
+        restrictions: state.clientReducer.client.restrictions,
         user: state.loginReducer.user
     };
 };

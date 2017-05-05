@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Container, Icon, View, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body } from 'native-base';
 import space_rockets from '../assets/space_rockets.jpg';
+import { getFavoriteRecipes } from '../actions/recipes';
 
-const cards = [
-    {
-        text: 'Card One',
-        name: 'One',
-        image: require('../assets/space_rockets.jpg'),
-    }
-];
+// const cards = [
+//     {
+//         text: 'Card One',
+//         name: 'One',
+//         image: require('../assets/space_rockets.jpg'),
+//     }
+// ];
 
-export default class DeckSwiperExample extends Component {
+class FavoriteRecipes extends Component {
   render() {
         return (
             <Container>
                 <View>
                     <DeckSwiper
-                        dataSource={cards}
+                        dataSource={this.props.recipes}
                         renderItem={item =>
                             <Card style={{ elevation: 3 }}>
                                 <CardItem>
@@ -44,3 +47,21 @@ export default class DeckSwiperExample extends Component {
         );
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getFavRecipes: () => {
+      dispatch(getFavoriteRecipes());
+    }
+  };
+};
+
+const mapStateToProps = (state) => {
+    return {
+      recipes: state.clientReducer.recipes,
+      isFetching: state.clientReducer.loading,
+      user: state.loginReducer.user
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FavoriteRecipes);
