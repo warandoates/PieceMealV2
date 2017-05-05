@@ -72,7 +72,6 @@ class IngredientItem extends Component {
   }
 
   render() {
-    // console.log('real props stand up', this.props);
     const { nameStyle, containerStyle } = styles;
     const { id, name } = this.props.rowData;
 

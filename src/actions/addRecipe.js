@@ -7,6 +7,26 @@ export const postRecipe = (recipe, token) => {
   };
 };
 
+export const deleteRecipe = (recipeId, token) => {
+  return {
+    type: 'DELETE_RECIPE',
+    payload: deleteThisRecipe(recipeId, token)
+  };
+};
+
+function deleteThisRecipe(recipeId, token) {
+  return fetch(`${API_URL}/api/v1/recipes/${recipeId}`, {
+    mode: 'no-cors',
+    method: 'DELETE',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      token
+    }
+  })
+  .then(res => res.json());
+}
+
 function postFetchRecipe(recipe, token) {
   fetch(`${API_URL}/api/v1/recipes`, {
     mode: 'no-cors',

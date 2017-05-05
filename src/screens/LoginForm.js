@@ -3,7 +3,7 @@ import { Image, View } from 'react-native';
 import  Toast  from 'react-native-simple-toast'
 import { bindActionCreators } from 'redux';
 import Auth0Lock from 'react-native-lock';
-import { ActionsContainer, Button } from 'react-native-clean-form';
+// import { ActionsContainer, Button } from 'react-native-clean-form';
 import { connect } from 'react-redux';
 import {
     Button,
@@ -25,8 +25,8 @@ class LogInForm extends Component {
       tabBarIcon: ({ tintColor }) => (
        <Icon name='log-in' />
      ),
-     title: 'Login',
-       activeTintColor: 'green';
+       title: 'Login',
+       activeTintColor: 'green'
      }
   };
 
@@ -87,7 +87,7 @@ class LogInForm extends Component {
                             <Input
                               label='Email'
                               placeholder="Enter Email"
-                              value={this.props.email}
+                              value={email}
                               onChangeText={(...args) => this.onEmailChange(...args)}
                               keyboardType='email-address'
                               autoCapitalize='none'
@@ -99,12 +99,12 @@ class LogInForm extends Component {
                               secureTextEntry
                               label='Password'
                               placeholder="Enter Password"
-                              value={this.props.password}
+                              value={password}
                               onChangeText={this.onPasswordChange.bind(this)}
                             />
                         </Item>
                           {loading && <Spinner color='#6a5acd' />}
-                        <Button block style={style.buttonContainerLeft} onPress={() => this.onButtonPress()}>
+                        <Button block style={styles.buttonContainerLeft} onPress={() => this.onButtonPress()}>
                             <Text>Login</Text>
                         </Button>
                         <Button block style={styles.buttongContainerRight} onPress={() => this.auth()}>

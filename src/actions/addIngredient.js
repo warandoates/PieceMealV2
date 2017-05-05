@@ -59,8 +59,6 @@ export const updateIngredient = (ingredient, props) => {
 };
 
 function putIngredient(ingredient, props) {
-  console.log('this is edit submission object', ingredient);
-  console.log('this is edit props object', props);
   if (ingredient.tags) {
     ingredient.tags.split(' ');
   }
@@ -82,5 +80,4 @@ function putIngredient(ingredient, props) {
   })
   .then(res => res.json())
   .then(res => res);
-  // .catch(err => console.error(err));
 }
