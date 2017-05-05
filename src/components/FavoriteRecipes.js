@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Image, ListView, TouchableHighlight, TouchableWithoutFeedback, TouchableNativeFeedback, TouchableOpacity } from 'react-native';
-import { bindActionCreators } from 'redux';
+import { ListView, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Icon, View, DeckSwiper, Card, CardItem, Thumbnail, Text, Right, Body } from 'native-base';
-import space_rockets from '../assets/space_rockets.jpg';
+import { Container, Icon, View, Card, CardItem, Thumbnail, Text, Right } from 'native-base';
 import { getFavoriteRecipes } from '../actions/recipes';
 import RecipeModal from '../components/RecipeModal';
-require('../assets/space_rockets.jpg')
+import iceCream from '../assets/food/ice-cream.jpg';
 
 // const cards = [
 //     {
@@ -25,50 +23,13 @@ class FavoriteRecipes extends Component {
        this.dataSource = ds.cloneWithRows(this.props.recipes);
    }
 
-
-      //  <View>
-      //      <DeckSwiper
-      //          dataSource={this.props.recipes}
-      //          renderItem={item =>
-      //              // <Card style={{ elevation: 3 }}>
-      //              //     <CardItem>
-      //              //         <Left>
-      //              //             <Thumbnail source={require('../assets/space_rockets.jpg')} />
-      //              //             <Body>
-      //              //                 <Text>{item.name}</Text>
-      //              //                 <Text note>NativeBase</Text>
-      //              //             </Body>
-      //              //         </Left>
-      //              //     </CardItem>
-      //              //     <CardItem cardBody>
-      //              //         <Image style={{ resizeMode: 'cover', width: '99%' }} source={require('../assets/space_rockets.jpg')} />
-      //              //     </CardItem>
-      //              //     <CardItem>
-      //              //         <Icon name="heart" style={{ color: '#ED4A6A' }} />
-      //              //         <Text>{item.description}</Text>
-      //              //     </CardItem>
-      //              // </Card>
-      //              <Card>
-      //                <CardItem>
-      //                    {/* <Icon active name="logo-googleplus" /> */}
-      //                    <Thumbnail source={require('../assets/space_rockets.jpg')} />
-      //                    <Text>{item.name}</Text>
-      //                    <Right>
-      //                    <Icon name="arrow-forward" />
-      //                    </Right>
-      //                  </CardItem>
-      //              </Card>
-      //          }
-      //      />
-      //  </View>
-
-
   state = {
     modalVisible: false,
+    name: '',
+    description: ''
   }
 
   setModalVisible(visible) {
-    console.log('this was pressed');
     this.setState({ modalVisible: visible });
   }
 
@@ -76,12 +37,14 @@ class FavoriteRecipes extends Component {
     return (
         <Card>
           <TouchableOpacity onPress={() => {
-            this.setModalVisible(true)
+            this.state.name = rowData.name;
+            this.state.description = rowData.description;
+            this.setModalVisible(true);
           }}>
-          <CardItem>
+            <CardItem>
               {/* <Icon active name="logo-googleplus" /> */}
-              <Thumbnail source={require('../assets/space_rockets.jpg')} />
-              <Text style={{ alignSelf: 'center', marginLeft: 25}}>{ rowData.name }</Text>
+              <Thumbnail source={iceCream} />
+              <Text style={{ alignSelf: 'center', marginLeft: 25 }}>{ rowData.name }</Text>
               <Right>
               <Icon name="arrow-forward" />
               </Right>
@@ -96,7 +59,12 @@ class FavoriteRecipes extends Component {
 
         return (
             <Container>
-              <RecipeModal visible={this.state.modalVisible} setModalVisible={this.setModalVisible.bind(this)} />
+              <RecipeModal
+                visible={this.state.modalVisible}
+                setModalVisible={this.setModalVisible.bind(this)}
+                name={this.state.name}
+                description={this.state.description}
+              />
                 <View>
                   <ListView
                     dataSource={this.dataSource}
