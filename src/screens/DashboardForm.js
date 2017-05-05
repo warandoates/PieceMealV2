@@ -22,22 +22,23 @@ export default class TableExample extends Component {
   render() {
     return (
       <Container>
-        <Header hasTabs />
-        <Tabs renderTabBar={() => <ScrollableTab />}>
-          <Tab heading="Profile">
+        {/* <Header hasTabs /> */}
+        {/* <Tabs renderTabBar={() => <ScrollableTab />}> */}
+        <Tabs locked>
+          <Tab heading="Profile" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
             <Profile />
           </Tab>
-          <Tab heading="Statistics">
+          <Tab heading="Statistics" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
             <Charts />
           </Tab>
-          <Tab heading="Ingredients">
+          <Tab heading="Ingredients" textStyle={{ fontSize: 11 }} activeTextStyle={{ fontSize: 10 }}>
             {/* <FavoriteIngredients /> */}
           </Tab>
-          <Tab heading="Recipes">
+          <Tab heading="Recipes" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
             {/* <Tab2 /> */}
-            {/* <FavoriteRecipes /> */}
+            <FavoriteRecipes />
           </Tab>
-          <Tab heading="Friends">
+          <Tab heading="Friends" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
             {/* <Tab2 /> */}
           </Tab>
         </Tabs>
