@@ -1,3 +1,5 @@
+import { API_URL } from '../config/api';
+
 export const emailChanged = (text) => {
   return {
     type: 'EMAIL_CHANGE',
@@ -19,6 +21,13 @@ export const loginUser = ({ email, password }) => {
   };
 };
 
+export const loginUserOAuth = (token) => {
+  return {
+    type: 'LOGIN_USER',
+    payload: loginOAuth(token)
+  };
+};
+
 export const logoutUser = () => {
   return {
     type: 'LOGOUT_USER',
@@ -27,7 +36,7 @@ export const logoutUser = () => {
 };
 
 function login(email, password) {
-  return fetch(`https://piecemeal-api.herokuapp.com/api/v1/token`, {
+  return fetch(`${API_URL}/api/v1/token`, {
         mode: 'no-cors',
         method: 'POST',
         headers: {
@@ -40,10 +49,27 @@ function login(email, password) {
         })
     })
     .then((res) => {
-      // console.log('this is login res', res);
       if (res.status === 400) {
         return res.status;
       }
       return res.json();
     });
+  }
+
+  function loginOAuth(token) {
+    console.log("token", token);
+    return fetch(`${API_URL}/api/v1/tokenOAuth`, {
+          mode: 'no-cors',
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            idToken: token.idToken
+          })
+      })
+      .then((res) => {
+        return res.json();
+      });
   }

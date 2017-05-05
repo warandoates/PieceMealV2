@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Image, View } from 'react-native';
-import Toast from 'react-native-simple-toast';
+import  Toast  from 'react-native-simple-toast'
 import { bindActionCreators } from 'redux';
 import Auth0Lock from 'react-native-lock';
-// import { ActionsContainer, Button } from 'react-native-clean-form';
+import { ActionsContainer, Button } from 'react-native-clean-form';
 import { connect } from 'react-redux';
 import {
     Button,
@@ -16,7 +16,7 @@ import {
     Spinner,
     Text,
 } from 'native-base';
-import { emailChanged, passwordChanged, loginUser, logoutUser } from '../actions/login';
+import { emailChanged, passwordChanged, loginUser, loginUserOAuth, logoutUser } from '../actions/login';
 
 
 class LogInForm extends Component {
@@ -26,6 +26,8 @@ class LogInForm extends Component {
        <Icon name='log-in' />
      ),
      title: 'Login',
+       activeTintColor: 'green';
+     }
    };
   };
 
@@ -42,11 +44,9 @@ class LogInForm extends Component {
       if (!email) {
         return Toast.show('Email is required', Toast.SHORT);
       }
-
       if (!password) {
         return Toast.show('Password is required', Toast.SHORT);
       }
-
       this.props.loginUser({ email, password })
         .then(() => {
           if (this.props.user === 400) {
@@ -55,7 +55,6 @@ class LogInForm extends Component {
           return this.props.navigation.navigate('Dashboard');
         });
     }
-
 
     onLogout() {
       this.props.logoutUser();
@@ -73,11 +72,10 @@ class LogInForm extends Component {
         if (err) {
           console.log(err);
           return;
-      }
-
-      console.log('logged in!!!!', profile, token, options);
-    });
-  }
+        }
+        this.props.loginUserOAuth(token);
+      });
+    }
 
     render() {
       const { user, email, password, loading } = this.props;
@@ -87,33 +85,33 @@ class LogInForm extends Component {
               <Image style={styles.containerStyle} source={require('../assets/appBackgound.png')}>
                 <Content>
                     <Form>
-                      <Item underline style={{ marginLeft: 15, marginRight: 25, marginBottom: 25, marginTop: 125 }}>
-                          <Input
-                            label='Email'
-                            placeholder="Enter Email"
-                            value={email}
-                            onChangeText={(...args) => this.onEmailChange(...args)}
-                            keyboardType='email-address'
-                            autoCapitalize='none'
-                            autoCorrect={false}
-                          />
-                      </Item>
-                      <Item underline last >
-                          <Input
-                            secureTextEntry
-                            label='Password'
-                            placeholder="Enter Password"
-                            value={password}
-                            onChangeText={this.onPasswordChange.bind(this)}
-                          />
-                      </Item>
-                      {loading && <Spinner color='#6a5acd' />}
-                      <Button block style={styles.buttonContainerLeft} onPress={() => this.onButtonPress()}>
-                          <Text>Login</Text>
-                      </Button>
-                      <Button block style={styles.buttonContainerRight} onPress={this.auth}>
-                        <Text>Sign In with Facebook</Text>
-                      </Button>
+                        <Item underline style={{ marginLeft: 15, marginRight: 25, marginBottom: 25, marginTop: 125 }}>
+                            <Input
+                              label='Email'
+                              placeholder="Enter Email"
+                              value={this.props.email}
+                              onChangeText={(...args) => this.onEmailChange(...args)}
+                              keyboardType='email-address'
+                              autoCapitalize='none'
+                              autoCorrect={false}
+                            />
+                        </Item>
+                        <Item underline last>
+                            <Input
+                              secureTextEntry
+                              label='Password'
+                              placeholder="Enter Password"
+                              value={this.props.password}
+                              onChangeText={this.onPasswordChange.bind(this)}
+                            />
+                        </Item>
+                          {loading && <Spinner color='#6a5acd' />}
+                        <Button block style={style.buttonContainerLeft} onPress={() => this.onButtonPress()}>
+                            <Text>Login</Text>
+                        </Button>
+                        <Button block style={styles.buttongContainerRight} onPress={() => this.auth()}>
+                          <Text>Sign In with Facebook</Text>
+                        </Button>
                     </Form>
                 </Content>
               </Image>
@@ -149,7 +147,7 @@ const styles = {
   container: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center', 
     justifyContent: 'center',
   },
   buttonContainerLeft: {
@@ -180,7 +178,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ emailChanged, passwordChanged, loginUser, logoutUser }, dispatch);
+  return bindActionCreators(
+    { emailChanged, passwordChanged, loginUser, loginUserOAuth, logoutUser },
+    dispatch);
 };
 
 // export default connect(null, { emailChanged })(LogInForm);
