@@ -9,18 +9,15 @@ const ingredientsResults = (state = INITIAL_STATE, action) => {
     return { ...state, isFetching: true };
     case 'GET_INGREDIENT_RESULTS_FULFILLED':
       return { ...state, ingredients: action.payload.ingredients, isFetching: false };
-    case 'POST_INGREDIENT':
-    console.log('i get here');
-      return { ...state, success: true, isFetching: false, response: action.payload };
+
     case 'POST_INGREDIENT_PENDING':
-    console.log('i get here and its pending');
       return { ...state, success: false, isFetching: true, };
     case 'POST_INGREDIENT_FULFILLED':
-    console.log('i get here and its fulfilled', action.payload);
+    console.log('this is the payload', action.payload);
       return { ...state, success: true, isFetching: false, response: action.payload };
     case 'POST_INGREDIENT_REJECTED':
-    console.log('i get here and its rejected');
       return { ...state, success: false, isFetching: false, response: action.payload };
+
     case 'DELETE_INGREDIENT':
       return { ...state, response: action.payload };
     case 'PUT_INGREDIENT_FULFILLED':

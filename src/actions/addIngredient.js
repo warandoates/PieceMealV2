@@ -7,6 +7,10 @@ export const postIngredient = (ingredient, token) => {
 };
 
 function postFetchIngredient(ingredient, token) {
+  let arrTags = [];
+  if (ingredient.tags) {
+    arrTags = ingredient.tags.split(' ');
+  }
   return fetch('https://piecemeal-api.herokuapp.com/api/v1/ingredients', {
         mode: 'no-cors',
         method: 'POST',
@@ -18,12 +22,12 @@ function postFetchIngredient(ingredient, token) {
         body: JSON.stringify({
           name: ingredient.name,
           description: ingredient.description,
-          tags: ingredient.tags.split(' '),
+          tags: arrTags,
           alternatives: ingredient.alternatives,
           image_url: ingredient.photos
         })
     })
-    // .then(res => res.json());
+    .then(res => res.json());
 }
 
 export const deleteIngredient = (ingredientId, token) => {
@@ -56,8 +60,8 @@ export const updateIngredient = (ingredient, props) => {
 function putIngredient(ingredient, props) {
   console.log('this is edit submission object', ingredient);
   console.log('this is edit props object', props);
-  if (!ingredient.tags) {
-    ingredient.tags = 'tag'
+  if (ingredient.tags) {
+    ingredient.tags.split(' ');
   }
   return fetch(`https://piecemeal-api.herokuapp.com/api/v1/ingredients/${props.navigation.state.params.id}`, {
     mode: 'no-cors',
@@ -70,7 +74,7 @@ function putIngredient(ingredient, props) {
     body: JSON.stringify({
       name: ingredient.name,
       description: ingredient.description,
-      tags: ingredient.tags.split(' '),
+      tags: ingredient.tags,
       alternatives: ingredient.alternatives,
       image_url: ingredient.photos
     })
