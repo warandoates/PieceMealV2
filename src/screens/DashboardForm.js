@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { Container, Content, Header, Icon, ScrollableTab, Tab, Tabs } from 'native-base';
+import {
+  Container,
+  Content,
+  Header,
+  Icon,
+  ScrollableTab,
+  Tab,
+  Tabs
+} from 'native-base';
 import Profile from '../components/Profile';
 import Charts from '../components/Charts';
 import FavoriteRecipes from '../components/FavoriteRecipes';
@@ -7,34 +15,34 @@ import FavoriteRecipes from '../components/FavoriteRecipes';
 export default class TableExample extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      tabBarIcon: ({ tintColor }) => (
-       <Icon name='paper' />
-      )
+      tabBarIcon: ({ tintColor }) => (<Icon name='paper' />)
     };
   };
 
   render() {
     return (
       <Container>
-       <Header hasTabs />
-       <Tabs renderTabBar={() => <ScrollableTab />}>
-         <Tab heading="Profile">
-             <Profile />
-         </Tab>
-         <Tab heading="Statistics">
-             <Charts />
-         </Tab>
-         <Tab heading="Ingredients">
-             <FavoriteRecipes />
-         </Tab>
-         <Tab heading="Recipes">
-             {/* <Tab2 /> */}
-         </Tab>
-         <Tab heading="Friends">
-             {/* <Tab2 /> */}
-         </Tab>
-       </Tabs>
-       </Container>
-     );
+        {/* <Header hasTabs /> */}
+        {/* <Tabs renderTabBar={() => <ScrollableTab />}> */}
+        <Tabs locked>
+          <Tab heading="Profile" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
+            <Profile />
+          </Tab>
+          <Tab heading="Statistics" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
+            <Charts />
+          </Tab>
+          <Tab heading="Ingredients" textStyle={{ fontSize: 11 }} activeTextStyle={{ fontSize: 10 }}>
+            {/* <FavoriteIngredients /> */}
+          </Tab>
+          <Tab heading="Recipes" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
+            {/* <Tab2 /> */}
+            <FavoriteRecipes />
+          </Tab>
+          <Tab heading="Friends" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
+            {/* <Tab2 /> */}
+          </Tab>
+        </Tabs>
+      </Container>
+    );
   }
 }

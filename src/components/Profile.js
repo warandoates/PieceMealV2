@@ -16,9 +16,8 @@ import {
 } from 'native-base';
 import TagInput from 'react-native-tag-input';
 import Tags from 'react-native-tags';
-// import daniel_profile from '../assets/daniel_profile.jpg';
 import pam_profile from '../assets/pam_profile.png';
-// import comet_in_space from '../assets/comet_in_space.jpg';
+import sliders from '../assets/food/sliders.jpg';
 import comet_in_space from '../assets/comet_in_space_3.jpg';
 import { restrictionsChange, changeRestrictions, userChange } from '../actions/client';
 import CheckBoxExample from './RestrictedIngredients'
@@ -50,36 +49,6 @@ class Profile extends Component {
             <Container>
               <Image style={styles.containerStyle} source={require('../assets/appBackgound.png')}>
                 <Content style={{ alignSelf: 'stretch' }}>
-                    {/* <Card >
-                        <CardItem>
-                            <Left>
-                                <Thumbnail source={pam_profile} />
-                                <Body>
-                                    <Text>Pam Mangan</Text>
-                                    <Text note>User</Text>
-                                </Body>
-                            </Left>
-                          </CardItem>
-                          <CardItem cardBody>
-                              <Image />
-                          </CardItem>
-                          <CardItem content>
-                              <Text>Wait a minute. Wait a minute, Doc. Uhhh...
-                              Are you telling me that you built a time machine... out of a DeLorean?!
-                              Whoa. This is heavy.</Text>
-                          </CardItem>
-                          <CardItem>
-                              <Button transparent>
-                                  <Icon active name="thumbs-up" />
-                                  <Text>12 Likes</Text>
-                              </Button>
-                              <Button transparent>
-                                  <Icon active name="chatbubbles" />
-                                  <Text>4 Comments</Text>
-                              </Button>
-                              <Text>11h ago</Text>
-                        </CardItem>
-                    </Card> */}
                     <Card style={{
                         flex: 0
                     }}>
@@ -95,7 +64,7 @@ class Profile extends Component {
                         <CardItem>
                             <Body>
                                 <Image
-                                  style={{ resizeMode: 'contain' }} source={comet_in_space}/>
+                                  style={{ resizeMode: 'contain' }} source={sliders}/>
                                 <Text style={{ marginTop: 20}}>
                                     Provide campaign strategy for leading non profit crowdfunding campaigns.
                                     Some recent organizations I have worked with include:
@@ -109,18 +78,6 @@ class Profile extends Component {
                                 </Button>
                             </Body>
                         </CardItem>
-                        {/* <CardItem>
-                            <Body>
-                                <Tags
-                                  initialText=""
-                                  initialTags={['dog', 'cat', 'chicken']}
-                                  onChangeTags={() => testd}
-                                  onTagPress={(index, tagLabel, event) => console.log(index, tagLabel, event)}
-                                  inputStyle={{ backgroundColor: 'white' }}
-                                  enqueueCallback={this.testd()}
-                                />
-                            </Body>
-                        </CardItem> */}
                     </Card>
                     <CheckBoxExample list={this.props.restrictions} />
                 </Content>
@@ -144,8 +101,8 @@ const styles = {
 
 const mapStateToProps = (state) => {
     return {
-        client: state.clientReducer,
-        restrictions: state.clientReducer.restrictions,
+        client: state.clientReducer.client,
+        restrictions: state.clientReducer.client.restrictions,
         user: state.loginReducer.user
     };
 };

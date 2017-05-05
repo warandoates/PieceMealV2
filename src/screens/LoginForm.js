@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Image, View } from 'react-native';
-import  Toast  from 'react-native-simple-toast'
+import Toast from 'react-native-simple-toast'
 import { bindActionCreators } from 'redux';
 import Auth0Lock from 'react-native-lock';
-// import { ActionsContainer, Button } from 'react-native-clean-form';
 import { connect } from 'react-redux';
 import {
     Button,
@@ -25,8 +24,7 @@ class LogInForm extends Component {
       tabBarIcon: ({ tintColor }) => (
        <Icon name='log-in' />
      ),
-     title: 'Login',
-      //  activeTintColor: 'green';
+     title: 'Login'
     };
    };
 
@@ -85,7 +83,7 @@ class LogInForm extends Component {
               <Image style={styles.containerStyle} source={require('../assets/appBackgound.png')}>
                 <Content>
                     <Form>
-                        <Item underline style={{ marginLeft: 15, marginRight: 25, marginBottom: 25, marginTop: 125 }}>
+                        <Item underline style={{ marginLeft: 15, marginRight: 20, marginBottom: 20, marginTop: 125 }}>
                             <Input
                               label='Email'
                               placeholder="Enter Email"
