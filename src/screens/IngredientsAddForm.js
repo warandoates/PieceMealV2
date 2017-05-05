@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
+// import { Toast, Text } from 'react-native';
+import Toast from 'react-native-simple-toast';
 import { connect } from 'react-redux';
 import {
   ActionsContainer,
@@ -13,11 +15,21 @@ import { postIngredient } from '../actions/addIngredient';
 
 class AddIngredientForm extends Component {
   onSubmit(ingredient) {
-    return this.props.postIngredient(ingredient, this.props.token);
+    return this.props.postIngredient(ingredient, this.props.token)
+    .then((res) => {
+      if (res.value.message === 'Ingredient already exists!') {
+        return Toast.show(res.value.message, Toast.SHORT);
+      }
+      return Toast.show('Successfully Added Ingredient');
+    })
+    .then(() => {
+      if (this.props.response !== 'Ingredient already exists!') {
+      return this.props.navigation.navigate('ingredients');
+      }
+    });
   }
 
   render() {
-    console.log('this is the add props', this.props);
     const { handleSubmit, submitting } = this.props;
     return (
       <Form>
@@ -42,11 +54,11 @@ class AddIngredientForm extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     token: state.loginReducer.user.token,
     success: state.ingredientResults.success,
-    response: state.ingredientResults.response
+    response: state.ingredientResults.response.message
   };
 };
 
