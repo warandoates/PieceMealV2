@@ -29,16 +29,17 @@ import {
 } from '../actions/signup';
 
 class SignupForm extends Component {
-  static navigationOptions = ({ navigation, header }) => ({
-    title: 'Sign Up',
-    mode: 'modal'
-  });
+  // static navigationOptions = ({ navigation, header }) => ({
+  //   title: 'Sign Up',
+  //   mode: 'modal'
+  // });
 
     static navigationOptions = ({ navigation }) => {
       return {
         tabBarIcon: ({ tintColor }) => (
          <Icon name='person-add' />
-        )
+       ),
+       title: 'Sign Up'
       };
     };
 
@@ -131,39 +132,14 @@ class SignupForm extends Component {
                         </Item>
                           {this.props.loading && <Spinner />}
                         <Button
-                          style={{ marginLeft: 100, marginRight: 100, marginBottom: 25, marginTop: 20, width: '50%' }}
+                          style={styles.buttonStyle}
                           name="email" block padder
                           onPress={() => this.onButtonPress()}>
                           <Icon name='send' />
                             <Text>Sign Up With Email</Text>
                         </Button>
                     </Form>
-                    <View style={{flex: 1, flexDirection: 'row'}}>
-                      <View>
-                        <Button name="facebook" style={{ ...styles.buttonStyle, backgroundColor: "#3b5998" }} onPress={this.loginWithFacebook}>
-                          <Icon name='logo-facebook' />
-                          {/* <Text>Login with Facebook</Text> */}
-                        </Button>
-                      </View>
-                      <View>
-                        <Button name="twitter" style={{ ...styles.buttonStyle, backgroundColor: "#00aced" }} onPress={this.loginWithTwitter}>
-                          <Icon name='logo-twitter' />
-                          {/* <Text>Login with Twitter</Text> */}
-                        </Button>
-                      </View>
-                      <View>
-                        <Button name="github" style={{ ...styles.buttonStyle, backgroundColor: "#f5f5f5" }} onPress={this.loginWithGitHub}>
-                          <Icon name='logo-github' style={{ color: "#000000" }} />
-                          {/* <Text style={{ fontFamily: 'Arial', fontSize: 15, color: "#000000" }}>Login with GitHub</Text> */}
-                        </Button>
-                      </View>
-                      <View>
-                        <Button name="google" style={{ ...styles.buttonStyle, backgroundColor: "#dd4b39" }} onPress={this.loginWithGoogle}>
-                          <Icon name='logo-google' />
-                          {/* <Text>Login with Google</Text> */}
-                        </Button>
-                      </View>
-                    </View>
+
                 </Content>
               </Image>
             </Container>
@@ -181,10 +157,12 @@ const styles = {
     alignItems: 'center',
   },
   buttonStyle: {
-    marginLeft: 20,
-    marginRight: 20,
-    marginBottom: 0,
-    marginTop: 20
+    marginLeft: 100,
+    marginRight: 100,
+    marginBottom: 25,
+    marginTop: 20,
+    width: '50%',
+    backgroundColor: '#73ab00'
   }
 };
 
@@ -209,5 +187,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-// export default connect(null, { emailChanged })(LogInForm);
 export default connect(mapStateToProps, { firstNameChange, lastNameChange, emailChange, passwordChange, confirmChange, signupUser })(SignupForm);
