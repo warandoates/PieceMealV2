@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ListView, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Icon, View, Card, CardItem, Thumbnail, Text, Right } from 'native-base';
+import { Container, Content, Icon, View, Card, CardItem, Thumbnail, Text, Right } from 'native-base';
 import { getFavoriteRecipes } from '../actions/recipes';
 import RecipeModal from '../components/RecipeModal';
 import iceCream from '../assets/food/ice-cream.jpg';
@@ -67,11 +67,13 @@ class FavoriteRecipes extends Component {
 
         return (
             <Container>
+              <Content>
               <RecipeModal
                 visible={this.state.modalVisible}
                 setModalVisible={this.setModalVisible.bind(this)}
                 name={this.state.name}
                 description={this.state.description}
+                notes={this.state.notes}
                 image={this.state.image}
               />
                 <View>
@@ -81,6 +83,7 @@ class FavoriteRecipes extends Component {
                     // enableEmptySections={true}
                   />
                 </View>
+              </Content>
             </Container>
         );
     }

@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -88,6 +87,12 @@
 		F1CE8D22C0504795BE78CFEB /* Arial Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25CF06E02FE040BDAD3AB2BA /* Arial Black.ttf */; };
 		F6932BAC3D6545F7B447E248 /* Georgia.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCCD1D6C97C647429BAC815E /* Georgia.ttf */; };
 		F98B085B86E44216A66525ED /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDF5159DE3C54B529432C4A5 /* FontAwesome.ttf */; };
+		A5FF69CFAD974E16A3140703 /* Bariol_Regular_Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7373E445680B4A859FF0121D /* Bariol_Regular_Italic.otf */; };
+		3459C4E4C83D4E1F8E0348C6 /* Bariol_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1B6E1B8F2F2F4BBBB0983E30 /* Bariol_Regular.otf */; };
+		03F6B539F1B1404D903ED4AE /* BariolRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 903B487F41D542CFAD203A3B /* BariolRegular.otf */; };
+		D6C33FDE714B4920940563CA /* BariolRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C78DB305DC1C488BBB9F7FCF /* BariolRegular.ttf */; };
+		F949DC5789374A428E2B71CB /* BariolRegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E61E021101F43DC8A5B0142 /* BariolRegularItalic.otf */; };
+		485EA23C837548D0AC5C29A4 /* BariolRegularItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6DC1D83083C4ECA971A3724 /* BariolRegularItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -402,6 +407,12 @@
 		E7EEFB3696B7447380552E88 /* Andale Mono.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Andale Mono.ttf"; path = "../node_modules/native-base/Fonts/Andale Mono.ttf"; sourceTree = "<group>"; };
 		ED3E7AC019A746E09E3D15A7 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		F51417FDFB414D4283F192AE /* libRNSearchBar.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSearchBar.a; sourceTree = "<group>"; };
+		7373E445680B4A859FF0121D /* Bariol_Regular_Italic.otf */ = {isa = PBXFileReference; name = "Bariol_Regular_Italic.otf"; path = "../src/assets/fonts/Bariol-Regular&Italic/Bariol_Regular_Italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1B6E1B8F2F2F4BBBB0983E30 /* Bariol_Regular.otf */ = {isa = PBXFileReference; name = "Bariol_Regular.otf"; path = "../src/assets/fonts/Bariol-Regular&Italic/Bariol_Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		903B487F41D542CFAD203A3B /* BariolRegular.otf */ = {isa = PBXFileReference; name = "BariolRegular.otf"; path = "../src/assets/fonts/Bariol_Regular/BariolRegular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C78DB305DC1C488BBB9F7FCF /* BariolRegular.ttf */ = {isa = PBXFileReference; name = "BariolRegular.ttf"; path = "../src/assets/fonts/Bariol_Regular/BariolRegular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1E61E021101F43DC8A5B0142 /* BariolRegularItalic.otf */ = {isa = PBXFileReference; name = "BariolRegularItalic.otf"; path = "../src/assets/fonts/Bariol_Regular/BariolRegularItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A6DC1D83083C4ECA971A3724 /* BariolRegularItalic.ttf */ = {isa = PBXFileReference; name = "BariolRegularItalic.ttf"; path = "../src/assets/fonts/Bariol_Regular/BariolRegularItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -742,6 +753,12 @@
 				89B4338A26144F3AB3E9E4BD /* SimpleLineIcons.ttf */,
 				E47EF622ED964069A7206DB7 /* Zocial.ttf */,
 				6DE8BB7BDB0942E9B14C0E4F /* OFL.txt */,
+				7373E445680B4A859FF0121D /* Bariol_Regular_Italic.otf */,
+				1B6E1B8F2F2F4BBBB0983E30 /* Bariol_Regular.otf */,
+				903B487F41D542CFAD203A3B /* BariolRegular.otf */,
+				C78DB305DC1C488BBB9F7FCF /* BariolRegular.ttf */,
+				1E61E021101F43DC8A5B0142 /* BariolRegularItalic.otf */,
+				A6DC1D83083C4ECA971A3724 /* BariolRegularItalic.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1218,6 +1235,12 @@
 				31D7667A6A274C8F81C8CC9D /* SimpleLineIcons.ttf in Resources */,
 				B4B67AB21F1B4BC88A0307D2 /* Zocial.ttf in Resources */,
 				D946131BFB8045DC9DE50FDF /* OFL.txt in Resources */,
+				A5FF69CFAD974E16A3140703 /* Bariol_Regular_Italic.otf in Resources */,
+				3459C4E4C83D4E1F8E0348C6 /* Bariol_Regular.otf in Resources */,
+				03F6B539F1B1404D903ED4AE /* BariolRegular.otf in Resources */,
+				D6C33FDE714B4920940563CA /* BariolRegular.ttf in Resources */,
+				F949DC5789374A428E2B71CB /* BariolRegularItalic.otf in Resources */,
+				485EA23C837548D0AC5C29A4 /* BariolRegularItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
