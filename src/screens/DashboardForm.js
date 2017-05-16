@@ -13,11 +13,9 @@ import Charts from '../components/Charts';
 import FavoriteRecipes from '../components/FavoriteRecipes';
 
 export default class TableExample extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
+  static navigationOptions = ({ navigation }) => ({
       tabBarIcon: ({ tintColor }) => (<Icon name='paper' />)
-    };
-  };
+    });
 
   render() {
     return (
