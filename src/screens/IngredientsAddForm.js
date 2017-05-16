@@ -54,13 +54,11 @@ class AddIngredientForm extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = (state) => ({
     token: state.loginReducer.user.token,
     success: state.ingredientResults.success,
     response: state.ingredientResults.response.message
-  };
-};
+  });
 
 export default connect(mapStateToProps, { postIngredient })(reduxForm({
   form: 'ingredients'

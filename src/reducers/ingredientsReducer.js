@@ -1,6 +1,7 @@
 
 const INITIAL_STATE = { ingredients: [{}], success: false, response: {} };
 
+
 const ingredientsResults = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'GET_INGREDIENT_RESULTS_REJECTED':
