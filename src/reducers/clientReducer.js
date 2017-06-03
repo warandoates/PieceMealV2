@@ -1,24 +1,30 @@
 const INITIAL_STATE = {
-  'client': {
-  'id': 0,
-  'first_name': '',
-  'last_name': '',
-  'email': '',
-  'recipes': [],
-  'restrictions': [],
-}
+  client: {
+    id: 0,
+    first_name: '',
+    last_name: '',
+    email: '',
+    recipes: [],
+    restrictions: []
+  },
+  loading: false
 
 };
 
-export default (state = INITIAL_STATE.client, action) => {
+export default(state = INITIAL_STATE, action) => {
+
   switch (action.type) {
+
     case 'GET_CLIENT_PENDING':
-      return INITIAL_STATE.client;
+      return { ...state, loading: true };
+
     case 'GET_CLIENT_FULFILLED':
       if (action.payload === 'Not Logged In') {
-          return INITIAL_STATE.client;
+        return INITIAL_STATE;
       }
-      return action.payload;
+      console.log('payload:', action.payload);
+      return { ...state, client: action.payload, loading: false };
+
     case 'GET_CLIENT_REJECTED':
       return {
         ...state,
@@ -26,9 +32,11 @@ export default (state = INITIAL_STATE.client, action) => {
         error: 'Unable To Fetch Client',
         client: INITIAL_STATE.client
       };
+
     case 'UPDATE_RESTRICTIONS':
-      return action.payload;
+      return { ...state, client: action.payload };
+
     default:
-     return state;
+      return state;
   }
 };
