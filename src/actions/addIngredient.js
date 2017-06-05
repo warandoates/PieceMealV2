@@ -27,8 +27,7 @@ function postFetchIngredient(ingredient, token) {
           alternatives: ingredient.alternatives,
           image_url: ingredient.photos
         })
-    })
-    .then(res => res.json());
+    });
 }
 
 export const deleteIngredient = (ingredientId, token) => {
@@ -48,8 +47,7 @@ function deleteThisIngredient(ingredientId, token) {
       'Content-Type': 'application/json',
       token
     }
-  })
-  .then(res => res.json());
+  });
 }
 
 export const updateIngredient = (ingredient, props) => {
@@ -80,8 +78,5 @@ function putIngredient(ingredient, props) {
       alternatives: ingredient.alternatives,
       image_url: ingredient.photos
     })
-  })
-  .then(res => res.json())
-  .then(res => res);
-  // .catch(err => console.error(err));
+  });
 }

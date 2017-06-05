@@ -1,7 +1,7 @@
 
 const INITIAL_STATE = { ingredients: [{}], success: false, response: {} };
 
-const ingredientsResults = (state = INITIAL_STATE, action) => {
+const ingredients = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'GET_INGREDIENT_RESULTS_REJECTED':
       return { ...state, isFetching: false, error: 'Unable To Add Ingredient' };
@@ -32,4 +32,4 @@ const ingredientsResults = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default ingredientsResults;
+export default ingredients;
