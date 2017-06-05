@@ -41,7 +41,7 @@ class IngredientResultsList extends Component {
   };
 
   componentDidMount() {
-    return this.props.getAllIngredients();
+    return this.props.getIngredients();
   }
 
   loadDataSource() {
@@ -58,7 +58,6 @@ class IngredientResultsList extends Component {
 
 
     render() {
-      // this.props.getAllIngredients()
       this.loadDataSource();
         return (
           <View style={{ flex: 1 }}>
@@ -72,14 +71,14 @@ class IngredientResultsList extends Component {
         );
     }
 }
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getAllIngredients: () => {
-      dispatch(getIngredients());
-    }
-  };
-};
+//
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     getIngredients: () => {
+//       dispatch(getIngredients());
+//     }
+//   };
+// };
 
 const mapStateToProps = (state) => {
     return {
@@ -89,4 +88,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(IngredientResultsList);
+export default connect(mapStateToProps, { getIngredients })(IngredientResultsList);

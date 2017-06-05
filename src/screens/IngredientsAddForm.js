@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
-// import { Toast, Text } from 'react-native';
 import Toast from 'react-native-simple-toast';
 import { connect } from 'react-redux';
 import {
