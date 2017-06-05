@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ListView, View } from 'react-native';
 import { Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
-import IngredientItem from '../components/IngredientItem';
+import IngredientItem from '../components/Ingredient/IngredientItem';
 import { getIngredients } from '../actions/index';
 
 

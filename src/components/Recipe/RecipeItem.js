@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TouchableWithoutFeedback, View, LayoutAnimation } from 'react-native';
 import { connect } from 'react-redux';
 import { CardItem, Text, Badge } from 'native-base';
-import { selectRecipe } from '../actions/index';
+import { selectRecipe } from '../../actions/index';
 
 class RecipeItem extends Component {
   componentWillUpdate() {
@@ -59,14 +59,6 @@ class RecipeItem extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    selectRecipeItem: (recipe) => {
-      dispatch(selectRecipe(recipe));
-    }
-  };
-};
-
 const mapStateToProps = (state, ownProps) => {
   const expanded = state.selectedRecipeId === ownProps.rowData.id;
   return { expanded };
@@ -88,4 +80,4 @@ const styles = {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeItem);
+export default connect(mapStateToProps, { selectRecipe })(RecipeItem);
