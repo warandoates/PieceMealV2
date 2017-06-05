@@ -15,14 +15,6 @@ class GetIngredientsButton extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getAllIngredients: () => {
-      dispatch(getIngredients());
-    }
-  };
-};
-
 const styles = {
   buttonStyle: {
     marginLeft: 5,
@@ -30,5 +22,4 @@ const styles = {
   }
 };
 
-
-export default connect(null, mapDispatchToProps)(GetIngredientsButton);
+export default connect(null, { getIngredients })(GetIngredientsButton);
