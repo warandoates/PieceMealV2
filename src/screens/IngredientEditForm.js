@@ -44,7 +44,7 @@ class IngredientEditForm extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     token: state.loginReducer.user.token,
-    success: state.ingredientResults.success,
+    success: state.ingredients.success,
     initialValues: {
       name: ownProps.navigation.state.params.name,
       description: ownProps.navigation.state.params.description,

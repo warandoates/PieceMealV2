@@ -56,8 +56,8 @@ class AddIngredientForm extends Component {
 const mapStateToProps = (state) => {
   return {
     token: state.loginReducer.user.token,
-    success: state.ingredientResults.success,
-    response: state.ingredientResults.response.message
+    success: state.ingredients.success,
+    response: state.ingredients.response.message
   };
 };
 

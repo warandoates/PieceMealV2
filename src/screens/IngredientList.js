@@ -75,8 +75,8 @@ class IngredientResultsList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-      list: state.ingredientResults.ingredients,
-      isFetching: state.ingredientResults.isFetching,
+      list: state.ingredients.ingredients,
+      isFetching: state.ingredients.isFetching,
       user: state.loginReducer.user
     };
 };
