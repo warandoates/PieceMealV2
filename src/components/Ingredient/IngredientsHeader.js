@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Header, Button, Icon, Title, Body, Right, Left } from 'native-base';
-// import { NavigationActions } from 'react-navigation';
 
 class IngredientHeader extends Component {
 
@@ -9,7 +8,7 @@ class IngredientHeader extends Component {
       <Header>
         <Left />
           <Body>
-              <Title>Recipes</Title>
+              <Title>Ingredients</Title>
           </Body>
           <Right>
             <Button

@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import { ListView, View } from 'react-native';
 import { connect } from 'react-redux';
-import RecipeItem from '../components/RecipeItem';
-import IngredientItem from '../components/IngredientItem';
+import RecipeItem from '../components/Recipe/RecipeItem';
+import IngredientItem from '../components/Ingredient/IngredientItem';
 import {
     Content,
     Card,

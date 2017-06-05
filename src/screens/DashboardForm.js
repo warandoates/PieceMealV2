@@ -10,7 +10,7 @@ import {
 } from 'native-base';
 import Profile from '../components/Profile';
 import Charts from '../components/Charts';
-import FavoriteRecipes from '../components/FavoriteRecipes';
+import FavoriteRecipes from '../components/Recipe/FavoriteRecipes';
 
 export default class TableExample extends Component {
   static navigationOptions = ({ navigation }) => {

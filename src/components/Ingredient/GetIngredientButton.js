@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Text } from 'native-base';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { getIngredients } from '../actions/index';
+import { getIngredients } from '../../actions/index';
 
 // class GetIngredientsButton extends Component {
 //   render() {

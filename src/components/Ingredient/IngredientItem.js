@@ -3,8 +3,8 @@ import { TouchableWithoutFeedback, View, Image, LayoutAnimation } from 'react-na
 import { bindActionCreators } from 'redux';
 import { CardItem, Button, Text, Badge } from 'native-base';
 import { connect } from 'react-redux';
-import { selectIngredient, getIngredients } from '../actions';
-import { deleteIngredient } from '../actions/addIngredient';
+import { selectIngredient, getIngredients } from '../../actions';
+import { deleteIngredient } from '../../actions/addIngredient';
 
 class IngredientItem extends Component {
 
