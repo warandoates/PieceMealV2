@@ -9,19 +9,20 @@ import { getIngredients } from '../actions/index';
 const MyButton = (props) => {
   return (
     <Button
-      onPress={() => {
-        if (props.loggedIn) {
-          props.navigation.navigate('AddIngredient');
-        } else {
-          props.navigation.navigate('logIn');
-        }
-      }}
-      transparent
+        onPress={() => {
+          if (props.loggedIn) {
+            props.navigation.navigate('AddIngredient');
+          } else {
+            props.navigation.navigate('logIn');
+          }
+        }}
+        transparent
     >
-      <Icon name="add" size={35} />
+        <Icon name="add" size={35} />
     </Button>
   );
 };
+
 const ConnectedMyButton = connect((state) => {
   return {
     loggedIn: state.loginReducer.user != null
@@ -71,14 +72,6 @@ class IngredientResultsList extends Component {
         );
     }
 }
-//
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     getIngredients: () => {
-//       dispatch(getIngredients());
-//     }
-//   };
-// };
 
 const mapStateToProps = (state) => {
     return {
