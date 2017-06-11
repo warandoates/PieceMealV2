@@ -55,7 +55,7 @@ export default class SearchResults extends Component {
           <ListView
             dataSource={ds}
             renderRow={this.renderRow}
-            enableEmptySections={true}
+            enableEmptySections
           />
         </View>
       );

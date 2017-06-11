@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { TouchableWithoutFeedback, View, Image, LayoutAnimation } from 'react-native';
 import { connect } from 'react-redux';
 import { CardItem, Button, Text, Card, Badge} from 'native-base';
-import { deleteRecipe } from '../actions/addRecipe';
+// import { deleteRecipe } from '../actions/addRecipe';
 import { selectRecipe } from '../../actions/index';
 
 class RecipeItem extends Component {
