@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { TouchableWithoutFeedback, View, Image, LayoutAnimation } from 'react-native';
 import { connect } from 'react-redux';
-import { CardItem, Button, Text } from 'native-base';
+import { CardItem, Button, Text, Card } from 'native-base';
 import { selectRecipe } from '../actions/index';
 import { deleteRecipe } from '../actions/addRecipe';
 
@@ -61,9 +61,11 @@ class RecipeItem extends Component {
         onPress={() => this.props.selectRecipe(id)}
       >
         <View key={id}>
+          <Card>
           <CardItem style={containerStyle}>
             <Text style={nameStyle}>{name}</Text>
           </CardItem>
+          </Card>
           {this.renderDescription()}
         </View>
       </TouchableWithoutFeedback>
