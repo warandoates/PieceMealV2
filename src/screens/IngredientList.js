@@ -2,26 +2,27 @@ import React, { Component } from 'react';
 import { ListView, View } from 'react-native';
 import { Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
-import IngredientItem from '../components/IngredientItem';
+import IngredientItem from '../components/Ingredient/IngredientItem';
 import { getIngredients } from '../actions/index';
 
 
 const MyButton = (props) => {
   return (
     <Button
-      onPress={() => {
-        if (props.loggedIn) {
-          props.navigation.navigate('AddIngredient');
-        } else {
-          props.navigation.navigate('logIn');
-        }
-      }}
-      transparent
+        onPress={() => {
+          if (props.loggedIn) {
+            props.navigation.navigate('AddIngredient');
+          } else {
+            props.navigation.navigate('logIn');
+          }
+        }}
+        transparent
     >
-      <Icon name="add" size={35} />
+        <Icon name="add" size={35} />
     </Button>
   );
 };
+
 const ConnectedMyButton = connect((state) => {
   return {
     loggedIn: state.loginReducer.user != null
@@ -41,7 +42,7 @@ class IngredientResultsList extends Component {
   };
 
   componentDidMount() {
-    return this.props.getAllIngredients();
+    return this.props.getIngredients();
   }
 
   loadDataSource() {
@@ -58,7 +59,6 @@ class IngredientResultsList extends Component {
 
 
     render() {
-      // this.props.getAllIngredients()
       this.loadDataSource();
         return (
           <View style={{ flex: 1 }}>
@@ -73,20 +73,12 @@ class IngredientResultsList extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getAllIngredients: () => {
-      dispatch(getIngredients());
-    }
-  };
-};
-
 const mapStateToProps = (state) => {
     return {
-      list: state.ingredientResults.ingredients,
-      isFetching: state.ingredientResults.isFetching,
+      list: state.ingredients.ingredients,
+      isFetching: state.ingredients.isFetching,
       user: state.loginReducer.user
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(IngredientResultsList);
+export default connect(mapStateToProps, { getIngredients })(IngredientResultsList);

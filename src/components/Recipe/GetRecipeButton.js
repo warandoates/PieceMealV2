@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Text } from 'native-base';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { getRecipes } from '../actions/index';
+import { getRecipes } from '../../actions/index';
 
 class GetRecipeButton extends Component {
   render() {
     return (
-      <Button onPress={this.props.getAllRecipes}
-              style={styles.buttonStyle} iconLeft>
+      <Button
+        onPress={this.props.getAllRecipes}
+        style={styles.buttonStyle}
+        iconLeft
+      >
         <Icon name='food-variant' size={35} />
         <Text>See All Recipes</Text>
       </Button>
@@ -16,13 +19,13 @@ class GetRecipeButton extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getAllRecipes: () => {
-      dispatch(getRecipes());
-    }
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     getAllRecipes: () => {
+//       dispatch(getRecipes());
+//     }
+//   };
+// };
 
 const styles = {
   buttonStyle: {
@@ -31,4 +34,4 @@ const styles = {
   }
 };
 
-export default connect(null, mapDispatchToProps)(GetRecipeButton);
+export default connect(null, { getRecipes })(GetRecipeButton);

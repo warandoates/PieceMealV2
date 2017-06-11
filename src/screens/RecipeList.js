@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { ListView, View } from 'react-native';
-import { Header, Body, Title, Spinner, Button, Icon } from 'native-base';
+import { Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
-import RecipeItem from '../components/RecipeItem';
+import RecipeItem from '../components/Recipe/RecipeItem';
 import { getRecipes } from '../actions/index';
 
 const MyButton = (props) => {
@@ -62,7 +62,7 @@ class RecipeResultsList extends Component {
           <ListView
             dataSource={this.dataSource}
            renderRow={this.renderRow}
-           enableEmptySections={true}
+           enableEmptySections
           />
          }
         </View>
@@ -78,7 +78,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     list: state.recipeResults.recipes,
     isFetching: state.recipeResults.isFetching,
