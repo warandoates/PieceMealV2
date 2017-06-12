@@ -54,6 +54,26 @@ describe('post Ingredients reducer', () => {
   });
 });
 
-describe('delete ingredients reducers', () => {
-  it('')
+describe('put ingredients reducers', () => {
+  const rejectedAction = { type: 'PUT_INGREDIENT_REJECTED', payload: 'rejected payload' };
+  const pendingAction = { type: 'PUT_INGREDIENT_PENDING'};
+  const fulfilledAction = { type: 'PUT_INGREDIENT_FULFILLED', payload: 'success payload' };
+
+  it('checks isFetching property on state', () => {
+    expect(ingredients(null, rejectedAction)).toMatchObject({ isFetching: false });
+    expect(ingredients(null, pendingAction)).toMatchObject({ isFetching: true });
+    expect(ingredients(null, fulfilledAction)).toMatchObject({ isFetching: false });
+  });
+
+  it('returns correct payload', () => {
+    expect(ingredients(null, fulfilledAction)).toMatchObject({ response: 'success payload' });
+    expect(ingredients(null, rejectedAction)).toMatchObject({ response: 'rejected payload' });
+  });
+});
+
+describe('delete ingredients reducer', () => {
+  const deleteAction = { type: 'DELETE_INGREDIENT', payload: 'deleted test item' };
+  it('returns the correct payload', () => {
+    expect(ingredients(null, deleteAction)).toMatchObject({ response: 'deleted test item' });
+  });
 });
