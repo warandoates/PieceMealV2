@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { CardItem, Button, Text, Badge } from 'native-base';
 import { connect } from 'react-redux';
 import { selectIngredient, getIngredients } from '../../actions';
-import { deleteIngredient } from '../../actions/addIngredient';
+import { deleteIngredient } from '../../actions';
 
 class IngredientItem extends Component {
 
