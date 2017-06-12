@@ -12,8 +12,21 @@ const INITIAL_STATE = {
   loading: false
 };
 
+const NEXT_STATE = {
+  client: {
+    id: 0,
+    first_name: '',
+    last_name: '',
+    email: '',
+    recipes: [],
+    restrictions: []
+  },
+  loading: false
+};
+
 describe('client reducers', () => {
   const pendingAction = { type: 'GET_CLIENT_PENDING' };
+  const rejectedAction = { type: 'GET_CLIENT_REJECTED' };
   const fulfilledActionA = { type: 'GET_CLIENT_FULFILLED', payload: 'Not Logged In'};
   const fulfilledActionB = { type: 'GET_CLIENT_FULFILLED',
     payload: {
@@ -25,10 +38,10 @@ describe('client reducers', () => {
       restrictions: []
     }
   };
-  const rejectedAction = { type: 'GET_CLIENT_REJECTED' };
 
   it('returns the initial state', () => {
     expect(client(INITIAL_STATE, {})).toEqual(INITIAL_STATE);
+    expect((client(INITIAL_STATE, {}) === client(NEXT_STATE, {}))).toBe(false)
   });
 
   it('checks loading property on state', () => {
