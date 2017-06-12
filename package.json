@@ -8,8 +8,10 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
+    "jest-cli": "^20.0.4",
     "module": "^1.2.5",
     "native-base": "^2.1.2",
+    "npm": "^5.0.3",
     "react": "16.0.0-alpha.6",
     "react-native": "0.43.4",
     "react-native-autocomplete-input": "^3.1.2",
@@ -41,6 +43,8 @@
     "preset": "react-native"
   },
   "rnpm": {
-   "assets": ["./src/assets/fonts/Bariol_Regular"]
+    "assets": [
+      "./src/assets/fonts/Bariol_Regular"
+    ]
   }
 }
