@@ -30,14 +30,30 @@ describe('get ingredients reducers', () => {
   });
 });
 
+
 describe('post Ingredients reducer', () => {
-  const rejectedAction = { type: 'POST_INGREDIENT_REJECTED'};
+  const rejectedAction = { type: 'POST_INGREDIENT_REJECTED', payload: 'rejected payload' };
   const pendingAction = { type: 'POST_INGREDIENT_PENDING'};
-  const fulfilledAction = { type: 'POST_INGREDIENT_FULFILLED', payload: 'test payload' };
+  const fulfilledAction = { type: 'POST_INGREDIENT_FULFILLED', payload: 'success payload' };
 
   it('checks success property on state', () => {
     expect(ingredients(initialState, pendingAction)).toHaveProperty('success', false);
     expect(ingredients(initialState, rejectedAction)).toHaveProperty('success', false);
     expect(ingredients(initialState, fulfilledAction)).toHaveProperty('success', true);
   });
+
+  it('checks isFetching property on state', () => {
+    expect(ingredients(initialState, pendingAction)).toHaveProperty('isFetching', true);
+    expect(ingredients(initialState, rejectedAction)).toHaveProperty('isFetching', false);
+    expect(ingredients(initialState, fulfilledAction)).toHaveProperty('isFetching', false);
+  });
+
+  it('returns correct payload', () => {
+    expect(ingredients(null, fulfilledAction)).toMatchObject({ response: 'success payload' });
+    expect(ingredients(null, rejectedAction)).toMatchObject({ response: 'rejected payload' });
+  });
+});
+
+describe('delete ingredients reducers', () => {
+  it('')
 });

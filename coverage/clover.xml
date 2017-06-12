@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1497245793835" clover="3.2.0">
-  <project timestamp="1497245793835" name="All files">
+<coverage generated="1497247222781" clover="3.2.0">
+  <project timestamp="1497247222781" name="All files">
     <metrics statements="14" coveredstatements="10" conditionals="12" coveredconditionals="7" methods="1" coveredmethods="1" elements="27" coveredelements="18" complexity="0" loc="14" ncloc="14" packages="1" files="1" classes="1">
       <file name="ingredientsReducer.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/reducers/ingredientsReducer.js">
         <metrics statements="14" coveredstatements="10" conditionals="12" coveredconditionals="7" methods="1" coveredmethods="1"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="5" count="10" type="cond" truecount="7" falsecount="4"/>
+        <line num="5" count="15" type="cond" truecount="7" falsecount="4"/>
         <line num="7" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
