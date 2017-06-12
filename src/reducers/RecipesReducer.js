@@ -9,6 +9,7 @@ const recipesResults = (state = INITIAL_STATE, action) => {
     });
     case 'GET_RECIPE_RESULTS_FULFILLED':
       return action.payload; //result of your promise == become new state
+      
     default:
       return state;
   }

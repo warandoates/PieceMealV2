@@ -16,7 +16,7 @@ import {
 } from 'native-base';
 import pamProfile from '../assets/pam_profile.png';
 import sliders from '../assets/food/sliders.jpg';
-import { restrictionsChange, changeRestrictions, userChange } from '../actions/client';
+import { restrictionsChange, changeRestrictions, userChange } from '../actions';
 import CheckBoxExample from './Ingredient/RestrictedIngredients'
 
 class Profile extends Component {

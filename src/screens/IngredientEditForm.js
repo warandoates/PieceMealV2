@@ -9,7 +9,7 @@ import {
   Form,
 } from 'react-native-clean-form';
 import { Input } from 'react-native-clean-form/redux-form';
-import { updateIngredient } from '../actions/addIngredient';
+import { updateIngredient } from '../actions';
 
 class IngredientEditForm extends Component {
   onSubmit(ingredient) {

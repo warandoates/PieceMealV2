@@ -38,6 +38,16 @@ describe('client reducers', () => {
       restrictions: []
     }
   };
+  const updatedAction = { type: 'UPDATE_RESTRICTIONS',
+    payload: {
+      id: 0,
+      first_name: 'Joe',
+      last_name: 'Shmoe',
+      email: 'test@gmail.com',
+      recipes: [],
+      restrictions: []
+    }
+  }
 
   it('returns the initial state', () => {
     expect(client(INITIAL_STATE, {})).toEqual(INITIAL_STATE);
@@ -66,5 +76,19 @@ describe('client reducers', () => {
         restrictions: []
       }
     });
+  });
+
+  it('updated the client object', () => {
+    expect(client(INITIAL_STATE, updatedAction)).toMatchObject({
+      client: {
+        id: 0,
+        first_name: 'Joe',
+        last_name: 'Shmoe',
+        email: 'test@gmail.com',
+        recipes: [],
+        restrictions: []
+      },
+      loading: false
+    })
   });
 });

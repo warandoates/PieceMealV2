@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TouchableWithoutFeedback, View, LayoutAnimation } from 'react-native';
 import { connect } from 'react-redux';
 import { CardItem, Text, Badge } from 'native-base';
-import { selectRecipe } from '../../actions/index';
+import { selectRecipe } from '../../actions';
 
 class RecipeItem extends Component {
   componentWillUpdate() {
@@ -46,7 +46,7 @@ class RecipeItem extends Component {
 
     return (
       <TouchableWithoutFeedback
-        onPress={() => this.props.selectRecipeItem(id)}
+        onPress={() => this.props.selectRecipe(id)}
       >
         <View>
           <CardItem style={containerStyle}>
