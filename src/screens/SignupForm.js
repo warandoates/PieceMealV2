@@ -26,7 +26,7 @@ import {
   passwordChange,
   confirmChange,
   signupUser
-} from '../actions/signup';
+} from '../actions';
 
 class SignupForm extends Component {
   // static navigationOptions = ({ navigation, header }) => ({

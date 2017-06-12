@@ -15,7 +15,7 @@ import {
     Spinner,
     Text,
 } from 'native-base';
-import { emailChanged, passwordChanged, loginUser, loginUserOAuth, logoutUser } from '../actions/login';
+import { emailChanged, passwordChanged, loginUser, loginUserOAuth, logoutUser } from '../actions';
 
 
 class LogInForm extends Component {
