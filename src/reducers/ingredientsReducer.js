@@ -19,12 +19,13 @@ const ingredients = (state = INITIAL_STATE, action) => {
 
     case 'DELETE_INGREDIENT':
       return { ...state, response: action.payload };
+
     case 'PUT_INGREDIENT_FULFILLED':
-      return { ...state, response: action.payload };
+      return { ...state, isFetching: false, response: action.payload };
     case 'PUT_INGREDIENT_PENDING':
       return { ...state, isFetching: true };
     case 'PUT_INGREDIENT_REJECTED':
-      return { ...state, response: action.payload };
+      return { ...state, isFetching: false, response: action.payload };
     default:
       return state;
   }

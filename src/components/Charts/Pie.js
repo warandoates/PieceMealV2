@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Text, View } from 'react-native';
 import { Pie } from 'react-native-pathjs-charts';
-import { fetchIngredientData } from '../../actions/charts';
+import { fetchIngredientData } from '../../actions';
 
 class PieChart extends Component {
 

@@ -18,6 +18,7 @@ import pepperBeef from '../../assets/food/Pepper Beef.jpg';
 
 const images = [iceCream, bruscetta, pepperBeef];
 
+
 class RecipeItem extends Component {
 
   state = {
@@ -42,6 +43,7 @@ class RecipeItem extends Component {
       );
   }
 }
+
 
 const mapStateToProps = (state) => {
     return {
