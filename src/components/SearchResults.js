@@ -41,7 +41,9 @@ export default class SearchResults extends Component {
     } else {
       return (
         <View>
-          <RecipeItem rowData={rowData} />
+          <RecipeItem rowData={rowData} onPress={()=>{
+            this.props.navigation.navigate('ViewRecipe', {recipe: rowData})
+          }} />
         </View>
       );
     }
@@ -54,7 +56,7 @@ export default class SearchResults extends Component {
           {this.props.isFetching && <Spinner color="green" /> }
           <ListView
             dataSource={ds}
-            renderRow={this.renderRow}
+            renderRow={this.renderRow.bind(this)}
             enableEmptySections
           />
         </View>

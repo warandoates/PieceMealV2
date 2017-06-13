@@ -19,19 +19,15 @@ import pepperBeef from '../../assets/food/Pepper Beef.jpg';
 const images = [iceCream, bruscetta, pepperBeef];
 
 
-class RecipeItem extends Component {
-
-  state = {
-      modalVisible: false,
-      name: '',
-      description: '',
-      notes: ''
-  }
+export default class RecipeItem extends Component {
 
   render() {
       let rowData = this.props.rowData;
       return (
           <Card>
+            <TouchableOpacity
+              onPress={this.props.onPress}
+            >
                   <CardItem>
                       <Thumbnail source={images[rowData.id % images.length]} />
                       <Text style={{ alignSelf: 'center', marginLeft: 25 }}>{ rowData.name }</Text>
@@ -39,15 +35,8 @@ class RecipeItem extends Component {
                       <Icon name="arrow-forward" />
                       </Right>
                   </CardItem>
+            </TouchableOpacity>
           </Card>
       );
   }
 }
-
-
-const mapStateToProps = (state) => {
-    return {
-    };
-};
-
-export default connect(mapStateToProps)(RecipeItem);

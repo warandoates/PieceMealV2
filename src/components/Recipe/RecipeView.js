@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner } from 'native-base';
 import RecipeSteps from './RecipeSteps';
-import Fab from './Fab';
 
 const badgeStyle = { backgroundColor: 'black' };
 const textStyle = { color: 'white' };
@@ -23,7 +22,7 @@ export default class RecipeView extends Component {
                             marginTop: 20,
                             paddingTop: 15
                         }}>
-                            {this.props.name.toUpperCase()}
+                            {this.props.recipe.name.toUpperCase()}
                         </Text>
                     </CardItem>
 
@@ -42,7 +41,7 @@ export default class RecipeView extends Component {
                                 marginBottom: 10,
                                 alignSelf: 'center'
                             }}>
-                                "{this.props.description}"
+                                "{this.props.recipe.description}"
                             </Text>
                         </Body>
                     </CardItem>
@@ -61,7 +60,7 @@ export default class RecipeView extends Component {
                     }}>
                         <Text style={{
                             fontFamily: 'Futura'
-                        }} note>{this.props.notes}</Text>
+                        }} note>{this.props.recipe.notes}</Text>
                     </CardItem>
                     <CardItem footer>
                         <Badge style={badgeStyle}>

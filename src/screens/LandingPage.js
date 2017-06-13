@@ -29,7 +29,10 @@ class LandingPage extends Component {
              <Icon name='ios-options' />
          </Button>
        </InputGroup>
-       <SearchResults recipes={this.props.recipes} ingredients={this.props.ingredients} />
+       <SearchResults navigation={this.props.navigation}
+                      recipes={this.props.recipes}
+                      ingredients={this.props.ingredients}
+       />
      </Container>
    );
  }
