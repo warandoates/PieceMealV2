@@ -66,7 +66,7 @@ class IngredientResultsList extends Component {
           {this.props.list.length > 1 && <ListView
             dataSource={this.dataSource}
             renderRow={this.renderRow.bind(this)}
-            // enableEmptySections={true}
+            enableEmptySections
           />}
           </View>
         );

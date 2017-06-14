@@ -30,8 +30,6 @@ export const getIngredients = () => {
 };
 
 function putIngredient(ingredient, props) {
-  console.log('this is edit submission object', ingredient);
-  console.log('this is edit props object', props);
   if (ingredient.tags) {
     ingredient.tags.split(' ');
   }

@@ -1,83 +1,42 @@
 import React, { Component } from 'react';
-import { TouchableWithoutFeedback, View, LayoutAnimation } from 'react-native';
+import { ListView, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import { CardItem, Text, Badge } from 'native-base';
-import { selectRecipe } from '../../actions';
+import {
+    Container,
+    Content,
+    Icon,
+    View,
+    Card,
+    CardItem,
+    Thumbnail,
+    Text,
+    Right } from 'native-base';
+// import RecipeModal from './RecipeModal';
+import iceCream from '../../assets/food/ice-cream.jpg';
+import bruscetta from '../../assets/food/Bruscetta.jpg';
+import pepperBeef from '../../assets/food/Pepper Beef.jpg';
 
-class RecipeItem extends Component {
-  componentWillUpdate() {
-    LayoutAnimation.spring();
-  }
+const images = [iceCream, bruscetta, pepperBeef];
 
-  tagSplitter() {
-    return this.props.rowData.tags.map((tag) => (
-      <Badge>
-        <Text>{tag}</Text>
-      </Badge>
-  ));
-  }
 
-  renderDescription() {
-    const { rowData, expanded } = this.props;
-    if (expanded) {
-      return (
-        <View>
-          {!!rowData.description &&
-          <CardItem style={styles.expandedContainerStyle}>
-            <Text style={{ flex: 1 }}>
-              {rowData.description}
-            </Text>
-          </CardItem>}
-          {!!rowData.image_url &&
-          <CardItem style={styles.expandedContainerStyle}>
-            <img alt='nope'src={rowData.image_url} style={{ flex: 1 }} />
-          </CardItem>}
-          <CardItem style={styles.expandedContainerStyle}>
-            {rowData.tags.length > 0 && this.tagSplitter()}
-          </CardItem>
-        </View>
-      );
-    }
-  }
+export default class RecipeItem extends Component {
 
   render() {
-    const { nameStyle, containerStyle } = styles;
-    const { id, name } = this.props.rowData;
-
-    return (
-      <TouchableWithoutFeedback
-        onPress={() => this.props.selectRecipe(id)}
-      >
-        <View>
-          <CardItem style={containerStyle}>
-            <Text style={nameStyle}>{name}</Text>
-          </CardItem>
-          {this.renderDescription()}
-        </View>
-      </TouchableWithoutFeedback>
-    );
+      let rowData = this.props.rowData;
+      return (
+          <Card>
+            <TouchableOpacity
+              onPress={this.props.onPress}
+            >
+                  <CardItem>
+                      <Thumbnail source={images[rowData.id % images.length]} />
+                      <Text style={{ alignSelf: 'center', marginLeft: 25 }}>{ rowData.name }</Text>
+                      <Right>
+                      <Icon name="arrow-forward" />
+                      </Right>
+                  </CardItem>
+            </TouchableOpacity>
+          </Card>
+      );
   }
 }
-
-const mapStateToProps = (state, ownProps) => {
-  const expanded = state.selectedRecipeId === ownProps.rowData.id;
-  return { expanded };
-};
-
-const styles = {
-  containerStyle: {
-    borderBottomWidth: 1,
-    borderColor: '#ddd'
-  },
-  expandedContainerStyle: {
-    backgroundColor: '#e5e5e5',
-    borderBottomWidth: 1,
-    borderColor: '#ccc'
-  },
-  nameStyle: {
-    fontSize: 18,
-    paddingLeft: 15
-  }
-};
-
-export default connect(mapStateToProps, { selectRecipe })(RecipeItem);

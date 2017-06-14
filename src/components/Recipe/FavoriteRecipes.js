@@ -83,7 +83,7 @@ class FavoriteRecipes extends Component {
                         <ListView
                           dataSource={this.dataSource}
                           renderRow={this.renderRow.bind(this)}
-                          // enableEmptySections={true}
+                          enableEmptySections
                         />
                       </View>
                   </Content>

@@ -8,8 +8,7 @@ const recipesResults = (state = INITIAL_STATE, action) => {
       didInvalidate: false
     });
     case 'GET_RECIPE_RESULTS_FULFILLED':
-      return action.payload; //result of your promise == become new state
-      
+      return action.payload;
     default:
       return state;
   }

@@ -34,6 +34,7 @@ export default class RecipeSteps extends Component {
                 <ListView
                   dataSource={this.dataSource}
                   renderRow={this.renderRow.bind(this)}
+                  enableEmptySections
                 />
               </View>
             </Content>
