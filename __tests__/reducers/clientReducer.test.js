@@ -51,6 +51,7 @@ describe('client reducers', () => {
 
   it('returns the initial state', () => {
     expect(client(INITIAL_STATE, {})).toEqual(INITIAL_STATE);
+    expect(client(undefined, {})).toEqual(INITIAL_STATE);
     expect((client(INITIAL_STATE, {}) === client(NEXT_STATE, {}))).toBe(false)
   });
 
