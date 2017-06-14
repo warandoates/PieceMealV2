@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for ingredientsReducer.js</title>
+    <title>Code coverage report for loginReducer.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -16,18 +16,18 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="index.html">All files</a> ingredientsReducer.js
+      <a href="index.html">All files</a> loginReducer.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>14/14</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>12/12</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>14/14</span>
+        <span class='fraction'>9/9</span>
       </div>
     </div>
   </div>
@@ -69,82 +69,58 @@
 24
 25
 26
-27
-28
-29
-30
-31
-32
-33
-34
-35</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+27</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-const INITIAL_STATE = { ingredients: [{}], success: false, response: {} };
-&nbsp;
-const ingredients = (state = INITIAL_STATE, action) =&gt; {
-  switch (action.type) {
-    case 'GET_INGREDIENT_RESULTS_REJECTED':
-      return { ...state, isFetching: false, error: 'Unable To Add Ingredient' };
-    case 'GET_INGREDIENT_RESULTS_PENDING':
-    return { ...state, isFetching: true };
-    case 'GET_INGREDIENT_RESULTS_FULFILLED':
-      return { ...state, ingredients: action.payload.ingredients, isFetching: false };
-&nbsp;
-    case 'POST_INGREDIENT_PENDING':
-      return { ...state, success: false, isFetching: true, };
-    case 'POST_INGREDIENT_FULFILLED':
-      return { ...state, success: true, isFetching: false, response: action.payload };
-    case 'POST_INGREDIENT_REJECTED':
-      return { ...state, success: false, isFetching: false, response: action.payload };
-&nbsp;
-    case 'DELETE_INGREDIENT':
-      return { ...state, response: action.payload };
-&nbsp;
-    case 'PUT_INGREDIENT_FULFILLED':
-      return { ...state, isFetching: false, response: action.payload };
-    case 'PUT_INGREDIENT_PENDING':
-      return { ...state, isFetching: true };
-    case 'PUT_INGREDIENT_REJECTED':
-      return { ...state, isFetching: false, response: action.payload };
-    default:
-      return state;
-  }
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const INITIAL_STATE = {
+  email: '',
+  password: '',
+  loading: false,
+  error: '',
+  user: null
 };
 &nbsp;
-export default ingredients;
+export default (state = INITIAL_STATE, action) =&gt; {
+  switch (action.type) {
+    case 'EMAIL_CHANGE':
+      return { ...state, email: action.payload };
+    case 'PASSWORD_CHANGE':
+      return { ...state, password: action.payload };
+    case 'LOGIN_USER_PENDING':
+      return { ...state, loading: true, error: '', user: null };
+    case 'LOGIN_USER_FULFILLED':
+      return { ...state, loading: false, error: '', user: action.payload };
+    case 'LOGIN_USER_REJECTED':
+      return { ...state, loading: false, error: 'Unable To Login', user: null };
+    case 'LOGOUT_USER':
+      return { ...state, user: action.payload }
+    default:
+     return state;
+  }
+};
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

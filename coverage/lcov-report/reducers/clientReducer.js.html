@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for ingredientsReducer.js</title>
+    <title>Code coverage report for reducers/clientReducer.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="prettify.css" />
-    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -16,18 +16,18 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="index.html">All files</a> ingredientsReducer.js
+      <a href="../index.html">All files</a> / <a href="index.html">reducers</a> clientReducer.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>14/14</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>12/12</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>14/14</span>
+        <span class='fraction'>9/9</span>
       </div>
     </div>
   </div>
@@ -77,84 +77,105 @@
 32
 33
 34
-35</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+35
+36
+37
+38
+39
+40
+41
+42</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-const INITIAL_STATE = { ingredients: [{}], success: false, response: {} };
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const INITIAL_STATE = {
+  client: {
+    id: 0,
+    first_name: '',
+    last_name: '',
+    email: '',
+    recipes: [],
+    restrictions: []
+  },
+  loading: false
 &nbsp;
-const ingredients = (state = INITIAL_STATE, action) =&gt; {
+};
+&nbsp;
+export default(state = INITIAL_STATE, action) =&gt; {
+&nbsp;
   switch (action.type) {
-    case 'GET_INGREDIENT_RESULTS_REJECTED':
-      return { ...state, isFetching: false, error: 'Unable To Add Ingredient' };
-    case 'GET_INGREDIENT_RESULTS_PENDING':
-    return { ...state, isFetching: true };
-    case 'GET_INGREDIENT_RESULTS_FULFILLED':
-      return { ...state, ingredients: action.payload.ingredients, isFetching: false };
 &nbsp;
-    case 'POST_INGREDIENT_PENDING':
-      return { ...state, success: false, isFetching: true, };
-    case 'POST_INGREDIENT_FULFILLED':
-      return { ...state, success: true, isFetching: false, response: action.payload };
-    case 'POST_INGREDIENT_REJECTED':
-      return { ...state, success: false, isFetching: false, response: action.payload };
+    case 'GET_CLIENT_PENDING':
+      return { ...state, loading: true };
 &nbsp;
-    case 'DELETE_INGREDIENT':
-      return { ...state, response: action.payload };
+    case 'GET_CLIENT_FULFILLED':
+      if (action.payload === 'Not Logged In') {
+        return INITIAL_STATE;
+      }
+      return { ...state, client: action.payload, loading: false };
 &nbsp;
-    case 'PUT_INGREDIENT_FULFILLED':
-      return { ...state, isFetching: false, response: action.payload };
-    case 'PUT_INGREDIENT_PENDING':
-      return { ...state, isFetching: true };
-    case 'PUT_INGREDIENT_REJECTED':
-      return { ...state, isFetching: false, response: action.payload };
+    case 'GET_CLIENT_REJECTED':
+      return {
+        ...state,
+        loading: false,
+        error: 'Unable To Fetch Client',
+        client: INITIAL_STATE.client
+      };
+&nbsp;
+    case 'UPDATE_RESTRICTIONS':
+      return { ...state, client: action.payload };
+&nbsp;
     default:
       return state;
   }
 };
-&nbsp;
-export default ingredients;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jun 14 2017 11:25:09 GMT-0700 (PDT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jun 14 2017 11:45:31 GMT-0700 (PDT)
 </div>
 </div>
-<script src="prettify.js"></script>
+<script src="../prettify.js"></script>
 <script>
 window.onload = function () {
         if (typeof prettyPrint === 'function') {
@@ -162,6 +183,6 @@ window.onload = function () {
         }
 };
 </script>
-<script src="sorter.js"></script>
+<script src="../sorter.js"></script>
 </body>
 </html>
