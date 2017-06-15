@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { CardItem, Text, Badge } from 'native-base';
 import { selectRecipe } from '../../actions';
 
-class RecipeItem extends Component {
+export class RecipeItem extends Component {
   componentWillUpdate() {
     LayoutAnimation.spring();
   }
