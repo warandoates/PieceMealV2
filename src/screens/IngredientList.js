@@ -54,7 +54,12 @@ class IngredientResultsList extends Component {
   }
 
   renderRow(rowData) {
-    return <IngredientItem nav={this.props} rowData={rowData} />;
+    return <IngredientItem 
+                           rowData={rowData}
+                           onPress={() => {
+                             this.props.navigation.navigate('ViewIngredient',
+                                                           { ingredient: rowData })
+                           }} />;
   }
 
 

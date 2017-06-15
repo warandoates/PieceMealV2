@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner } from 'native-base';
-import RecipeSteps from './RecipeSteps';
 
 const badgeStyle = { backgroundColor: 'black' };
 const textStyle = { color: 'white' };
-export default class RecipeView extends Component {
+export default class IngredientView extends Component {
 
     render() {
         return (
@@ -22,7 +21,7 @@ export default class RecipeView extends Component {
                             marginTop: 20,
                             paddingTop: 15
                         }}>
-                            {this.props.recipe.name.toUpperCase()}
+                            {this.props.ingredient.name.toUpperCase()}
                         </Text>
                     </CardItem>
 
@@ -32,7 +31,7 @@ export default class RecipeView extends Component {
                                 resizeMode: 'contain',
                                 width: 340,
                                 height: 200
-                            }} source={this.props.recipe.image}/>
+                            }} source={this.props.ingredient.image}/>
                             <Text note style={{
                                 fontFamily: 'Futura',
                                 marginLeft: 20,
@@ -41,27 +40,23 @@ export default class RecipeView extends Component {
                                 marginBottom: 10,
                                 alignSelf: 'center'
                             }}>
-                                "{this.props.recipe.description}"
+                                "{this.props.ingredient.description}"
                             </Text>
                         </Body>
                     </CardItem>
-                    <H3 style={{
-                        fontFamily: 'Futura',
-                        alignSelf: 'center'
-                    }}>Instructions:</H3>
-                    <CardItem>
+                    {/* <CardItem>
                         {!this.props.recipe
                             ? <Spinner/>
                             : <RecipeSteps instructions={this.props.recipe.instructions}/>
                         }
-                    </CardItem>
-                    <CardItem footer style={{
+                    </CardItem> */}
+                    {/* <CardItem footer style={{
                         paddingBottom: 25
                     }}>
                         <Text style={{
                             fontFamily: 'Futura'
-                        }} note>{this.props.recipe.notes}</Text>
-                    </CardItem>
+                        }} note>{this.props.recipe.alternatives}</Text>
+                    </CardItem> */}
                     <CardItem footer>
                         <Badge style={badgeStyle}>
                             <Text style={textStyle}>vegetarian</Text>

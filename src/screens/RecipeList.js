@@ -51,7 +51,7 @@ class RecipeResultsList extends Component {
 
   renderRow(rowData) {
     return <RecipeItem rowData={rowData} onPress={() => {
-      this.props.navigation.navigate('ViewRecipe', {recipe: rowData})
+      this.props.navigation.navigate('ViewRecipe', { recipe: rowData })
     }} />;
   }
 
@@ -77,8 +77,8 @@ const mapDispatchToProps = (dispatch) => {
     getAllRecipes: () => {
       dispatch(getRecipes());
     }
-  }
-}
+  };
+};
 
 const mapStateToProps = (state) => {
   return {

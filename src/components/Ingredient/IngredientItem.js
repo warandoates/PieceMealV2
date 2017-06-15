@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { ListView, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import {
-    Container,
-    Content,
     Icon,
-    View,
     Card,
     CardItem,
     Thumbnail,
@@ -18,34 +15,36 @@ import pepperBeef from '../../assets/food/Pepper Beef.jpg';
 
 const images = [iceCream, bruscetta, pepperBeef];
 
-class IngredientItem extends Component {
+export default class IngredientItem extends Component {
 
-  state = {
-      modalVisible: false,
-      name: '',
-      description: '',
-      notes: ''
-  }
+  // state = {
+  //     modalVisible: false,
+  //     name: '',
+  //     description: '',
+  //     notes: ''
+  // }
 
   render() {
-      let rowData = this.props.rowData;
+      const rowData = this.props.rowData;
       return (
           <Card>
-                  <CardItem>
-                      <Thumbnail source={images[rowData.id - 1]} />
-                      <Text style={{ alignSelf: 'center', marginLeft: 25 }}>{ rowData.name }</Text>
-                      <Right>
-                      <Icon name="arrow-forward" />
-                      </Right>
-                  </CardItem>
+            <TouchableOpacity onPress={this.props.onPress}>
+              <CardItem>
+                  <Thumbnail source={images[rowData.id % images.length]} />
+                  <Text style={{ alignSelf: 'center', marginLeft: 25 }}>{ rowData.name }</Text>
+                  <Right>
+                  <Icon name="arrow-forward" />
+                  </Right>
+              </CardItem>
+            </TouchableOpacity>
           </Card>
       );
   }
 }
 
-const mapStateToProps = (state) => {
-    return {
-    };
-};
-
-export default connect(mapStateToProps)(IngredientItem);
+// const mapStateToProps = (state) => {
+//     return {
+//     };
+// };
+//
+// export default connect(mapStateToProps)(IngredientItem);
