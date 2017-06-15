@@ -32,6 +32,7 @@ class LandingPage extends Component {
        <SearchResults navigation={this.props.navigation}
                       recipes={this.props.recipes}
                       ingredients={this.props.ingredients}
+                      ingredients={this.props.ingredients}
        />
      </Container>
    );

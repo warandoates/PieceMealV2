@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import { ListView, TouchableOpacity } from 'react-native';
-import { connect } from 'react-redux';
+import { TouchableOpacity } from 'react-native';
 import {
-    Container,
-    Content,
     Icon,
-    View,
     Card,
     CardItem,
     Thumbnail,
@@ -22,7 +18,7 @@ const images = [iceCream, bruscetta, pepperBeef];
 export default class RecipeItem extends Component {
 
   render() {
-      let rowData = this.props.rowData;
+      const rowData = this.props.rowData;
       return (
           <Card>
             <TouchableOpacity

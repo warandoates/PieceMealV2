@@ -3,6 +3,7 @@ import ingredientListView from '../screens/IngredientList';
 import recipeListView from '../screens/RecipeList';
 import LandingPage from '../screens/LandingPage';
 import ViewRecipeScreen from '../screens/ViewRecipeScreen';
+import ViewIngredientScreen from '../screens/ViewIngredientScreen';
 
 // import LogInView from '../screens/logInView';
 import AddIngredientForm from '../screens/IngredientsAddForm';
@@ -38,6 +39,7 @@ const MainScreenNavigator = TabNavigator({
 export const MainRouter = StackNavigator({
   Home: { screen: MainScreenNavigator },
   ViewRecipe: { screen: ViewRecipeScreen },
+  ViewIngredient: { screen: ViewIngredientScreen },
   AddIngredient: { screen: AddIngredientForm },
   AddRecipe: { screen: AddRecipeForm },
   SignupForm: { screen: SignupForm },
