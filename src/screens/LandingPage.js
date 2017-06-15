@@ -13,7 +13,7 @@ class LandingPage extends Component {
      )
  });
 
- componentWillMount() {
+ componentDidMount() {
    this.props.searchRecipe('');
  }
 
