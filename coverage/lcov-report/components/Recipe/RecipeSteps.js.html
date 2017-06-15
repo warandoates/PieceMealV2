@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for actions/client.js</title>
+    <title>Code coverage report for components/Recipe/RecipeSteps.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">All files</a> / <a href="index.html">actions</a> client.js
+      <a href="../../index.html">All files</a> / <a href="index.html">components/Recipe</a> RecipeSteps.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/10</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">14.29% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/7</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/10</span>
+        <span class='fraction'>0/6</span>
       </div>
     </div>
   </div>
@@ -86,37 +86,17 @@
 41
 42
 43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">1x</span>
+44</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -130,13 +110,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -145,62 +129,48 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { API_URL } from '../config/api';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import { ListView } from 'react-native';
+import { Container, Content, View, Card, CardItem, Text } from 'native-base';
 &nbsp;
-export const restictionsChange = (restrictions) =&gt; {
-  return {
-    type: 'CHANGE_RESTRICTIONS',
-    payload: restrictions
-  };
-};
+export default class RecipeSteps extends Component {
+<span class="fstat-no" title="function not covered" >  lo</span>adDataSource() {
+       const ds = <span class="cstat-no" title="statement not covered" >new ListView.DataSource({</span>
+           rowHasChanged: <span class="fstat-no" title="function not covered" >(r</span>1, r2) =&gt; <span class="cstat-no" title="statement not covered" >r1 !== r2</span>
+       });
 &nbsp;
-export const changeRestrictions = <span class="fstat-no" title="function not covered" >(c</span>lientId, restrictions) =&gt; {
-<span class="cstat-no" title="statement not covered" >  return {</span>
-    type: 'UPDATE_RESTRICTIONS',
-    payload: updateRestrictions(clientId, restrictions)
-  };
-};
+<span class="cstat-no" title="statement not covered" >       this.dataSource = ds.cloneWithRows(this.props.instructions);</span>
+   }
 &nbsp;
-export const userChange = <span class="fstat-no" title="function not covered" >(c</span>lient) =&gt; {
-<span class="cstat-no" title="statement not covered" >  return {</span>
-    type: 'GET_CLIENT',
-    payload: getClient(client)
-  };
-}
+<span class="fstat-no" title="function not covered" >  re</span>nderRow(rowData) {
+<span class="cstat-no" title="statement not covered" >    return (</span>
+        &lt;Card transparent&gt;
+            &lt;CardItem&gt;
+                &lt;Text
+                  style={{ fontStyle: 'italic', alignSelf: 'center' }}
+                &gt;
+                  { rowData.instructions }
+                &lt;/Text&gt;
+            &lt;/CardItem&gt;
+        &lt;/Card&gt;
+    );
+  }
 &nbsp;
-function <span class="fstat-no" title="function not covered" >getClient(</span>client) {
-<span class="cstat-no" title="statement not covered" >  return fetch(`${API_URL}/api/v1/clients/${client.id}`, {</span>
-        mode: 'no-cors',
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'token': client.token
-        }
-    })
-    .then(<span class="fstat-no" title="function not covered" >(r</span>es) =&gt; {
-<span class="cstat-no" title="statement not covered" >      return res.json();</span>
-    });
-&nbsp;
-}
-&nbsp;
-function <span class="fstat-no" title="function not covered" >updateRestrictions(</span>clientId, restrictions) {
-<span class="cstat-no" title="statement not covered" >  return fetch(`${API_URL}/api/v1/clients/${clientId}/restrictions`, {</span>
-        mode: 'no-cors',
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ restrictions })
-    })
-    .then(<span class="fstat-no" title="function not covered" >(r</span>es) =&gt; {
-<span class="cstat-no" title="statement not covered" >      return res.json();</span>
-    });
+<span class="fstat-no" title="function not covered" >  re</span>nder() {
+<span class="cstat-no" title="statement not covered" >    this.loadDataSource();</span>
+<span class="cstat-no" title="statement not covered" >      return (</span>
+          &lt;Container&gt;
+            &lt;Content&gt;
+              &lt;View&gt;
+                &lt;ListView
+                  dataSource={this.dataSource}
+                  renderRow={this.renderRow.bind(this)}
+                /&gt;
+              &lt;/View&gt;
+            &lt;/Content&gt;
+          &lt;/Container&gt;
+      );
+    }
 }
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -211,7 +181,7 @@ function <span class="fstat-no" title="function not covered" >updateRestrictions
   generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jun 15 2017 16:20:53 GMT-0700 (PDT)
 </div>
 </div>
-<script src="../prettify.js"></script>
+<script src="../../prettify.js"></script>
 <script>
 window.onload = function () {
         if (typeof prettyPrint === 'function') {
@@ -219,6 +189,6 @@ window.onload = function () {
         }
 };
 </script>
-<script src="../sorter.js"></script>
+<script src="../../sorter.js"></script>
 </body>
 </html>

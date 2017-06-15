@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for components/Recipe/Fab.js</title>
+    <title>Code coverage report for components/Recipe/GetRecipeButton.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">All files</a> / <a href="index.html">components/Recipe</a> Fab.js
+      <a href="../../index.html">All files</a> / <a href="index.html">components/Recipe</a> GetRecipeButton.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/4</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">66.67% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/3</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/4</span>
+        <span class='fraction'>2/2</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -72,33 +72,7 @@
 27
 28
 29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+30</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -106,8 +80,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -120,10 +93,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -132,49 +102,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
-import { Container, Content, Button, Icon, Fab } from 'native-base';
+import { connect } from 'react-redux';
+import { Button, Text } from 'native-base';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { getRecipes } from '../../actions/index';
 &nbsp;
-export default class FABExample extends Component {
-    constructor(props) {
-      super(props);
-        this.state = {
-            active: true
-        };
-    }
-      render() {
-        return (
-          &lt;Container&gt;
-            &lt;Content&gt;
-                &lt;Fab
-                  active={this.state.active}
-                  direction="left"
-                  containerStyle={{ marginTop: 0, marginLeft: 20, marginBottom: 30 }}
-                  style={{ backgroundColor: '#5067FF' }}
-                  position="bottomRight"
-                  onPress={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.setState({ active: !this.state.active })}</span>
-                &gt;
-                    &lt;Icon name="share" /&gt;
-                    &lt;Button warning&gt;
-                        &lt;Icon name="create" /&gt;
-                    &lt;/Button&gt;
-                    &lt;Button warning style={{ backgroundColor: '#3B5998' }}&gt;
-                        &lt;Icon name="trash" /&gt;
-                    &lt;/Button&gt;
-                    &lt;Button disabled style={{ backgroundColor: '#DD5144' }}&gt;
-                        &lt;Icon name="mail" /&gt;
-                    &lt;/Button&gt;
-                    &lt;Button
-                      onPress={this.props.onClose.bind(this)}
-                      style={{ backgroundColor: '#DD5144' }}
-                    &gt;
-                        &lt;Icon name="close" /&gt;
-                    &lt;/Button&gt;
-                &lt;/Fab&gt;
-            &lt;/Content&gt;
-        &lt;/Container&gt;
-        );
-    }
+export class GetRecipeButton extends Component {
+  render() {
+    return (
+      &lt;Button
+        onPress={this.props.getAllRecipes}
+        style={styles.buttonStyle}
+        iconLeft
+      &gt;
+        &lt;Icon name='food-variant' size={35} /&gt;
+        &lt;Text&gt;See All Recipes&lt;/Text&gt;
+      &lt;/Button&gt;
+    );
+  }
 }
+&nbsp;
+const styles = {
+  buttonStyle: {
+    marginLeft: 5,
+    marginRight: 5
+  }
+};
+&nbsp;
+export default connect(null, { getRecipes })(GetRecipeButton);
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
