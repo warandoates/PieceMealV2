@@ -1,6 +1,6 @@
 import ingredients from '../../src/reducers/ingredientsReducer';
 
-const initialState = {};
+const INITIAL_STATE = { ingredients: [{}], success: false, response: {} };
 
 describe('get ingredients reducers', () => {
   const rejectedAction = { type: 'GET_INGREDIENT_RESULTS_REJECTED' };
@@ -8,25 +8,26 @@ describe('get ingredients reducers', () => {
   const fulfilledAction = { type: 'GET_INGREDIENT_RESULTS_FULFILLED', payload: { ingredients: 'test ingredient' } };
 
   it('should return the initial state', () => {
-    expect(ingredients(initialState, 'some action')).toEqual(initialState);
+    expect(ingredients(INITIAL_STATE, 'some action')).toEqual(INITIAL_STATE);
+    expect(ingredients(undefined, {})).toEqual(INITIAL_STATE);
   });
 
   it('should update isFetching to true', () => {
-    expect(ingredients(initialState, pendingAction)).toEqual({ isFetching: true });
+    expect(ingredients(INITIAL_STATE, pendingAction)).toMatchObject({ isFetching: true });
   });
 
   it('should update isFetching to true', () => {
-    expect(ingredients(initialState, pendingAction)).toHaveProperty('isFetching', true);
-    expect(ingredients(initialState, rejectedAction)).toHaveProperty('isFetching', false);
-    expect(ingredients(initialState, fulfilledAction)).toHaveProperty('isFetching', false);
+    expect(ingredients(INITIAL_STATE, pendingAction)).toHaveProperty('isFetching', true);
+    expect(ingredients(INITIAL_STATE, rejectedAction)).toHaveProperty('isFetching', false);
+    expect(ingredients(INITIAL_STATE, fulfilledAction)).toHaveProperty('isFetching', false);
   });
 
   it('should return the ingredients payload', () => {
-    expect(ingredients(initialState, fulfilledAction)).toEqual({ ingredients: 'test ingredient', isFetching: false });
+    expect(ingredients(INITIAL_STATE, fulfilledAction)).toMatchObject({ ingredients: 'test ingredient', isFetching: false });
   });
 
   it('should return an error property', () => {
-    expect(ingredients(initialState, rejectedAction)).toEqual({ error: 'Unable To Add Ingredient', isFetching: false });
+    expect(ingredients(INITIAL_STATE, rejectedAction)).toMatchObject({ error: 'Unable To Add Ingredient', isFetching: false });
   });
 });
 
@@ -37,15 +38,15 @@ describe('post Ingredients reducer', () => {
   const fulfilledAction = { type: 'POST_INGREDIENT_FULFILLED', payload: 'success payload' };
 
   it('checks success property on state', () => {
-    expect(ingredients(initialState, pendingAction)).toHaveProperty('success', false);
-    expect(ingredients(initialState, rejectedAction)).toHaveProperty('success', false);
-    expect(ingredients(initialState, fulfilledAction)).toHaveProperty('success', true);
+    expect(ingredients(INITIAL_STATE, pendingAction)).toHaveProperty('success', false);
+    expect(ingredients(INITIAL_STATE, rejectedAction)).toHaveProperty('success', false);
+    expect(ingredients(INITIAL_STATE, fulfilledAction)).toHaveProperty('success', true);
   });
 
   it('checks isFetching property on state', () => {
-    expect(ingredients(initialState, pendingAction)).toHaveProperty('isFetching', true);
-    expect(ingredients(initialState, rejectedAction)).toHaveProperty('isFetching', false);
-    expect(ingredients(initialState, fulfilledAction)).toHaveProperty('isFetching', false);
+    expect(ingredients(INITIAL_STATE, pendingAction)).toHaveProperty('isFetching', true);
+    expect(ingredients(INITIAL_STATE, rejectedAction)).toHaveProperty('isFetching', false);
+    expect(ingredients(INITIAL_STATE, fulfilledAction)).toHaveProperty('isFetching', false);
   });
 
   it('returns correct payload', () => {

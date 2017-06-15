@@ -10,8 +10,7 @@ import chartsReducer from './chartsReducer';
 import RecipeSelectionReducer from './RecipeSelectionReducer';
 import GetRecipeResults from './RecipesReducer';
 
-
-export default combineReducers({
+const r = combineReducers({
   form: formReducer,
   ingredients,
   selectedIngredientId: SelectionReducer,
@@ -23,3 +22,10 @@ export default combineReducers({
   clientReducer,
   chartsReducer
 });
+
+export default (state, action) => {
+  if (action.type.endsWith('_REJECTED')) {
+    console.log('rejected action!', action);
+  }
+  return r(state, action);
+};

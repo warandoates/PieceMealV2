@@ -5,7 +5,6 @@ import SearchResults from '../components/SearchResults';
 import { createSearchAction } from '../actions/index';
 
 class LandingPage extends Component {
- // headerText="Piece Meal"
  static navigationOptions = ({ navigation }) => ({
      title: 'Piece Meal',
      tabBarIcon: ({ tintColor }) => (
@@ -30,7 +29,11 @@ class LandingPage extends Component {
              <Icon name='ios-options' />
          </Button>
        </InputGroup>
-       <SearchResults recipes={this.props.recipes} ingredients={this.props.ingredients} />
+       <SearchResults navigation={this.props.navigation}
+                      recipes={this.props.recipes}
+                      ingredients={this.props.ingredients}
+                      ingredients={this.props.ingredients}
+       />
      </Container>
    );
  }
@@ -38,7 +41,6 @@ class LandingPage extends Component {
 
 
 const mapStateToPropsLandingPage = (state) => {
- //map state to props to the Landing Page component above
  return {
    recipes: state.searchRecipe.recipes,
    ingredients: state.searchRecipe.ingredients

@@ -23,11 +23,11 @@ class LogInForm extends Component {
     return {
       tabBarIcon: ({ tintColor }) => (
        <Icon name='log-in' />
-     ),
-     title: 'Login'
+      ),
+      title: 'Login',
+      activeTintColor: 'green'
     };
-   };
-
+  }
 
     onEmailChange(text) {
         this.props.emailChanged(text);
@@ -87,7 +87,7 @@ class LogInForm extends Component {
                             <Input
                               label='Email'
                               placeholder="Enter Email"
-                              value={this.props.email}
+                              value={email}
                               onChangeText={(...args) => this.onEmailChange(...args)}
                               keyboardType='email-address'
                               autoCapitalize='none'
@@ -99,7 +99,7 @@ class LogInForm extends Component {
                               secureTextEntry
                               label='Password'
                               placeholder="Enter Password"
-                              value={this.props.password}
+                              value={password}
                               onChangeText={this.onPasswordChange.bind(this)}
                             />
                         </Item>

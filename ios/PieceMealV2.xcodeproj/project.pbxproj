@@ -44,7 +44,10 @@
 		5E0C87FF1EBD2EBC00A9F99A /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 5E0C87FE1EBD2EBC00A9F99A /* AppIcon.appiconset */; };
 		5E0C88011EBD2F6F00A9F99A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E0C88001EBD2F6F00A9F99A /* Images.xcassets */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+<<<<<<< HEAD
+=======
 		5E95C3091EBCF99C0003E9CA /* piecemeal-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E95C3081EBCF99C0003E9CA /* piecemeal-logo.png */; };
+>>>>>>> e4630071671a3d7acc99180a9f86a9147537b6b2
 		62D7BFFC29394FAD90E8C96B /* libLRDRCTSimpleToast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5E5F4000D56461FA069FFBF /* libLRDRCTSimpleToast.a */; };
 		655D6C9642194D8CB42B7F00 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E021E026CF04F66AFA737E5 /* Rubik-Bold.ttf */; };
 		670145363053431FBB2C32CD /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A34724239914A0AB50858F1 /* MaterialIcons.ttf */; };
@@ -158,6 +161,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
+		};
+		2A1E1E4E1EBD2ED900A2250D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99E93EBCC2684868AED7AF8B /* LRDRCTSimpleToast.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 15209BEF1D250F63000D0F44;
+			remoteInfo = LRDRCTSimpleToast;
+		};
+		2A1E1E6A1EBD2ED900A2250D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A174A1234DA14E3E8DC67536 /* RNSearchBar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNSearchBar;
 		};
 		2A97BDA51EAF0A4D00A2F651 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -581,6 +598,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2A1E1E481EBD2ED900A2250D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A1E1E4F1EBD2ED900A2250D /* libLRDRCTSimpleToast.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A1E1E4A1EBD2ED900A2250D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A1E1E6B1EBD2ED900A2250D /* libRNSearchBar.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2A97BD891EAF0A4D00A2F651 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -891,7 +924,11 @@
 					ProjectRef = 9283812B8D914974A6EDC655 /* A0RNLock.xcodeproj */;
 				},
 				{
+<<<<<<< HEAD
+					ProductGroup = 2A1E1E481EBD2ED900A2250D /* Products */;
+=======
 					ProductGroup = 5E95C2E21EBCEA270003E9CA /* Products */;
+>>>>>>> e4630071671a3d7acc99180a9f86a9147537b6b2
 					ProjectRef = 99E93EBCC2684868AED7AF8B /* LRDRCTSimpleToast.xcodeproj */;
 				},
 				{
@@ -939,7 +976,11 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+<<<<<<< HEAD
+					ProductGroup = 2A1E1E4A1EBD2ED900A2250D /* Products */;
+=======
 					ProductGroup = 5E95C2E01EBCEA270003E9CA /* Products */;
+>>>>>>> e4630071671a3d7acc99180a9f86a9147537b6b2
 					ProjectRef = A174A1234DA14E3E8DC67536 /* RNSearchBar.xcodeproj */;
 				},
 				{
@@ -1016,6 +1057,20 @@
 			fileType = archive.ar;
 			path = libReact.a;
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2A1E1E4F1EBD2ED900A2250D /* libLRDRCTSimpleToast.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLRDRCTSimpleToast.a;
+			remoteRef = 2A1E1E4E1EBD2ED900A2250D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2A1E1E6B1EBD2ED900A2250D /* libRNSearchBar.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSearchBar.a;
+			remoteRef = 2A1E1E6A1EBD2ED900A2250D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2A97BDA61EAF0A4D00A2F651 /* libRNVectorIcons.a */ = {

@@ -33,10 +33,11 @@ export const getIngredients = () => {
     return { type: 'GET_INGREDIENT_RESULTS', payload: fetchIngredients() };
 };
 
+
 export const putIngredient = (ingredient, props) => {
-  // if (ingredient.tags) {
-  //   ingredient.tags.split(' ');
-  // }
+  if (ingredient.tags) {
+    ingredient.tags.split(' ');
+  }
   return fetch(`${API_URL}/api/v1/ingredients/${props.navigation.state.params.id}`, {
     mode: 'no-cors',
     method: 'PUT',

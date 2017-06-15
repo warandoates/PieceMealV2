@@ -16,7 +16,7 @@ export default class RecipeSteps extends Component {
         <Card transparent>
             <CardItem>
                 <Text
-                  style={{ fontStyle: 'italic', alignSelf: 'center' }}
+                  style={{ fontStyle: 'italic', alignSelf: 'center', flex: 3 }}
                 >
                   { rowData.instructions }
                 </Text>
@@ -34,6 +34,7 @@ export default class RecipeSteps extends Component {
                 <ListView
                   dataSource={this.dataSource}
                   renderRow={this.renderRow.bind(this)}
+                  enableEmptySections
                 />
               </View>
             </Content>
