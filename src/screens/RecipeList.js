@@ -50,7 +50,9 @@ class RecipeResultsList extends Component {
   }
 
   renderRow(rowData) {
-    return <RecipeItem rowData={rowData} />;
+    return <RecipeItem rowData={rowData} onPress={() => {
+      this.props.navigation.navigate('ViewRecipe', {recipe: rowData})
+    }} />;
   }
 
   render() {
@@ -61,7 +63,7 @@ class RecipeResultsList extends Component {
           {this.props.list.length > 1 &&
           <ListView
             dataSource={this.dataSource}
-           renderRow={this.renderRow}
+           renderRow={this.renderRow.bind(this)}
            enableEmptySections
           />
          }
