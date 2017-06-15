@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import IngredientItem from '../components/Ingredient/IngredientItem';
 import { getIngredients } from '../actions/index';
 
-
 const MyButton = (props) => {
   return (
     <Button
