@@ -1,5 +1,9 @@
 import { API_URL } from '../config/api';
 
+export const fetchIngredients = () => {
+   return fetch(`${API_URL}/api/v1/ingredients`).then(res => res.json());
+};
+
 export const postIngredient = (ingredient, token) => {
   return {
     type: 'POST_INGREDIENT',
@@ -29,12 +33,10 @@ export const getIngredients = () => {
     return { type: 'GET_INGREDIENT_RESULTS', payload: fetchIngredients() };
 };
 
-function putIngredient(ingredient, props) {
-  console.log('this is edit submission object', ingredient);
-  console.log('this is edit props object', props);
-  if (ingredient.tags) {
-    ingredient.tags.split(' ');
-  }
+export const putIngredient = (ingredient, props) => {
+  // if (ingredient.tags) {
+  //   ingredient.tags.split(' ');
+  // }
   return fetch(`${API_URL}/api/v1/ingredients/${props.navigation.state.params.id}`, {
     mode: 'no-cors',
     method: 'PUT',
@@ -65,9 +67,6 @@ function deleteThisIngredient(ingredientId, token) {
   });
 }
 
-function fetchIngredients() {
-    return fetch(`${API_URL}/api/v1/ingredients`).then(res => res.json());
-}
 
 function postFetchIngredient(ingredient, token) {
   let arrTags = [];
