@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests the RecipeHeader component renders recipeHeader properly 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={undefined}
+  testID={undefined}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fff",
+        "borderBottomWidth": 1,
+        "borderColor": "#ddd",
+        "flexDirection": "row",
+        "paddingBottom": 10,
+        "paddingLeft": 15,
+        "paddingRight": 15,
+        "paddingTop": 10,
+      }
+    }
+    virtual={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#000",
+          "fontFamily": "System",
+          "fontSize": 18,
+          "paddingLeft": 15,
+        }
+      }
+      virtual={undefined}
+    >
+      name
+    </Text>
+  </View>
+</View>
+`;
