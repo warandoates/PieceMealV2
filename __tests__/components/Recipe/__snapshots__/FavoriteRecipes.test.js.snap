@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests FavoriteRecipes renders FavoriteRecipes component 1`] = `
+<Styled(Container)>
+  <Styled(Content)>
+    <ModalExample
+      description=""
+      name=""
+      notes=""
+      setModalVisible={[Function]}
+      visible={false}
+    />
+    <Styled(ViewNB)>
+      <ListViewMock
+        enableEmptySections={true}
+        renderRow={[Function]}
+        renderScrollComponent={[Function]}
+      />
+    </Styled(ViewNB)>
+  </Styled(Content)>
+</Styled(Container)>
+`;

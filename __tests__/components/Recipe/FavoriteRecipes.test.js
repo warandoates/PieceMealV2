@@ -8,9 +8,6 @@ describe('tests FavoriteRecipes', () => {
   it('renders FavoriteRecipes component', () => {
   const component = shallow(
     <FavoriteRecipes
-      fetchIngredientData={jest.fn}
-      data={[]}
-
     />);
     expect(toJson(component)).toMatchSnapshot();
   });
