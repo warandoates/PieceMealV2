@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests RecipeView renders RecipeView component 1`] = `
+<Styled(Content)>
+  <Styled(Card)
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Styled(CardItem)
+      header={true}
+      style={
+        Object {
+          "alignSelf": "center",
+        }
+      }
+    >
+      <Styled(Text)
+        style={
+          Object {
+            "fontFamily": "Futura",
+            "fontSize": 24,
+            "marginTop": 20,
+            "paddingTop": 15,
+          }
+        }
+      >
+        NAME
+      </Styled(Text)>
+    </Styled(CardItem)>
+    <Styled(CardItem)>
+      <Styled(Body)>
+        <Image
+          source={Object {}}
+          style={
+            Object {
+              "height": 200,
+              "resizeMode": "contain",
+              "width": 340,
+            }
+          }
+        />
+        <Styled(Text)
+          note={true}
+          style={
+            Object {
+              "alignSelf": "center",
+              "fontFamily": "Futura",
+              "marginBottom": 10,
+              "marginLeft": 20,
+              "marginRight": 15,
+              "marginTop": 15,
+            }
+          }
+        >
+          "
+          description
+          "
+        </Styled(Text)>
+      </Styled(Body)>
+    </Styled(CardItem)>
+    <Styled(H3)
+      style={
+        Object {
+          "alignSelf": "center",
+          "fontFamily": "Futura",
+        }
+      }
+    >
+      Instructions:
+    </Styled(H3)>
+    <Styled(CardItem)>
+      <RecipeSteps
+        instructions="instructions"
+      />
+    </Styled(CardItem)>
+    <Styled(CardItem)
+      footer={true}
+      style={
+        Object {
+          "paddingBottom": 25,
+        }
+      }
+    >
+      <Styled(Text)
+        note={true}
+        style={
+          Object {
+            "fontFamily": "Futura",
+          }
+        }
+      >
+        notes
+      </Styled(Text)>
+    </Styled(CardItem)>
+    <Styled(CardItem)
+      footer={true}
+    >
+      <Styled(Badge)
+        style={
+          Object {
+            "backgroundColor": "black",
+          }
+        }
+      >
+        <Styled(Text)
+          style={
+            Object {
+              "color": "white",
+            }
+          }
+        >
+          vegetarian
+        </Styled(Text)>
+      </Styled(Badge)>
+      <Styled(Badge)
+        style={
+          Object {
+            "backgroundColor": "black",
+          }
+        }
+      >
+        <Styled(Text)
+          style={
+            Object {
+              "color": "white",
+            }
+          }
+        >
+          vegan
+        </Styled(Text)>
+      </Styled(Badge)>
+      <Styled(Badge)
+        style={
+          Object {
+            "backgroundColor": "black",
+          }
+        }
+      >
+        <Styled(Text)
+          style={
+            Object {
+              "color": "white",
+            }
+          }
+        >
+          dairy
+        </Styled(Text)>
+      </Styled(Badge)>
+    </Styled(CardItem)>
+  </Styled(Card)>
+</Styled(Content)>
+`;
