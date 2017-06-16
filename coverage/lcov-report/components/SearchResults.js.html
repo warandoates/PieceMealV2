@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/14</span>
+        <span class='fraction'>7/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>1/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">28.57% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/7</span>
+        <span class='fraction'>2/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">58.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/12</span>
+        <span class='fraction'>7/12</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -130,38 +130,38 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -194,16 +194,16 @@ import {
 } from 'native-base';
 &nbsp;
 export default class SearchResults extends Component {
-<span class="fstat-no" title="function not covered" >  lo</span>adDataSource() {
-    const ds = <span class="cstat-no" title="statement not covered" >new ListView.DataSource({</span>
+  loadDataSource() {
+    const ds = new ListView.DataSource({
       rowHasChanged: <span class="fstat-no" title="function not covered" >(r</span>1, r2) =&gt; <span class="cstat-no" title="statement not covered" >r1 !== r2</span>
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    this.props.recipes.forEach(<span class="fstat-no" title="function not covered" >(r</span>) =&gt; { <span class="cstat-no" title="statement not covered" >r.type = 'recipe'; </span>});</span>
-<span class="cstat-no" title="statement not covered" >    this.props.ingredients.forEach(<span class="fstat-no" title="function not covered" >(i</span>) =&gt; { <span class="cstat-no" title="statement not covered" >i.type = 'ingredient'; </span>});</span>
-    const combined = <span class="cstat-no" title="statement not covered" >this.props.recipes.concat(</span>
+    this.props.recipes.forEach(<span class="fstat-no" title="function not covered" >(r</span>) =&gt; { <span class="cstat-no" title="statement not covered" >r.type = 'recipe'; </span>});
+    this.props.ingredients.forEach(<span class="fstat-no" title="function not covered" >(i</span>) =&gt; { <span class="cstat-no" title="statement not covered" >i.type = 'ingredient'; </span>});
+    const combined = this.props.recipes.concat(
       this.props.ingredients);
-<span class="cstat-no" title="statement not covered" >    return ds.cloneWithRows(combined);</span>
+    return ds.cloneWithRows(combined);
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  re</span>nderRow(rowData) {
@@ -224,11 +224,11 @@ export default class SearchResults extends Component {
     }
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  re</span>nder() {
-      const ds = <span class="cstat-no" title="statement not covered" >this.loadDataSource();</span>
-<span class="cstat-no" title="statement not covered" >      return (</span>
+  render() {
+      const ds = this.loadDataSource();
+      return (
         &lt;View style={{ flex: 1 }}&gt;
-          {this.props.isFetching &amp;&amp; &lt;Spinner color="green" /&gt; }
+          {this.props.isFetching &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;Spinner color="green" /&gt; </span>}
           &lt;ListView
             dataSource={ds}
             renderRow={this.renderRow.bind(this)}
@@ -244,7 +244,7 @@ export default class SearchResults extends Component {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jun 16 2017 09:28:10 GMT-0700 (PDT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jun 16 2017 13:14:33 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../prettify.js"></script>

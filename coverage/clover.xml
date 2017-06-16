@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1497630490380" clover="3.2.0">
-  <project timestamp="1497630490381" name="All files">
-    <metrics statements="226" coveredstatements="121" conditionals="68" coveredconditionals="44" methods="105" coveredmethods="31" elements="399" coveredelements="196" complexity="0" loc="226" ncloc="226" packages="7" files="32" classes="32">
+<coverage generated="1497644073336" clover="3.2.0">
+  <project timestamp="1497644073336" name="All files">
+    <metrics statements="203" coveredstatements="119" conditionals="50" coveredconditionals="39" methods="101" coveredmethods="31" elements="354" coveredelements="189" complexity="0" loc="203" ncloc="203" packages="7" files="28" classes="28">
       <package name="actions">
         <metrics statements="79" coveredstatements="30" conditionals="2" coveredconditionals="0" methods="49" coveredmethods="5"/>
         <file name="charts.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/actions/charts.js">
@@ -106,7 +106,7 @@
         </file>
       </package>
       <package name="components">
-        <metrics statements="20" coveredstatements="3" conditionals="8" coveredconditionals="0" methods="12" coveredmethods="1"/>
+        <metrics statements="20" coveredstatements="10" conditionals="8" coveredconditionals="1" methods="12" coveredmethods="3"/>
         <file name="Profile.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/components/Profile.js">
           <metrics statements="8" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="1"/>
           <line num="26" count="0" type="cond" truecount="0" falsecount="4"/>
@@ -119,19 +119,19 @@
           <line num="90" count="0" type="stmt"/>
         </file>
         <file name="SearchResults.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/components/SearchResults.js">
-          <metrics statements="12" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="0"/>
-          <line num="23" count="0" type="stmt"/>
+          <metrics statements="12" coveredstatements="7" conditionals="4" coveredconditionals="1" methods="7" coveredmethods="2"/>
+          <line num="23" count="1" type="stmt"/>
           <line num="24" count="0" type="stmt"/>
-          <line num="27" count="0" type="stmt"/>
-          <line num="28" count="0" type="stmt"/>
-          <line num="29" count="0" type="stmt"/>
-          <line num="31" count="0" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="29" count="1" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
           <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="36" count="0" type="stmt"/>
           <line num="42" count="0" type="stmt"/>
           <line num="45" count="0" type="stmt"/>
-          <line num="53" count="0" type="stmt"/>
-          <line num="54" count="0" type="stmt"/>
+          <line num="53" count="1" type="stmt"/>
+          <line num="54" count="1" type="stmt"/>
         </file>
       </package>
       <package name="components.Ingredient">
@@ -220,26 +220,26 @@
         </file>
       </package>
       <package name="reducers">
-        <metrics statements="76" coveredstatements="54" conditionals="56" coveredconditionals="43" methods="12" coveredmethods="9"/>
+        <metrics statements="53" coveredstatements="44" conditionals="38" coveredconditionals="37" methods="8" coveredmethods="6"/>
         <file name="RecipeSelectionReducer.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/reducers/RecipeSelectionReducer.js">
           <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-          <line num="2" count="8" type="cond" truecount="2" falsecount="0"/>
+          <line num="2" count="6" type="cond" truecount="2" falsecount="0"/>
           <line num="4" count="1" type="stmt"/>
-          <line num="6" count="7" type="stmt"/>
+          <line num="6" count="5" type="stmt"/>
         </file>
         <file name="RecipesReducer.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/reducers/RecipesReducer.js">
           <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
-          <line num="1" count="2" type="stmt"/>
-          <line num="3" count="2" type="cond" truecount="1" falsecount="0"/>
-          <line num="4" count="9" type="cond" truecount="3" falsecount="0"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
+          <line num="4" count="7" type="cond" truecount="3" falsecount="0"/>
           <line num="6" count="1" type="stmt"/>
           <line num="11" count="1" type="stmt"/>
-          <line num="13" count="7" type="stmt"/>
+          <line num="13" count="5" type="stmt"/>
         </file>
         <file name="chartsReducer.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/reducers/chartsReducer.js">
           <metrics statements="12" coveredstatements="3" conditionals="3" coveredconditionals="2" methods="3" coveredmethods="1"/>
-          <line num="1" count="2" type="stmt"/>
-          <line num="6" count="7" type="cond" truecount="1" falsecount="1"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="6" count="5" type="cond" truecount="1" falsecount="1"/>
           <line num="8" count="0" type="stmt"/>
           <line num="9" count="0" type="stmt"/>
           <line num="12" count="0" type="stmt"/>
@@ -249,38 +249,25 @@
           <line num="16" count="0" type="stmt"/>
           <line num="17" count="0" type="stmt"/>
           <line num="20" count="0" type="stmt"/>
-          <line num="22" count="7" type="stmt"/>
+          <line num="22" count="5" type="stmt"/>
         </file>
         <file name="clientReducer.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/reducers/clientReducer.js">
           <metrics statements="9" coveredstatements="9" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
-          <line num="1" count="2" type="stmt"/>
-          <line num="16" count="13" type="cond" truecount="5" falsecount="0"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="16" count="11" type="cond" truecount="5" falsecount="0"/>
           <line num="19" count="1" type="stmt"/>
           <line num="22" count="3" type="cond" truecount="2" falsecount="0"/>
           <line num="23" count="2" type="stmt"/>
           <line num="25" count="1" type="stmt"/>
           <line num="28" count="2" type="stmt"/>
           <line num="36" count="1" type="stmt"/>
-          <line num="39" count="6" type="stmt"/>
-        </file>
-        <file name="index.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/reducers/index.js">
-          <metrics statements="4" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-          <line num="13" count="1" type="stmt"/>
-          <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="28" count="0" type="stmt"/>
-          <line num="30" count="0" type="stmt"/>
-        </file>
-        <file name="ingredientSelectionReducer.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/reducers/ingredientSelectionReducer.js">
-          <metrics statements="3" coveredstatements="2" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
-          <line num="3" count="2" type="cond" truecount="1" falsecount="1"/>
-          <line num="5" count="0" type="stmt"/>
-          <line num="7" count="2" type="stmt"/>
+          <line num="39" count="4" type="stmt"/>
         </file>
         <file name="ingredientsReducer.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/reducers/ingredientsReducer.js">
           <metrics statements="14" coveredstatements="14" conditionals="12" coveredconditionals="12" methods="1" coveredmethods="1"/>
-          <line num="2" count="2" type="stmt"/>
-          <line num="4" count="2" type="cond" truecount="1" falsecount="0"/>
-          <line num="5" count="24" type="cond" truecount="11" falsecount="0"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
+          <line num="5" count="22" type="cond" truecount="11" falsecount="0"/>
           <line num="7" count="2" type="stmt"/>
           <line num="9" count="2" type="stmt"/>
           <line num="11" count="2" type="stmt"/>
@@ -291,54 +278,32 @@
           <line num="24" count="2" type="stmt"/>
           <line num="26" count="1" type="stmt"/>
           <line num="28" count="2" type="stmt"/>
-          <line num="30" count="4" type="stmt"/>
+          <line num="30" count="2" type="stmt"/>
         </file>
         <file name="loginReducer.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/reducers/loginReducer.js">
           <metrics statements="9" coveredstatements="9" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
-          <line num="1" count="2" type="stmt"/>
-          <line num="10" count="12" type="cond" truecount="7" falsecount="0"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="10" count="10" type="cond" truecount="7" falsecount="0"/>
           <line num="12" count="1" type="stmt"/>
           <line num="14" count="1" type="stmt"/>
           <line num="16" count="1" type="stmt"/>
           <line num="18" count="1" type="stmt"/>
           <line num="20" count="1" type="stmt"/>
           <line num="22" count="1" type="stmt"/>
-          <line num="24" count="6" type="stmt"/>
-        </file>
-        <file name="searchRecipeReducer.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/reducers/searchRecipeReducer.js">
-          <metrics statements="5" coveredstatements="4" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
-          <line num="1" count="1" type="stmt"/>
-          <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
-          <line num="6" count="2" type="cond" truecount="1" falsecount="1"/>
-          <line num="8" count="0" type="stmt"/>
-          <line num="10" count="2" type="stmt"/>
-        </file>
-        <file name="signupReducer.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/reducers/signupReducer.js">
-          <metrics statements="11" coveredstatements="3" conditionals="10" coveredconditionals="2" methods="1" coveredmethods="1"/>
-          <line num="1" count="1" type="stmt"/>
-          <line num="14" count="2" type="cond" truecount="1" falsecount="8"/>
-          <line num="16" count="0" type="stmt"/>
-          <line num="18" count="0" type="stmt"/>
-          <line num="20" count="0" type="stmt"/>
-          <line num="22" count="0" type="stmt"/>
-          <line num="27" count="0" type="stmt"/>
-          <line num="32" count="0" type="stmt"/>
-          <line num="34" count="0" type="stmt"/>
-          <line num="36" count="0" type="stmt"/>
-          <line num="38" count="2" type="stmt"/>
+          <line num="24" count="4" type="stmt"/>
         </file>
       </package>
       <package name="screens">
-        <metrics statements="11" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="1"/>
+        <metrics statements="11" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="2"/>
         <file name="LandingPage.js" path="/Users/mmartinez/Desktop/Galvanize/Q3/capstone/PieceMealV2/src/screens/LandingPage.js">
-          <metrics statements="11" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="1"/>
+          <metrics statements="11" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="2"/>
           <line num="8" count="0" type="stmt"/>
           <line num="11" count="0" type="stmt"/>
-          <line num="16" count="0" type="stmt"/>
-          <line num="20" count="0" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
           <line num="26" count="0" type="stmt"/>
           <line num="43" count="1" type="stmt"/>
-          <line num="44" count="1" type="stmt"/>
+          <line num="44" count="0" type="stmt"/>
           <line num="51" count="1" type="stmt"/>
           <line num="52" count="0" type="stmt"/>
           <line num="54" count="0" type="stmt"/>
