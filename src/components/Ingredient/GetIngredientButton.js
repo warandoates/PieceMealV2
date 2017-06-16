@@ -15,7 +15,7 @@ import { getIngredients } from '../../actions/index';
 //   }
 // }
 
-const GetIngredientsButton = props => (
+export const GetIngredientsButton = props => (
   <Button onPress={props.getAllIngredients} style={styles.buttonStyle} iconLeft>
     <Icon name='food-variant' size={35} />
     <Text>See All Ingredients</Text>
