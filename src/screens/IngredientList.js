@@ -28,7 +28,7 @@ const ConnectedMyButton = connect((state) => {
   };
 })(MyButton);
 
-class IngredientResultsList extends Component {
+export class IngredientResultsList extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: 'Ingredients',
@@ -41,7 +41,12 @@ class IngredientResultsList extends Component {
   };
 
   componentDidMount() {
+    this.loadDataSource();
     return this.props.getIngredients();
+  }
+
+  componentDidUpdate() {
+    return this.loadDataSource();
   }
 
   loadDataSource() {
@@ -53,17 +58,17 @@ class IngredientResultsList extends Component {
   }
 
   renderRow(rowData) {
-    return <IngredientItem 
-                           rowData={rowData}
-                           onPress={() => {
-                             this.props.navigation.navigate('ViewIngredient',
-                                                           { ingredient: rowData })
-                           }} />;
+    return <IngredientItem
+       rowData={rowData}
+       onPress={() => {
+         this.props.navigation.navigate('ViewIngredient',
+           { ingredient: rowData })
+       }} />;
   }
 
 
     render() {
-      this.loadDataSource();
+      // this.loadDataSource();
         return (
           <View style={{ flex: 1 }}>
           {this.props.isFetching && <Spinner color="green" /> }
