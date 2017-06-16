@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests PieChart renders PieChart component 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <PieChart
+    accessorKey="count"
+    data={Array []}
+    options={
+      Object {
+        "R": 150,
+        "animate": Object {
+          "duration": 2000,
+          "fillTransition": 3,
+          "type": "oneByOne",
+        },
+        "color": Array [
+          "#62C370",
+          "#CC3363",
+          "#20063B",
+        ],
+        "height": 350,
+        "label": Object {
+          "color": "#FFFFFF",
+          "fontFamily": "Arial",
+          "fontSize": 14,
+          "fontWeight": "bold",
+        },
+        "legendPosition": "topLeft",
+        "margin": Object {
+          "bottom": 20,
+          "left": 20,
+          "right": 20,
+          "top": 20,
+        },
+        "r": 50,
+        "width": 350,
+      }
+    }
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "textAlign": "center",
+      }
+    }
+  >
+    Category Breakdown
+  </Text>
+</View>
+`;
