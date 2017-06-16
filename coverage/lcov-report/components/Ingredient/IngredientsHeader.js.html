@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for components/Recipe/RecipeItem.js</title>
+    <title>Code coverage report for components/Ingredient/IngredientsHeader.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">All files</a> / <a href="index.html">components/Recipe</a> RecipeItem.js
+      <a href="../../index.html">All files</a> / <a href="index.html">components/Ingredient</a> IngredientsHeader.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>1/2</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -69,26 +69,7 @@
 24
 25
 26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+27</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -98,14 +79,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -118,42 +96,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
-import {
-    Icon,
-    Card,
-    CardItem,
-    Thumbnail,
-    Text,
-    Right } from 'native-base';
-// import RecipeModal from './RecipeModal';
-import iceCream from '../../assets/food/ice-cream.jpg';
-import bruscetta from '../../assets/food/Bruscetta.jpg';
-import pepperBeef from '../../assets/food/Pepper-Beef.jpg';
+import { Header, Button, Icon, Title, Body, Right, Left } from 'native-base';
 &nbsp;
-const images = [iceCream, bruscetta, pepperBeef];
+class IngredientHeader extends Component {
 &nbsp;
-export default class RecipeItem extends Component {
   render() {
-      const rowData = this.props.rowData;
-      return (
-          &lt;Card&gt;
-            &lt;TouchableOpacity
-              onPress={this.props.onPress}
+    return (
+      &lt;Header&gt;
+        &lt;Left /&gt;
+          &lt;Body&gt;
+              &lt;Title&gt;Ingredients&lt;/Title&gt;
+          &lt;/Body&gt;
+          &lt;Right&gt;
+            &lt;Button
+              onPress={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.props.navigationHero.navigation.navigate('Home')}</span>
+              transparent
             &gt;
-                  &lt;CardItem&gt;
-                      &lt;Thumbnail source={images[rowData.id % images.length]} /&gt;
-                      &lt;Text style={{ alignSelf: 'center', marginLeft: 25 }}&gt;{ rowData.name }&lt;/Text&gt;
-                      &lt;Right&gt;
-                      &lt;Icon name="arrow-forward" /&gt;
-                      &lt;/Right&gt;
-                  &lt;/CardItem&gt;
-&nbsp;
-            &lt;/TouchableOpacity&gt;
-          &lt;/Card&gt;
-      );
+              &lt;Icon name="add" size={35} /&gt;
+            &lt;/Button&gt;
+          &lt;/Right&gt;
+      &lt;/Header&gt;
+    );
   }
 }
+&nbsp;
+export default IngredientHeader;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
