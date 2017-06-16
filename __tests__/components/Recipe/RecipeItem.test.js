@@ -1,7 +1,7 @@
 import 'react-native';
 import React from 'react';
 
-import { RecipeItem } from '../../../src/components/Recipe/RecipeItem';
+import RecipeItem from '../../../src/components/Recipe/RecipeItem';
 import renderer from 'react-test-renderer';
 
 describe('tests the RecipeHeader component', () => {
