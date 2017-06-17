@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Resricted Ingredients renders RestrictedIngredients component 1`] = `
+<TouchableWithoutFeedback
+  onPress={[Function]}
+>
+  <View>
+    <ListViewMock
+      dataSource={
+        ListViewDataSource {
+          "items": 0,
+        }
+      }
+      enableEmptySections={true}
+      renderRow={[Function]}
+      renderScrollComponent={[Function]}
+    />
+  </View>
+</TouchableWithoutFeedback>
+`;

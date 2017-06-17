@@ -3,6 +3,15 @@ import { ListView } from 'react-native';
 import { Container, Content, View, Card, CardItem, Text } from 'native-base';
 
 export default class RecipeSteps extends Component {
+
+  componentDidMount() {
+    return this.loadDataSource();
+  }
+
+  componentDidUpdate() {
+    return this.loadDataSource();
+  }
+
   loadDataSource() {
        const ds = new ListView.DataSource({
            rowHasChanged: (r1, r2) => r1 !== r2
@@ -26,7 +35,7 @@ export default class RecipeSteps extends Component {
   }
 
   render() {
-    this.loadDataSource();
+    // this.loadDataSource();
       return (
           <Container>
             <Content>

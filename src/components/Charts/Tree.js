@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Text, View } from 'react-native';
 import { Tree } from 'react-native-pathjs-charts';
 
-class TreeChart extends Component {
+export class TreeChart extends Component {
   render() {
     let data = {
       "name": "Root",

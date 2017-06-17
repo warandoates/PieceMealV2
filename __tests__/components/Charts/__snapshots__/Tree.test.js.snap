@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests TreeChart renders TreeChart component 1`] = `
+<View>
+  <TreeChart
+    data={
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "name": "Tromp",
+              },
+              Object {
+                "name": "Thompson",
+              },
+              Object {
+                "name": "Ryan",
+              },
+            ],
+            "name": "Santa Catarina",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "name": "Dicki",
+              },
+              Object {
+                "name": "Armstrong",
+              },
+              Object {
+                "name": "Nitzsche",
+              },
+            ],
+            "name": "Acre",
+          },
+        ],
+        "name": "Root",
+      }
+    }
+    options={
+      Object {
+        "animate": Object {
+          "duration": 200,
+          "fillTransition": 3,
+          "type": "oneByOne",
+        },
+        "fill": "#2980B9",
+        "height": 200,
+        "label": Object {
+          "fill": "#34495E",
+          "fontFamily": "Arial",
+          "fontSize": 8,
+          "fontWeight": true,
+        },
+        "margin": Object {
+          "bottom": 20,
+          "left": 50,
+          "right": 80,
+          "top": 20,
+        },
+        "r": 2,
+        "stroke": "#3E90F0",
+        "width": 200,
+      }
+    }
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "textAlign": "center",
+      }
+    }
+  >
+    Recipe Ancestry
+  </Text>
+</View>
+`;

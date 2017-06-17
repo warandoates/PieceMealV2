@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests BarChart renders BarChart component 1`] = `
+<View>
+  <BarChart
+    accessorKey="v"
+    data={
+      Array [
+        Array [
+          Object {
+            "name": "apple",
+            "v": 49,
+          },
+          Object {
+            "name": "apple",
+            "v": 42,
+          },
+        ],
+        Array [
+          Object {
+            "name": "banana",
+            "v": 69,
+          },
+          Object {
+            "name": "banana",
+            "v": 62,
+          },
+        ],
+        Array [
+          Object {
+            "name": "grape",
+            "v": 29,
+          },
+          Object {
+            "name": "grape",
+            "v": 15,
+          },
+        ],
+      ]
+    }
+    options={
+      Object {
+        "animate": Object {
+          "duration": 200,
+          "fillTransition": 3,
+          "type": "oneByOne",
+        },
+        "axisX": Object {
+          "label": Object {
+            "fill": "#34495E",
+            "fontFamily": "Arial",
+            "fontSize": 8,
+            "fontWeight": true,
+          },
+          "orient": "bottom",
+          "showAxis": true,
+          "showLabels": true,
+          "showLines": true,
+          "showTicks": true,
+          "zeroAxis": false,
+        },
+        "axisY": Object {
+          "label": Object {
+            "fill": "#34495E",
+            "fontFamily": "Arial",
+            "fontSize": 8,
+            "fontWeight": true,
+          },
+          "orient": "left",
+          "showAxis": true,
+          "showLabels": true,
+          "showLines": true,
+          "showTicks": true,
+          "zeroAxis": false,
+        },
+        "color": "#2980B9",
+        "gutter": 20,
+        "height": 300,
+        "margin": Object {
+          "bottom": 50,
+          "left": 25,
+          "right": 20,
+          "top": 20,
+        },
+        "width": 300,
+      }
+    }
+    style={
+      Object {
+        "height": 125,
+        "width": 125,
+      }
+    }
+  />
+</View>
+`;

@@ -28,7 +28,7 @@ import {
   signupUser
 } from '../actions';
 
-class SignupForm extends Component {
+export class SignupForm extends Component {
   // static navigationOptions = ({ navigation, header }) => ({
   //   title: 'Sign Up',
   //   mode: 'modal'
