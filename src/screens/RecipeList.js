@@ -28,7 +28,7 @@ const ConnectedMyButton = connect((state) => {
   };
 })(MyButton);
 
-class RecipeResultsList extends Component {
+export class RecipeResultsList extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Recipes',
     headerRight: <ConnectedMyButton navigation={navigation} />,
@@ -38,8 +38,13 @@ class RecipeResultsList extends Component {
     mode: 'modal'
   });
 
-  componentWillMount() {
+  componentDidMount() {
+    this.loadDataSource();
     return this.props.getAllRecipes();
+  }
+
+  componentWillUpdate() {
+    return this.loadDataSource();
   }
 
   loadDataSource() {
@@ -56,7 +61,7 @@ class RecipeResultsList extends Component {
   }
 
   render() {
-    this.loadDataSource();
+    // this.loadDataSource();
       return (
         <View style={{ flex: 1 }}>
           {this.props.isFetching && <Spinner color="green" /> }

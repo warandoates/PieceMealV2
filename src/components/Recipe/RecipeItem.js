@@ -8,10 +8,8 @@ import {
     Text,
     Right } from 'native-base';
 // import RecipeModal from './RecipeModal';
-import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
 export default class RecipeItem extends Component {
-
   render() {
       const rowData = this.props.rowData;
       let image;
@@ -32,6 +30,7 @@ export default class RecipeItem extends Component {
                       <Icon name="arrow-forward" />
                       </Right>
                   </CardItem>
+
             </TouchableOpacity>
           </Card>
       );

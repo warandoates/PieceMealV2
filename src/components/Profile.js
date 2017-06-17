@@ -19,7 +19,7 @@ import sliders from '../assets/food/sliders.jpg';
 import { restrictionsChange, changeRestrictions, userChange } from '../actions';
 import CheckBoxExample from './Ingredient/RestrictedIngredients'
 
-class Profile extends Component {
+export class Profile extends Component {
 
     componentWillUpdate(nextProps) {
       // perform any preparations for an upcoming update

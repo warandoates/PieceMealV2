@@ -4,7 +4,7 @@ import { Button, Text } from 'native-base';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { getRecipes } from '../../actions/index';
 
-class GetRecipeButton extends Component {
+export class GetRecipeButton extends Component {
   render() {
     return (
       <Button
@@ -18,14 +18,6 @@ class GetRecipeButton extends Component {
     );
   }
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     getAllRecipes: () => {
-//       dispatch(getRecipes());
-//     }
-//   };
-// };
 
 const styles = {
   buttonStyle: {

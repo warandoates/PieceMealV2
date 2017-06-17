@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests the RecipeHeader component renders recipeHeader properly 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "alignSelf": "flex-start",
+      "backgroundColor": "#007aff",
+      "borderColor": "#007aff",
+      "borderRadius": 5,
+      "borderWidth": null,
+      "elevation": 2,
+      "flexDirection": "row",
+      "height": 45,
+      "justifyContent": "space-between",
+      "marginLeft": 5,
+      "marginRight": 5,
+      "opacity": 1,
+      "paddingBottom": 6,
+      "paddingLeft": 16,
+      "paddingRight": 16,
+      "paddingTop": 6,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 35,
+        },
+        undefined,
+        Object {
+          "fontFamily": "Material Design Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#fff",
+        "fontFamily": "System",
+        "fontSize": 16.5,
+        "lineHeight": 19,
+        "marginLeft": 0,
+        "marginRight": 0,
+      }
+    }
+    virtual={undefined}
+  >
+    See All Recipes
+  </Text>
+</View>
+`;

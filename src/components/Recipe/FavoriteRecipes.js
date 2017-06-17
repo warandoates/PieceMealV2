@@ -14,17 +14,25 @@ import {
 import RecipeModal from './RecipeModal';
 import iceCream from '../../assets/food/ice-cream.jpg';
 import bruscetta from '../../assets/food/Bruscetta.jpg';
-import pepperBeef from '../../assets/food/Pepper Beef.jpg';
+import pepperBeef from '../../assets/food/pepperBeef.jpg';
 
 const images = [iceCream, bruscetta, pepperBeef];
 
-class FavoriteRecipes extends Component {
+export class FavoriteRecipes extends Component {
 
   state = {
       modalVisible: false,
       name: '',
       description: '',
       notes: ''
+  }
+
+  componentDidMount() {
+    return this.loadDataSource();
+  }
+
+  componentDidUpdate() {
+    return this.loadDataSource();
   }
 
   setModalVisible(visible) {
@@ -38,6 +46,7 @@ class FavoriteRecipes extends Component {
 
       this.dataSource = ds.cloneWithRows(this.props.recipes);
    }
+
 
   renderRow(rowData) {
       return (
@@ -65,7 +74,7 @@ class FavoriteRecipes extends Component {
   }
 
   render() {
-      this.loadDataSource();
+      // this.loadDataSource();
           return (
               <Container>
                   <Content>

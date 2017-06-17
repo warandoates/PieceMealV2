@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { View } from 'react-native';
 import { Radar } from 'react-native-pathjs-charts';
 
-class RadarChart extends Component {
+export class RadarChart extends Component {
   render() {
   let data = [{
     "speed": 74,

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {View} from 'react-native';
 import {Bar} from 'react-native-pathjs-charts';
 
-class BarChart extends Component {
+export class BarChart extends Component {
     render() {
         const data = [
             [

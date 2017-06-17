@@ -22,7 +22,6 @@ export default(state = INITIAL_STATE, action) => {
       if (action.payload === 'Not Logged In') {
         return INITIAL_STATE;
       }
-      console.log('payload:', action.payload);
       return { ...state, client: action.payload, loading: false };
 
     case 'GET_CLIENT_REJECTED':

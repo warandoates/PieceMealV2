@@ -5,7 +5,7 @@ import { Text, View } from 'react-native';
 import { Pie } from 'react-native-pathjs-charts';
 import { fetchIngredientData } from '../../actions';
 
-class PieChart extends Component {
+export class PieChart extends Component {
 
   componentWillMount() {
     // perform any preparations for an upcoming update

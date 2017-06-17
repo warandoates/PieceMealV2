@@ -4,7 +4,7 @@ import { Container, Icon, Input, InputGroup, Button } from 'native-base';
 import SearchResults from '../components/SearchResults';
 import { createSearchAction } from '../actions/index';
 
-class LandingPage extends Component {
+export class LandingPage extends Component {
  static navigationOptions = ({ navigation }) => ({
      title: 'Piece Meal',
      tabBarIcon: ({ tintColor }) => (
@@ -12,7 +12,7 @@ class LandingPage extends Component {
      )
  });
 
- componentWillMount() {
+ componentDidMount() {
    this.props.searchRecipe('');
  }
 

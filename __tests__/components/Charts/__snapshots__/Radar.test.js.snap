@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests RadarChart renders RadarChart component 1`] = `
+<View>
+  <RadarChart
+    data={
+      Array [
+        Object {
+          "agility": 25,
+          "balance": 29,
+          "endurance": 44,
+          "energy": 40,
+          "explosives": 40,
+          "flexibility": 30,
+          "speed": 74,
+        },
+      ]
+    }
+    options={
+      Object {
+        "animate": Object {
+          "duration": 200,
+          "type": "oneByOne",
+        },
+        "fill": "#2980B9",
+        "height": 290,
+        "label": Object {
+          "fill": "#34495E",
+          "fontFamily": "Arial",
+          "fontSize": 14,
+          "fontWeight": true,
+        },
+        "margin": Object {
+          "bottom": 20,
+          "left": 20,
+          "right": 30,
+          "top": 20,
+        },
+        "max": 100,
+        "r": 150,
+        "stroke": "#2980B9",
+        "width": 290,
+      }
+    }
+  />
+</View>
+`;
