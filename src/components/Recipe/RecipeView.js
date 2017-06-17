@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner } from 'native-base';
 import RecipeSteps from './RecipeSteps';
+import RecipeIngredient from './RecipeIngredient';
 
 const badgeStyle = { backgroundColor: 'black' };
 const textStyle = { color: 'white' };
@@ -54,6 +55,16 @@ export default class RecipeView extends Component {
                             ? <Spinner/>
                             : <RecipeSteps instructions={this.props.recipe.instructions}/>
                         }
+                    </CardItem>
+                    <H3 style={{
+                        fontFamily: 'Futura',
+                        alignSelf: 'center'
+                    }}>Ingredients:</H3>
+                    <CardItem>
+                      {!this.props.recipe
+                            ? <Spinner/>
+                            : <RecipeIngredient ingredients={this.props.recipe.ingredients}/>
+                      }
                     </CardItem>
                     <CardItem footer style={{
                         paddingBottom: 25
