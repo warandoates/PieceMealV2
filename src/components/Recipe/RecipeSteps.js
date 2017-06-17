@@ -35,9 +35,8 @@ export default class RecipeSteps extends Component {
   }
 
   render() {
-    // this.loadDataSource();
+    this.loadDataSource();
       return (
-          <Container>
             <Content>
               <View>
                 <ListView
@@ -47,7 +46,6 @@ export default class RecipeSteps extends Component {
                 />
               </View>
             </Content>
-          </Container>
       );
     }
 }

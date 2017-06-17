@@ -8,6 +8,7 @@ import {
     Text,
     Right } from 'native-base';
 // import RecipeModal from './RecipeModal';
+import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
 export default class RecipeItem extends Component {
   render() {
@@ -20,9 +21,7 @@ export default class RecipeItem extends Component {
       }
       return (
           <Card>
-            <TouchableOpacity
-              onPress={this.props.onPress}
-            >
+            <TouchableOpacity onPress={this.props.onPress}>
                   <CardItem>
                       <Thumbnail source={image} />
                       <Text style={{ alignSelf: 'center', marginLeft: 25 }}>{ rowData.name }</Text>
@@ -30,7 +29,6 @@ export default class RecipeItem extends Component {
                       <Icon name="arrow-forward" />
                       </Right>
                   </CardItem>
-
             </TouchableOpacity>
           </Card>
       );

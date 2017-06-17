@@ -3,12 +3,20 @@ import { Image } from 'react-native';
 import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner } from 'native-base';
 import RecipeSteps from './RecipeSteps';
 import RecipeIngredient from './RecipeIngredient';
+import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
 const badgeStyle = { backgroundColor: 'black' };
 const textStyle = { color: 'white' };
 export default class RecipeView extends Component {
 
     render() {
+        const rowData = this.props.recipe;
+        let image;
+        if (rowData.image_url) {
+          image = { uri: rowData.image_url };
+        } else {
+          image = DEFAULT_IMAGE;
+        }
         return (
             <Content>
                 <Card style={{
@@ -33,7 +41,7 @@ export default class RecipeView extends Component {
                                 resizeMode: 'contain',
                                 width: 340,
                                 height: 200
-                            }} source={this.props.recipe.image}/>
+                            }} source={image}/>
                             <Text note style={{
                                 fontFamily: 'Futura',
                                 marginLeft: 20,
