@@ -10,10 +10,11 @@ const textStyle = { color: 'white' };
 export default class RecipeView extends Component {
 
     render() {
-        const rowData = this.props.recipe;
+        const recipe = this.props.recipe;
+        const recipeTags = recipe.tags;
         let image;
-        if (rowData.image_url) {
-          image = { uri: rowData.image_url };
+        if (recipe.image_url) {
+          image = { uri: recipe.image_url };
         } else {
           image = DEFAULT_IMAGE;
         }
@@ -31,7 +32,7 @@ export default class RecipeView extends Component {
                             marginTop: 20,
                             paddingTop: 15
                         }}>
-                            {this.props.recipe.name.toUpperCase()}
+                            {recipe.name.toUpperCase()}
                         </Text>
                     </CardItem>
 
@@ -50,7 +51,7 @@ export default class RecipeView extends Component {
                                 marginBottom: 10,
                                 alignSelf: 'center'
                             }}>
-                                "{this.props.recipe.description}"
+                                "{recipe.description}"
                             </Text>
                         </Body>
                     </CardItem>
@@ -59,9 +60,9 @@ export default class RecipeView extends Component {
                         alignSelf: 'center'
                     }}>Instructions:</H3>
                     <CardItem>
-                        {!this.props.recipe
+                        {!recipe
                             ? <Spinner/>
-                            : <RecipeSteps instructions={this.props.recipe.instructions}/>
+                            : <RecipeSteps instructions={recipe.instructions}/>
                         }
                     </CardItem>
                     <H3 style={{
@@ -69,9 +70,9 @@ export default class RecipeView extends Component {
                         alignSelf: 'center'
                     }}>Ingredients:</H3>
                     <CardItem>
-                      {!this.props.recipe
+                      {!recipe
                             ? <Spinner/>
-                            : <RecipeIngredient ingredients={this.props.recipe.ingredients}/>
+                            : <RecipeIngredient ingredients={recipe.ingredients}/>
                       }
                     </CardItem>
                     <CardItem footer style={{
@@ -79,18 +80,13 @@ export default class RecipeView extends Component {
                     }}>
                         <Text style={{
                             fontFamily: 'Futura'
-                        }} note>{this.props.recipe.notes}</Text>
+                        }} note>{recipe.notes}</Text>
                     </CardItem>
                     <CardItem footer>
+                      {recipeTags.map((recipeTag) => (
                         <Badge style={badgeStyle}>
-                            <Text style={textStyle}>vegetarian</Text>
-                        </Badge>
-                        <Badge style={badgeStyle}>
-                            <Text style={textStyle}>vegan</Text>
-                        </Badge>
-                        <Badge style={badgeStyle}>
-                            <Text style={textStyle}>dairy</Text>
-                        </Badge>
+                          <Text style={textStyle}>{recipeTag}</Text>
+                       </Badge>))}
                     </CardItem>
                 </Card>
             </Content>
