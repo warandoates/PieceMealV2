@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListView, View } from 'react-native';
+import { ListView, View, Text } from 'react-native';
 import { Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/Ingredient/IngredientItem';
@@ -38,9 +38,7 @@ export class IngredientResultsList extends Component {
    /* this will style the header, but does NOT change the text */
         backgroundColor: '#68BAA7'
       },
-      headerTintColor: {
-    /* this will color your back and forward arrows or left and right icons */
-      },
+
       title: 'Ingredients',
       headerRight: <ConnectedMyButton navigation={navigation} />,
       tabBarIcon: ({ tintColor }) => (
@@ -52,11 +50,11 @@ export class IngredientResultsList extends Component {
 
   componentDidMount() {
     this.loadDataSource();
-    return this.props.getIngredients();
+    this.props.getIngredients();
   }
 
   componentDidUpdate() {
-    return this.loadDataSource();
+    this.loadDataSource();
   }
 
   loadDataSource() {
@@ -83,6 +81,7 @@ export class IngredientResultsList extends Component {
           <View style={{ flex: 1 }}>
           {this.props.isFetching && <Spinner color="green" /> }
           {this.props.list.length > 0 && <ListView
+            removeClippedSubviews={false}
             dataSource={this.dataSource}
             renderRow={this.renderRow.bind(this)}
             enableEmptySections
