@@ -75,7 +75,7 @@ function postFetchIngredient(ingredient, token) {
     ingredient.tags.split(' ');
   }
 
-  console.log('this is the ingredient', ingredient);
+
   return fetch(`${API_URL}/api/v1/ingredients`, {
         mode: 'no-cors',
         method: 'POST',

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
-import { Container, Header, Item, Input, Icon, Button, Text, InputGroup} from 'native-base';
+import { Header, Item, Input, Icon, Button } from 'native-base';
 
 export class SearchResults extends Component {
     render() {

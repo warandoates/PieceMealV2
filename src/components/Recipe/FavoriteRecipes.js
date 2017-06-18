@@ -74,7 +74,7 @@ export class FavoriteRecipes extends Component {
   }
 
   render() {
-      // this.loadDataSource();
+      this.loadDataSource();
           return (
               <Container>
                   <Content>

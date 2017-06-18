@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Image } from 'react-native';
-import { Header, Left, Button, Icon, Body, Title, Right, Container, Content, ListItem, Text, CheckBox } from 'native-base';
+import { Image } from 'react-native';
+import { Header, Left, Button, Icon, Body, Right } from 'native-base';
 
 export class MyHeader extends Component {
     render() {
