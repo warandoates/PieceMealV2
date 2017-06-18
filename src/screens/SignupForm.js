@@ -37,7 +37,7 @@ export class SignupForm extends Component {
     static navigationOptions = ({ navigation }) => {
       return {
         tabBarIcon: ({ tintColor }) => (
-         <Icon name='person-add' />
+         <Icon name='person-add' style={{ color: '#68BAA7' }} />
        ),
        title: 'Sign Up'
       };
@@ -162,7 +162,8 @@ const styles = {
     marginBottom: 25,
     marginTop: 20,
     width: '50%',
-    backgroundColor: '#73ab00'
+    backgroundColor: '#C0B083',
+    alignItems: 'center'
   }
 };
 
