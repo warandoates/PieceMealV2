@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
-import { Container, Content, View, Card, CardItem, Text } from 'native-base';
+import { Content, View, Card, CardItem, Text } from 'native-base';
 
 export default class RecipeSteps extends Component {
 
@@ -35,9 +35,8 @@ export default class RecipeSteps extends Component {
   }
 
   render() {
-    // this.loadDataSource();
+    this.loadDataSource();
       return (
-          <Container>
             <Content>
               <View>
                 <ListView
@@ -47,7 +46,6 @@ export default class RecipeSteps extends Component {
                 />
               </View>
             </Content>
-          </Container>
       );
     }
 }

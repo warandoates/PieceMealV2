@@ -61,11 +61,11 @@ export class RecipeResultsList extends Component {
   }
 
   render() {
-    // this.loadDataSource();
+    this.loadDataSource();
       return (
         <View style={{ flex: 1 }}>
           {this.props.isFetching && <Spinner color="green" /> }
-          {this.props.list.length > 1 &&
+          {this.props.list.length > 0 &&
           <ListView
             dataSource={this.dataSource}
            renderRow={this.renderRow.bind(this)}

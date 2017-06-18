@@ -14,7 +14,7 @@ import {
 import RecipeModal from './RecipeModal';
 import iceCream from '../../assets/food/ice-cream.jpg';
 import bruscetta from '../../assets/food/Bruscetta.jpg';
-import pepperBeef from '../../assets/food/pepperBeef.jpg';
+import pepperBeef from '../../assets/food/PepperBeef.jpg';
 
 const images = [iceCream, bruscetta, pepperBeef];
 
@@ -74,7 +74,7 @@ export class FavoriteRecipes extends Component {
   }
 
   render() {
-      // this.loadDataSource();
+      this.loadDataSource();
           return (
               <Container>
                   <Content>

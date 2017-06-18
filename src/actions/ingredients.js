@@ -70,10 +70,10 @@ function deleteThisIngredient(ingredientId, token) {
 
 
 function postFetchIngredient(ingredient, token) {
-  // let arrTags = [];
-  // if (ingredient.tags) {
-  //   arrTags = ingredient.tags.split(' ');
-  // }
+  let arrTags = [];
+  if (ingredient.tags) {
+    arrTags = ingredient.tags.split(' ');
+  }
   return fetch(`${API_URL}/api/v1/ingredients`, {
         mode: 'no-cors',
         method: 'POST',
