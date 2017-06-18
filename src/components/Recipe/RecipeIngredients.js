@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { ListView, Switch } from 'react-native';
 import { Container, Content, View, Card, CardItem, Text } from 'native-base';
 
-export default class RecipeSteps extends Component {
+export default class RecipeIngredients extends Component {
 
-  state = {
-    toggled: false
+  componentDidMount() {
+    return this.loadDataSource();
   }
 
-  toggleSwitch() {
-      this.setState({ toggled: !this.state.toggled });
+  componentDidUpdate() {
+    return this.loadDataSource();
   }
 
   loadDataSource() {
@@ -17,18 +17,17 @@ export default class RecipeSteps extends Component {
            rowHasChanged: (r1, r2) => r1 !== r2
        });
 
-       this.dataSource = ds.cloneWithRows(this.props.instructions);
+       this.dataSource = ds.cloneWithRows(this.props.ingredients);
    }
 
   renderRow(rowData) {
     return (
         <CardItem>
-            {/* <Switch value={this.state.toggled} onValueChange={() => { this.toggleSwitch(); }} /> */}
-            <Switch value={this.state.toggled} onValueChange={() => { this.value = !this.value; }} />
+            <Switch checked />
             <Text
               style={{ fontStyle: 'italic', alignSelf: 'center', paddingLeft: 10 }}
             >
-              { rowData.instructions }
+              { rowData.name }
             </Text>
         </CardItem>
     );

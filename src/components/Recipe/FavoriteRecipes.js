@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ListView, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import {
+  Button,
     Container,
     Content,
     Icon,
@@ -11,20 +12,26 @@ import {
     Thumbnail,
     Text,
     Right } from 'native-base';
+import Create from './Create';
+import NewRecipe from './NewRecipe';
 import RecipeModal from './RecipeModal';
 import iceCream from '../../assets/food/ice-cream.jpg';
 import bruscetta from '../../assets/food/Bruscetta.jpg';
-import pepperBeef from '../../assets/food/pepperBeef.jpg';
+import pepperBeef from '../../assets/food/Pepper Beef.jpg';
 
 const images = [iceCream, bruscetta, pepperBeef];
 
-export class FavoriteRecipes extends Component {
+class FavoriteRecipes extends Component {
 
   state = {
+      createVisible: false,
       modalVisible: false,
       name: '',
       description: '',
-      notes: ''
+      notes: '',
+      cookTime: '',
+      prepTime: '',
+      tags: []
   }
 
   componentDidMount() {
@@ -33,6 +40,10 @@ export class FavoriteRecipes extends Component {
 
   componentDidUpdate() {
     return this.loadDataSource();
+  }
+
+  setCreateVisible(visible) {
+      this.setState({ createVisible: visible });
   }
 
   setModalVisible(visible) {
@@ -47,15 +58,17 @@ export class FavoriteRecipes extends Component {
       this.dataSource = ds.cloneWithRows(this.props.recipes);
    }
 
-
   renderRow(rowData) {
       return (
-          <Card>
+          <Card style={{ marginLeft: 5, marginRight: 5 }}>
               <TouchableOpacity
                 onPress={() => {
                 this.state.name = rowData.name;
                 this.state.description = rowData.description;
                 this.state.notes = rowData.notes;
+                this.state.cookTime = rowData.cook_time;
+                this.state.prepTime = rowData.prep_time;
+                this.state.tags = rowData.tags;
                 this.state.image = images[rowData.id - 1];
                 this.state.recipe = rowData;
                 this.setModalVisible(true);
@@ -74,7 +87,7 @@ export class FavoriteRecipes extends Component {
   }
 
   render() {
-      // this.loadDataSource();
+      this.loadDataSource();
           return (
               <Container>
                   <Content>
@@ -83,11 +96,24 @@ export class FavoriteRecipes extends Component {
                         setModalVisible={this.setModalVisible.bind(this)}
                         name={this.state.name}
                         description={this.state.description}
+                        cookTime={this.state.cookTime}
+                        prepTime={this.state.prepTime}
+                        tags={this.state.tags}
                         notes={this.state.notes}
                         image={this.state.image}
                         recipe={this.state.recipe}
                         loading={this.props.isFetching}
                       />
+                      <Create
+                        style={{ paddingTop: 20, marginTop: 20 }}
+                        visible={this.state.createVisible}
+                        setCreateVisible={this.setCreateVisible.bind(this)}
+                      />
+                      {/* <NewRecipe
+                        style={{ paddingTop: 20, marginTop: 20 }}
+                        visible={this.state.createVisible}
+                        setCreateVisible={this.setCreateVisible.bind(this)}
+                      /> */}
                       <View>
                         <ListView
                           dataSource={this.dataSource}
@@ -95,6 +121,13 @@ export class FavoriteRecipes extends Component {
                           enableEmptySections
                         />
                       </View>
+                      <Button
+                        icon
+                        style={{ alignSelf: 'flex-end', marginTop: 10, marginRight: 10 }}
+                        onPress={() => { this.setCreateVisible(true); }}
+                      >
+                        <Icon name='add' />
+                      </Button>
                   </Content>
               </Container>
           );
