@@ -37,9 +37,9 @@ export class LandingPage extends Component {
            placeholder="Search"
            onChangeText={(newText) => this.props.searchRecipe(newText)}
          />
-         <Button transparent>
+         {/* <Button transparent>
              <Icon name='ios-options' style={{ color: '#68BAA7' }} />
-         </Button>
+         </Button> */}
        </InputGroup>
        <SearchResults navigation={this.props.navigation}
                       recipes={this.props.recipes}
