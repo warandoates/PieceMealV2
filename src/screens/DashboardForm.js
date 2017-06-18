@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {
   Container,
-  Content,
-  Header,
   Icon,
-  ScrollableTab,
   Tab,
   Tabs
 } from 'native-base';
@@ -22,9 +19,6 @@ export default class TableExample extends Component {
    /* this will style the header, but does NOT change the text */
         backgroundColor: '#68BAA7'
       },
-      headerTintColor: {
-    /* this will color your back and forward arrows or left and right icons */
-      },
       tabBarIcon: ({ tintColor }) => (<Icon style={{ color: '#68BAA7' }} name='paper' />)
     };
   };
@@ -38,9 +32,9 @@ export default class TableExample extends Component {
           <Tab heading="Profile" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
             <Profile />
           </Tab>
-          <Tab heading="Statistics" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
+          {/* <Tab heading="Statistics" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
             <Charts />
-          </Tab>
+          </Tab> */}
           <Tab heading="Ingredients" textStyle={{ fontSize: 11 }} activeTextStyle={{ fontSize: 10 }}>
             {/* <FavoriteIngredients /> */}
           </Tab>
@@ -48,9 +42,8 @@ export default class TableExample extends Component {
             {/* <Tab2 /> */}
             <FavoriteRecipes />
           </Tab>
-          <Tab heading="Friends" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
-            {/* <Tab2 /> */}
-          </Tab>
+          {/* <Tab heading="Friends" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
+          </Tab> */}
         </Tabs>
       </Container>
     );
