@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner } from 'native-base';
 import RecipeSteps from './RecipeSteps';
-import RecipeIngredient from './RecipeIngredient';
+import RecipeIngredients from './RecipeIngredients';
 import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
 const badgeStyle = { backgroundColor: 'black' };
@@ -20,9 +20,7 @@ export default class RecipeView extends Component {
         }
         return (
             <Content>
-                <Card style={{
-                    flex: 1
-                }}>
+                <Card style={{ flex: 1 }} key={recipe.id}>
                     <CardItem header style={{
                         alignSelf: 'center'
                     }}>
@@ -57,7 +55,8 @@ export default class RecipeView extends Component {
                     </CardItem>
                     <H3 style={{
                         fontFamily: 'Futura',
-                        alignSelf: 'center'
+                        alignSelf: 'center',
+                        color: '#66B98F'
                     }}>Instructions:</H3>
                     <CardItem>
                         {!recipe
@@ -72,7 +71,7 @@ export default class RecipeView extends Component {
                     <CardItem>
                       {!recipe
                             ? <Spinner/>
-                            : <RecipeIngredient ingredients={recipe.ingredients}/>
+                            : <RecipeIngredients ingredients={recipe.ingredients}/>
                       }
                     </CardItem>
                     <CardItem footer style={{
@@ -84,7 +83,7 @@ export default class RecipeView extends Component {
                     </CardItem>
                     <CardItem footer>
                       {recipeTags.map((recipeTag) => (
-                        <Badge style={badgeStyle}>
+                        <Badge key={recipeTag} style={badgeStyle}>
                           <Text style={textStyle}>{recipeTag}</Text>
                        </Badge>))}
                     </CardItem>

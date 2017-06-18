@@ -1,22 +1,9 @@
 //Search Bar
 import React, { Component } from 'react';
 import { ListView, View } from 'react-native';
-import { connect } from 'react-redux';
+import { Spinner } from 'native-base';
 import RecipeItem from '../components/Recipe/RecipeItem';
 import IngredientItem from '../components/Ingredient/IngredientItem';
-import {
-    Content,
-    Card,
-    CardItem,
-    Text,
-    Icon,
-    Right,
-    Button,
-    Header,
-    Body,
-    Title,
-    Spinner
-} from 'native-base';
 
 export default class SearchResults extends Component {
   loadDataSource() {
@@ -35,7 +22,10 @@ export default class SearchResults extends Component {
     if (rowData.type === 'ingredient') {
       return (
         <View>
-          <IngredientItem rowData={rowData} />
+          <IngredientItem rowData={rowData} onPress={() => {
+            this.props.navigation.navigate('ViewIngredient',
+              { ingredient: rowData })
+          }} />
         </View>
       );
     } else {

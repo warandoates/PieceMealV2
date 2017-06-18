@@ -24,7 +24,8 @@ export default class IngredientItem extends Component {
           <TouchableOpacity onPress={this.props.onPress}>
             <CardItem>
               <Thumbnail source={image} />
-                <Text style={{ alignSelf: 'center', marginLeft: 25 }}>{ rowData.name }</Text>
+                <Text style={{ alignSelf: 'center', marginLeft: 25 }}>{ rowData.name }
+                </Text>
                 <Right>
                 <Icon name="arrow-forward" />
                 </Right>

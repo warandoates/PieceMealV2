@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
-import { Container, Content, View, Card, CardItem, Text } from 'native-base';
+import { Content, View, Card, CardItem, Text } from 'native-base';
 
 export default class RecipeSteps extends Component {
 

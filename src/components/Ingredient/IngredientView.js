@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner } from 'native-base';
+import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
 const badgeStyle = { backgroundColor: 'black' };
 const textStyle = { color: 'white' };
 export default class IngredientView extends Component {
 
     render() {
+      const ingredient = this.props.ingredient;
+      const ingredientTags = ingredient.tags;
+      let image;
+      if (ingredient.image_url) {
+        image = { uri: ingredient.image_url };
+      } else {
+        image = DEFAULT_IMAGE;
+      }
         return (
             <Content>
                 <Card style={{
@@ -21,17 +30,16 @@ export default class IngredientView extends Component {
                             marginTop: 20,
                             paddingTop: 15
                         }}>
-                            {this.props.ingredient.name.toUpperCase()}
+                            {ingredient.name.toUpperCase()}
                         </Text>
                     </CardItem>
-
                     <CardItem>
                         <Body>
                             <Image style={{
                                 resizeMode: 'contain',
                                 width: 340,
                                 height: 200
-                            }} source={this.props.ingredient.image}/>
+                            }} source={image}/>
                             <Text note style={{
                                 fontFamily: 'Futura',
                                 marginLeft: 20,
@@ -40,33 +48,15 @@ export default class IngredientView extends Component {
                                 marginBottom: 10,
                                 alignSelf: 'center'
                             }}>
-                                "{this.props.ingredient.description}"
+                                "{ingredient.description}"
                             </Text>
                         </Body>
                     </CardItem>
-                    {/* <CardItem>
-                        {!this.props.recipe
-                            ? <Spinner/>
-                            : <RecipeSteps instructions={this.props.recipe.instructions}/>
-                        }
-                    </CardItem> */}
-                    {/* <CardItem footer style={{
-                        paddingBottom: 25
-                    }}>
-                        <Text style={{
-                            fontFamily: 'Futura'
-                        }} note>{this.props.recipe.alternatives}</Text>
-                    </CardItem> */}
                     <CardItem footer>
+                      {ingredientTags.map((ingredientTag) => (
                         <Badge style={badgeStyle}>
-                            <Text style={textStyle}>vegetarian</Text>
-                        </Badge>
-                        <Badge style={badgeStyle}>
-                            <Text style={textStyle}>vegan</Text>
-                        </Badge>
-                        <Badge style={badgeStyle}>
-                            <Text style={textStyle}>dairy</Text>
-                        </Badge>
+                            <Text style={textStyle}>{ingredientTag}</Text>
+                        </Badge>))}
                     </CardItem>
                 </Card>
             </Content>
