@@ -1,6 +1,6 @@
 //Search Bar
 import React, { Component } from 'react';
-import { ListView, View } from 'react-native';
+import { ListView, View, StyleSheet } from 'react-native';
 import { Spinner } from 'native-base';
 import RecipeItem from '../components/Recipe/RecipeItem';
 import IngredientItem from '../components/Ingredient/IngredientItem';
@@ -31,8 +31,8 @@ export default class SearchResults extends Component {
     } else {
       return (
         <View>
-          <RecipeItem rowData={rowData} onPress={()=>{
-            this.props.navigation.navigate('ViewRecipe', {recipe: rowData})
+          <RecipeItem style={styles.text} rowData={rowData} onPress={()=>{
+            this.props.navigation.navigate('ViewRecipe', { recipe: rowData })
           }} />
         </View>
       );
@@ -43,8 +43,9 @@ export default class SearchResults extends Component {
       const ds = this.loadDataSource();
       return (
         <View style={{ flex: 1 }}>
-          {this.props.isFetching && <Spinner color="green" /> }
+          {this.props.isFetching && <Spinner color="#636B46" /> }
           <ListView
+            style={styles.container}
             dataSource={ds}
             renderRow={this.renderRow.bind(this)}
             enableEmptySections
@@ -53,3 +54,20 @@ export default class SearchResults extends Component {
       );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFFFF'
+  },
+  text: {
+    marginLeft: 12,
+    fontSize: 16,
+    fontFamily: 'Times New Roman'
+  },
+  separator: {
+    flex: 1,
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: '#8E8E8E',
+  }
+});

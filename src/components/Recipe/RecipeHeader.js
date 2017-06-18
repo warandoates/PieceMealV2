@@ -3,7 +3,7 @@ import { Header, Button, Icon, Title, Body, Right, Left } from 'native-base';
 
 function RecipeHeader(props) {
   return (
-    <Header>
+    <Header color='#F8EEE7' >
       <Left />
         <Body>
             <Title>Recipes</Title>
