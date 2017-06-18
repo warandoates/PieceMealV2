@@ -19,7 +19,7 @@ export default (state = INITIAL_STATE, action) => {
     case 'LOGIN_USER_REJECTED':
       return { ...state, loading: false, error: 'Unable To Login', user: null };
     case 'LOGOUT_USER':
-      return { ...state, user: action.payload }
+      return { ...state, user: action.payload };
     default:
      return state;
   }
