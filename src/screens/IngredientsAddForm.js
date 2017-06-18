@@ -9,7 +9,7 @@ import {
   Fieldset,
   Form,
 } from 'react-native-clean-form';
-import { Input } from 'react-native-clean-form/redux-form';
+import { Input, Select, } from 'react-native-clean-form/redux-form';
 import { postIngredient } from '../actions';
 
 class AddIngredientForm extends Component {
@@ -29,7 +29,10 @@ class AddIngredientForm extends Component {
   }
 
   render() {
-    const { handleSubmit, submitting } = this.props;
+    const { handleSubmit, submitting, ingredients, value, onChange } = this.props;
+    const ingredientOptions = ingredients.ingredients.map(ingredient => {
+      return { label: ingredient.name, key: ingredient.id, value: ingredient.id };
+    });
     return (
       <Form>
         <FieldsContainer>
@@ -38,7 +41,13 @@ class AddIngredientForm extends Component {
             <Input name="description" label="Description" placeholder="The most delicious apple" />
           </Fieldset>
           <Fieldset label="Extras" last>
-            <Input name="alternatives" label="alternatives" placeholder="Oranges?" />
+            <Select
+              name="alternatives"
+              label="alternatives"
+              placeholder="Oranges?"
+              options={ingredientOptions}
+              // onChange={(value)}
+            />
             <Input name="tags" label="Tags" placeholder="crisp" />
             <Input name="photos" label="photos" placeholder="Photo?" />
           </Fieldset>
@@ -57,7 +66,8 @@ const mapStateToProps = (state) => {
   return {
     token: state.loginReducer.user.token,
     success: state.ingredients.success,
-    response: state.ingredients.response.message
+    response: state.ingredients.response.message,
+    ingredients: state.ingredients,
   };
 };
 

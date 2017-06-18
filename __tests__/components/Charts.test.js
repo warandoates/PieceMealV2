@@ -2,12 +2,12 @@ import 'react-native';
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import TableExample from '../../../src/screens/DashboardForm';
+import { DashboardForm } from '../../src/components/Charts';
 
-describe('tests TableExample', () => {
-  it('renders TableExample component', () => {
+describe('tests DashboardForm', () => {
+  it('renders DashboardForm component', () => {
   const component = shallow(
-    <TableExample
+    <DashboardForm
     />);
     expect(toJson(component)).toMatchSnapshot();
   });

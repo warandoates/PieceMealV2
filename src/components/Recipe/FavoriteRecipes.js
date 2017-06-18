@@ -14,7 +14,7 @@ import {
 import RecipeModal from './RecipeModal';
 import iceCream from '../../assets/food/ice-cream.jpg';
 import bruscetta from '../../assets/food/Bruscetta.jpg';
-import pepperBeef from '../../assets/food/PepperBeef.jpg';
+import pepperBeef from '../../assets/food/pepperBeef.jpg';
 
 const images = [iceCream, bruscetta, pepperBeef];
 
