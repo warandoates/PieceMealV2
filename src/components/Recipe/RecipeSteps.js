@@ -31,6 +31,21 @@ export default class RecipeSteps extends Component {
               { rowData.instructions }
             </Text>
         </CardItem>
+
+        // <Card >
+        //     <CardItem>
+        //         <Text
+        //           style={{ fontStyle: 'italic',
+        //                    alignSelf: 'center',
+        //                    fontFamily: 'Futura',
+        //                    fontSize: 14,
+        //                    color: '#373737',
+        //                    flex: 3 }}
+        //         >
+        //           { rowData.instructions }
+        //         </Text>
+        //     </CardItem>
+        // </Card>
     );
   }
 

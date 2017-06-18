@@ -1,22 +1,9 @@
 //Search Bar
 import React, { Component } from 'react';
-import { ListView, View } from 'react-native';
-import { connect } from 'react-redux';
+import { ListView, View, StyleSheet } from 'react-native';
+import { Spinner } from 'native-base';
 import RecipeItem from '../components/Recipe/RecipeItem';
 import IngredientItem from '../components/Ingredient/IngredientItem';
-import {
-    Content,
-    Card,
-    CardItem,
-    Text,
-    Icon,
-    Right,
-    Button,
-    Header,
-    Body,
-    Title,
-    Spinner
-} from 'native-base';
 
 export default class SearchResults extends Component {
   loadDataSource() {
@@ -35,14 +22,17 @@ export default class SearchResults extends Component {
     if (rowData.type === 'ingredient') {
       return (
         <View>
-          <IngredientItem rowData={rowData} />
+          <IngredientItem rowData={rowData} onPress={() => {
+            this.props.navigation.navigate('ViewIngredient',
+              { ingredient: rowData })
+          }} />
         </View>
       );
     } else {
       return (
         <View>
-          <RecipeItem rowData={rowData} onPress={()=>{
-            this.props.navigation.navigate('ViewRecipe', {recipe: rowData})
+          <RecipeItem style={styles.text} rowData={rowData} onPress={()=>{
+            this.props.navigation.navigate('ViewRecipe', { recipe: rowData })
           }} />
         </View>
       );
@@ -53,8 +43,9 @@ export default class SearchResults extends Component {
       const ds = this.loadDataSource();
       return (
         <View style={{ flex: 1 }}>
-          {this.props.isFetching && <Spinner color="green" /> }
+          {this.props.isFetching && <Spinner color="#636B46" /> }
           <ListView
+            style={styles.container}
             dataSource={ds}
             renderRow={this.renderRow.bind(this)}
             enableEmptySections
@@ -63,3 +54,20 @@ export default class SearchResults extends Component {
       );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFFFF'
+  },
+  text: {
+    marginLeft: 12,
+    fontSize: 16,
+    fontFamily: 'Times New Roman'
+  },
+  separator: {
+    flex: 1,
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: '#8E8E8E',
+  }
+});
