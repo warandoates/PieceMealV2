@@ -9,6 +9,7 @@ import clientReducer from './clientReducer';
 import chartsReducer from './chartsReducer';
 import RecipeSelectionReducer from './RecipeSelectionReducer';
 import GetRecipeResults from './RecipesReducer';
+import newRecipeReducer from './newRecipeReducer';
 
 const r = combineReducers({
   form: formReducer,
@@ -17,6 +18,7 @@ const r = combineReducers({
   searchRecipe: searchRecipeReducer,
   selectedRecipeId: RecipeSelectionReducer,
   recipeResults: GetRecipeResults,
+  newRecipeReducer,
   loginReducer,
   signupReducer,
   clientReducer,

@@ -7,7 +7,6 @@ import {
     Thumbnail,
     Text,
     Right } from 'native-base';
-// import RecipeModal from '../Recipe/RecipeModal';
 import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
 export default class IngredientItem extends Component {
