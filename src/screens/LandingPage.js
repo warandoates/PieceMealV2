@@ -5,12 +5,24 @@ import SearchResults from '../components/SearchResults';
 import { createSearchAction } from '../actions/index';
 
 export class LandingPage extends Component {
- static navigationOptions = ({ navigation }) => ({
+ static navigationOptions = {
+
+      headerTitleStyle: {
+   /* this only styles the title/text (font, color etc.)  */
+      },
+      headerStyle: {
+   /* this will style the header, but does NOT change the text */
+        backgroundColor: '#68BAA7'
+      },
+      headerTintColor: {
+    /* this will color your back and forward arrows or left and right icons */
+     },
+
      title: 'Piece Meal',
-     tabBarIcon: ({ tintColor }) => (
-      <Icon name='home' />
-     )
- });
+     tabBarIcon: () => (
+       <Icon name='home' style={{ color: '#68BAA7' }} />
+    )
+ };
 
  componentDidMount() {
    this.props.searchRecipe('');
@@ -20,13 +32,13 @@ export class LandingPage extends Component {
    return (
     <Container>
        <InputGroup borderType="regular">
-         <Icon name="md-search" />
+         <Icon name="md-search" style={{ color: '#68BAA7' }}/>
          <Input
            placeholder="Search"
            onChangeText={(newText) => this.props.searchRecipe(newText)}
          />
          <Button transparent>
-             <Icon name='ios-options' />
+             <Icon name='ios-options' style={{ color: '#68BAA7' }} />
          </Button>
        </InputGroup>
        <SearchResults navigation={this.props.navigation}

@@ -21,11 +21,21 @@ import { emailChanged, passwordChanged, loginUser, loginUserOAuth, logoutUser } 
 class LogInForm extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
+      headerTitleStyle: {
+   /* this only styles the title/text (font, color etc.)  */
+      },
+      headerStyle: {
+   /* this will style the header, but does NOT change the text */
+        backgroundColor: '#68BAA7'
+      },
+      headerTintColor: {
+    /* this will color your back and forward arrows or left and right icons */
+      },
       tabBarIcon: ({ tintColor }) => (
-       <Icon name='log-in' />
+       <Icon name='log-in' style={{ color: '#68BAA7' }} />
       ),
       title: 'Login',
-      activeTintColor: 'green'
+      activeTintColor: '#C0B283'
     };
   }
 
@@ -103,7 +113,7 @@ class LogInForm extends Component {
                               onChangeText={this.onPasswordChange.bind(this)}
                             />
                         </Item>
-                          {loading && <Spinner color='#6a5acd' />}
+                          {loading && <Spinner color='#C0B083' />}
                         <Button block style={styles.buttonContainerLeft} onPress={() => this.onButtonPress()}>
                             <Text>Login</Text>
                         </Button>
@@ -153,13 +163,13 @@ const styles = {
     flexDirection: 'row',
     marginBottom: 25,
     marginTop: 50,
-    backgroundColor: '#73ab00',
+    backgroundColor: '#C0B083',
     width: '100%'
   },
   buttonContainerRight: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: 'steelblue'
+    backgroundColor: '#C0B083'
   }
 };
 

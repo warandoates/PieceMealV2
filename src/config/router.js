@@ -14,7 +14,13 @@ import LoginForm from '../screens/LoginForm';
 import SignupForm from '../screens/SignupForm';
 import DashboardForm from '../screens/DashboardForm';
 
-
+const tabOptions = {
+  tabBarOptions: {
+    inactiveBackgroundColor: '#F8EEE7',
+    activeBackgroundColor: '#F4DECB',
+    activeTintColor: '#373737'
+  }
+};
 const MainScreenNavigator = TabNavigator({
   home: {
     screen: LandingPage,
@@ -34,7 +40,7 @@ const MainScreenNavigator = TabNavigator({
   Dashboard: {
     screen: DashboardForm,
   },
-});
+}, tabOptions);
 
 export const MainRouter = StackNavigator({
   Home: { screen: MainScreenNavigator },

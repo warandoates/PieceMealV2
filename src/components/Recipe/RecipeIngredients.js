@@ -15,9 +15,16 @@ class RecipeIngredients extends Component {
         <Content>
           <View>
             { this.props.ingredients.map((ingredient) => {
-              const style = { fontStyle: 'normal', alignSelf: 'center', flex: 3 };
+              const style = { fontStyle: 'normal',
+                              alignSelf: 'center',
+                              flex: 3,
+                              fontFamily: 'Futura',
+                              fontSize: 14,
+                              color: '#373737'
+                            };
               const altStyle = { fontStyle: 'italic',
                                  alignSelf: 'center',
+                                 fontFamily: 'Futura',
                                  flex: 3,
                                  color: 'grey' };
               let alternativeNames = [];
@@ -35,13 +42,13 @@ class RecipeIngredients extends Component {
                       { ingredient.amount } { ingredient.name }
                   </Text>
                 </CardItem>
-                <CardItem>
                   { alternativeNames.length > 0 &&
-                    (<Text style={altStyle}>
-                      { 'use ' + alternativeNames.join(', ') + ' instead!' }
-                    </Text>)
+                    <CardItem>
+                      <Text style={altStyle}>
+                        { 'use ' + alternativeNames.join(', ') + ' instead!' }
+                      </Text>
+                    </CardItem>
                   }
-                </CardItem>
               </Card>
               );
             })}

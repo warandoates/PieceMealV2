@@ -5,13 +5,17 @@ import RecipeSteps from './RecipeSteps';
 import RecipeIngredients from './RecipeIngredients';
 import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
-const badgeStyle = { backgroundColor: 'black' };
-const textStyle = { color: 'white' };
+const badgeStyle = { backgroundColor: '#68BAA7' };
+const textStyle = { color: 'white', fontSize: 14, fontFamily: 'Futura' };
 export default class RecipeView extends Component {
 
     render() {
         const recipe = this.props.recipe;
         const recipeTags = recipe.tags;
+        let name = recipe.name || '';
+        name = name.split(' ').map((str) => {
+          return str.substring(0, 1).toUpperCase() + str.substring(1);
+        }).join(' ');
         let image;
         if (recipe.image_url) {
           image = { uri: recipe.image_url };
@@ -28,9 +32,10 @@ export default class RecipeView extends Component {
                             fontFamily: 'Futura',
                             fontSize: 24,
                             marginTop: 20,
-                            paddingTop: 15
+                            paddingTop: 15,
+                            color: '#373737'
                         }}>
-                            {recipe.name.toUpperCase()}
+                            { name }
                         </Text>
                     </CardItem>
 
@@ -39,7 +44,8 @@ export default class RecipeView extends Component {
                             <Image style={{
                                 resizeMode: 'contain',
                                 width: 340,
-                                height: 200
+                                height: 200,
+                                shadowColor: '#faebd7'
                             }} source={image}/>
                             <Text note style={{
                                 fontFamily: 'Futura',
@@ -56,7 +62,7 @@ export default class RecipeView extends Component {
                     <H3 style={{
                         fontFamily: 'Futura',
                         alignSelf: 'center',
-                        color: '#66B98F'
+                        color: '#C0B083'
                     }}>Instructions:</H3>
                     <CardItem>
                         {!recipe
@@ -66,7 +72,8 @@ export default class RecipeView extends Component {
                     </CardItem>
                     <H3 style={{
                         fontFamily: 'Futura',
-                        alignSelf: 'center'
+                        alignSelf: 'center',
+                        color: '#C0B083'
                     }}>Ingredients:</H3>
                     <CardItem>
                       {!recipe

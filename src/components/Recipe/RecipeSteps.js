@@ -22,10 +22,15 @@ export default class RecipeSteps extends Component {
 
   renderRow(rowData) {
     return (
-        <Card transparent>
+        <Card >
             <CardItem>
                 <Text
-                  style={{ fontStyle: 'italic', alignSelf: 'center', flex: 3 }}
+                  style={{ fontStyle: 'italic',
+                           alignSelf: 'center',
+                           fontFamily: 'Futura',
+                           fontSize: 14,
+                           color: '#373737',
+                           flex: 3 }}
                 >
                   { rowData.instructions }
                 </Text>

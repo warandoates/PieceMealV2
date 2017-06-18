@@ -17,7 +17,7 @@ const MyButton = (props) => {
         }}
         transparent
     >
-        <Icon name="add" size={35} />
+        <Icon name="add" size={35} style={{ color: '#68BAA7' }} />
     </Button>
   );
 };
@@ -31,10 +31,20 @@ const ConnectedMyButton = connect((state) => {
 export class IngredientResultsList extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
+      headerTitleStyle: {
+   /* this only styles the title/text (font, color etc.)  */
+      },
+      headerStyle: {
+   /* this will style the header, but does NOT change the text */
+        backgroundColor: '#68BAA7'
+      },
+      headerTintColor: {
+    /* this will color your back and forward arrows or left and right icons */
+      },
       title: 'Ingredients',
       headerRight: <ConnectedMyButton navigation={navigation} />,
       tabBarIcon: ({ tintColor }) => (
-       <Icon name='nutrition' />
+       <Icon name='nutrition' style={{ color: '#68BAA7' }}/>
       ),
       mode: 'modal'
     };
