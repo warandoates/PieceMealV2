@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests DashboardForm renders DashboardForm component 1`] = `
+<Styled(Container)>
+  <Styled(Content)>
+    <Styled(Card)
+      style={
+        Object {
+          "flex": 0,
+        }
+      }
+    >
+      <Styled(CardItem)>
+        <Styled(Body)>
+          <Connect(BarChart) />
+        </Styled(Body)>
+      </Styled(CardItem)>
+    </Styled(Card)>
+    <Styled(Card)>
+      <Styled(CardItem)>
+        <Styled(Body)>
+          <Connect(TreeChart) />
+        </Styled(Body)>
+      </Styled(CardItem)>
+    </Styled(Card)>
+    <Styled(Card)>
+      <Styled(CardItem)>
+        <Styled(Body)>
+          <Connect(PieChart) />
+        </Styled(Body)>
+      </Styled(CardItem)>
+    </Styled(Card)>
+  </Styled(Content)>
+</Styled(Container)>
+`;

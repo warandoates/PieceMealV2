@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests TableExample renders TableExample component 1`] = `
+<Styled(Container)>
+  <ScrollableTabView
+    contentProps={Object {}}
+    initialPage={0}
+    locked={true}
+    onChangeTab={[Function]}
+    onScroll={[Function]}
+    page={-1}
+    prerenderingSiblingsNumber={0}
+    scrollWithoutAnimation={false}
+    tabBarPosition="top"
+  >
+    <Styled(Tab)
+      activeTextStyle={
+        Object {
+          "fontSize": 12,
+        }
+      }
+      heading="Profile"
+      textStyle={
+        Object {
+          "fontSize": 12,
+        }
+      }
+    >
+      <Connect(Profile) />
+    </Styled(Tab)>
+    <Styled(Tab)
+      activeTextStyle={
+        Object {
+          "fontSize": 12,
+        }
+      }
+      heading="Statistics"
+      textStyle={
+        Object {
+          "fontSize": 12,
+        }
+      }
+    >
+      <Connect(DashboardForm) />
+    </Styled(Tab)>
+    <Styled(Tab)
+      activeTextStyle={
+        Object {
+          "fontSize": 10,
+        }
+      }
+      heading="Ingredients"
+      textStyle={
+        Object {
+          "fontSize": 11,
+        }
+      }
+    />
+    <Styled(Tab)
+      activeTextStyle={
+        Object {
+          "fontSize": 12,
+        }
+      }
+      heading="Recipes"
+      textStyle={
+        Object {
+          "fontSize": 12,
+        }
+      }
+    >
+      <Connect(FavoriteRecipes) />
+    </Styled(Tab)>
+    <Styled(Tab)
+      activeTextStyle={
+        Object {
+          "fontSize": 12,
+        }
+      }
+      heading="Friends"
+      textStyle={
+        Object {
+          "fontSize": 12,
+        }
+      }
+    />
+  </ScrollableTabView>
+</Styled(Container)>
+`;

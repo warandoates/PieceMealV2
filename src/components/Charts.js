@@ -9,7 +9,7 @@ import BarChart from '../components/Charts/Bar';
 import RadarChart from '../components/Charts/Radar';
 import TreeChart from '../components/Charts/Tree';
 
-class DashboardForm extends Component {
+export class DashboardForm extends Component {
     render() {
         return (
             <Container>
