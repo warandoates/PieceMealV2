@@ -16,6 +16,7 @@ const validate = values => {
   let descriptionVal = values.description;
   let imgVal = values.image_url;
   const pattern = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+
   if (values.name === undefined) {
     nameVal = '';
   }
@@ -32,17 +33,33 @@ const validate = values => {
     error.description = 'too short';
   }
   if (!pattern.test(imgVal) && imgVal !== '') {
-    error.image_url = 'invalid address'
+    error.image_url = 'invalid address';
   }
 
 return error;
 };
 
 class AddIngredientForm extends Component {
-  constructor(props){
+  constructor(props) {
   super(props);
   this.renderInput = this.renderInput.bind(this);
 }
+
+  onSubmit(ingredient) {
+    return this.props.postIngredient(ingredient, this.props.token)
+    .then((res) => {
+      console.log('this is res', res);
+      if (res.value.message === 'Ingredient already exists!') {
+        return Toast.show(res.value.message, Toast.SHORT);
+      } else if (res.value.status === 400)
+      return Toast.show('Successfully Added Ingredient');
+    })
+    .then(() => {
+      if (this.props.response !== 'Ingredient already exists!') {
+      return this.props.navigation.navigate('ingredients');
+      }
+    });
+  }
 
   renderInput({ input, label, type, meta: { touched, error, warning } }) {
     let hasError = false;
@@ -61,22 +78,6 @@ class AddIngredientForm extends Component {
       </Item>);
   }
 
-  onSubmit(ingredient) {
-    return this.props.postIngredient(ingredient, this.props.token)
-    .then((res) => {
-      console.log('this is res', res);
-      if (res.value.message === 'Ingredient already exists!') {
-        return Toast.show(res.value.message, Toast.SHORT);
-      } else if (res.value.status === 400)
-      return Toast.show('Successfully Added Ingredient');
-    })
-    .then(() => {
-      if (this.props.response !== 'Ingredient already exists!') {
-      return this.props.navigation.navigate('ingredients');
-      }
-    });
-  }
-
   render() {
     const { handleSubmit, submitting, ingredients, value, onChange } = this.props;
     const ingredientOptions = ingredients.ingredients.map(ingredient => {
@@ -84,8 +85,8 @@ class AddIngredientForm extends Component {
     });
     return (
       <Container>
-      <Form style={{flex: 1, backgroundColor: 'white'}} >
-        <Container style={{flex: 1}} >
+      <Form style={{ flex: 1, backgroundColor: 'white' }} >
+        <Container style={{ flex: 1 }}>
           <Text style={{ ...styles.textStyle, marginTop: 50 }}>Ingredients</Text>
 
           <Field style={styles.inputStyle} name="name" label="Ingredient Name" type='text' component={this.renderInput} />
@@ -101,8 +102,9 @@ class AddIngredientForm extends Component {
         </Container>
         <Container style={styles.buttonStyle}>
           <Button
-             success
-            onPress={handleSubmit(this.onSubmit.bind(this))} icon="md-checkmark" iconPlacement="right" submitting={submitting} >
+            success
+            onPress={handleSubmit(this.onSubmit.bind(this))} icon="md-checkmark" iconPlacement="right" submitting={submitting}
+          >
             <Text>Submit</Text>
           </Button>
         </Container>

@@ -70,6 +70,7 @@ function deleteThisIngredient(ingredientId, token) {
 
 
 function postFetchIngredient(ingredient, token) {
+  console.log('this is the ingredient', ingredient);
   let arrTags = [];
   if (ingredient.tags) {
     arrTags = ingredient.tags.split(' ');

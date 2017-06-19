@@ -17,7 +17,7 @@ const MyButton = (props) => {
         }}
         transparent
     >
-        <Icon name="add" size={35} style={{ color: '##FFFFFF' }} />
+        <Icon name="add" size={35} style={{ color: '#FFFFFF' }} />
     </Button>
   );
 };
@@ -81,7 +81,7 @@ export class IngredientResultsList extends Component {
 
 
     render() {
-      // this.loadDataSource();
+      this.loadDataSource();
         return (
           <View style={{ flex: 1 }}>
           {this.props.isFetching && <Spinner color="green" /> }
