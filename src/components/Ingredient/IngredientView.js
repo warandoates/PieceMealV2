@@ -1,14 +1,32 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
-import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner } from 'native-base';
+import { connect } from 'react-redux';
+import Toast from 'react-native-simple-toast';
+import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner, Button } from 'native-base';
+import { deleteIngredient } from '../../actions';
 import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
-const badgeStyle = { backgroundColor: 'black', marginRight: 5 };
-const textStyle = { color: 'white' };
-export default class IngredientView extends Component {
+export class IngredientView extends Component {
+
+    navigateButton = (text) => {
+      return (
+        <Button
+            style={styles.buttonStyle}
+            small
+            warning
+            onPress={() => {
+             this.props.navigation.navigate('EditIngredient', this.props.ingredient);
+         }}
+        >
+          <Text style={styles.textStyle}>{text}</Text>
+
+        </Button>
+      );
+    }
 
     render() {
-      const ingredient = this.props.ingredient;
+      console.log('this------------', this.props);
+      const { ingredient, user } = this.props;
       const ingredientTags = ingredient.tags;
       let image;
       if (ingredient.image_url) {
@@ -53,13 +71,70 @@ export default class IngredientView extends Component {
                         </Body>
                     </CardItem>
                     <CardItem footer>
+                      <Text>Tags: </Text>
                       {ingredientTags.map((ingredientTag) => (
-                        <Badge key={ingredientTags.indexOf(ingredientTag)} style={badgeStyle}>
-                            <Text style={textStyle}>{ingredientTag}</Text>
+                        <Badge key={ingredientTags.indexOf(ingredientTag)} style={styles.badgeStyle}>
+                            <Text style={styles.textStyle}>{ingredientTag}</Text>
                         </Badge>))}
+
+                    </CardItem>
+                    <CardItem>
+                      {this.props.user && this.navigateButton('Edit')}
+                      {this.props.user &&
+                        <Button
+                        style={styles.buttonStyle}
+                        danger
+                        small
+                        onPress={() => {
+                         this.props.deleteIngredient(ingredient.id, user.token)
+                           .then(res => {
+                             if (res.value.status !== 204) {
+                               return Toast.show('Bad Request');
+                             }
+                             return Toast.show('Item Deleted!');
+                           })
+                           .then(() => {
+                             return this.props.navigation.navigate('ingredients');
+                           });
+                         }}
+                        >
+                          <Text style={styles.textStyle}>Delete</Text>
+                      </Button>}
                     </CardItem>
                 </Card>
             </Content>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+      // list: state.ingredients.ingredients,
+      // isFetching: state.ingredients.isFetching,
+      user: state.loginReducer.user
+    };
+};
+
+export default connect(mapStateToProps, { deleteIngredient })(IngredientView);
+
+const styles = {
+  badgeStyle: {
+    backgroundColor: 'black',
+    marginRight: 5,
+    // flex: 1,
+    // flexDirection: 'row',
+    // alignItems: 'flex-start',
+    // justifyContent: 'center',
+    // width: -5
+  },
+  textStyle: {
+    color: 'white',
+    textAlign: 'center'
+  },
+  buttonStyle: {
+    flex: 1,
+    marginRight: 5,
+    marginLeft: 5,
+    alignSelf: 'center',
+  },
+};
