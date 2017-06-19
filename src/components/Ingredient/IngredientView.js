@@ -3,7 +3,7 @@ import { Image } from 'react-native';
 import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner } from 'native-base';
 import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
-const badgeStyle = { backgroundColor: 'black' };
+const badgeStyle = { backgroundColor: 'black', marginRight: 5 };
 const textStyle = { color: 'white' };
 export default class IngredientView extends Component {
 
@@ -54,7 +54,7 @@ export default class IngredientView extends Component {
                     </CardItem>
                     <CardItem footer>
                       {ingredientTags.map((ingredientTag) => (
-                        <Badge style={badgeStyle}>
+                        <Badge key={ingredientTags.indexOf(ingredientTag)} style={badgeStyle}>
                             <Text style={textStyle}>{ingredientTag}</Text>
                         </Badge>))}
                     </CardItem>
