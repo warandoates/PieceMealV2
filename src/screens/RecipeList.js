@@ -37,9 +37,6 @@ export class RecipeResultsList extends Component {
  /* this will style the header, but does NOT change the text */
       backgroundColor: '#68BAA7'
     },
-    headerTintColor: {
-  /* this will color your back and forward arrows or left and right icons */
-    },
     title: 'Recipes',
     headerRight: <ConnectedMyButton navigation={navigation} />,
     tabBarIcon: ({ tintColor }) => (
@@ -77,6 +74,7 @@ export class RecipeResultsList extends Component {
           {this.props.isFetching && <Spinner color="green" /> }
           {this.props.list.length > 0 &&
           <ListView
+              removeClippedSubviews={false}
             dataSource={this.dataSource}
            renderRow={this.renderRow.bind(this)}
            enableEmptySections

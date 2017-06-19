@@ -6,8 +6,8 @@ import {
     CardItem,
     Thumbnail,
     Text,
-    Right
-    } from 'native-base';
+    Right } from 'native-base';
+
 import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
 export default class RecipeItem extends Component {
