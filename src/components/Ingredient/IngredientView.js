@@ -3,13 +3,17 @@ import { Image } from 'react-native';
 import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner } from 'native-base';
 import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
-const badgeStyle = { backgroundColor: 'black' };
+const badgeStyle = { backgroundColor: '#68BAA7' };
 const textStyle = { color: 'white' };
 export default class IngredientView extends Component {
 
     render() {
       const ingredient = this.props.ingredient;
       const ingredientTags = ingredient.tags;
+      let name = ingredient.name || '';
+      name = name.split(' ').map((str) => {
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
+      }).join(' ');
       let image;
       if (ingredient.image_url) {
         image = { uri: ingredient.image_url };
@@ -30,7 +34,7 @@ export default class IngredientView extends Component {
                             marginTop: 20,
                             paddingTop: 15
                         }}>
-                            {ingredient.name.toUpperCase()}
+                            { name }
                         </Text>
                     </CardItem>
                     <CardItem>

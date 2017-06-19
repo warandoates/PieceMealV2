@@ -31,15 +31,12 @@ export class LandingPage extends Component {
  render() {
    return (
     <Container>
-       <InputGroup borderType="regular">
+       <InputGroup  borderType="regular">
          <Icon name="md-search" style={{ color: '#68BAA7' }}/>
          <Input
            placeholder="Search"
            onChangeText={(newText) => this.props.searchRecipe(newText)}
          />
-         <Button transparent>
-             <Icon name='ios-options' style={{ color: '#68BAA7' }} />
-         </Button>
        </InputGroup>
        <SearchResults navigation={this.props.navigation}
                       recipes={this.props.recipes}
