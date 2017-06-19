@@ -38,6 +38,7 @@ export class SignupForm extends Component {
       return {
         headerTitleStyle: {
      /* this only styles the title/text (font, color etc.)  */
+          color: '#373737'
         },
         headerStyle: {
      /* this will style the header, but does NOT change the text */

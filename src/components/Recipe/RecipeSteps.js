@@ -23,10 +23,15 @@ export default class RecipeSteps extends Component {
   renderRow(rowData) {
     return (
         <CardItem>
-            {/* <Switch value={this.state.toggled} onValueChange={() => { this.toggleSwitch(); }} /> */}
-            <Switch value={this.state.toggled} onValueChange={() => { this.value = !this.value; }} />
+            <Switch value={this.state.toggled} onValueChange={() => { this.toggleSwitch(); }} />
+            {/* <Switch value={this.state.toggled} onValueChange={() => { this.value = !this.value; }} /> */}
             <Text
-              style={{ fontStyle: 'italic', alignSelf: 'center', paddingLeft: 10 }}
+              style={{ fontStyle: 'italic',
+                       alignSelf: 'center',
+                       paddingLeft: 10,
+                       fontFamily: 'Futura',
+                       color: '#373737'
+                    }}
             >
               { rowData.instructions }
             </Text>

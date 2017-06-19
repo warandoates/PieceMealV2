@@ -9,12 +9,12 @@ export class LandingPage extends Component {
 
       headerTitleStyle: {
    /* this only styles the title/text (font, color etc.)  */
+        color: '#373737'
       },
       headerStyle: {
    /* this will style the header, but does NOT change the text */
         backgroundColor: '#68BAA7'
       },
-      
      title: 'Piece Meal',
      tabBarIcon: () => (
        <Icon name='home' style={{ color: '#68BAA7' }} />
@@ -28,7 +28,7 @@ export class LandingPage extends Component {
  render() {
    return (
     <Container>
-       <InputGroup  borderType="regular">
+       <InputGroup>
          <Icon name="md-search" style={{ color: '#68BAA7' }}/>
          <Input
            placeholder="Search"
