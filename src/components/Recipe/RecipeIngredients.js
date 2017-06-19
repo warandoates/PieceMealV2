@@ -36,7 +36,7 @@ class RecipeIngredients extends Component {
                                   };
               let alternativeNames = [];
               if (this.isRestricted(ingredient.id)) {
-                style.color = '';
+                style.color = '#AF473C';
                 alternativeNames = ingredient.alternatives.map((alternative) => {
                   return alternative.name;
                 });
