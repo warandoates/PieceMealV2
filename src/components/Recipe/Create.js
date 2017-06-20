@@ -1,41 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ActivityIndicator, ListView, Modal, StyleSheet, View } from 'react-native';
-import { Badge, Body, Button, Container, Content, Form, Header, Icon, Item, Input, ListItem, Picker, Text, Title, Toast, Label } from 'native-base';
+import { Badge, Body, Button, Container, Content, Form, Header, Icon, Item, Input, ListItem, Text, Title, Toast } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import * as newRecipe from '../../actions/addRecipe';
 
 class CreateRecipe extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            modalVisible: false,
-            selectedItem: undefined,
-            selected1: null,
-            results: {
-                items: []
-            }
-        };
+
+    state = {
+      modalVisible: false
     }
 
-    setCreateVisible(visible) {
-      this.setState({ modalVisible: visible });
+    componentDidMount() {
+        return this.loadDataSource();
     }
-
-    // state = {
-    //   modalVisible: false,
-    //   selectedItem: undefined,
-    //   selected1: 'key1',
-    //   results: {
-    //       items: []
-    //   }
-    // }
-
-    // componentDidMount() {
-    //     this.loadDataSource();
-    // }
 
     componentWillReceiveProps(nextProps, oldProps) {
+      console.log('next:', nextProps.hasError, 'old:', oldProps.hasError);
       if (nextProps.hasError && nextProps.hasError !== oldProps.hasError) {
         Toast.show({
               supportedOrientations: ['portrait', 'landscape'],
@@ -47,71 +28,61 @@ class CreateRecipe extends Component {
         }
     }
 
-    // componentDidUpdate() {
-    //     this.loadDataSource();
-    // }
-
-    onAddIngredient(id, name, amount) {
-      this.props.addIngredient(id, name, amount);
-      this.props.resetIngredient();
+    componentDidUpdate() {
+        this.loadDataSource();
     }
 
-    onValueChange(value: string) {
-      console.log('value:', value);
-
-      this.setState({
-          selected1: value,
-          results: [...this.state.results, value]
-      });
-
-      this.props.modifyIngredient(value.id, value.name);
+    onSelect = (suggestion) => {
+      console.log(suggestion); // the pressed suggestion
     }
 
     setModalVisible(visible) {
       this.setState({ modalVisible: visible });
     }
 
+    suggestions = [
+      { text: 'suggestion1', anotherProperty: 'value' },
+      { text: 'suggestion2', anotherProperty: 'value2' }
+    ]
+
     loadDataSource() {
         const ds = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
         });
-
-        this.dataSource = ds.cloneWithRows(this.props.steps);
+        // this.dataSource = ds.cloneWithRows(this.props.steps);
 
         const ingredientsDS = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
         });
-
-        this.ingredientsDataSource = ingredientsDS.cloneWithRows(this.props.ingredients);
+        // this.ingredientsDataSource = ds.cloneWithRows(this.props.ingredients);
      }
 
     renderRow(rowData, sectionID, rowID) {
        return (
-          <ListItem
-            style={{ fontSize: 16, flex: 1, flexDirection: 'row', marginTop: -10, marginBottom: -10 }}>
-            <Text style={{ flex: 8, paddingTop: 5, }}>
-              {parseInt(rowID) + 1}{':  '}{rowData.instructions}
-             </Text>
-            <Button transparent danger iconLeft style={{ alignSelf: 'flex-end', flex: 1 }}>
-                <Icon name='trash' />
-            </Button>
-          </ListItem>
-        );
-    }
-
-   renderIngredientRow(rowData, sectionID, rowID) {
-       return (
-           <ListItem style={{ fontSize: 16, flex: 1, flexDirection: 'row', marginTop: -10, marginBottom: -10 }}>
-                <Text style={{ flex: 8, paddingTop: 5, }}>{`${rowData.amount}   ${rowData.name}`}</Text>
-                <Button transparent danger iconLeft style={{ alignSelf: 'flex-end', flex: 1 }}>
-                    <Icon name='trash' />
-                </Button>
+           <ListItem
+             style={{ fontSize: 16, flex: 1, flexDirection: 'row', marginTop: -10, marginBottom: -10 }}>
+                 <Text style={{ flex: 8, paddingTop: 5, }}>
+                   {parseInt(rowID) + 1}{':  '}{rowData.instructions}
+                 </Text>
+                    <Button transparent danger iconLeft style={{ alignSelf: 'flex-end', flex: 1 }}>
+                        <Icon name='trash' />
+                    </Button>
            </ListItem>
        );
-   }
+    }
+
+ renderIngredientRow(rowData, sectionID, rowID) {
+     return (
+         <ListItem style={{ fontSize: 16, flex: 1, flexDirection: 'row', marginTop: -10, marginBottom: -10 }}>
+               <Text style={{ flex: 8, paddingTop: 5, }}>{rowData.amount}{rowData.name}</Text>
+                  <Button transparent danger iconLeft style={{ alignSelf: 'flex-end', flex: 1 }}>
+                      <Icon name='trash' />
+                  </Button>
+         </ListItem>
+     );
+ }
 
     render() {
-        this.loadDataSource();
         const {
         addTag,
         postRecipe,
@@ -130,8 +101,7 @@ class CreateRecipe extends Component {
         tag,
         tags,
         hasError,
-        resetInstruction,
-        resetIngredient,
+        // measurement,
         isLoading,
         modifyIngredient,
         modifyInstruction,
@@ -144,12 +114,6 @@ class CreateRecipe extends Component {
         modifyTag,
         token,
         msg } = this.props;
-
-        console.log('this.props.recipe:', this.props.recipe);
-        console.log('this.props.ingredients:', this.props.ingredients);
-        console.log('this.props.steps:', this.props.steps);
-        console.log('this.props.tags:', this.props.tags);
-
         return (
           <Modal
             animationType={'slide'}
@@ -201,55 +165,34 @@ class CreateRecipe extends Component {
                             />
                         </Item>
                         <Text style={{ ...textStyle, marginTop: 50 }}>Ingredients</Text>
-                        <ListView
+                        {/* <ListView
                           dataSource={this.ingredientsDataSource}
                           renderRow={this.renderIngredientRow.bind(this)}
                           enableEmptySections
-                        />
+                        /> */}
                           <Item regular style={{ marginLeft: 10 }}>
-                            <Button transparent icon small style={{ alignSelf: 'center' }}>
-                              <Icon name='search' />
-                          <Picker
-                              supportedOrientations={['portrait', 'landscape']}
-                              iosHeader="Select one"
-                              mode="dropdown"
-                              selectedValue={this.state.selected1}
-                              onValueChange={this.onValueChange.bind(this)}>
-                              { this.props.allIngredients.map((t, i) => {
-                                return (
-                                  // <Badge style={badgeStyle} key={i}><Text>{t}</Text></Badge>
-                                  <Item label={t.name} value={t} />
-                                );
-                              }) }
-                           </Picker>
-                           </Button>
-                              {/* <Input
+                              <Input
                                 style={{ fontSize: 14 }}
                                 placeholder="Enter Ingredient"
                                 value={ingredient.name}
                                 onChangeText={(text) => modifyIngredient(text)}
-                              /> */}
+                              />
                               <Input
                                 style={{ fontSize: 14 }}
                                 placeholder="Enter Measurement"
                                 value={ingredient.amount}
                                 onChangeText={(text) => modifyMeasurement(text)}
                               />
-                              <Button
-                                transparent
-                                success
-                                iconRight
-                                onPress={() => { this.onAddIngredient(ingredient.id, ingredient.name, ingredient.amount); }}
-                              >
+                              <Button transparent success iconRight onPress={() => { addIngredient(ingredient); }}>
                                   <Icon name='add' />
                               </Button>
                           </Item>
                     <Text style={{ ...textStyle, marginTop: 50 }}>Instructions</Text>
-                    <ListView
+                    {/* <ListView
                       dataSource={this.dataSource}
                       renderRow={this.renderRow.bind(this)}
                       enableEmptySections
-                    />
+                    /> */}
                     <Item regular style={{ marginLeft: 10 }}>
                         <Input
                           multiline
@@ -296,19 +239,12 @@ class CreateRecipe extends Component {
                     <Button
                       icon
                       style={{ alignSelf: 'center', marginTop: 10 }}
-                      onPress={() => { postRecipe(recipe, ingredients, steps, tags, token); }}
+                      onPress={() => { postRecipe(recipe, token); }}
                     >
                         {/* <Icon name='add' /> */}
                         <Text>Save</Text>
                     </Button>
                 </Form>
-                <Button
-                  icon
-                  style={{ alignSelf: 'flex-end', marginTop: 10, marginRight: 10 }}
-                  onPress={() => { this.props.setCreateVisible(!this.props.visible); }}
-                >
-                  <Icon name='close' />
-                </Button>
                 </Content>
             </Container>
           </Modal>
@@ -335,8 +271,7 @@ const mapStateToProps = (state) => {
     notes: state.newRecipeReducer.notes,
     cook_time: state.newRecipeReducer.cook_time,
     prep_time: state.newRecipeReducer.prep_time,
-    token: state.loginReducer.user.token,
-    allIngredients: state.ingredients.ingredients
+    token: state.loginReducer.user.token || state.signupReducer.user.token,
   };
 };
 
