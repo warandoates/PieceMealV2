@@ -31,7 +31,7 @@ export class TableExample extends Component {
   // }
 
   render() {
-    // console.log('this is props', this.props);
+    console.log('this is props', this.props);
     const { user } = this.props;
     return (
        <Container>

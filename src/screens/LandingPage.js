@@ -15,9 +15,9 @@ export class LandingPage extends Component {
    /* this will style the header, but does NOT change the text */
         backgroundColor: '#68BAA7'
       },
-     title: 'Piece Meal',
-     tabBarIcon: () => (
-       <Icon name='home' style={{ color: '#68BAA7' }} />
+      title: 'Piece Meal',
+      tabBarIcon: () => (
+        <Icon name='home' style={{ color: '#68BAA7' }} />
     )
  };
 

@@ -39,7 +39,6 @@ export class IngredientResultsList extends Component {
    /* this will style the header, but does NOT change the text */
         backgroundColor: '#68BAA7'
       },
-
       title: 'Ingredients',
       headerRight: <ConnectedMyButton navigation={navigation} />,
       tabBarIcon: ({ tintColor }) => (

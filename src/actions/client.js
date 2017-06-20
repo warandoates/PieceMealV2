@@ -1,6 +1,6 @@
 import { API_URL } from '../config/api';
 
-export const restictionsChange = (restrictions) => {
+export const restrictionsChange = (restrictions) => {
   return {
     type: 'CHANGE_RESTRICTIONS',
     payload: restrictions
@@ -15,6 +15,7 @@ export const changeRestrictions = (clientId, restrictions) => {
 };
 
 export const userChange = (client) => {
+  console.log('GET CLIENT IS FIRED');
   return {
     type: 'GET_CLIENT',
     payload: getClient(client)
