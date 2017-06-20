@@ -14,7 +14,6 @@ describe('Recipe List', () => {
       getAllRecipes={jest.fn}
     />);
     expect(toJson(component)).toMatchSnapshot();
-    expect(component.find(Button)).toBeTruthy()
   });
 
 

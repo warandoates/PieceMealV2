@@ -80,14 +80,16 @@ exports[`tests the IngredientItem component renders IngredientItem component pro
         style={
           Object {
             "alignSelf": "center",
-            "color": "#000",
-            "fontFamily": "System",
+            "color": "#373737",
+            "fontFamily": "Futura",
             "fontSize": 16,
             "marginLeft": 25,
           }
         }
         virtual={undefined}
-      />
+      >
+        
+      </Text>
       <View
         style={
           Object {
@@ -110,7 +112,7 @@ exports[`tests the IngredientItem component renders IngredientItem component pro
               },
               Object {
                 "alignSelf": null,
-                "color": "#ccc",
+                "color": "#68BAA7",
                 "fontSize": 22,
               },
               Object {
