@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListView, View, Text, StyleSheet } from 'react-native';
+import { ListView, View, StyleSheet } from 'react-native';
 import { Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/Ingredient/IngredientItem';
@@ -17,7 +17,7 @@ const MyButton = (props) => {
         }}
         transparent
     >
-        <Icon name="add" size={35} style={{ color: '#FFFFFF' }} />
+      <Icon name="add" size={35} style={{ color: '#FFFFFF' }} />
     </Button>
   );
 };
@@ -47,7 +47,6 @@ export class IngredientResultsList extends Component {
       mode: 'modal'
     };
   };
-
 
   componentWillMount() {
     return this.loadDataSource();
@@ -80,21 +79,20 @@ export class IngredientResultsList extends Component {
        }} />;
   }
 
-
-    render() {
-      this.loadDataSource();
-        return (
-          <View style={styles.container}>
-          {this.props.isFetching && <Spinner color="green" /> }
-          {this.props.list.length > 0 && <ListView
-            removeClippedSubviews={false}
-            dataSource={this.dataSource}
-            renderRow={this.renderRow.bind(this)}
-            enableEmptySections
-          />}
-          </View>
-        );
-    }
+  render() {
+    this.loadDataSource();
+      return (
+        <View style={styles.container}>
+        {this.props.isFetching && <Spinner color="green" /> }
+        {this.props.list.length > 0 && <ListView
+          removeClippedSubviews={false}
+          dataSource={this.dataSource}
+          renderRow={this.renderRow.bind(this)}
+          enableEmptySections
+        />}
+        </View>
+      );
+  }
 }
 
 const styles = StyleSheet.create({
