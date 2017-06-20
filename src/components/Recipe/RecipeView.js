@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner } from 'native-base';
-import RecipeSteps from './RecipeSteps';
+import RecipeInstructions from './RecipeInstructions';
 import RecipeIngredients from './RecipeIngredients';
 import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
@@ -66,8 +66,8 @@ export default class RecipeView extends Component {
                     }}>Instructions:</H3>
                     <CardItem>
                         {!recipe
-                            ? <Spinner/>
-                            : <RecipeSteps instructions={recipe.instructions}/>
+                            ? <Spinner />
+                            : <RecipeInstructions instructions={recipe.instructions} />
                         }
                     </CardItem>
                     <H3 style={{

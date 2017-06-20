@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
 import Toast from 'react-native-simple-toast';
-import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner, Button } from 'native-base';
+import { Badge, Content, Card, CardItem, Text, Body, Spinner, Button } from 'native-base';
 import { deleteIngredient } from '../../actions';
 import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
@@ -19,16 +19,26 @@ export class IngredientView extends Component {
          }}
         >
           <Text style={styles.textStyle}>{text}</Text>
-
         </Button>
       );
     }
 
     render() {
-      console.log('this------------', this.props);
       const { ingredient, user } = this.props;
       const ingredientTags = ingredient.tags;
+      const ingredientAlts = ingredient.alternatives;
+      let alternativeNames = [];
+      let name = ingredient.name || '';
       let image;
+
+      alternativeNames = ingredientAlts.map((ingredientAlt) => {
+        return ingredientAlt.name;
+      });
+
+      name = name.split(' ').map((str) => {
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
+        }).join(' ');
+
       if (ingredient.image_url) {
         image = { uri: ingredient.image_url };
       } else {
@@ -36,43 +46,41 @@ export class IngredientView extends Component {
       }
         return (
             <Content>
-                <Card style={{
-                    flex: 1
-                }}>
-                    <CardItem header style={{
-                        alignSelf: 'center'
-                    }}>
-                        <Text style={{
+                <Card style={{ flex: 1 }}>
+                  <CardItem
+                    header
+                    style={{ alignSelf: 'center' }}
+                  >
+                    <Text style={styles.headerStyle}>{name}</Text>
+                  </CardItem>
+                  <CardItem>
+                    <Body>
+                      <Image style={styles.imageStyle} source={image} />
+                        <Text
+                          note
+                          style={{
                             fontFamily: 'Futura',
-                            fontSize: 24,
-                            marginTop: 20,
-                            paddingTop: 15
-                        }}>
-                            {ingredient.name.toUpperCase()}
+                            marginLeft: 20,
+                            marginRight: 15,
+                            marginTop: 15,
+                            marginBottom: 10,
+                            alignSelf: 'center'
+                          }}
+                        >
+                          {ingredient.description}
                         </Text>
-                    </CardItem>
-                    <CardItem>
-                        <Body>
-                            <Image style={{
-                                resizeMode: 'contain',
-                                width: 340,
-                                height: 200
-                            }} source={image}/>
-                            <Text note style={{
-                                fontFamily: 'Futura',
-                                marginLeft: 20,
-                                marginRight: 15,
-                                marginTop: 15,
-                                marginBottom: 10,
-                                alignSelf: 'center'
-                            }}>
-                                "{ingredient.description}"
-                            </Text>
-                        </Body>
-                    </CardItem>
-                    <CardItem>
-                        <Text style={{ marginTop: -10 }}>Tags: </Text>
-                      <View style={{ flexDirection: 'row', height: 80, padding: 20, marginTop: 0, justifyContent: 'space-around', flexWrap: 'wrap', alignItems: 'stretch', flex: 2 }}>
+                    </Body>
+                  </CardItem>
+                  <CardItem>
+                    {alternativeNames.map((alternative) => (
+                      <Button small rounded style={{ backgroundColor: '#68BAA7' }}>
+                        <Text style={styles.textStyle}>{alternative}</Text>
+                      </Button>
+                    ))}
+                  </CardItem>
+                  <CardItem>
+                      <Text style={{ marginTop: -10 }}>Tags: </Text>
+                      <View style={styles.viewStyle}>
 
                       {ingredientTags.map((ingredientTag) => (
                         <Badge key={ingredientTags.indexOf(ingredientTag)} style={styles.badgeStyle}>
@@ -133,10 +141,31 @@ const styles = {
     color: 'white',
     textAlign: 'center'
   },
+  imageStyle: {
+    resizeMode: 'contain',
+    width: 340,
+    height: 200
+  },
+  headerStyle: {
+    fontFamily: 'Futura',
+    fontSize: 24,
+    marginTop: 20,
+    paddingTop: 15
+  },
   buttonStyle: {
     flex: 1,
     marginRight: 5,
     marginLeft: 5,
     alignSelf: 'center',
   },
+  viewStyle: {
+    flexDirection: 'row',
+    height: 80,
+    padding: 20,
+    marginTop: 0,
+    justifyContent: 'space-around',
+    flexWrap: 'wrap',
+    alignItems: 'stretch',
+    flex: 2
+  }
 };

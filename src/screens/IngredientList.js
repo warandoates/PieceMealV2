@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListView, View, Text } from 'react-native';
+import { ListView, View, Text, StyleSheet } from 'react-native';
 import { Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/Ingredient/IngredientItem';
@@ -33,6 +33,7 @@ export class IngredientResultsList extends Component {
     return {
       headerTitleStyle: {
    /* this only styles the title/text (font, color etc.)  */
+        color: '#373737'
       },
       headerStyle: {
    /* this will style the header, but does NOT change the text */
@@ -84,7 +85,7 @@ export class IngredientResultsList extends Component {
     render() {
       this.loadDataSource();
         return (
-          <View style={{ flex: 1 }}>
+          <View style={styles.container}>
           {this.props.isFetching && <Spinner color="green" /> }
           {this.props.list.length > 0 && <ListView
             removeClippedSubviews={false}
@@ -96,6 +97,23 @@ export class IngredientResultsList extends Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFFFF'
+  },
+  text: {
+    marginLeft: 12,
+    fontSize: 16,
+    fontFamily: 'Times New Roman'
+  },
+  separator: {
+    flex: 1,
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: '#8E8E8E',
+  }
+});
 
 const mapStateToProps = (state) => {
     return {

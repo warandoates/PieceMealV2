@@ -26,10 +26,17 @@ class RecipeIngredients extends Component {
                                  alignSelf: 'center',
                                  fontFamily: 'Futura',
                                  flex: 3,
-                                 color: 'grey' };
+                                 color: 'grey'
+                               };
+              const amountStyle = {
+                                    fontStyle: 'italic',
+                                    fontFamily: 'Futura',
+                                    fontSize: 14,
+                                    color: '#68BAA7'
+                                  };
               let alternativeNames = [];
               if (this.isRestricted(ingredient.id)) {
-                style.color = 'red';
+                style.color = '#AF473C';
                 alternativeNames = ingredient.alternatives.map((alternative) => {
                   return alternative.name;
                 });
@@ -37,10 +44,9 @@ class RecipeIngredients extends Component {
 
               return (
               <Card transparent key={ingredient.id}>
-                <CardItem>
-                  <Text style={style}>
-                      { ingredient.amount } { ingredient.name }
-                  </Text>
+                <CardItem >
+                  <Text style={amountStyle}> { ingredient.amount } </Text>
+                  <Text style={style}> { ingredient.name } </Text>
                 </CardItem>
                   { alternativeNames.length > 0 &&
                     <CardItem>

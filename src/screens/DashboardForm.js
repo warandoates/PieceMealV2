@@ -24,11 +24,11 @@ export class TableExample extends Component {
     };
   };
 
-  componentDidUpdate() {
-    if (!this.props.user) {
-      return this.props.navigation.navigate('logIn');
-    }
-  }
+  // componentWillUpdate() {
+  //   if (!this.props.user) {
+  //     return this.props.navigation.navigate('logIn');
+  //   }
+  // }
 
   render() {
     // console.log('this is props', this.props);
