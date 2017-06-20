@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">14.29% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/7</span>
+        <span class='fraction'>4/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">16.67% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/6</span>
+        <span class='fraction'>2/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">14.29% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/7</span>
+        <span class='fraction'>4/8</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -96,7 +96,24 @@
 51
 52
 53
-54</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -107,21 +124,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -134,9 +148,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,55 +176,68 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
-import { ListView } from 'react-native';
+import { ListView, Switch } from 'react-native';
 import { Container, Content, View, Card, CardItem, Text } from 'native-base';
 &nbsp;
 export default class RecipeSteps extends Component {
 &nbsp;
-<span class="fstat-no" title="function not covered" >  co</span>mponentDidMount() {
-<span class="cstat-no" title="statement not covered" >    return this.loadDataSource();</span>
+  state = {
+    toggled: false
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  co</span>mponentDidUpdate() {
-<span class="cstat-no" title="statement not covered" >    return this.loadDataSource();</span>
+<span class="fstat-no" title="function not covered" >  to</span>ggleSwitch() {
+<span class="cstat-no" title="statement not covered" >      this.setState({ toggled: !this.state.toggled });</span>
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  lo</span>adDataSource() {
-       const ds = <span class="cstat-no" title="statement not covered" >new ListView.DataSource({</span>
+  loadDataSource() {
+       const ds = new ListView.DataSource({
            rowHasChanged: <span class="fstat-no" title="function not covered" >(r</span>1, r2) =&gt; <span class="cstat-no" title="statement not covered" >r1 !== r2</span>
        });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >       this.dataSource = ds.cloneWithRows(this.props.instructions);</span>
+       this.dataSource = ds.cloneWithRows(this.props.instructions);
    }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  re</span>nderRow(rowData) {
 <span class="cstat-no" title="statement not covered" >    return (</span>
-        &lt;Card transparent&gt;
-            &lt;CardItem&gt;
-                &lt;Text
-                  style={{ fontStyle: 'italic', alignSelf: 'center', flex: 3 }}
-                &gt;
-                  { rowData.instructions }
-                &lt;/Text&gt;
-            &lt;/CardItem&gt;
-        &lt;/Card&gt;
+        &lt;CardItem&gt;
+            {/* &lt;Switch value={this.state.toggled} onValueChange={() =&gt; { this.toggleSwitch(); }} /&gt; */}
+            &lt;Switch value={this.state.toggled} onValueChange={<span class="fstat-no" title="function not covered" >()</span> =&gt; { <span class="cstat-no" title="statement not covered" >this.value = !this.value; </span>}} /&gt;
+            &lt;Text
+              style={{ fontStyle: 'italic', alignSelf: 'center', paddingLeft: 10 }}
+            &gt;
+              { rowData.instructions }
+            &lt;/Text&gt;
+        &lt;/CardItem&gt;
+&nbsp;
+        // &lt;Card &gt;
+        //     &lt;CardItem&gt;
+        //         &lt;Text
+        //           style={{ fontStyle: 'italic',
+        //                    alignSelf: 'center',
+        //                    fontFamily: 'Futura',
+        //                    fontSize: 14,
+        //                    color: '#373737',
+        //                    flex: 3 }}
+        //         &gt;
+        //           { rowData.instructions }
+        //         &lt;/Text&gt;
+        //     &lt;/CardItem&gt;
+        // &lt;/Card&gt;
     );
   }
 &nbsp;
   render() {
-    // this.loadDataSource();
+    this.loadDataSource();
       return (
-          &lt;Container&gt;
-            &lt;Content&gt;
-              &lt;View&gt;
-                &lt;ListView
-                  dataSource={this.dataSource}
-                  renderRow={this.renderRow.bind(this)}
-                  enableEmptySections
-                /&gt;
-              &lt;/View&gt;
-            &lt;/Content&gt;
-          &lt;/Container&gt;
+        &lt;Content&gt;
+          &lt;View style={{ marginBottom: 35 }}&gt;
+            &lt;ListView
+              enableEmptySections
+              dataSource={this.dataSource}
+              renderRow={this.renderRow.bind(this)}
+            /&gt;
+          &lt;/View&gt;
+        &lt;/Content&gt;
       );
     }
 }
@@ -208,7 +247,7 @@ export default class RecipeSteps extends Component {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jun 17 2017 13:31:44 GMT-0700 (PDT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jun 19 2017 17:51:46 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

@@ -17,7 +17,7 @@ const MyButton = (props) => {
         }}
         transparent
     >
-        <Icon name="add" size={35} style={{ color: '#68BAA7' }} />
+        <Icon name="add" size={35} style={{ color: '#FFFFFF' }} />
     </Button>
   );
 };
@@ -48,6 +48,12 @@ export class IngredientResultsList extends Component {
       mode: 'modal'
     };
   };
+
+
+  componentWillMount() {
+    return this.loadDataSource();
+    // return this.props.getIngredients();
+  }
 
   componentDidMount() {
     this.loadDataSource();

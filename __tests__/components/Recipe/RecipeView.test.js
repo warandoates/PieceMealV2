@@ -13,7 +13,8 @@ describe('tests RecipeView', () => {
         image: {},
         description: 'description',
         instructions: 'instructions',
-        notes: 'notes'
+        notes: 'notes',
+        tags: []
       }}
     />);
     expect(toJson(component)).toMatchSnapshot();

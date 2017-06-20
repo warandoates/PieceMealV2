@@ -121,9 +121,9 @@ exports[`Sign Up form renders SignUpForm component 1`] = `
           padder={true}
           style={
             Object {
-              "backgroundColor": "#73ab00",
+              "backgroundColor": "#C0B083",
               "marginBottom": 25,
-              "marginLeft": 100,
+              "marginLeft": 88,
               "marginRight": 100,
               "marginTop": 20,
               "width": "50%",

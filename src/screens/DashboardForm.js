@@ -5,11 +5,12 @@ import {
   Tab,
   Tabs
 } from 'native-base';
+import { connect } from 'react-redux';
 import Profile from '../components/Profile';
 import Charts from '../components/Charts';
 import FavoriteRecipes from '../components/Recipe/FavoriteRecipes';
 
-export default class TableExample extends Component {
+export class TableExample extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerTitleStyle: {
@@ -23,12 +24,20 @@ export default class TableExample extends Component {
     };
   };
 
+  // componentWillUpdate() {
+  //   if (!this.props.user) {
+  //     return this.props.navigation.navigate('logIn');
+  //   }
+  // }
+
   render() {
+    // console.log('this is props', this.props);
+    const { user } = this.props;
     return (
-      <Container>
+       <Container>
         {/* <Header hasTabs /> */}
         {/* <Tabs renderTabBar={() => <ScrollableTab />}> */}
-        <Tabs locked>
+        {user && <Tabs locked>
           <Tab heading="Profile" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
             <Profile />
           </Tab>
@@ -44,8 +53,16 @@ export default class TableExample extends Component {
           </Tab>
           {/* <Tab heading="Friends" textStyle={{ fontSize: 12 }} activeTextStyle={{ fontSize: 12 }}>
           </Tab> */}
-        </Tabs>
+        </Tabs> }
       </Container>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+    return {
+      user: state.loginReducer.user
+    };
+};
+
+export default connect(mapStateToProps)(TableExample);

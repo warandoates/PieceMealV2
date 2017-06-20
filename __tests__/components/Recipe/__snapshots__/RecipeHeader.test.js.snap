@@ -3,6 +3,7 @@
 exports[`tests the RecipeHeader component renders recipeHeader properly 1`] = `
 <View>
   <View
+    color="#F8EEE7"
     style={
       Object {
         "backgroundColor": "#F8F8F8",

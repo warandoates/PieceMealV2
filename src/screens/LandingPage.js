@@ -35,10 +35,10 @@ export class LandingPage extends Component {
            onChangeText={(newText) => this.props.searchRecipe(newText)}
          />
        </InputGroup>
-       <SearchResults navigation={this.props.navigation}
-                      recipes={this.props.recipes}
-                      ingredients={this.props.ingredients}
-                      ingredients={this.props.ingredients}
+       <SearchResults
+         navigation={this.props.navigation}
+         recipes={this.props.recipes}
+         ingredients={this.props.ingredients}
        />
      </Container>
    );

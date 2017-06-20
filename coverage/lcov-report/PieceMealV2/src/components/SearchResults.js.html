@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>7/14</span>
+        <span class='fraction'>8/16</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">25% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>1/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">28.57% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/7</span>
+        <span class='fraction'>2/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">58.33% </span>
+        <span class="strong">57.14% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/12</span>
+        <span class='fraction'>8/14</span>
       </div>
     </div>
   </div>
@@ -108,20 +108,15 @@
 63
 64
 65
-66</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+66
+67
+68
+69
+70
+71
+72
+73
+74</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -146,6 +141,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,6 +160,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -175,23 +191,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//Search Bar
 import React, { Component } from 'react';
-import { ListView, View } from 'react-native';
-import { connect } from 'react-redux';
+import { ListView, View, StyleSheet } from 'react-native';
+import { Spinner } from 'native-base';
 import RecipeItem from '../components/Recipe/RecipeItem';
 import IngredientItem from '../components/Ingredient/IngredientItem';
-import {
-    Content,
-    Card,
-    CardItem,
-    Text,
-    Icon,
-    Right,
-    Button,
-    Header,
-    Body,
-    Title,
-    Spinner
-} from 'native-base';
 &nbsp;
 export default class SearchResults extends Component {
   loadDataSource() {
@@ -210,14 +213,17 @@ export default class SearchResults extends Component {
 <span class="cstat-no" title="statement not covered" >    if (rowData.type === 'ingredient') {</span>
 <span class="cstat-no" title="statement not covered" >      return (</span>
         &lt;View&gt;
-          &lt;IngredientItem rowData={rowData} /&gt;
+          &lt;IngredientItem rowData={rowData} onPress={<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >            this.props.navigation.navigate('ViewIngredient',</span>
+              { ingredient: rowData })
+          }} /&gt;
         &lt;/View&gt;
       );
     } else {
 <span class="cstat-no" title="statement not covered" >      return (</span>
         &lt;View&gt;
-          &lt;RecipeItem rowData={rowData} onPress={<span class="fstat-no" title="function not covered" >()</span>=&gt;{
-<span class="cstat-no" title="statement not covered" >            this.props.navigation.navigate('ViewRecipe', {recipe: rowData})</span>
+          &lt;RecipeItem style={styles.text} rowData={rowData} onPress={<span class="fstat-no" title="function not covered" >()</span>=&gt;{
+<span class="cstat-no" title="statement not covered" >            this.props.navigation.navigate('ViewRecipe', { recipe: rowData })</span>
           }} /&gt;
         &lt;/View&gt;
       );
@@ -228,8 +234,9 @@ export default class SearchResults extends Component {
       const ds = this.loadDataSource();
       return (
         &lt;View style={{ flex: 1 }}&gt;
-          {this.props.isFetching &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;Spinner color="green" /&gt; </span>}
+          {this.props.isFetching &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;Spinner color="#636B46" /&gt; </span>}
           &lt;ListView
+            style={styles.container}
             dataSource={ds}
             renderRow={this.renderRow.bind(this)}
             enableEmptySections
@@ -238,13 +245,30 @@ export default class SearchResults extends Component {
       );
   }
 }
+&nbsp;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFFFF'
+  },
+  text: {
+    marginLeft: 12,
+    fontSize: 16,
+    fontFamily: 'Times New Roman'
+  },
+  separator: {
+    flex: 1,
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: '#8E8E8E',
+  }
+});
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jun 17 2017 13:31:44 GMT-0700 (PDT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jun 19 2017 17:51:46 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
