@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">45.45% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/11</span>
+        <span class='fraction'>5/10</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">28.57% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/8</span>
+        <span class='fraction'>2/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">45.45% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/11</span>
+        <span class='fraction'>5/10</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -105,14 +105,34 @@
 60
 61
 62
-63</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -170,16 +190,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Icon, Input, InputGroup, Button } from 'native-base';
+// import Carousel from 'react-native-snap-carousel';
 import SearchResults from '../components/SearchResults';
 import { createSearchAction } from '../actions/index';
 &nbsp;
 export class LandingPage extends Component {
- static navigationOptions = <span class="fstat-no" title="function not covered" >({</span> navigation }) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+ static navigationOptions = {
+&nbsp;
+      headerTitleStyle: {
+   /* this only styles the title/text (font, color etc.)  */
+      },
+      headerStyle: {
+   /* this will style the header, but does NOT change the text */
+        backgroundColor: '#68BAA7'
+      },
+&nbsp;
      title: 'Piece Meal',
-     tabBarIcon: <span class="fstat-no" title="function not covered" >({</span> tintColor }) =&gt; (
-<span class="cstat-no" title="statement not covered" >      &lt;Icon name='home' /&gt;</span>
-     )
- });
+     tabBarIcon: <span class="fstat-no" title="function not covered" >()</span> =&gt; (
+<span class="cstat-no" title="statement not covered" >       &lt;Icon name='home' style={{ color: '#68BAA7' }} /&gt;</span>
+    )
+ };
 &nbsp;
  componentDidMount() {
    this.props.searchRecipe('');
@@ -189,14 +219,14 @@ export class LandingPage extends Component {
    return (
     &lt;Container&gt;
        &lt;InputGroup borderType="regular"&gt;
-         &lt;Icon name="md-search" /&gt;
+         &lt;Icon name="md-search" style={{ color: '#68BAA7' }}/&gt;
          &lt;Input
            placeholder="Search"
            onChangeText={<span class="fstat-no" title="function not covered" >(n</span>ewText) =&gt; <span class="cstat-no" title="statement not covered" >this.props.searchRecipe(newText)}</span>
          /&gt;
-         &lt;Button transparent&gt;
-             &lt;Icon name='ios-options' /&gt;
-         &lt;/Button&gt;
+         {/* &lt;Button transparent&gt;
+             &lt;Icon name='ios-options' style={{ color: '#68BAA7' }} /&gt;
+         &lt;/Button&gt; */}
        &lt;/InputGroup&gt;
        &lt;SearchResults navigation={this.props.navigation}
                       recipes={this.props.recipes}
@@ -235,7 +265,7 @@ export default ConnectedLandingPage;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jun 17 2017 13:31:44 GMT-0700 (PDT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jun 19 2017 17:51:46 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
