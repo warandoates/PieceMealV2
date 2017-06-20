@@ -98,34 +98,38 @@ class LogInForm extends Component {
                         underline
                         style={{ marginLeft: 15, marginRight: 20, marginBottom: 20, marginTop: 125 }}
                       >
-                          <Input
-                            label='Email'
-                            placeholder='Enter Email'
-                            value={email}
-                            onChangeText={(...args) => this.onEmailChange(...args)}
-                            keyboardType='email-address'
-                            autoCapitalize='none'
-                            autoCorrect={false}
-                          />
+                        <Input
+                          label='Email'
+                          placeholder='Enter Email'
+                          value={email}
+                          onChangeText={(...args) => this.onEmailChange(...args)}
+                          keyboardType='email-address'
+                          autoCapitalize='none'
+                          autoCorrect={false}
+                        />
                       </Item>
                       <Item underline last>
-                          <Input
-                            secureTextEntry
-                            label='Password'
-                            placeholder='Enter Password'
-                            value={password}
-                            onChangeText={this.onPasswordChange.bind(this)}
-                          />
+                        <Input
+                          secureTextEntry
+                          label='Password'
+                          placeholder='Enter Password'
+                          value={password}
+                          onChangeText={this.onPasswordChange.bind(this)}
+                        />
                       </Item>
                       {loading && <Spinner color='#C0B083' />}
                       <Button
-                        block 
+                        block
                         style={styles.buttonContainerLeft}
                         onPress={() => this.onButtonPress()}
                       >
-                          <Text>Login</Text>
+                        <Text>Login</Text>
                       </Button>
-                      <Button block style={styles.buttongContainerRight} onPress={() => this.auth()}>
+                      <Button
+                        block
+                        style={styles.buttongContainerRight} 
+                        onPress={() => this.auth()}
+                      >
                         <Text>Sign In with Facebook</Text>
                       </Button>
                   </Form>
