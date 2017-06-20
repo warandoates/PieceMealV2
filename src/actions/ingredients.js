@@ -35,9 +35,7 @@ export const getIngredients = () => {
 
 
 export const putIngredient = (ingredient, props) => {
-  console.log('this is ingredient', ingredient);
-  console.log('this is the props', props);
-  let tagsArr = [];
+
   if (ingredient.tags) {
     ingredient.tags.split(' ');
   }
@@ -58,7 +56,7 @@ export const putIngredient = (ingredient, props) => {
       image_url: ingredient.image_url
     })
   });
-}
+};
 
 function deleteThisIngredient(ingredientId, token) {
   return fetch(`${API_URL}/api/v1/ingredients/${ingredientId}`, {
@@ -74,11 +72,14 @@ function deleteThisIngredient(ingredientId, token) {
 
 
 function postFetchIngredient(ingredient, token) {
-  console.log('this is the ingredient', ingredient);
-  let arrTags = [];
-  if (ingredient.tags) {
-    arrTags = ingredient.tags.split(' ');
+  if (!ingredient.tags) {
+    ingredient.tags = '';
   }
+  const alternativeArr = [];
+  if (ingredient.tags.length > 1) {
+    ingredient.tags.split(' ');
+  }
+  console.log('this is the ingredient', ingredient);
   return fetch(`${API_URL}/api/v1/ingredients`, {
         mode: 'no-cors',
         method: 'POST',
@@ -90,9 +91,9 @@ function postFetchIngredient(ingredient, token) {
         body: JSON.stringify({
           name: ingredient.name,
           description: ingredient.description,
-          tags: arrTags,
-          alternatives: ingredient.alternatives || '',
-          image_url: ingredient.photos
+          tags: ingredient.tags || [],
+          alternatives: [{}],
+          image_url: ingredient.image_url || ''
         })
     });
 }

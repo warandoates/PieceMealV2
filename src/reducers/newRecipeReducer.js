@@ -42,25 +42,29 @@ export default (state = INITIAL_STATE, action) => {
     case 'MODIFY_DESCRIPTION':
       return {
         ...state,
-        recipe: { ...state.recipe, description: action.payload, hasError: false },
+        recipe: { ...state.recipe, description: action.payload },
+        hasError: false,
         description: action.payload
       };
     case 'MODIFY_NOTES':
       return {
         ...state,
-        recipe: { ...state.recipe, notes: action.payload, hasError: false },
+        recipe: { ...state.recipe, notes: action.payload },
+        hasError: false,
         notes: action.payload
       };
     case 'MODIFY_COOK_TIME':
       return {
         ...state,
-        recipe: { ...state.recipe, cook_time: action.payload, hasError: false },
+        recipe: { ...state.recipe, cook_time: action.payload },
+        hasError: false,
         notes: action.payload
       };
     case 'MODIFY_PREP_TIME':
       return {
         ...state,
-        recipe: { ...state.recipe, prep_time: action.payload, hasError: false },
+        recipe: { ...state.recipe, prep_time: action.payload },
+        hasError: false,
         notes: action.payload
       };
     case 'MODIFY_INGREDIENT':
@@ -80,9 +84,8 @@ export default (state = INITIAL_STATE, action) => {
     case 'MODIFY_TAG':
       return { ...state, tag: action.payload, hasError: false };
     case 'ADD_INGREDIENT':
-      console.log('add ingredient:', action.payload);
       ingredients = [...state.ingredients, action.payload];
-      return { ...state, ingredients, ingredient: { id: -1, name: '', amount: '' } };
+      return { ...state, ingredients, ingredient: action.payload };
     case 'ADD_TAG':
       tags = [...state.tags, action.payload];
       return { ...state, tags, tag: '' };

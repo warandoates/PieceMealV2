@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Button, Form, Input, Text, Item } from 'native-base';
+import { Container, Button, Form, Input, Text, Item, Picker } from 'native-base';
 import { reduxForm, Field } from 'redux-form';
 import Toast from 'react-native-simple-toast';
 import { connect } from 'react-redux';
@@ -44,6 +44,29 @@ class AddIngredientForm extends Component {
   constructor(props) {
     super(props);
     this.renderInput = this.renderInput.bind(this);
+  }
+
+  renderPicker({ input, label, type, meta: { touched, error, warning } }) {
+    let hasError = false;
+
+    if (error !== undefined) {
+      hasError = true;
+    }
+    return (
+      <Picker
+          supportedOrientations={['portrait', 'landscape']}
+          iosHeader="Select one"
+          mode="dropdown"
+          selectedValue={this.state.selected1}
+          onValueChange={this.onValueChange.bind(this)}>
+          { this.props.allIngredients.map((t, i) => {
+            return (
+              // <Badge style={badgeStyle} key={i}><Text>{t}</Text></Badge>
+              <Item label={t.name} value={t} />
+            );
+          }) }
+       </Picker>
+    )
   }
 
   onSubmit(ingredient) {
