@@ -60,7 +60,7 @@ export default class IngredientView extends Component {
                                 marginBottom: 10,
                                 alignSelf: 'center'
                             }}>
-                                "{ingredient.description}"
+                                {ingredient.description}
                             </Text>
                         </Body>
                     </CardItem>
