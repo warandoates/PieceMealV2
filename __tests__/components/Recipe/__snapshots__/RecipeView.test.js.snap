@@ -20,6 +20,7 @@ exports[`tests RecipeView renders RecipeView component 1`] = `
       <Styled(Text)
         style={
           Object {
+            "color": "#373737",
             "fontFamily": "Futura",
             "fontSize": 24,
             "marginTop": 20,
@@ -27,17 +28,18 @@ exports[`tests RecipeView renders RecipeView component 1`] = `
           }
         }
       >
-        NAME
+        Name
       </Styled(Text)>
     </Styled(CardItem)>
     <Styled(CardItem)>
       <Styled(Body)>
         <Image
-          source={Object {}}
+          source={1}
           style={
             Object {
               "height": 200,
               "resizeMode": "contain",
+              "shadowColor": "#faebd7",
               "width": 340,
             }
           }
@@ -65,6 +67,7 @@ exports[`tests RecipeView renders RecipeView component 1`] = `
       style={
         Object {
           "alignSelf": "center",
+          "color": "#C0B083",
           "fontFamily": "Futura",
         }
       }
@@ -75,6 +78,20 @@ exports[`tests RecipeView renders RecipeView component 1`] = `
       <RecipeSteps
         instructions="instructions"
       />
+    </Styled(CardItem)>
+    <Styled(H3)
+      style={
+        Object {
+          "alignSelf": "center",
+          "color": "#C0B083",
+          "fontFamily": "Futura",
+        }
+      }
+    >
+      Ingredients:
+    </Styled(H3)>
+    <Styled(CardItem)>
+      <Connect(RecipeIngredients) />
     </Styled(CardItem)>
     <Styled(CardItem)
       footer={true}
@@ -97,59 +114,7 @@ exports[`tests RecipeView renders RecipeView component 1`] = `
     </Styled(CardItem)>
     <Styled(CardItem)
       footer={true}
-    >
-      <Styled(Badge)
-        style={
-          Object {
-            "backgroundColor": "black",
-          }
-        }
-      >
-        <Styled(Text)
-          style={
-            Object {
-              "color": "white",
-            }
-          }
-        >
-          vegetarian
-        </Styled(Text)>
-      </Styled(Badge)>
-      <Styled(Badge)
-        style={
-          Object {
-            "backgroundColor": "black",
-          }
-        }
-      >
-        <Styled(Text)
-          style={
-            Object {
-              "color": "white",
-            }
-          }
-        >
-          vegan
-        </Styled(Text)>
-      </Styled(Badge)>
-      <Styled(Badge)
-        style={
-          Object {
-            "backgroundColor": "black",
-          }
-        }
-      >
-        <Styled(Text)
-          style={
-            Object {
-              "color": "white",
-            }
-          }
-        >
-          dairy
-        </Styled(Text)>
-      </Styled(Badge)>
-    </Styled(CardItem)>
+    />
   </Styled(Card)>
 </Styled(Content)>
 `;

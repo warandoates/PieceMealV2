@@ -266,6 +266,34 @@
 			remoteGlobalIDString = 2D2A28201D9B03D100D4039D;
 			remoteInfo = "RCTAnimation-tvOS";
 		};
+		5EDBD7701EF77A9A00FADE0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B38DDAF62014D0BBA8C1C0A /* A0RNLock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5F0499EE1CAE9F4A006F6C05;
+			remoteInfo = A0RNLock;
+		};
+		5EDBD7731EF77A9A00FADE0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81A888D706A24DD5B43C2B0F /* LRDRCTSimpleToast.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 15209BEF1D250F63000D0F44;
+			remoteInfo = LRDRCTSimpleToast;
+		};
+		5EDBD78F1EF77A9A00FADE0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A14397C8B7042D78C12887D /* RNSearchBar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNSearchBar;
+		};
+		5EDBD7921EF77A9A00FADE0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11A77F92E4454E39B456443C /* RNVectorIcons.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
+			remoteInfo = RNVectorIcons;
+		};
 		78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
@@ -279,34 +307,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
-		};
-		E05D6C0A1EF77DFF00767477 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1B38DDAF62014D0BBA8C1C0A /* A0RNLock.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5F0499EE1CAE9F4A006F6C05;
-			remoteInfo = A0RNLock;
-		};
-		E05D6C0D1EF77DFF00767477 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 81A888D706A24DD5B43C2B0F /* LRDRCTSimpleToast.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 15209BEF1D250F63000D0F44;
-			remoteInfo = LRDRCTSimpleToast;
-		};
-		E05D6C291EF77DFF00767477 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A14397C8B7042D78C12887D /* RNSearchBar.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNSearchBar;
-		};
-		E05D6C2C1EF77DFF00767477 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 11A77F92E4454E39B456443C /* RNVectorIcons.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
-			remoteInfo = RNVectorIcons;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -623,6 +623,38 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		5EDBD7671EF77A9A00FADE0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5EDBD7901EF77A9A00FADE0E /* libRNSearchBar.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5EDBD7691EF77A9A00FADE0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5EDBD7711EF77A9A00FADE0E /* libA0RNLock.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5EDBD76B1EF77A9A00FADE0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5EDBD7741EF77A9A00FADE0E /* libLRDRCTSimpleToast.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5EDBD76D1EF77A9A00FADE0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5EDBD7931EF77A9A00FADE0E /* libRNVectorIcons.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -697,38 +729,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E05D6C011EF77DFE00767477 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E05D6C0B1EF77DFF00767477 /* libA0RNLock.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E05D6C031EF77DFE00767477 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E05D6C2A1EF77DFF00767477 /* libRNSearchBar.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E05D6C051EF77DFE00767477 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E05D6C0E1EF77DFF00767477 /* libLRDRCTSimpleToast.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E05D6C071EF77DFE00767477 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E05D6C2D1EF77DFF00767477 /* libRNVectorIcons.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		FF30024306D5FBE71CEEE9D0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -763,7 +763,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "PieceMealV2" */;
 			buildPhases = (
-				67EE1775C4AD805B806E863F /* [CP] Check Pods Manifest.lock */,
+				DFBE767E02E0F8DFDF9D9873 /* [CP] Check Pods Manifest.lock */,
 				C3DF74B568DAFC238A431C97 /* [CP] Copy Pods Resources */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -853,11 +853,11 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = E05D6C011EF77DFE00767477 /* Products */;
+					ProductGroup = 5EDBD7691EF77A9A00FADE0E /* Products */;
 					ProjectRef = 1B38DDAF62014D0BBA8C1C0A /* A0RNLock.xcodeproj */;
 				},
 				{
-					ProductGroup = E05D6C051EF77DFE00767477 /* Products */;
+					ProductGroup = 5EDBD76B1EF77A9A00FADE0E /* Products */;
 					ProjectRef = 81A888D706A24DD5B43C2B0F /* LRDRCTSimpleToast.xcodeproj */;
 				},
 				{
@@ -905,11 +905,11 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
-					ProductGroup = E05D6C031EF77DFE00767477 /* Products */;
+					ProductGroup = 5EDBD7671EF77A9A00FADE0E /* Products */;
 					ProjectRef = 5A14397C8B7042D78C12887D /* RNSearchBar.xcodeproj */;
 				},
 				{
-					ProductGroup = E05D6C071EF77DFE00767477 /* Products */;
+					ProductGroup = 5EDBD76D1EF77A9A00FADE0E /* Products */;
 					ProjectRef = 11A77F92E4454E39B456443C /* RNVectorIcons.xcodeproj */;
 				},
 			);
@@ -1085,6 +1085,34 @@
 			remoteRef = 5E9157341DD0AC6500FF2AA8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		5EDBD7711EF77A9A00FADE0E /* libA0RNLock.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libA0RNLock.a;
+			remoteRef = 5EDBD7701EF77A9A00FADE0E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5EDBD7741EF77A9A00FADE0E /* libLRDRCTSimpleToast.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLRDRCTSimpleToast.a;
+			remoteRef = 5EDBD7731EF77A9A00FADE0E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5EDBD7901EF77A9A00FADE0E /* libRNSearchBar.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSearchBar.a;
+			remoteRef = 5EDBD78F1EF77A9A00FADE0E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5EDBD7931EF77A9A00FADE0E /* libRNVectorIcons.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNVectorIcons.a;
+			remoteRef = 5EDBD7921EF77A9A00FADE0E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		78C398B91ACF4ADC00677621 /* libRCTLinking.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1097,34 +1125,6 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E05D6C0B1EF77DFF00767477 /* libA0RNLock.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libA0RNLock.a;
-			remoteRef = E05D6C0A1EF77DFF00767477 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E05D6C0E1EF77DFF00767477 /* libLRDRCTSimpleToast.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libLRDRCTSimpleToast.a;
-			remoteRef = E05D6C0D1EF77DFF00767477 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E05D6C2A1EF77DFF00767477 /* libRNSearchBar.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNSearchBar.a;
-			remoteRef = E05D6C291EF77DFF00767477 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E05D6C2D1EF77DFF00767477 /* libRNVectorIcons.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNVectorIcons.a;
-			remoteRef = E05D6C2C1EF77DFF00767477 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1256,21 +1256,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PieceMealV2/Pods-PieceMealV2-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		67EE1775C4AD805B806E863F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		C3DF74B568DAFC238A431C97 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1284,6 +1269,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PieceMealV2/Pods-PieceMealV2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFBE767E02E0F8DFDF9D9873 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

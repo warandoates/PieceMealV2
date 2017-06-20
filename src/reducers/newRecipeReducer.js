@@ -32,7 +32,6 @@ let tags;
 
 export default (state = INITIAL_STATE, action) => {
 
-  console.log('ACTION:', action);
 
   switch (action.type) {
 

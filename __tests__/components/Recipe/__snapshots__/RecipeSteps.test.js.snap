@@ -1,15 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`tests RecipeSteps renders RecipeSteps component 1`] = `
-<Styled(Container)>
-  <Styled(Content)>
-    <Styled(ViewNB)>
-      <ListViewMock
-        enableEmptySections={true}
-        renderRow={[Function]}
-        renderScrollComponent={[Function]}
-      />
-    </Styled(ViewNB)>
-  </Styled(Content)>
-</Styled(Container)>
+<Styled(Content)>
+  <Styled(ViewNB)
+    style={
+      Object {
+        "marginBottom": 35,
+      }
+    }
+  >
+    <ListViewMock
+      dataSource={
+        ListViewDataSource {
+          "items": 0,
+        }
+      }
+      enableEmptySections={true}
+      renderRow={[Function]}
+      renderScrollComponent={[Function]}
+    />
+  </Styled(ViewNB)>
+</Styled(Content)>
 `;

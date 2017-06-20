@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">21.74% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/23</span>
+        <span class='fraction'>8/24</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>3/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">6.67% </span>
+        <span class="strong">13.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/15</span>
+        <span class='fraction'>2/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">21.74% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/23</span>
+        <span class='fraction'>8/24</span>
       </div>
     </div>
   </div>
@@ -139,7 +139,15 @@
 94
 95
 96
-97</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+97
+98
+99
+100
+101
+102
+103
+104
+105</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -174,14 +182,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,21 +193,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -254,7 +270,7 @@ const MyButton = <span class="fstat-no" title="function not covered" >(p</span>r
       }}
       transparent
     &gt;
-      &lt;Icon name="add" size={35} /&gt;
+      &lt;Icon name="add" size={35} style={{ color: '#68BAA7' }} /&gt;
     &lt;/Button&gt;
   );
 };
@@ -267,10 +283,17 @@ const ConnectedMyButton = connect(<span class="fstat-no" title="function not cov
 &nbsp;
 export class RecipeResultsList extends Component {
   static navigationOptions = <span class="fstat-no" title="function not covered" >({</span> navigation }) =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
+    headerTitleStyle: {
+ /* this only styles the title/text (font, color etc.)  */
+    },
+    headerStyle: {
+ /* this will style the header, but does NOT change the text */
+      backgroundColor: '#68BAA7'
+    },
     title: 'Recipes',
     headerRight: &lt;ConnectedMyButton navigation={navigation} /&gt;,
     tabBarIcon: <span class="fstat-no" title="function not covered" >({</span> tintColor }) =&gt; (
-<span class="cstat-no" title="statement not covered" >     &lt;Icon name='restaurant' /&gt;</span>
+<span class="cstat-no" title="statement not covered" >     &lt;Icon name='restaurant' style={{ color: '#68BAA7' }}/&gt;</span>
     ),
     mode: 'modal'
   });
@@ -284,11 +307,11 @@ export class RecipeResultsList extends Component {
 <span class="cstat-no" title="statement not covered" >    return this.loadDataSource();</span>
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  lo</span>adDataSource() {
-    const ds = <span class="cstat-no" title="statement not covered" >new ListView.DataSource({</span>
+  loadDataSource() {
+    const ds = new ListView.DataSource({
       rowHasChanged: <span class="fstat-no" title="function not covered" >(r</span>1, r2) =&gt; <span class="cstat-no" title="statement not covered" >r1 !== r2</span>
     });
-<span class="cstat-no" title="statement not covered" >    this.dataSource = ds.cloneWithRows(this.props.list);</span>
+    this.dataSource = ds.cloneWithRows(this.props.list);
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  re</span>nderRow(rowData) {
@@ -298,12 +321,13 @@ export class RecipeResultsList extends Component {
   }
 &nbsp;
   render() {
-    // this.loadDataSource();
+    this.loadDataSource();
       return (
         &lt;View style={{ flex: 1 }}&gt;
           {this.props.isFetching &amp;&amp; &lt;Spinner color="green" /&gt; }
-          {this.props.list.length &gt; 1 &amp;&amp;
+          {this.props.list.length &gt; 0 &amp;&amp;
 <span class="branch-1 cbranch-no" title="branch not covered" >          &lt;ListView</span>
+              removeClippedSubviews={false}
             dataSource={this.dataSource}
            renderRow={this.renderRow.bind(this)}
            enableEmptySections
@@ -337,7 +361,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(RecipeResultsList);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jun 17 2017 13:31:44 GMT-0700 (PDT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jun 19 2017 17:51:46 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

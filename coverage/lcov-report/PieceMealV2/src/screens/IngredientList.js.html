@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">45.45% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>8/20</span>
+        <span class='fraction'>10/22</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>3/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">23.08% </span>
+        <span class="strong">28.57% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/13</span>
+        <span class='fraction'>4/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">45.45% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>8/20</span>
+        <span class='fraction'>10/22</span>
       </div>
     </div>
   </div>
@@ -136,7 +136,22 @@
 91
 92
 93
-94</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -172,9 +187,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,11 +217,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -206,8 +235,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -230,7 +260,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
-import { ListView, View } from 'react-native';
+import { ListView, View, Text } from 'react-native';
 import { Spinner, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 import IngredientItem from '../components/Ingredient/IngredientItem';
@@ -248,7 +278,7 @@ const MyButton = <span class="fstat-no" title="function not covered" >(p</span>r
         }}
         transparent
     &gt;
-        &lt;Icon name="add" size={35} /&gt;
+        &lt;Icon name="add" size={35} style={{ color: '#FFFFFF' }} /&gt;
     &lt;/Button&gt;
   );
 };
@@ -262,22 +292,36 @@ const ConnectedMyButton = connect(<span class="fstat-no" title="function not cov
 export class IngredientResultsList extends Component {
   static navigationOptions = <span class="fstat-no" title="function not covered" >({</span> navigation }) =&gt; {
 <span class="cstat-no" title="statement not covered" >    return {</span>
+      headerTitleStyle: {
+   /* this only styles the title/text (font, color etc.)  */
+      },
+      headerStyle: {
+   /* this will style the header, but does NOT change the text */
+        backgroundColor: '#68BAA7'
+      },
+&nbsp;
       title: 'Ingredients',
       headerRight: &lt;ConnectedMyButton navigation={navigation} /&gt;,
       tabBarIcon: <span class="fstat-no" title="function not covered" >({</span> tintColor }) =&gt; (
-<span class="cstat-no" title="statement not covered" >       &lt;Icon name='nutrition' /&gt;</span>
+<span class="cstat-no" title="statement not covered" >       &lt;Icon name='nutrition' style={{ color: '#68BAA7' }}/&gt;</span>
       ),
       mode: 'modal'
     };
   };
 &nbsp;
+&nbsp;
+  componentWillMount() {
+    return this.loadDataSource();
+    // return this.props.getIngredients();
+  }
+&nbsp;
   componentDidMount() {
     this.loadDataSource();
-    return this.props.getIngredients();
+    this.props.getIngredients();
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  co</span>mponentDidUpdate() {
-<span class="cstat-no" title="statement not covered" >    return this.loadDataSource();</span>
+<span class="cstat-no" title="statement not covered" >    this.loadDataSource();</span>
   }
 &nbsp;
   loadDataSource() {
@@ -299,11 +343,12 @@ export class IngredientResultsList extends Component {
 &nbsp;
 &nbsp;
     render() {
-      // this.loadDataSource();
+      this.loadDataSource();
         return (
           &lt;View style={{ flex: 1 }}&gt;
           {this.props.isFetching &amp;&amp; &lt;Spinner color="green" /&gt; }
-          {this.props.list.length &gt; 1 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;ListView</span>
+          {this.props.list.length &gt; 0 &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;ListView</span>
+            removeClippedSubviews={false}
             dataSource={this.dataSource}
             renderRow={this.renderRow.bind(this)}
             enableEmptySections
@@ -328,7 +373,7 @@ export default connect(mapStateToProps, { getIngredients })(IngredientResultsLis
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jun 17 2017 13:31:44 GMT-0700 (PDT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jun 19 2017 17:51:46 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

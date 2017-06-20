@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">87.5% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>7/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>2/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">87.5% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>7/8</span>
       </div>
     </div>
   </div>
@@ -80,7 +80,15 @@
 35
 36
 37
-38</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+38
+39
+40
+41
+42
+43
+44
+45
+46</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -91,15 +99,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,29 +142,37 @@ import {
     Thumbnail,
     Text,
     Right } from 'native-base';
-// import RecipeModal from './RecipeModal';
-import iceCream from '../../assets/food/ice-cream.jpg';
-import bruscetta from '../../assets/food/Bruscetta.jpg';
-import pepperBeef from '../../assets/food/pepperBeef.jpg';
 &nbsp;
-const images = [iceCream, bruscetta, pepperBeef];
+import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 &nbsp;
 export default class RecipeItem extends Component {
   render() {
       const rowData = this.props.rowData;
+      let name = rowData.name || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+      name = name.split(' ').map((str) =&gt; {
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
+      }).join(' ');
+      let image;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (rowData.image_url) {
+<span class="cstat-no" title="statement not covered" >        image = { uri: rowData.image_url };</span>
+      } else {
+        image = DEFAULT_IMAGE;
+      }
       return (
-          &lt;Card&gt;
-            &lt;TouchableOpacity
-              onPress={this.props.onPress}
-            &gt;
-                  &lt;CardItem&gt;
-                      &lt;Thumbnail source={images[rowData.id % images.length]} /&gt;
-                      &lt;Text style={{ alignSelf: 'center', marginLeft: 25 }}&gt;{ rowData.name }&lt;/Text&gt;
+          &lt;Card &gt;
+            &lt;TouchableOpacity onPress={this.props.onPress}&gt;
+                  &lt;CardItem &gt;
+                      &lt;Thumbnail source={image} /&gt;
+                      &lt;Text style={{ alignSelf: 'center',
+                                     marginLeft: 25,
+                                     fontFamily: 'Futura',
+                                     fontSize: 16,
+                                     color: '#373737'
+                                  }}&gt;{ name }&lt;/Text&gt;
                       &lt;Right&gt;
-                      &lt;Icon name="arrow-forward" /&gt;
+                      &lt;Icon name="arrow-forward" style={{ color: '#68BAA7' }} /&gt;
                       &lt;/Right&gt;
                   &lt;/CardItem&gt;
-&nbsp;
             &lt;/TouchableOpacity&gt;
           &lt;/Card&gt;
       );
@@ -160,7 +184,7 @@ export default class RecipeItem extends Component {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jun 17 2017 13:31:44 GMT-0700 (PDT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jun 19 2017 17:51:46 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

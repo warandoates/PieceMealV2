@@ -15,6 +15,7 @@ export const changeRestrictions = (clientId, restrictions) => {
 };
 
 export const userChange = (client) => {
+  console.log('GET CLIENT IS FIRED');
   return {
     type: 'GET_CLIENT',
     payload: getClient(client)

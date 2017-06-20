@@ -7,7 +7,7 @@ describe('tests the IngredientResultsList component', () => {
   it('renders IngredientResultsList component properly', () => {
     expect(renderer.create(
       <IngredientResultsList
-        isFetching={'true'}
+        isFetching={true}
         list={[]}
         getIngredients={jest.fn}
         navigate={jest.fn}

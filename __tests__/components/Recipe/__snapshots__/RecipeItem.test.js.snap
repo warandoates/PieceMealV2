@@ -80,15 +80,15 @@ exports[`tests the RecipeHeader component renders recipeHeader properly 1`] = `
         style={
           Object {
             "alignSelf": "center",
-            "color": "#000",
-            "fontFamily": "System",
+            "color": "#373737",
+            "fontFamily": "Futura",
             "fontSize": 16,
             "marginLeft": 25,
           }
         }
         virtual={undefined}
       >
-        name
+        Name
       </Text>
       <View
         style={
@@ -112,7 +112,7 @@ exports[`tests the RecipeHeader component renders recipeHeader properly 1`] = `
               },
               Object {
                 "alignSelf": null,
-                "color": "#ccc",
+                "color": "#68BAA7",
                 "fontSize": 22,
               },
               Object {
