@@ -48,14 +48,15 @@ export class IngredientResultsList extends Component {
     };
   };
 
-  componentDidMount() {
-    this.loadDataSource();
-    this.props.getIngredients();
-  }
 
   componentWillMount() {
     return this.loadDataSource();
     // return this.props.getIngredients();
+  }
+
+  componentDidMount() {
+    this.loadDataSource();
+    this.props.getIngredients();
   }
 
   componentDidUpdate() {
