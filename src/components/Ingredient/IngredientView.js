@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
 import Toast from 'react-native-simple-toast';
 import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner, Button } from 'native-base';
@@ -70,15 +70,17 @@ export class IngredientView extends Component {
                             </Text>
                         </Body>
                     </CardItem>
-                    <CardItem footer>
-                      <Text>Tags: </Text>
+                    <CardItem>
+                        <Text style={{ marginTop: -10 }}>Tags: </Text>
+                      <View style={{ flexDirection: 'row', height: 80, padding: 20, marginTop: 0, justifyContent: 'space-around', flexWrap: 'wrap', alignItems: 'stretch', flex: 2 }}>
+
                       {ingredientTags.map((ingredientTag) => (
                         <Badge key={ingredientTags.indexOf(ingredientTag)} style={styles.badgeStyle}>
                             <Text style={styles.textStyle}>{ingredientTag}</Text>
                         </Badge>))}
-
+                      </View>
                     </CardItem>
-                    <CardItem>
+                    <CardItem style={{ marginBottom: 30 }} footer>
                       {this.props.user && this.navigateButton('Edit')}
                       {this.props.user &&
                         <Button
@@ -120,7 +122,7 @@ export default connect(mapStateToProps, { deleteIngredient })(IngredientView);
 const styles = {
   badgeStyle: {
     backgroundColor: 'black',
-    marginRight: 5,
+    // marginRight: 5,
     // flex: 1,
     // flexDirection: 'row',
     // alignItems: 'flex-start',
