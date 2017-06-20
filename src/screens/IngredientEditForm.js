@@ -12,7 +12,16 @@ class IngredientEditForm extends Component {
   }
 
   onSubmit(ingredient) {
-    return this.props.updateIngredient(ingredient, this.props);
+    return this.props.updateIngredient(ingredient, this.props)
+      .then(res => {
+        if (res.value.status === 400) {
+          return Toast.show('Bad Request');
+        }
+        return Toast.show('Successfully Made Changes');
+      })
+      .then(() => {
+        return this.props.navigation.navigate('ingredients')
+      })
   }
 
   renderInput({ input, label, type, meta: { touched, error, warning } }) {
@@ -50,7 +59,7 @@ class IngredientEditForm extends Component {
 
           <Field style={{ flex: 1 }} name="tags" label="Tags" type='text' component={this.renderInput} />
 
-          <Field style={{ flex: 1 }} name="alternatives" label="alternatives" type='text' ingredients={this.props.ingredients} component={this.renderInput} />
+          <Field style={{ flex: 1 }} name="alternatives" label="alternatives" type='text' component={this.renderInput} />
 
           <Field style={{ flex: 1 }} name="image_url" label="image_url" type='text' component={this.renderInput} />
         </Container>
@@ -89,50 +98,18 @@ class IngredientEditForm extends Component {
       marginRight: 20
     }
   };
-//   render() {
-//     const { handleSubmit, submitting } = this.props;
-//     return (
-//       <Form>
-//         <FieldsContainer>
-//           <Fieldset label="Ingredient Details">
-//             <Input name="name" label="Ingredient Name" />
-//             <Input name="description" label="Description" placeholder="The most delicious apple" />
-//           </Fieldset>
-//           <Fieldset label="Add" last>
-//             <Input name="alternatives" label="alternatives" placeholder="Oranges?" />
-//             <Input name="tags" label="Tags" placeholder="crisp" />
-//             <Input name="photos" label="photos" placeholder="Photo?" />
-//           </Fieldset>
-//         </FieldsContainer>
-//         <ActionsContainer>
-//           <Button onPress={handleSubmit(this.onSubmit.bind(this))} icon="md-checkmark" iconPlacement="right" submitting={submitting} >
-//             Submit
-//           </Button>
-//         </ActionsContainer>
-//       </Form>
-//     );
-//   }
-// }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log('own proprosospopop', ownProps);
   return {
     initialValues: {
       name: ownProps.navigation.state.params.name,
       description: ownProps.navigation.state.params.description,
-      alternatives: ownProps.navigation.state.params.alternatives,
+      alternatives: ownProps.navigation.state.params.alternatives.toString(),
       tags: ownProps.navigation.state.params.tags.toString(),
       image_url: ownProps.navigation.state.params.image_url
-    }
-    // token: state.loginReducer.user.token,
+      },
+    token: state.loginReducer.user.token,
     // success: state.ingredients.success,
-    // initialValues: {
-    //   name: ownProps.navigation.state.params.name,
-    //   description: ownProps.navigation.state.params.description,
-    //   alternatives: ownProps.navigation.state.params.alternatives,
-    //   tags: ownProps.navigation.state.params.tags.toString(),
-    //   photos: ownProps.navigation.state.params.photos,
-    // }
   };
 };
 
