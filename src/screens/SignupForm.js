@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Toast from 'react-native-simple-toast';
 import { Image } from 'react-native';
 import {
     Button,
@@ -11,7 +12,6 @@ import {
     Input,
     Spinner,
     Text,
-    Toast
 } from 'native-base';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import {
@@ -71,19 +71,21 @@ export class SignupForm extends Component {
 
     onButtonPress() {
       const { passwordMatch, firstName, lastName, email, password, confirm } = this.props;
-
-        if (!passwordMatch) {
-          Toast.show({
-                  text: "Passwords Don't Match!",
-                  position: 'bottom',
-                  buttonText: 'Okay'
-                });
-          } else {
-            this.props.signupUser({ firstName, lastName, email, password, confirm });
-          }
+      if (!passwordMatch) {
+          Toast.show("Passwords don't match", Toast.SHORT);
+      } else {
+          this.props.signupUser({ firstName, lastName, email, password, confirm })
+          .then(res => {
+            if (res.value) {
+              Toast.show(`Thanks for signing up ${res.value.first_name}!`, Toast.SHORT);
+            }
+            return this.props.navigation.navigate('Dashboard');
+          });
+      }
     }
 
     render() {
+      console.log('this is signup props', this.props);
         return (
             <Container>
               <Image style={styles.containerStyle} source={require('../assets/appBackgound.png')}>
