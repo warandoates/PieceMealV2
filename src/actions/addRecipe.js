@@ -1,11 +1,28 @@
 import { API_URL } from '../config/api';
 
-export const postRecipe = (recipe, token) => {
-  // console.log('this is the recipe in the action:', recipe, 'this is the token:', token);
-  console.log('WFT!!!');
+export const postRecipe = (recipe, ingredients, steps, tags, token) => {
+  // console.log('RECIPE:', recipe);
+  // console.log('INGREDIENTS:', ingredients);
+  // console.log('STEPS:', steps);
+  // console.log('TAGS:', tags);
+
+  const orderedInstructions = steps.map((step, index) => {
+    return { step_number: index + 1, instructions: step.instructions };
+  });
+
+  const ingredientStrings = ingredients.map((ingredient) => {
+    return ingredient.id;
+  });
+
+  const newRecipe = { ...recipe, ingredients: ingredientStrings, instructions: orderedInstructions, tags };
+
+  // console.log('THIS IS THE RECIPE:', newRecipe, 'this is the token:', token);
+
+  console.log(JSON.stringify(newRecipe));
+
   return {
     type: 'POST_RECIPE',
-    payload: postFetchRecipe(recipe, token)
+    payload: postFetchRecipe(newRecipe, token)
     // payload: recipe
   };
 };
@@ -45,10 +62,10 @@ export const modifyPrepTime = (text) => {
   };
 };
 
-export const modifyIngredient = (text) => {
+export const modifyIngredient = (id, name) => {
   return {
     type: 'MODIFY_INGREDIENT',
-    payload: text
+    payload: { id, name }
   };
 };
 
@@ -73,8 +90,22 @@ export const modifyTag = (text) => {
   };
 };
 
-export const addIngredient = (ingredient) => {
-  return { type: 'ADD_INGREDIENT', payload: ingredient };
+export const resetIngredient = () => {
+  return {
+    type: 'RESET_INGREDIENT',
+    payload: {}
+  };
+};
+
+export const resetInstruction = () => {
+  return {
+    type: 'RESET_INSTRUCTION',
+    payload: {}
+  };
+};
+
+export const addIngredient = (id, name, amount) => {
+  return { type: 'ADD_INGREDIENT', payload: { id, name, amount } };
 }
 
 export const addInstruction = (text) => {
