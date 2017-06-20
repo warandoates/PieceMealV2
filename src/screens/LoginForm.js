@@ -80,7 +80,10 @@ class LogInForm extends Component {
           console.log(err);
           return;
         }
-        this.props.loginUserOAuth(token);
+        this.props.loginUserOAuth(token)
+        .then(() => {
+          return this.props.navigation.navigate('Dashboard');
+        });
       });
     }
 
@@ -127,7 +130,7 @@ class LogInForm extends Component {
                       </Button>
                       <Button
                         block
-                        style={styles.buttongContainerRight} 
+                        style={styles.buttongContainerRight}
                         onPress={() => this.auth()}
                       >
                         <Text>Sign In with Facebook</Text>
