@@ -20,8 +20,8 @@ class IngredientEditForm extends Component {
         return Toast.show('Successfully Made Changes');
       })
       .then(() => {
-        return this.props.navigation.navigate('ingredients')
-      })
+        return this.props.navigation.navigate('ingredients');
+      });
   }
 
   renderInput({ input, label, type, meta: { touched, error, warning } }) {
@@ -44,8 +44,6 @@ class IngredientEditForm extends Component {
   render() {
     console.log('these are the props', this.props)
     const { handleSubmit, submitting, ingredient, value, onChange } = this.props;
-
-
     return (
       <Container>
       <Form style={{ flex: 1, backgroundColor: 'white' }} >
@@ -58,9 +56,7 @@ class IngredientEditForm extends Component {
           <Text style={{ ...styles.textStyle, marginTop: 50 }}>Extras</Text>
 
           <Field style={{ flex: 1 }} name="tags" label="Tags" type='text' component={this.renderInput} />
-
           <Field style={{ flex: 1 }} name="alternatives" label="alternatives" type='text' component={this.renderInput} />
-
           <Field style={{ flex: 1 }} name="image_url" label="image_url" type='text' component={this.renderInput} />
         </Container>
         <Container style={styles.buttonStyle}>
