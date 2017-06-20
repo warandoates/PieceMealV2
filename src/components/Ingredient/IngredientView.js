@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
-import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner } from 'native-base';
+import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner, Button } from 'native-base';
 import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
 const badgeStyle = { backgroundColor: '#68BAA7' };
-const textStyle = { color: 'white' };
+const textStyle = { fontFamily: 'Futura', color: 'white' };
 export default class IngredientView extends Component {
 
     render() {
       const ingredient = this.props.ingredient;
       const ingredientTags = ingredient.tags;
+      const ingredientAlts = ingredient.alternatives;
+      let alternativeNames = [];
+      alternativeNames = ingredientAlts.map((ingredientAlt) => {
+        return ingredientAlt.name;
+      })
+      console.log(ingredient);
+      console.log(ingredientTags);
+      console.log(ingredientAlts);
       let name = ingredient.name || '';
       name = name.split(' ').map((str) => {
         return str.substring(0, 1).toUpperCase() + str.substring(1);
@@ -56,11 +64,21 @@ export default class IngredientView extends Component {
                             </Text>
                         </Body>
                     </CardItem>
+                    <CardItem>
+                        {alternativeNames.map((alternative) => (
+                          <Button small rounded style={{
+                                                        backgroundColor: '#68BAA7'
+                                                      }}>
+                            <Text style={textStyle}>{alternative}</Text>
+                          </Button>
+                        ))}
+                    </CardItem>
                     <CardItem footer>
                       {ingredientTags.map((ingredientTag) => (
                         <Badge style={badgeStyle}>
                             <Text style={textStyle}>{ingredientTag}</Text>
-                        </Badge>))}
+                        </Badge>
+                      ))}
                     </CardItem>
                 </Card>
             </Content>
