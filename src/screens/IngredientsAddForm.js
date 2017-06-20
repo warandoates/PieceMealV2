@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 // import { Select } from 'react-native-clean-form/redux-form';
 import { postIngredient } from '../actions';
 
+
 const validate = values => {
   const error = {};
   error.name = '';
@@ -41,17 +42,18 @@ return error;
 
 class AddIngredientForm extends Component {
   constructor(props) {
-  super(props);
-  this.renderInput = this.renderInput.bind(this);
-}
+    super(props);
+    this.renderInput = this.renderInput.bind(this);
+  }
 
   onSubmit(ingredient) {
     return this.props.postIngredient(ingredient, this.props.token)
     .then((res) => {
-      console.log('this is res', res);
       if (res.value.message === 'Ingredient already exists!') {
         return Toast.show(res.value.message, Toast.SHORT);
-      } else if (res.value.status === 400)
+      } else if (res.value.status === 400) {
+        return Toast.show('Bad Request');
+      }
       return Toast.show('Successfully Added Ingredient');
     })
     .then(() => {
@@ -80,9 +82,8 @@ class AddIngredientForm extends Component {
 
   render() {
     const { handleSubmit, submitting, ingredients, value, onChange } = this.props;
-    const ingredientOptions = ingredients.ingredients.map(ingredient => {
-      return { label: ingredient.name, key: ingredient.id, value: ingredient.id };
-    });
+
+
     return (
       <Container>
       <Form style={{ flex: 1, backgroundColor: 'white' }} >
@@ -96,7 +97,7 @@ class AddIngredientForm extends Component {
 
           <Field style={{ flex: 1 }} name="tags" label="Tags" type='text' component={this.renderInput} />
 
-          <Field style={{ flex: 1 }} name="alternatives" label="alternatives" type='text' component={this.renderInput} />
+          <Field style={{ flex: 1 }} name="alternatives" label="alternatives" type='text' ingredients={this.props.ingredients} component={this.renderInput} />
 
           <Field style={{ flex: 1 }} name="image_url" label="image_url" type='text' component={this.renderInput} />
         </Container>
