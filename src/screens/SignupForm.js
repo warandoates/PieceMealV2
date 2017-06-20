@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Image } from 'react-native';
+import Toast from 'react-native-simple-toast';
+import { Image } from 'react-native';
 import {
-    Body,
     Button,
     Container,
     Content,
     Form,
-    Header,
     Icon,
     Item,
     Input,
-    Left,
-    Right,
     Spinner,
     Text,
-    Title,
-    Toast
 } from 'native-base';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import {
@@ -76,44 +71,49 @@ export class SignupForm extends Component {
 
     onButtonPress() {
       const { passwordMatch, firstName, lastName, email, password, confirm } = this.props;
-
-        if (!passwordMatch) {
-          Toast.show({
-                  text: "Passwords Don't Match!",
-                  position: 'bottom',
-                  buttonText: 'Okay'
-                });
-          } else {
-            this.props.signupUser({ firstName, lastName, email, password, confirm });
-          }
+      if (!passwordMatch) {
+          Toast.show("Passwords don't match", Toast.SHORT);
+      } else {
+          this.props.signupUser({ firstName, lastName, email, password, confirm })
+          .then(res => {
+            if (res.value) {
+              Toast.show(`Thanks for signing up ${res.value.first_name}!`, Toast.SHORT);
+            }
+            return this.props.navigation.navigate('Dashboard');
+          });
+      }
     }
 
     render() {
+      console.log('this is signup props', this.props);
         return (
             <Container>
               <Image style={styles.containerStyle} source={require('../assets/appBackgound.png')}>
                 <Content>
                     <Form>
-                        <Item regular style={{ marginLeft: 25, marginRight: 25, marginBottom: 10, marginTop: 50 }}>
+                        <Item
+                          regular
+                          style={{ ...styles.itemStyle, marginTop: 50 }}
+                        >
                             <Input
                               label='First Name'
-                              placeholder="First Name"
+                              placeholder='First Name'
                               value={this.props.firstName}
                               onChangeText={this.onFirstNameChange.bind(this)}
                             />
                         </Item>
-                            <Item regular style={{ marginLeft: 25, marginRight: 25, marginBottom: 10, marginTop: 0 }}>
-                                <Input
-                                  label='Last Name'
-                                  placeholder="Last Name"
-                                  value={this.props.lastName}
-                                  onChangeText={this.onLastNameChange.bind(this)}
-                                />
-                            </Item>
-                        <Item regular style={{ marginLeft: 25, marginRight: 25, marginBottom: 10, marginTop: 0 }}>
+                        <Item regular style={styles.itemStyle}>
+                            <Input
+                              label='Last Name'
+                              placeholder='Last Name'
+                              value={this.props.lastName}
+                              onChangeText={this.onLastNameChange.bind(this)}
+                            />
+                        </Item>
+                        <Item regular style={styles.itemStyle}>
                             <Input
                               label='Email'
-                              placeholder="Email"
+                              placeholder='Email'
                               value={this.props.email}
                               onChangeText={this.onEmailChange.bind(this)}
                               keyboardType='email-address'
@@ -121,22 +121,22 @@ export class SignupForm extends Component {
                               autoCorrect={false}
                             />
                         </Item>
-                        <Item regular style={{ marginLeft: 25, marginRight: 25, marginBottom: 10, marginTop: 0 }}>
+                        <Item regular style={styles.itemStyle}>
                             <Input
                               error={!this.props.passwordMatch}
                               secureTextEntry
                               label='Password'
-                              placeholder="Password"
+                              placeholder='Password'
                               value={this.props.password}
                               onChangeText={this.onPasswordChange.bind(this)}
                             />
                         </Item>
-                        <Item regular style={{ marginLeft: 25, marginRight: 25, marginBottom: 10, marginTop: 0 }}>
+                        <Item regular style={styles.itemStyle}>
                             <Input
                               error={!this.props.passwordMatch}
                               secureTextEntry
                               label='Confirm'
-                              placeholder="Enter Password Again"
+                              placeholder='Enter Password Again'
                               value={this.props.confirm}
                               onChangeText={this.onConfirmChange.bind(this)}
                             />
@@ -145,12 +145,12 @@ export class SignupForm extends Component {
                         <Button
                           style={styles.buttonStyle}
                           name="email" block padder
-                          onPress={() => this.onButtonPress()}>
+                          onPress={() => this.onButtonPress()}
+                        >
                           <Icon name='send' />
                             <Text>Sign Up With Email</Text>
                         </Button>
                     </Form>
-
                 </Content>
               </Image>
             </Container>
@@ -175,9 +175,14 @@ const styles = {
     width: '50%',
     backgroundColor: '#C0B083',
     // alignItems: 'center'
-  }
+  },
+  itemStyle: {
+    marginLeft: 25,
+    marginRight: 25,
+    marginBottom: 10,
+    marginTop: 0
+  },
 };
-
 
 const mapStateToProps = (state) => {
     return {
@@ -188,14 +193,6 @@ const mapStateToProps = (state) => {
       confirm: state.signupReducer.confirm,
       loading: state.signupReducer.loading,
       passwordMatch: state.signupReducer.passwordMatch
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        signupToApp: (firstName, lastName, email, confirm, password) => {
-            dispatch(signupUser(firstName, lastName, email, confirm, password));
-        }
     };
 };
 

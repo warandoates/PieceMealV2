@@ -86,30 +86,29 @@ class AddIngredientForm extends Component {
 
     return (
       <Container>
-      <Form style={{ flex: 1, backgroundColor: 'white' }} >
-        <Container style={{ flex: 1 }}>
-          <Text style={{ ...styles.textStyle, marginTop: 50 }}>Ingredients</Text>
+        <Form style={{ flex: 1, backgroundColor: 'white' }} >
+          <Container style={{ flex: 1 }}>
+            <Text style={{ ...styles.textStyle, marginTop: 50 }}>Ingredients</Text>
 
-          <Field style={styles.inputStyle} name="name" label="Ingredient Name" type='text' component={this.renderInput} />
-          <Field style={{ flex: 1 }} name="description" label="Desciption" type='text' component={this.renderInput} />
+            <Field style={styles.inputStyle} name="name" label="Ingredient Name" type='text' component={this.renderInput} />
+            <Field style={{ flex: 1 }} name="description" label="Desciption" type='text' component={this.renderInput} />
 
-          <Text style={{ ...styles.textStyle, marginTop: 50 }}>Extras</Text>
+            <Text style={{ ...styles.textStyle, marginTop: 50 }}>Extras</Text>
 
-          <Field style={{ flex: 1 }} name="tags" label="Tags" type='text' component={this.renderInput} />
+            <Field style={{ flex: 1 }} name="tags" label="Tags" type='text' component={this.renderInput} />
+            <Field style={{ flex: 1 }} name="alternatives" label="alternatives" type='text' ingredients={this.props.ingredients} component={this.renderInput} />
+            <Field style={{ flex: 1 }} name="image_url" label="image_url" type='text' component={this.renderInput} />
 
-          <Field style={{ flex: 1 }} name="alternatives" label="alternatives" type='text' ingredients={this.props.ingredients} component={this.renderInput} />
-
-          <Field style={{ flex: 1 }} name="image_url" label="image_url" type='text' component={this.renderInput} />
-        </Container>
-        <Container style={styles.buttonStyle}>
-          <Button
-            success
-            onPress={handleSubmit(this.onSubmit.bind(this))} icon="md-checkmark" iconPlacement="right" submitting={submitting}
-          >
-            <Text>Submit</Text>
-          </Button>
-        </Container>
-      </Form>
+          </Container>
+          <Container style={styles.buttonStyle}>
+            <Button
+              success
+              onPress={handleSubmit(this.onSubmit.bind(this))} icon="md-checkmark" iconPlacement="right" submitting={submitting}
+            >
+              <Text>Submit</Text>
+            </Button>
+          </Container>
+        </Form>
       </Container>
     );
   }

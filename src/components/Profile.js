@@ -141,7 +141,7 @@ const mapStateToProps = (state) => {
         email: state.clientReducer.client.email,
         client: state.clientReducer.client,
         restrictions: state.clientReducer.client.restrictions,
-        user: state.loginReducer.user
+        user: state.loginReducer.user || state.signupReducer.user
     };
 };
 

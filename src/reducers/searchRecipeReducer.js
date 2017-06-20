@@ -1,11 +1,12 @@
-const INITIAL = {
+const INITIAL_STATE = {
   recipes: [],
   ingredients: []
 };
-const searchRecipe = (state = INITIAL, action) => {
+
+const searchRecipe = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'SEARCH_RECIPE_FULFILLED':
-      return action.payload; //result of your promise == become new state
+      return action.payload;
     default:
       return state;
   }

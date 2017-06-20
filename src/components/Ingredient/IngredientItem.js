@@ -27,13 +27,7 @@ export default class IngredientItem extends Component {
           <TouchableOpacity onPress={this.props.onPress}>
             <CardItem>
               <Thumbnail source={image} />
-                <Text style={{ alignSelf: 'center',
-                               marginLeft: 25,
-                               fontFamily: 'Futura',
-                               fontSize: 16,
-                               color: '#373737'
-                            }}>{ name }
-                </Text>
+                <Text style={styles}>{name}</Text>
                 <Right>
                   <Icon name="arrow-forward" style={{ color: '#68BAA7' }} />
                 </Right>
@@ -43,3 +37,11 @@ export default class IngredientItem extends Component {
     );
   }
 }
+
+const styles = {
+  alignSelf: 'center',
+  marginLeft: 25,
+  fontFamily: 'Futura',
+  fontSize: 16,
+  color: '#373737'
+};

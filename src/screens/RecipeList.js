@@ -48,7 +48,7 @@ export class RecipeResultsList extends Component {
 
   componentDidMount() {
     this.loadDataSource();
-    return this.props.getAllRecipes();
+    return this.props.getRecipes();
   }
 
   componentWillUpdate() {
@@ -63,9 +63,14 @@ export class RecipeResultsList extends Component {
   }
 
   renderRow(rowData) {
-    return <RecipeItem rowData={rowData} onPress={() => {
-      this.props.navigation.navigate('ViewRecipe', { recipe: rowData })
-    }} />;
+    return (
+      <RecipeItem
+        rowData={rowData}
+        onPress={() => {
+        this.props.navigation.navigate('ViewRecipe', { recipe: rowData });
+        }}
+      />
+    );
   }
 
   render() {
@@ -75,10 +80,10 @@ export class RecipeResultsList extends Component {
           {this.props.isFetching && <Spinner color="green" /> }
           {this.props.list.length > 0 &&
           <ListView
-              removeClippedSubviews={false}
+            removeClippedSubviews={false}
             dataSource={this.dataSource}
-           renderRow={this.renderRow.bind(this)}
-           enableEmptySections
+            renderRow={this.renderRow.bind(this)}
+            enableEmptySections
           />
          }
         </View>
@@ -103,14 +108,6 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getAllRecipes: () => {
-      dispatch(getRecipes());
-    }
-  };
-};
-
 const mapStateToProps = (state) => {
   return {
     list: state.recipeResults.recipes,
@@ -119,4 +116,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeResultsList);
+export default connect(mapStateToProps, { getRecipes })(RecipeResultsList);

@@ -61,7 +61,7 @@ export class TableExample extends Component {
 
 const mapStateToProps = (state) => {
     return {
-      user: state.loginReducer.user
+      user: state.loginReducer.user || state.signupReducer.user
     };
 };
 

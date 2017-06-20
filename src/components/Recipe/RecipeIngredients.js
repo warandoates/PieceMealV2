@@ -7,7 +7,7 @@ class RecipeIngredients extends Component {
   isRestricted(ingredientId) {
     return this.props.restrictions.some((restriction) => {
       return (ingredientId === restriction.id);
-    })
+    });
   }
 
   render() {
