@@ -71,12 +71,15 @@ export class IngredientResultsList extends Component {
   }
 
   renderRow(rowData) {
-    return <IngredientItem
+    return (
+      <IngredientItem
        rowData={rowData}
        onPress={() => {
          this.props.navigation.navigate('ViewIngredient',
-           { ingredient: rowData })
-       }} />;
+           { ingredient: rowData });
+       }}
+      />
+   );
   }
 
   render() {
