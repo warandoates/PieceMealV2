@@ -31,10 +31,8 @@ describe('get ingredients', () => {
     // fetch.mockResponse(JSON.stringify(ingredientResultModel));
 
     const expectedActions = { type: 'GET_INGREDIENT_RESULTS_FULFILLED', payload: {} };
-    const actionss = Promise.resolve(getIngredients().payload);
-    actionss.then((something) => {
-      console.log(something);
-    })
+    const actionss = Promise.getIngredients().payload;
+    console.log(Promise.resolve(getIngredients().payload));
     const store = mockStore({ ingredients: [] });
     return store.dispatch(actionss()).then(() => {
       expect(store.getActions()).toEqual(expectedActions)

@@ -168,13 +168,13 @@ const styles = {
     alignItems: 'center',
   },
   buttonStyle: {
-    marginLeft: 100,
+    marginLeft: 88,
     marginRight: 100,
     marginBottom: 25,
     marginTop: 20,
     width: '50%',
     backgroundColor: '#C0B083',
-    alignItems: 'center'
+    // alignItems: 'center'
   }
 };
 

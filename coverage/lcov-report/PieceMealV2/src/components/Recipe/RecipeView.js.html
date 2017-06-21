@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>10/12</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>4/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>2/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>10/12</span>
       </div>
     </div>
   </div>
@@ -123,17 +123,52 @@
 78
 79
 80
-81</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,6 +230,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -207,17 +249,29 @@
 import { Image } from 'react-native';
 import { H3, Badge, Content, Card, CardItem, Text, Body, Spinner } from 'native-base';
 import RecipeSteps from './RecipeSteps';
+import RecipeIngredients from './RecipeIngredients';
+import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 &nbsp;
-const badgeStyle = { backgroundColor: 'black' };
-const textStyle = { color: 'white' };
+const badgeStyle = { backgroundColor: '#68BAA7' };
+const textStyle = { color: 'white', fontSize: 14, fontFamily: 'Futura' };
 export default class RecipeView extends Component {
 &nbsp;
     render() {
+        const recipe = this.props.recipe;
+        const recipeTags = recipe.tags;
+        let name = recipe.name || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+        name = name.split(' ').map((str) =&gt; {
+          return str.substring(0, 1).toUpperCase() + str.substring(1);
+        }).join(' ');
+        let image;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (recipe.image_url) {
+<span class="cstat-no" title="statement not covered" >          image = { uri: recipe.image_url };</span>
+        } else {
+          image = DEFAULT_IMAGE;
+        }
         return (
             &lt;Content&gt;
-                &lt;Card style={{
-                    flex: 1
-                }}&gt;
+                &lt;Card style={{ flex: 1 }} key={recipe.id}&gt;
                     &lt;CardItem header style={{
                         alignSelf: 'center'
                     }}&gt;
@@ -225,9 +279,10 @@ export default class RecipeView extends Component {
                             fontFamily: 'Futura',
                             fontSize: 24,
                             marginTop: 20,
-                            paddingTop: 15
+                            paddingTop: 15,
+                            color: '#373737'
                         }}&gt;
-                            {this.props.recipe.name.toUpperCase()}
+                            { name }
                         &lt;/Text&gt;
                     &lt;/CardItem&gt;
 &nbsp;
@@ -236,8 +291,9 @@ export default class RecipeView extends Component {
                             &lt;Image style={{
                                 resizeMode: 'contain',
                                 width: 340,
-                                height: 200
-                            }} source={this.props.recipe.image}/&gt;
+                                height: 200,
+                                shadowColor: '#faebd7'
+                            }} source={image}/&gt;
                             &lt;Text note style={{
                                 fontFamily: 'Futura',
                                 marginLeft: 20,
@@ -246,37 +302,44 @@ export default class RecipeView extends Component {
                                 marginBottom: 10,
                                 alignSelf: 'center'
                             }}&gt;
-                                "{this.props.recipe.description}"
+                                "{recipe.description}"
                             &lt;/Text&gt;
                         &lt;/Body&gt;
                     &lt;/CardItem&gt;
                     &lt;H3 style={{
                         fontFamily: 'Futura',
-                        alignSelf: 'center'
+                        alignSelf: 'center',
+                        color: '#C0B083'
                     }}&gt;Instructions:&lt;/H3&gt;
                     &lt;CardItem&gt;
-                        {!this.props.recipe
+                        {!recipe
                             ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;Spinner/&gt;</span>
-                            : &lt;RecipeSteps instructions={this.props.recipe.instructions}/&gt;
+                            : &lt;RecipeSteps instructions={recipe.instructions}/&gt;
                         }
+                    &lt;/CardItem&gt;
+                    &lt;H3 style={{
+                        fontFamily: 'Futura',
+                        alignSelf: 'center',
+                        color: '#C0B083'
+                    }}&gt;Ingredients:&lt;/H3&gt;
+                    &lt;CardItem&gt;
+                      {!recipe
+                            ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;Spinner/&gt;</span>
+                            : &lt;RecipeIngredients ingredients={recipe.ingredients}/&gt;
+                      }
                     &lt;/CardItem&gt;
                     &lt;CardItem footer style={{
                         paddingBottom: 25
                     }}&gt;
                         &lt;Text style={{
                             fontFamily: 'Futura'
-                        }} note&gt;{this.props.recipe.notes}&lt;/Text&gt;
+                        }} note&gt;{recipe.notes}&lt;/Text&gt;
                     &lt;/CardItem&gt;
                     &lt;CardItem footer&gt;
-                        &lt;Badge style={badgeStyle}&gt;
-                            &lt;Text style={textStyle}&gt;vegetarian&lt;/Text&gt;
-                        &lt;/Badge&gt;
-                        &lt;Badge style={badgeStyle}&gt;
-                            &lt;Text style={textStyle}&gt;vegan&lt;/Text&gt;
-                        &lt;/Badge&gt;
-                        &lt;Badge style={badgeStyle}&gt;
-                            &lt;Text style={textStyle}&gt;dairy&lt;/Text&gt;
-                        &lt;/Badge&gt;
+                      {recipeTags.map(<span class="fstat-no" title="function not covered" >(r</span>ecipeTag) =&gt; (
+<span class="cstat-no" title="statement not covered" >                        &lt;Badge key={recipeTag} style={badgeStyle}&gt;</span>
+                          &lt;Text style={textStyle}&gt;{recipeTag}&lt;/Text&gt;
+                       &lt;/Badge&gt;))}
                     &lt;/CardItem&gt;
                 &lt;/Card&gt;
             &lt;/Content&gt;
@@ -289,7 +352,7 @@ export default class RecipeView extends Component {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jun 17 2017 13:31:44 GMT-0700 (PDT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jun 19 2017 17:51:46 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

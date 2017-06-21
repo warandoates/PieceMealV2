@@ -1,6 +1,6 @@
 import { API_URL } from '../config/api';
 
-export const restrictionsChange = (restrictions) => {
+export const restictionsChange = (restrictions) => {
   return {
     type: 'CHANGE_RESTRICTIONS',
     payload: restrictions
