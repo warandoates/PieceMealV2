@@ -17,7 +17,7 @@ class RecipeIngredients extends Component {
             { this.props.ingredients.map((ingredient) => {
               const style = { fontStyle: 'normal',
                               alignSelf: 'center',
-                              flex: 3,
+                              flex: 2,
                               fontFamily: 'Futura',
                               fontSize: 14,
                               color: '#373737'
@@ -25,7 +25,7 @@ class RecipeIngredients extends Component {
               const altStyle = { fontStyle: 'italic',
                                  alignSelf: 'center',
                                  fontFamily: 'Futura',
-                                 flex: 3,
+                                 flex: 2,
                                  color: 'grey'
                                };
               const amountStyle = {

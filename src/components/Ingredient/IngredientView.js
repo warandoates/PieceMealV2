@@ -71,24 +71,25 @@ export class IngredientView extends Component {
                         </Text>
                     </Body>
                   </CardItem>
+                  {alternativeNames.length > 0 && <Text style={{ marginLeft: 15 }}>Alternatives:</Text>}
                   <CardItem>
                     {alternativeNames.map((alternative) => (
-                      <Button small rounded style={{ backgroundColor: '#68BAA7' }}>
+                      <Button small rounded style={{ backgroundColor: '#68BAA7', marginRight: 10 }}>
                         <Text style={styles.textStyle}>{alternative}</Text>
                       </Button>
                     ))}
                   </CardItem>
+                  {ingredientTags.length > 0 && <Text style={{ marginTop: 5, marginLeft: 15 }}>Tags: </Text>}
                   <CardItem>
-                      <Text style={{ marginTop: -10 }}>Tags: </Text>
-                      <View style={styles.viewStyle}>
+                      {/* <View style={styles.viewStyle}> */}
 
                       {ingredientTags.map((ingredientTag) => (
-                        <Badge key={ingredientTags.indexOf(ingredientTag)} style={styles.badgeStyle}>
+                        <Badge key={ingredientTags.indexOf(ingredientTag)} style={{ backgroundColor: '#556270', marginRight: 10 }}>
                             <Text style={styles.textStyle}>{ingredientTag}</Text>
                         </Badge>))}
-                      </View>
+                      {/* </View> */}
                     </CardItem>
-                    <CardItem style={{ marginBottom: 30 }} footer>
+                    <CardItem style={{ marginBottom: 30, marginTop: 30 }} footer>
                       {this.props.user && this.navigateButton('Edit')}
                       {this.props.user &&
                         <Button

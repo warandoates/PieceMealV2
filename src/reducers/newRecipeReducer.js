@@ -99,7 +99,6 @@ export default (state = INITIAL_STATE, action) => {
 
     case 'ADD_INGREDIENT':
       ingredients = [...state.ingredients, action.payload];
-      console.log('ADD_INGREDIENT:', action.payload);
       return { ...state, ingredients, ingredient: action.payload };
 
     case 'ADD_TAG':
