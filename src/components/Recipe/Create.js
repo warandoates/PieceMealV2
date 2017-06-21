@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ActivityIndicator, ListView, Modal, StyleSheet, View } from 'react-native';
-import { Badge, Body, Button, Container, Content, Form, Header, Icon, Item, Input, ListItem, Picker, Text, Title, Toast, Label } from 'native-base';
+import { Badge, Body, Button, Card, CardItem, Container, Content, Form, Header, Icon, Item, Input, ListItem, Picker, Text, Title, Toast, Label } from 'native-base';
+import RecipeInstructions from './RecipeInstructions';
+import RecipeIngredients from './RecipeIngredients';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import * as newRecipe from '../../actions/addRecipe';
 
@@ -14,7 +16,8 @@ class CreateRecipe extends Component {
             selected1: null,
             results: {
                 items: []
-            }
+            },
+            instructionsValid: false,
         };
     }
 
@@ -52,13 +55,27 @@ class CreateRecipe extends Component {
     // }
 
     onAddIngredient(id, name, amount) {
+      console.log('onAddIngredient:', { id, name, amount });
       this.props.addIngredient(id, name, amount);
       this.props.resetIngredient();
     }
 
-    onValueChange(value: string) {
-      console.log('value:', value);
+    onAddInstruction(stepNumber, instruction) {
+      if (!instruction) {
+        this.setState({ instructionsValid: false });
+        Toast.show({
+              supportedOrientations: ['portrait', 'landscape'],
+              text: 'Enter Ingredient Text',
+              position: 'bottom',
+              buttonText: 'Okay'
+            });
+      } else {
+        this.setState({ instructionsValid: true });
+        this.props.addInstruction(stepNumber, instruction);
+      }
+    }
 
+    onValueChange(value: string) {
       this.setState({
           selected1: value,
           results: [...this.state.results, value]
@@ -87,26 +104,28 @@ class CreateRecipe extends Component {
 
     renderRow(rowData, sectionID, rowID) {
        return (
-          <ListItem
-            style={{ fontSize: 16, flex: 1, flexDirection: 'row', marginTop: -10, marginBottom: -10 }}>
-            <Text style={{ flex: 8, paddingTop: 5, }}>
+          <ListItem key={rowID}
+            style={{ flex: 1, flexDirection: 'row', marginTop: -10, marginBottom: -10 }}>
+            <Text style={{ fontFamily: 'Futura', flex: 8, paddingTop: 5, }}>
               {parseInt(rowID) + 1}{':  '}{rowData.instructions}
              </Text>
-            <Button transparent danger iconLeft style={{ alignSelf: 'flex-end', flex: 1 }}>
+            {/* <Button transparent danger iconLeft style={{ alignSelf: 'flex-end', flex: 1 }}>
                 <Icon name='trash' />
-            </Button>
+            </Button> */}
           </ListItem>
         );
     }
 
    renderIngredientRow(rowData, sectionID, rowID) {
        return (
-           <ListItem style={{ fontSize: 16, flex: 1, flexDirection: 'row', marginTop: -10, marginBottom: -10 }}>
-                <Text style={{ flex: 8, paddingTop: 5, }}>{`${rowData.amount}   ${rowData.name}`}</Text>
-                <Button transparent danger iconLeft style={{ alignSelf: 'flex-end', flex: 1 }}>
+         <Card>
+           <CardItem key={rowID} style={{ flex: 1, flexDirection: 'row', marginTop: -10, marginBottom: -10 }}>
+                <Text style={{ fontFamily: 'Futura',flex: 8, paddingTop: 5, }}>{`${rowData.amount}   ${rowData.name}`}</Text>
+                {/* <Button transparent danger iconLeft style={{ alignSelf: 'flex-end', flex: 1 }}>
                     <Icon name='trash' />
-                </Button>
-           </ListItem>
+                </Button> */}
+           </CardItem>
+           </Card>
        );
    }
 
@@ -145,10 +164,7 @@ class CreateRecipe extends Component {
         token,
         msg } = this.props;
 
-        console.log('this.props.recipe:', this.props.recipe);
-        console.log('this.props.ingredients:', this.props.ingredients);
-        console.log('this.props.steps:', this.props.steps);
-        console.log('this.props.tags:', this.props.tags);
+        console.log('steps:', this.props.steps);
 
         return (
           <Modal
@@ -168,8 +184,7 @@ class CreateRecipe extends Component {
                     <Form>
                         <Item regular style={{ marginLeft: 10, marginTop: 10 }}>
                             <Input
-                              // style={textStyle}
-                              style={{ fontSize: 16 }}
+                              style={inputStyle}
                               placeholder="Your Recipe's Name"
                               value={name}
                               onChangeText={(text) => { modifyName(text); }}
@@ -177,35 +192,36 @@ class CreateRecipe extends Component {
                         </Item>
                         <Item regular style={{ marginLeft: 10 }}>
                             <Input
-                              // style={textStyle}
-                              style={{ fontSize: 16 }}
+                              style={inputStyle}
                               placeholder="A Description of Your Recipe"
                               value={description}
                               onChangeText={(text) => { modifyDescription(text); }}
                             />
                         </Item>
-                        <Item regular style={{ marginLeft: 10 }}>
+                        <Item inlineLabel>
+                            <Label style={{ ...inputStyle, fontSize: 14, marginRight: -15 }}>Prep Time:</Label>
                             <Input
-                              // style={textStyle}
-                              style={{ fontSize: 16 }}
-                              placeholder="Cook Time"
-                              value={cook_time}
-                              onChangeText={(text) => { modifyCookTime(text); }}
-                            />
-                            <Input
-                              // style={textStyle}
-                              style={{ fontSize: 16 }}
-                              placeholder="Prep Time"
+                              style={inputStyle}
+                              // placeholder="Prep Time"
                               value={prep_time}
                               onChangeText={(text) => { modifyPrepTime(text); }}
                             />
+                            <Label style={{ ...inputStyle, fontSize: 14, marginRight: -15 }}>Cook Time:</Label>
+                            <Input
+                              style={inputStyle}
+                              // placeholder="Cook Time"
+                              value={cook_time}
+                              onChangeText={(text) => { modifyCookTime(text); }}
+                            />
                         </Item>
-                        <Text style={{ ...textStyle, marginTop: 50 }}>Ingredients</Text>
-                        <ListView
+                        <Text style={{ ...textStyle, marginTop: 30, marginBottom: 10 }}>Ingredients</Text>
+                        {/* <ListView
                           dataSource={this.ingredientsDataSource}
                           renderRow={this.renderIngredientRow.bind(this)}
                           enableEmptySections
-                        />
+                          style={{ marginBottom: 15 }}
+                        /> */}
+                        <RecipeIngredients ingredients={this.props.ingredients}/>
                           <Item regular style={{ marginLeft: 10 }}>
                             <Button transparent icon small style={{ alignSelf: 'center' }}>
                               <Icon name='search' />
@@ -223,12 +239,6 @@ class CreateRecipe extends Component {
                               }) }
                            </Picker>
                            </Button>
-                              {/* <Input
-                                style={{ fontSize: 14 }}
-                                placeholder="Enter Ingredient"
-                                value={ingredient.name}
-                                onChangeText={(text) => modifyIngredient(text)}
-                              /> */}
                               <Input
                                 style={{ fontSize: 14 }}
                                 placeholder="Enter Measurement"
@@ -239,18 +249,25 @@ class CreateRecipe extends Component {
                                 transparent
                                 success
                                 iconRight
-                                onPress={() => { this.onAddIngredient(ingredient.id, ingredient.name, ingredient.amount); }}
+                                onPress={() => {
+                                  this.onAddIngredient(
+                                    ingredient.id,
+                                    ingredient.name,
+                                    ingredient.amount);
+                                  }
+                                }
                               >
-                                  <Icon name='add' />
+                                  <Icon name='add-circle' style={plusStyle} />
                               </Button>
                           </Item>
                     <Text style={{ ...textStyle, marginTop: 50 }}>Instructions</Text>
-                    <ListView
+                    {/* <ListView
                       dataSource={this.dataSource}
                       renderRow={this.renderRow.bind(this)}
                       enableEmptySections
-                    />
-                    <Item regular style={{ marginLeft: 10 }}>
+                    /> */}
+                    <RecipeInstructions instructions={this.props.steps} />
+                    <Item error={!this.state.instructionsValid} regular style={{ marginLeft: 10 }}>
                         <Input
                           multiline
                           style={{ fontSize: 14, marginTop: 10, marginBottom: -10 }}
@@ -258,12 +275,19 @@ class CreateRecipe extends Component {
                           value={instruction}
                           onChangeText={(text) => modifyInstruction(text)}
                         />
-                        <Button transparent success iconRight onPress={() => { addInstruction(instruction); }}>
-                            <Icon name='add' />
+                        <Button
+                          transparent
+                          success
+                          iconRight
+                          onPress={() => {
+                            this.onAddInstruction(this.props.steps.length + 1, instruction);
+                          }}
+                        >
+                            <Icon name='add-circle' style={plusStyle} />
                         </Button>
                     </Item>
                     <Text style={{ ...textStyle, marginTop: 30 }}>Tags</Text>
-                    <View style={{ flexDirection: 'row', height: 100, padding: 20, marginTop: 10, justifyContent: 'space-around', flexWrap: 'wrap', alignItems: 'stretch', flex: 2 }}>
+                    <View style={{ flexDirection: 'row', padding: 20, marginTop: 10, justifyContent: 'space-around', flexWrap: 'wrap', alignItems: 'stretch', flex: 2 }}>
                     { this.props.tags.map((t, i) => {
                       return (
                         <Badge style={badgeStyle} key={i}><Text>{t}</Text></Badge>
@@ -278,11 +302,11 @@ class CreateRecipe extends Component {
                         onChangeText={(text) => modifyTag(text)}
                       />
                       <Button transparent success iconRight onPress={() => { addTag(tag); }}>
-                          <Icon name='add' />
+                          <Icon style={plusStyle} name='add-circle' />
                       </Button>
                   </Item>
                   <Text style={{ ...textStyle, marginTop: 30 }}>Notes:</Text>
-                  <Item regular style={{ marginTop: -20 }}>
+                  <Item regular style={{ marginTop: 0 }}>
                       <Input
                         style={{ fontSize: 14, marginLeft: 10 }}
                         placeholder="Enter Notes"
@@ -293,22 +317,27 @@ class CreateRecipe extends Component {
                   <View style={{ flexDirection: 'row', height: 100, padding: 20, marginTop: 10, justifyContent: 'space-around', flexWrap: 'wrap', alignItems: 'stretch', flex: 2 }}>
                     <ActivityIndicator animating={this.props.isLoading} size='large' style={{ alignSelf: 'center' }} />
                   </View>
-                    <Button
-                      icon
-                      style={{ alignSelf: 'center', marginTop: 10 }}
-                      onPress={() => { postRecipe(recipe, ingredients, steps, tags, token); }}
-                    >
-                        {/* <Icon name='add' /> */}
-                        <Text>Save</Text>
-                    </Button>
                 </Form>
+                <CardItem style={{ marginTop: -50 }}>
                 <Button
                   icon
-                  style={{ alignSelf: 'flex-end', marginTop: 10, marginRight: 10 }}
+                  danger
+                  style={buttonStyle}
                   onPress={() => { this.props.setCreateVisible(!this.props.visible); }}
                 >
-                  <Icon name='close' />
+                  <Icon name='undo' />
+                  <Text>Cancel</Text>
                 </Button>
+                  <Button
+                    icon
+                    success
+                    style={{ ...buttonStyle, alignSelf: 'center' }}
+                    onPress={() => { postRecipe(recipe, ingredients, steps, tags, token); }}
+                  >
+                      <Text style={{ alignSelf: 'center' }}>Save</Text>
+                      <Icon name='checkmark' />
+                  </Button>
+                </CardItem>
                 </Content>
             </Container>
           </Modal>
@@ -340,22 +369,26 @@ const mapStateToProps = (state) => {
   };
 };
 
-const badgeStyle = { marginLeft: 5, marginRight: 5, margin: 5 };
-
-const styles = StyleSheet.create({
-    content:{
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-});
+const badgeStyle = { backgroundColor: '#68BAA7', marginLeft: 5, marginRight: 5, margin: 5 };
 
 const textStyle = {
-  fontWeight: 'bold',
-  fontSize: 16,
+  fontFamily: 'Futura',
+  // fontWeight: 'bold',
+  fontSize: 20,
   marginTop: 20,
   alignSelf: 'center' };
+
+const inputStyle = {
+  fontFamily: 'Futura',
+  fontSize: 16 };
+
+const plusStyle = { fontSize: 30, alignSelf: 'auto', color: '#68BAA7' };
+
+const buttonStyle = {
+    flex: 1,
+    marginRight: 10,
+    marginLeft: 10
+  }
 
 export default connect(
   mapStateToProps, newRecipe)(CreateRecipe);
