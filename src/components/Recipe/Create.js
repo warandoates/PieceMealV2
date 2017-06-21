@@ -226,6 +226,7 @@ class CreateRecipe extends Component {
                             <Button transparent icon small style={{ alignSelf: 'center' }}>
                               <Icon name='search' />
                           <Picker
+                              style={{ marginTop: -25, marginLeft: -30 }}
                               supportedOrientations={['portrait', 'landscape']}
                               iosHeader="Select one"
                               mode="dropdown"

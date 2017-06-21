@@ -59,22 +59,22 @@ export default class RecipeView extends Component {
                             </Text>
                         </Body>
                     </CardItem>
-                    <H3 style={{
+                  {recipe.instructions.length > 0 && <H3 style={{
                         fontFamily: 'Futura',
                         alignSelf: 'center',
                         color: '#C0B083'
-                    }}>Instructions:</H3>
+                    }}>Instructions:</H3>}
                     <CardItem>
                         {!recipe
                             ? <Spinner />
                             : <RecipeInstructions instructions={recipe.instructions} />
                         }
                     </CardItem>
-                    <H3 style={{
+                    {recipe.ingredients.length > 0 && <H3 style={{
                         fontFamily: 'Futura',
                         alignSelf: 'center',
                         color: '#C0B083'
-                    }}>Ingredients:</H3>
+                    }}>Ingredients:</H3>}
                     <CardItem>
                       {!recipe
                             ? <Spinner/>
@@ -88,14 +88,16 @@ export default class RecipeView extends Component {
                             fontFamily: 'Futura'
                         }} note>{recipe.notes}</Text>
                     </CardItem>
-                    <H3 style={{
+                    {recipeTags.length > 0 && <H3
+                      style={{
                         fontFamily: 'Futura',
                         alignSelf: 'center',
-                        color: '#C0B083' }}
+                        color: '#C0B083',
+                        paddingTop: 15 }}
                     >
                       Tags:
-                    </H3>
-                    <CardItem footer style={{alignSelf: 'center', paddingBottom: 30}}>
+                    </H3>}
+                    <CardItem footer style={{ alignSelf: 'center', paddingBottom: 30 }}>
                       {recipeTags.map((recipeTag) => (
                         <Badge key={recipeTag} style={badgeStyle}>
                           <Text style={textStyle}>{recipeTag}</Text>
