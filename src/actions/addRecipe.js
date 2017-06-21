@@ -1,24 +1,20 @@
 import { API_URL } from '../config/api';
 
 export const postRecipe = (recipe, ingredients, steps, tags, token) => {
-  // console.log('RECIPE:', recipe);
-  // console.log('INGREDIENTS:', ingredients);
-  // console.log('STEPS:', steps);
-  // console.log('TAGS:', tags);
 
-  const orderedInstructions = steps.map((step, index) => {
-    return { step_number: index + 1, instructions: step.instructions };
-  });
+  console.log('postRecipe:', ingredients);
 
-  const ingredientStrings = ingredients.map((ingredient) => {
-    return ingredient.id;
-  });
+  // const orderedInstructions = steps.map((step, index) => {
+  //   return { step_number: index + 1, instructions: step.instructions };
+  // });
 
-  const newRecipe = { ...recipe, ingredients: ingredientStrings, instructions: orderedInstructions, tags };
+  // const ingredientStrings = ingredients.map((ingredient) => {
+  //   return ingredient.id;
+  // });
 
-  // console.log('THIS IS THE RECIPE:', newRecipe, 'this is the token:', token);
+  const newRecipe = { ...recipe, ingredients, instructions: steps, tags };
 
-  console.log(JSON.stringify(newRecipe));
+  // console.log('postRecipe:', newRecipe);
 
   return {
     type: 'POST_RECIPE',
@@ -105,11 +101,12 @@ export const resetInstruction = () => {
 };
 
 export const addIngredient = (id, name, amount) => {
+  console.log('addIngredient:', id);
   return { type: 'ADD_INGREDIENT', payload: { id, name, amount } };
 }
 
-export const addInstruction = (text) => {
-  return { type: 'ADD_INSTRUCTION', payload: { instructions: text } };
+export const addInstruction = (stepNumber, text) => {
+  return { type: 'ADD_INSTRUCTION', payload: { step_number: stepNumber, instructions: text } };
 }
 
 export const addTag = (text) => {

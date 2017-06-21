@@ -15,7 +15,8 @@ class RecipeIngredients extends Component {
         <Content>
           <View>
             { this.props.ingredients.map((ingredient) => {
-              const style = {
+              const style = { fontStyle: 'normal',
+                              alignSelf: 'center',
                               color: '#373737',
                               fontFamily: 'Futura',
                               fontSize: 14
