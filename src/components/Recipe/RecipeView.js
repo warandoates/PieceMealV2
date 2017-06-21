@@ -5,7 +5,7 @@ import RecipeInstructions from './RecipeInstructions';
 import RecipeIngredients from './RecipeIngredients';
 import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 
-const badgeStyle = { backgroundColor: '#68BAA7' };
+const badgeStyle = { backgroundColor: '#68BAA7', marginRight: 10 };
 const textStyle = { color: 'white', fontSize: 14, fontFamily: 'Futura' };
 export default class RecipeView extends Component {
 
@@ -88,7 +88,14 @@ export default class RecipeView extends Component {
                             fontFamily: 'Futura'
                         }} note>{recipe.notes}</Text>
                     </CardItem>
-                    <CardItem footer>
+                    <H3 style={{
+                        fontFamily: 'Futura',
+                        alignSelf: 'center',
+                        color: '#C0B083' }}
+                    >
+                      Tags:
+                    </H3>
+                    <CardItem footer style={{alignSelf: 'center', paddingBottom: 30}}>
                       {recipeTags.map((recipeTag) => (
                         <Badge key={recipeTag} style={badgeStyle}>
                           <Text style={textStyle}>{recipeTag}</Text>
