@@ -8,7 +8,6 @@ const INITIAL_STATE = {
     restrictions: []
   },
   loading: false
-
 };
 
 export default(state = INITIAL_STATE, action) => {

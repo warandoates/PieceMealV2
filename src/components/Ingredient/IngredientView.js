@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Image, View } from 'react-native';
 import { connect } from 'react-redux';
 import Toast from 'react-native-simple-toast';
-import { Badge, Content, Card, CardItem, Text, Body, Spinner, Button } from 'native-base';
+import { Badge, Content, Card, CardItem, Text, Body, Button } from 'native-base';
 import { deleteIngredient } from '../../actions';
 import DEFAULT_IMAGE from '../../assets/food/ice-cream.jpg';
 

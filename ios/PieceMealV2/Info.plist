@@ -47,7 +47,6 @@
     </dict>
     <key>UIAppFonts</key>
     <array>
-      <string/>
       <string>BariolRegular.otf</string>
       <string>BariolRegular.ttf</string>
       <string>BariolRegularItalic.otf</string>

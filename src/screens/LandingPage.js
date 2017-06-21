@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Icon, Input, InputGroup, Button } from 'native-base';
+import { Container, Icon, Input, InputGroup } from 'native-base';
 import SearchResults from '../components/SearchResults';
 import { createSearchAction } from '../actions/index';
 
@@ -15,9 +15,9 @@ export class LandingPage extends Component {
    /* this will style the header, but does NOT change the text */
         backgroundColor: '#68BAA7'
       },
-     title: 'Piece Meal',
-     tabBarIcon: () => (
-       <Icon name='home' style={{ color: '#68BAA7' }} />
+      title: 'Piece Meal',
+      tabBarIcon: () => (
+        <Icon name='home' style={{ color: '#68BAA7' }} />
     )
  };
 
@@ -29,7 +29,7 @@ export class LandingPage extends Component {
    return (
     <Container>
        <InputGroup>
-         <Icon name="md-search" style={{ color: '#68BAA7' }}/>
+         <Icon name="md-search" style={{ color: '#68BAA7' }} />
          <Input
            placeholder="Search"
            onChangeText={(newText) => this.props.searchRecipe(newText)}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Image, View } from 'react-native';
-import Toast from 'react-native-simple-toast'
+import { Image } from 'react-native';
+import Toast from 'react-native-simple-toast';
 import { bindActionCreators } from 'redux';
 import Auth0Lock from 'react-native-lock';
 import { connect } from 'react-redux';
@@ -74,12 +74,16 @@ class LogInForm extends Component {
           scope: 'openid email'
         }
       };
+
       lock.show(options, (err, profile, token) => {
         if (err) {
           console.log(err);
           return;
         }
-        this.props.loginUserOAuth(token);
+        this.props.loginUserOAuth(token)
+        .then(() => {
+          return this.props.navigation.navigate('Dashboard');
+        });
       });
     }
 
@@ -87,40 +91,53 @@ class LogInForm extends Component {
       const { user, email, password, loading } = this.props;
       if (!user || user === 400) {
         return (
-            <Container>
-              <Image style={styles.containerStyle} source={require('../assets/appBackgound.png')}>
-                <Content>
-                    <Form>
-                        <Item underline style={{ marginLeft: 15, marginRight: 20, marginBottom: 20, marginTop: 125 }}>
-                            <Input
-                              label='Email'
-                              placeholder="Enter Email"
-                              value={email}
-                              onChangeText={(...args) => this.onEmailChange(...args)}
-                              keyboardType='email-address'
-                              autoCapitalize='none'
-                              autoCorrect={false}
-                            />
-                        </Item>
-                        <Item underline last>
-                            <Input
-                              secureTextEntry
-                              label='Password'
-                              placeholder="Enter Password"
-                              value={password}
-                              onChangeText={this.onPasswordChange.bind(this)}
-                            />
-                        </Item>
-                          {loading && <Spinner color='#C0B083' />}
-                        <Button block style={styles.buttonContainerLeft} onPress={() => this.onButtonPress()}>
-                            <Text>Login</Text>
-                        </Button>
-                        <Button block style={styles.buttongContainerRight} onPress={() => this.auth()}>
-                          <Text>Sign In with Facebook</Text>
-                        </Button>
-                    </Form>
-                </Content>
-              </Image>
+          <Container>
+            <Image
+              style={styles.containerStyle} source={require('../assets/appBackgound.png')}
+            >
+              <Content>
+                  <Form>
+                      <Item
+                        underline
+                        style={{ marginLeft: 15, marginRight: 20, marginBottom: 20, marginTop: 125 }}
+                      >
+                        <Input
+                          label='Email'
+                          placeholder='Enter Email'
+                          value={email}
+                          onChangeText={(...args) => this.onEmailChange(...args)}
+                          keyboardType='email-address'
+                          autoCapitalize='none'
+                          autoCorrect={false}
+                        />
+                      </Item>
+                      <Item underline last>
+                        <Input
+                          secureTextEntry
+                          label='Password'
+                          placeholder='Enter Password'
+                          value={password}
+                          onChangeText={this.onPasswordChange.bind(this)}
+                        />
+                      </Item>
+                      {loading && <Spinner color='#C0B083' />}
+                      <Button
+                        block
+                        style={styles.buttonContainerLeft}
+                        onPress={() => this.onButtonPress()}
+                      >
+                        <Text>Login</Text>
+                      </Button>
+                      <Button
+                        block
+                        style={styles.buttongContainerRight}
+                        onPress={() => this.auth()}
+                      >
+                        <Text>Sign In with Facebook</Text>
+                      </Button>
+                  </Form>
+              </Content>
+            </Image>
           </Container>
         );
       }
@@ -135,11 +152,9 @@ class LogInForm extends Component {
                   </Form>
               </Content>
           </Container>
-
         );
     }
 }
-
 
 const styles = {
   containerStyle: {
@@ -149,12 +164,6 @@ const styles = {
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   buttonContainerLeft: {
     flex: 1,
@@ -189,5 +198,4 @@ const mapDispatchToProps = (dispatch) => {
     dispatch);
 };
 
-// export default connect(null, { emailChanged })(LogInForm);
 export default connect(mapStateToProps, mapDispatchToProps)(LogInForm);
