@@ -24,6 +24,7 @@ export class IngredientView extends Component {
     }
 
     render() {
+      console.log(this.props.ingredient);
       const { ingredient, user } = this.props;
       const ingredientTags = ingredient.tags;
       const ingredientAlts = ingredient.alternatives;

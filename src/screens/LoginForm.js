@@ -71,7 +71,7 @@ class LogInForm extends Component {
         closable: true,
         authParams: {
           responseType: 'id_token',
-          scope: 'openid email'
+          scope: 'openid email name'
         }
       };
 

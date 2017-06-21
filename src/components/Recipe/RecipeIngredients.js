@@ -17,15 +17,12 @@ class RecipeIngredients extends Component {
             { this.props.ingredients.map((ingredient) => {
               const style = { fontStyle: 'normal',
                               alignSelf: 'center',
-                              flex: 2,
+                              color: '#373737',
                               fontFamily: 'Futura',
-                              fontSize: 14,
-                              color: '#373737'
+                              fontSize: 14
                             };
               const altStyle = { fontStyle: 'italic',
-                                 alignSelf: 'center',
                                  fontFamily: 'Futura',
-                                 flex: 2,
                                  color: 'grey'
                                };
               const amountStyle = {
