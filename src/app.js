@@ -11,8 +11,10 @@ const store = createStore(reducers, composeWithDevTools(
   applyMiddleware(promiseMiddleware()),
 ));
 
-class App extends Component {
+console.warn();
+console.ignoredYellowBox = [''];
 
+class App extends Component {
   render() {
     return (
       <Provider store={store}>
