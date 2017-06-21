@@ -61,7 +61,7 @@ export class Profile extends Component {
 
                     <CardItem>
                         <Body>
-                            <Image style={{ resizeMode: 'contain', alignSelf: 'center' }} source={pamProfile} />
+                            <Image style={{ resizeMode: 'contain', alignSelf: 'center' }} source={this.props.client.image_url} />
                             {/* <Image style={{ resizeMode: 'contain' }} source={sliders} /> */}
                             <Text note style={{ ...textStyle }}>
                                 Provide campaign strategy for leading non profit crowdfunding campaigns.
@@ -139,6 +139,7 @@ const mapStateToProps = (state) => {
         firstName: state.clientReducer.client.first_name,
         lastName: state.clientReducer.client.last_name,
         email: state.clientReducer.client.email,
+        image_url: state.clientReducer.client.image_url,
         client: state.clientReducer.client,
         restrictions: state.clientReducer.client.restrictions,
         user: state.loginReducer.user || state.signupReducer.user
