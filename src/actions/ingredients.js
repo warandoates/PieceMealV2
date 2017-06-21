@@ -72,13 +72,8 @@ function deleteThisIngredient(ingredientId, token) {
 
 
 function postFetchIngredient(ingredient, token) {
-  if (!ingredient.tags) {
-    ingredient.tags = '';
-  }
-  const alternativeArr = [];
-  if (ingredient.tags.length > 1) {
-    ingredient.tags.split(' ');
-  }
+
+
   console.log('this is the ingredient', ingredient);
   return fetch(`${API_URL}/api/v1/ingredients`, {
         mode: 'no-cors',
@@ -91,8 +86,8 @@ function postFetchIngredient(ingredient, token) {
         body: JSON.stringify({
           name: ingredient.name,
           description: ingredient.description,
-          tags: ingredient.tags || [],
-          alternatives: [{}],
+          tags: ingredient.tags.split(' ') || [''],
+          alternatives: [{ alt_ingredient_id: 42, ratio: '' }],
           image_url: ingredient.image_url || ''
         })
     });

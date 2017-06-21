@@ -139,10 +139,10 @@ class AddIngredientForm extends Component {
             <Text style={{ ...styles.textStyle, marginTop: 50 }}>Ingredients</Text>
 
             <Field style={styles.inputStyle} name="name" label="Ingredient Name" type='text' component={this.renderInput} />
-            <Field style={{ flex: 1 }} name="description" label="Desciption" type='text' component={this.renderInput} />
+            <Field style={{ flex: 1 }} name="description" label="Description" type='text' component={this.renderInput} />
 
             <Text style={{ ...styles.textStyle, marginTop: 50 }}>Extras</Text>
-            <Field
+            {/* <Field
               style={{ flex: 1 }}
               name="alternatives"
               label="alternatives"
@@ -153,7 +153,7 @@ class AddIngredientForm extends Component {
               results={this.state.results}
               setState={this.setState}
               component={this.renderPicker}
-            />
+            /> */}
             <Field style={{ flex: 1 }} name="tags" label="Tags" type='text' component={this.renderInput} />
 
             <Field style={{ flex: 1 }} name="image_url" label="image_url" type='text' component={this.renderInput} />
