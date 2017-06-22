@@ -55,7 +55,6 @@ class CreateRecipe extends Component {
     // }
 
     onAddIngredient(id, name, amount) {
-      console.log('onAddIngredient:', { id, name, amount });
       this.props.addIngredient(id, name, amount);
       this.props.resetIngredient();
     }
@@ -163,8 +162,6 @@ class CreateRecipe extends Component {
         modifyTag,
         token,
         msg } = this.props;
-
-        console.log('steps:', this.props.steps);
 
         return (
           <Modal

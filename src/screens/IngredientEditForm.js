@@ -42,7 +42,6 @@ class IngredientEditForm extends Component {
   }
 
   render() {
-    console.log('these are the props', this.props)
     const { handleSubmit, submitting, ingredient, value, onChange } = this.props;
     return (
       <Container>

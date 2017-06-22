@@ -1,9 +1,6 @@
 import { API_URL } from '../config/api';
 
 export const postRecipe = (recipe, ingredients, steps, tags, token) => {
-
-  console.log('postRecipe:', ingredients);
-
   // const orderedInstructions = steps.map((step, index) => {
   //   return { step_number: index + 1, instructions: step.instructions };
   // });
@@ -13,8 +10,6 @@ export const postRecipe = (recipe, ingredients, steps, tags, token) => {
   // });
 
   const newRecipe = { ...recipe, ingredients, instructions: steps, tags };
-
-  // console.log('postRecipe:', newRecipe);
 
   return {
     type: 'POST_RECIPE',
@@ -101,7 +96,6 @@ export const resetInstruction = () => {
 };
 
 export const addIngredient = (id, name, amount) => {
-  console.log('addIngredient:', id);
   return { type: 'ADD_INGREDIENT', payload: { id, name, amount } };
 }
 
@@ -114,7 +108,6 @@ export const addTag = (text) => {
 }
 
 function postFetchRecipe(recipe, token) {
-  console.log('postFetchRecipe is being called with:', JSON.stringify(recipe), token);
   return fetch(`${API_URL}/api/v1/recipes`, {
     mode: 'no-cors',
     method: 'POST',

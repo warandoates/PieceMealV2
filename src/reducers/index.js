@@ -30,6 +30,5 @@ export default (state, action) => {
     console.log('rejected action!', action);
   }
   const newState = r(state, action);
-  console.log("new state", newState);
   return newState;
 };

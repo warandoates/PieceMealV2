@@ -57,12 +57,9 @@ class AddIngredientForm extends Component {
             items: []
         }
     };
-    // this.renderInput = this.renderInput.bind(this);
   }
 
   onValueChange(value: string, ingredients, results, setState) {
-    console.log('value:', value);
-    console.log('value:', ingredients);
     setState({
     selected1: value,
     results: [...results, value]
@@ -70,9 +67,6 @@ class AddIngredientForm extends Component {
   }
 
   renderPicker({ onValueChange, selected1, ingredients, results, input, setState, label, type, meta: { touched, error, warning } }) {
-
-    console.log('this is <class></class> props', selected1);
-    console.log('this is <class></class> props', this);
     let hasError = false;
 
     if (error !== undefined) {
@@ -92,7 +86,6 @@ class AddIngredientForm extends Component {
 
         >
          {ingredients.ingredients.map((t, i) => {
-            console.log('this is t', t, i );
             return (
               // <Badge style={badgeStyle} key={i}><Text>{t}</Text></Badge>
               <Item label={t.name} value={t} />
