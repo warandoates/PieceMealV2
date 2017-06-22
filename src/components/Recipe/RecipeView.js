@@ -81,6 +81,12 @@ export default class RecipeView extends Component {
                             : <RecipeIngredients ingredients={recipe.ingredients}/>
                       }
                     </CardItem>
+                    {recipe.notes.length > 0 && <H3 style={{
+                        fontFamily: 'Futura',
+                        alignSelf: 'center',
+                        color: '#C0B083',
+                        marginTop: 10
+                    }}>Notes:</H3>}
                     <CardItem footer style={{
                         paddingBottom: 25
                     }}>
@@ -105,6 +111,6 @@ export default class RecipeView extends Component {
                     </CardItem>
                 </Card>
             </Content>
-        )
+        );
     }
 }
