@@ -11,10 +11,12 @@ const validate = values => {
   error.name = '';
   error.description = '';
   error.image_url = '';
+  error.tags = '';
 
   let nameVal = values.name;
   let descriptionVal = values.description;
   let imgVal = values.image_url;
+  let tagsVal = values.tags;
   const pattern = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
 
   if (values.name === undefined) {
@@ -26,11 +28,17 @@ const validate = values => {
   if (values.image_url === undefined) {
     imgVal = '';
   }
+  if (values.tags === undefined) {
+    tagsVal = '';
+  }
   if (nameVal.length < 3 && nameVal !== '') {
     error.name = 'too short';
   }
   if (descriptionVal.length < 4 && descriptionVal !== '') {
     error.description = 'too short';
+  }
+  if (tagsVal.length < 3 && tagsVal !== '') {
+    error.tags = 'too short';
   }
   if (!pattern.test(imgVal) && imgVal !== '') {
     error.image_url = 'invalid address';
