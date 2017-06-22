@@ -51,10 +51,8 @@
       <string>BariolRegular.ttf</string>
       <string>BariolRegularItalic.otf</string>
       <string>BariolRegularItalic.ttf</string>
-      <string>Andale Mono.ttf</string>
       <string>Arial Black.ttf</string>
       <string>Arial.ttf</string>
-      <string>Comic Sans MS.ttf</string>
       <string>Courier New.ttf</string>
       <string>Entypo.ttf</string>
       <string>EvilIcons.ttf</string>
@@ -87,6 +85,8 @@
       <string>Zocial.ttf</string>
       <string>MaterialCommunityIcons.ttf</string>
       <string>SimpleLineIcons.ttf</string>
+      <string>Andale Mono.ttf</string>
+      <string>Comic Sans MS.ttf</string>
     </array>
   </dict>
 </plist>
