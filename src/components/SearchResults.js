@@ -49,6 +49,7 @@ export default class SearchResults extends Component {
             dataSource={ds}
             renderRow={this.renderRow.bind(this)}
             enableEmptySections
+            removeClippedSubviews={false}
           />
         </View>
       );
